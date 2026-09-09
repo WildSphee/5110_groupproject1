@@ -24,7 +24,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyArrowPatch, FancyBboxPatch, Rectangle
+from matplotlib.patches import Circle, FancyArrowPatch, FancyBboxPatch, Polygon, Rectangle
 from docx import Document
 from docx.enum.section import WD_ORIENT, WD_SECTION
 from docx.enum.style import WD_STYLE_TYPE
@@ -625,46 +625,169 @@ def _polyline(ax, points, label, label_xy, color=MID_GREY, dash=False):
                 bbox=dict(boxstyle="round,pad=0.13", fc="white", ec="none", alpha=0.92), zorder=2)
 
 
+def _chen_entity(ax, x, y, w, h, label, associative=False):
+    """Draw a lecture-style ER entity rectangle centred on (x, y)."""
+    ax.add_patch(Rectangle((x - w / 2, y - h / 2), w, h, fc="white", ec="black", lw=1.7, zorder=4))
+    if associative:
+        ax.add_patch(Rectangle((x - w / 2 + 0.07, y - h / 2 + 0.07), w - 0.14, h - 0.14,
+                               fill=False, ec="black", lw=1.0, zorder=4))
+    ax.text(x, y, label, ha="center", va="center", fontsize=8.2, color="black", zorder=5)
+
+
+def _chen_diamond(ax, x, y, w, h, label):
+    """Draw a named relationship diamond centred on (x, y)."""
+    points = [(x, y + h / 2), (x + w / 2, y), (x, y - h / 2), (x - w / 2, y)]
+    ax.add_patch(Polygon(points, closed=True, fc="white", ec="black", lw=1.55, zorder=4))
+    ax.text(x, y, label, ha="center", va="center", fontsize=6.3, color="black", zorder=5)
+
+
+def _chen_edge(ax, points, cardinality, card_xy):
+    """Connect an entity and relationship, placing (min, max) near the entity end."""
+    xs, ys = zip(*points)
+    ax.plot(xs, ys, color="black", lw=1.35, zorder=1)
+    ax.text(card_xy[0], card_xy[1], cardinality, ha="center", va="center", fontsize=6.0,
+            color="black", bbox=dict(fc="white", ec="none", pad=0.06), zorder=3)
+
+
+def _chen_attribute(ax, anchor, circle_xy, label, key=False, derived=False, label_xy=None):
+    """Draw the lecture's circle attribute notation; dashed means calculated."""
+    # Orthogonal attribute stems keep dense groups legible and remain easy to mirror
+    # in the editable Draw.io version.
+    ax.plot([anchor[0], circle_xy[0], circle_xy[0]], [anchor[1], anchor[1], circle_xy[1]], color="black", lw=1.05,
+            ls="--" if derived else "-", zorder=1)
+    ax.add_patch(Circle(circle_xy, 0.10, fc="black" if key else "white", ec="black", lw=1.25,
+                        ls="--" if derived else "-", zorder=4))
+    if label_xy is None:
+        label_xy = (circle_xy[0], circle_xy[1] + 0.22)
+    ax.text(label_xy[0], label_xy[1], label, ha="center", va="center", fontsize=5.3,
+            color="black", zorder=5)
+
+
 def draw_core_er(path: Path) -> None:
-    fig, ax = plt.subplots(figsize=(14.7, 8.1), dpi=260)
-    ax.set_xlim(0, 14.7)
-    ax.set_ylim(0, 8.1)
+    # Plain, orthogonal Chen/min-max notation matching Lecture 3 and Tutorial 2.
+    fig, ax = plt.subplots(figsize=(17.2, 10.2), dpi=260)
+    ax.set_xlim(0, 18.8)
+    ax.set_ylim(0.25, 11.1)
     ax.axis("off")
-    ax.text(0.18, 7.83, "CORE CONCEPTUAL ER MODEL", fontsize=15, weight="bold", color=f"#{NAVY}")
-    ax.text(14.5, 7.83, "Single-edition baseline • min..max at each endpoint", fontsize=8.5, color=f"#{MID_GREY}", ha="right")
+    ax.text(0.20, 10.82, "TASK 1 — TOUR DE FRANCE ENTITY-RELATIONSHIP DIAGRAM", fontsize=13,
+            weight="bold", color="black")
 
-    boxes = {
-        "country": (0.35, 3.0, 2.1, 1.38),
-        "team": (3.35, 5.45, 2.2, 1.38),
-        "rider": (6.45, 5.35, 2.35, 1.73),
-        "location": (3.35, 0.75, 2.2, 1.38),
-        "stage": (6.45, 0.65, 2.35, 1.73),
-        "result": (10.4, 3.75, 2.55, 2.08),
-        "exit": (10.4, 0.65, 2.55, 1.55),
+    # Required entities from the project brief. All use an ordinary single border;
+    # the composite identifiers of Result and Exit are shown as key attributes.
+    _chen_entity(ax, 2.00, 8.20, 1.70, 0.75, "Country")
+    _chen_entity(ax, 6.00, 8.20, 1.70, 0.75, "Team")
+    _chen_entity(ax, 10.00, 8.20, 1.70, 0.75, "Rider")
+    _chen_entity(ax, 15.90, 8.20, 2.40, 0.82, "Classification / Award")
+    _chen_entity(ax, 2.00, 3.00, 1.70, 0.75, "Location")
+    _chen_entity(ax, 6.00, 3.00, 1.70, 0.75, "Stage")
+    _chen_entity(ax, 10.00, 3.00, 1.70, 0.75, "Result")
+    _chen_entity(ax, 15.00, 3.00, 1.70, 0.75, "Exit")
+
+    diamonds = {
+        "team_country": (4.00, 8.20, 1.50, 0.70, "based in"),
+        "team_rider": (8.00, 8.20, 1.50, 0.70, "has riders"),
+        "rider_award": (12.75, 8.20, 1.85, 0.70, "rider award"),
+        "team_award": (11.00, 10.05, 1.80, 0.70, "team award"),
+        "country_rider": (6.00, 6.50, 1.85, 0.72, "represents country"),
+        "country_location": (2.00, 5.55, 1.65, 0.72, "located in"),
+        "start": (4.00, 3.95, 1.55, 0.70, "starts at"),
+        "finish": (4.00, 2.05, 1.65, 0.70, "finishes at"),
+        "rider_result": (10.00, 5.55, 1.55, 0.70, "records"),
+        "stage_result": (8.00, 3.00, 1.50, 0.70, "has result"),
+        "rider_exit": (13.00, 5.55, 1.60, 0.70, "has exit"),
+        "stage_exit": (10.50, 0.78, 1.85, 0.66, "exit before"),
     }
-    _entity_box(ax, *boxes["country"], "COUNTRY", ["PK country_code CHAR(3)", "   country_name"], TEAL)
-    _entity_box(ax, *boxes["team"], "TEAM", ["PK team_name", "FK country_code"], BLUE)
-    _entity_box(ax, *boxes["rider"], "RIDER", ["PK bib_no", "   rider_name", "   date_of_birth", "FK team_name", "FK country_code"], NAVY)
-    _entity_box(ax, *boxes["location"], "LOCATION", ["PK location_name", "FK country_code"], BLUE)
-    _entity_box(ax, *boxes["stage"], "STAGE", ["PK stage_id", "   stage_date", "FK start_location", "FK finish_location", "   distance_km", "   stage_type"], NAVY)
-    _entity_box(ax, *boxes["result"], "RESULT  [associative]", ["PK/FK stage_id", "PK/FK bib_no", "AK     (stage_id, rank)", "       finish_seconds", "       bonus_seconds", "       penalty_seconds", "DER    adjusted_seconds"], TEAL, dependent=True)
-    _entity_box(ax, *boxes["exit"], "RIDER_EXIT", ["PK/FK bib_no", "FK exit_before_stage_id", "   reason"], RED, dependent=True)
+    for values in diamonds.values():
+        _chen_diamond(ax, *values)
 
-    _polyline(ax, [(2.45, 3.8), (2.85, 3.8), (2.85, 6.15), (3.35, 6.15)], "based in\n0..N   |   1", (2.88, 5.3))
-    _polyline(ax, [(2.45, 3.65), (5.8, 3.65), (5.8, 6.22), (6.45, 6.22)], "represents\n0..N   |   1", (5.82, 4.75))
-    _polyline(ax, [(2.45, 3.25), (2.85, 3.25), (2.85, 1.44), (3.35, 1.44)], "contains\n0..N   |   1", (2.86, 2.3))
-    _polyline(ax, [(5.55, 6.14), (6.45, 6.14)], "fields\n1..N   |   1", (6.0, 6.47), TEAL)
-    _polyline(ax, [(8.8, 5.92), (9.55, 5.92), (9.55, 4.98), (10.4, 4.98)], "records\n0..N   |   1", (9.58, 5.43))
-    _polyline(ax, [(8.8, 1.52), (9.55, 1.52), (9.55, 4.58), (10.4, 4.58)], "has\n0..N   |   1", (9.56, 3.12))
-    _polyline(ax, [(8.8, 5.55), (9.18, 5.55), (9.18, 1.65), (10.4, 1.65)], "withdraws\n0..1   |   1", (9.17, 2.62), RED)
-    _polyline(ax, [(8.8, 1.22), (10.4, 1.22)], "before\n0..N   |   1", (9.6, 0.96), RED)
-    _polyline(ax, [(5.55, 1.78), (5.98, 1.78), (5.98, 1.95), (6.45, 1.95)], "starts at\n0..N   |   1", (6.02, 2.24), BLUE)
-    _polyline(ax, [(5.55, 1.12), (6.45, 1.12)], "finishes at\n0..N   |   1", (6.0, 0.86), BLUE)
+    # Main top row.
+    _chen_edge(ax, [(2.85, 8.20), (3.25, 8.20)], "(0, N)", (3.02, 8.44))
+    _chen_edge(ax, [(4.75, 8.20), (5.15, 8.20)], "(1, 1)", (4.98, 8.44))
+    _chen_edge(ax, [(6.85, 8.20), (7.25, 8.20)], "(1, N)", (7.02, 8.44))
+    _chen_edge(ax, [(8.75, 8.20), (9.15, 8.20)], "(1, 1)", (8.98, 8.44))
+    _chen_edge(ax, [(10.85, 8.20), (11.83, 8.20)], "(0, N)", (11.12, 8.44))
+    _chen_edge(ax, [(13.68, 8.20), (14.70, 8.20)], "(0, 1)", (14.42, 8.44))
 
-    ax.text(0.35, 0.19, "Notation", fontsize=8, weight="bold", color=f"#{NAVY}")
-    ax.text(1.12, 0.19, "PK primary key • FK foreign key • AK alternate key • DER derived • dashed box depends on parent keys", fontsize=7.4, color=f"#{DARK_GREY}")
-    ax.text(9.42, 7.22, "Cross-relationship rule", fontsize=8.2, weight="bold", color=f"#{RED}")
-    ax.text(9.42, 6.88, "Every stored Location must appear as at least one\nstart or finish; enforce outside basic ER cardinalities.", fontsize=7.5, color=f"#{DARK_GREY}")
+    # Team award is routed above the row using only vertical/horizontal segments.
+    _chen_edge(ax, [(6.25, 8.58), (6.25, 10.05), (10.10, 10.05)], "(0, N)", (6.52, 9.68))
+    _chen_edge(ax, [(11.90, 10.05), (15.90, 10.05), (15.90, 8.61)], "(0, 1)", (15.62, 9.68))
+
+    # Country-to-Rider nationality is independent of Team nationality.
+    _chen_edge(ax, [(2.85, 8.00), (3.20, 8.00), (3.20, 6.50), (5.08, 6.50)],
+               "(0, N)", (3.48, 7.72))
+    _chen_edge(ax, [(6.92, 6.50), (9.68, 6.50), (9.68, 7.83)],
+               "(1, 1)", (9.40, 7.46))
+
+    # Country-to-Location and the two endpoint roles.
+    _chen_edge(ax, [(2.00, 7.83), (2.00, 5.91)], "(0, N)", (2.28, 7.45))
+    _chen_edge(ax, [(2.00, 5.19), (2.00, 3.38)], "(1, 1)", (2.28, 3.76))
+    _chen_edge(ax, [(2.85, 3.20), (3.05, 3.20), (3.05, 3.95), (3.23, 3.95)],
+               "(0, N)", (2.98, 3.48))
+    _chen_edge(ax, [(4.78, 3.95), (4.95, 3.95), (4.95, 3.20), (5.15, 3.20)],
+               "(1, 1)", (5.05, 3.48))
+    _chen_edge(ax, [(2.85, 2.80), (3.05, 2.80), (3.05, 2.05), (3.18, 2.05)],
+               "(0, N)", (2.98, 2.52))
+    _chen_edge(ax, [(4.83, 2.05), (4.95, 2.05), (4.95, 2.80), (5.15, 2.80)],
+               "(1, 1)", (5.05, 2.52))
+
+    # Rider/Stage to Result.
+    _chen_edge(ax, [(10.00, 7.83), (10.00, 5.90)], "(0, N)", (10.28, 7.43))
+    _chen_edge(ax, [(10.00, 5.20), (10.00, 3.38)], "(1, 1)", (10.28, 3.78))
+    _chen_edge(ax, [(6.85, 3.00), (7.25, 3.00)], "(0, N)", (7.02, 3.24))
+    _chen_edge(ax, [(8.75, 3.00), (9.15, 3.00)], "(1, 1)", (8.98, 3.24))
+
+    # Exit is a required entity associated with both Rider and Stage.
+    _chen_edge(ax, [(10.85, 8.00), (11.20, 8.00), (11.20, 5.55), (12.20, 5.55)],
+               "(0, 1)", (11.48, 7.68))
+    _chen_edge(ax, [(13.80, 5.55), (15.00, 5.55), (15.00, 3.38)],
+               "(1, 1)", (14.72, 3.78))
+    _chen_edge(ax, [(6.70, 2.63), (7.00, 2.63), (7.00, 0.78), (9.58, 0.78)],
+               "(0, N)", (7.28, 2.28))
+    _chen_edge(ax, [(11.42, 0.78), (15.00, 0.78), (15.00, 2.63)],
+               "(1, 1)", (14.72, 2.24))
+
+    # Entity attributes. Filled circles denote primary-key attributes, as in Lecture 3.
+    _chen_attribute(ax, (1.15, 8.35), (0.55, 8.75), "country_code", key=True, label_xy=(0.55, 9.00))
+    _chen_attribute(ax, (1.15, 8.05), (0.55, 7.65), "country_name", label_xy=(0.55, 7.38))
+    _chen_attribute(ax, (5.55, 8.58), (5.35, 9.18), "team_name", key=True, label_xy=(5.35, 9.43))
+    _chen_attribute(ax, (9.45, 8.58), (9.20, 9.18), "bib_no", key=True, label_xy=(9.20, 9.43))
+    _chen_attribute(ax, (10.00, 8.58), (10.00, 9.18), "rider_name", label_xy=(10.00, 9.43))
+    _chen_attribute(ax, (10.55, 8.58), (10.80, 9.18), "date_of_birth", label_xy=(10.80, 9.43))
+
+    _chen_attribute(ax, (2.00, 2.63), (2.00, 1.88), "location_name", key=True, label_xy=(2.00, 1.61))
+    _chen_attribute(ax, (5.45, 2.63), (5.00, 1.86), "stage_id", key=True, label_xy=(5.00, 1.59))
+    _chen_attribute(ax, (5.82, 2.63), (5.75, 1.86), "stage_date", label_xy=(5.75, 1.59))
+    _chen_attribute(ax, (6.18, 2.63), (6.55, 1.86), "distance_km", label_xy=(6.55, 1.59))
+    _chen_attribute(ax, (6.55, 2.63), (7.35, 1.86), "stage_type", label_xy=(7.35, 1.59))
+
+    # Result uses a normal border. Its composite key is shown by the two filled circles.
+    result_attrs = [
+        (8.20, "stage_id", True), (8.95, "bib_no", True), (9.70, "finish_time", False),
+        (10.45, "rank", False), (11.25, "time_bonus", False), (12.20, "time_penalty", False),
+    ]
+    for i, (x, label, key) in enumerate(result_attrs):
+        anchor_x = 9.35 + i * 0.25
+        _chen_attribute(ax, (anchor_x, 2.63), (x, 1.82), label, key=key, label_xy=(x, 1.53))
+    _chen_attribute(ax, (10.85, 3.00), (11.45, 3.00), "adjusted_time (derived)", derived=True,
+                    label_xy=(12.28, 3.00))
+    ax.text(10.00, 2.73, "associative entity", ha="center", va="center", fontsize=5.8, zorder=6)
+
+    _chen_attribute(ax, (15.85, 3.28), (16.35, 3.62), "bib_no", key=True, label_xy=(16.82, 3.62))
+    _chen_attribute(ax, (15.85, 3.00), (16.35, 3.00), "exit_before_stage_id", label_xy=(17.10, 3.00))
+    _chen_attribute(ax, (15.85, 2.72), (16.35, 2.38), "reason", label_xy=(16.78, 2.38))
+
+    _chen_attribute(ax, (15.25, 8.61), (14.85, 9.18), "classification_code", key=True,
+                    label_xy=(14.70, 9.43))
+    _chen_attribute(ax, (15.70, 8.61), (15.75, 9.18), "name", label_xy=(15.75, 9.43))
+    _chen_attribute(ax, (16.15, 8.61), (16.65, 9.18), "subject_type", label_xy=(16.65, 9.43))
+    _chen_attribute(ax, (16.60, 8.61), (17.45, 9.18), "measure", label_xy=(17.45, 9.43))
+    _chen_attribute(ax, (17.10, 8.20), (17.70, 8.20), "calculation_rule", label_xy=(17.80, 7.93))
+
+    # Cross-relationship/temporal rules that ordinary binary min/max labels cannot show.
+    ax.text(2.75, 4.42, "Constraint: every Location is used as\na start or finish at least once.",
+            fontsize=6.2, ha="left", va="center")
+    ax.text(15.88, 5.18, "Constraint: after an Exit at Stage S,\nthat Rider has no Result for S onward.",
+            fontsize=6.2, ha="left", va="center")
     _save_figure(fig, path)
 
 
