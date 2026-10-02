@@ -1,4 +1,0 @@
-1. no need classification table - deduce during runtime
-2. combine exit into rider - need fetch both anyways
-3. result shouldn't contain rank - deduce during runtime
-4. stage distance covered - we don't remove cuz auto calculate is expensive & route have fixed distance
