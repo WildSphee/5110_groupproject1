@@ -54,6 +54,8 @@ CREATE TABLE stage (
                                                        'individual time-trial'))
 );
 
+-- ER Result relationship (Rider completes Stage, M:N), mapped by L3 Rule #3.
+-- The participant keys identify each completion; rank and times are relationship attributes.
 CREATE TABLE result (
     bib_no        SMALLINT  REFERENCES rider (bib_no),
     stage_id      SMALLINT  REFERENCES stage (stage_id),
@@ -66,6 +68,8 @@ CREATE TABLE result (
     CHECK (finish_time - time_bonus + time_penalty > 0)
 );
 
+-- ER Exit relationship (Rider withdraws at Stage), mapped by L3 Rules #3 and #4.
+-- A rider exits at most once, so bib_no is the key; no row means no recorded exit.
 CREATE TABLE rider_exit (
     bib_no       SMALLINT      PRIMARY KEY REFERENCES rider (bib_no),
     stage_id     SMALLINT      NOT NULL REFERENCES stage (stage_id),
@@ -226,3 +230,18 @@ CREATE TRIGGER rider_award_kind
 CREATE TRIGGER team_award_kind
     BEFORE INSERT OR UPDATE ON team_award
     FOR EACH ROW EXECUTE FUNCTION check_award_kind();
+
+-- Changing a classification's is_team must not strand existing winners in the wrong table.
+CREATE FUNCTION check_award_kind_change() RETURNS trigger AS $$
+BEGIN
+    IF (NEW.is_team AND EXISTS (SELECT 1 FROM rider_award WHERE award_type = NEW.award_type))
+       OR (NOT NEW.is_team AND EXISTS (SELECT 1 FROM team_award WHERE award_type = NEW.award_type)) THEN
+        RAISE EXCEPTION 'Award % already has winners of the other kind', NEW.award_type;
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER classification_kind_change
+    AFTER UPDATE OF is_team, award_type ON classification
+    FOR EACH ROW EXECUTE FUNCTION check_award_kind_change();
