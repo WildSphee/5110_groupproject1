@@ -1,0 +1,33 @@
+/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
+table Country
+	lineageTag: 81d7ff07-e529-47bf-aadb-99a07861af8e
+
+	column 'Country Code'
+		dataType: string
+		lineageTag: f8d618c3-12fb-4293-88df-aa45083fcd0d
+		summarizeBy: none
+		sourceColumn: Country Code
+
+	column Country
+		dataType: string
+		lineageTag: 6f437153-6637-4ca2-9e1d-3267b1e31281
+		summarizeBy: none
+		sourceColumn: Country
+
+	partition Country = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Country Code" = nullable text, #"Country" = nullable text], {
+				{"FRA","France"},
+				{"ESP","Spain"},
+				{"ITA","Italy"},
+				{"BEL","Belgium"},
+				{"NLD","Netherlands"},
+				{"GBR","United Kingdom"},
+				{"DEU","Germany"},
+				{"DNK","Denmark"},
+				{"AUS","Australia"},
+				{"COL","Colombia"},
+				{"SGP","Singapore"},
+				{"JPN","Japan"}
+				}) in Source

@@ -1,0 +1,257 @@
+{
+  "note": "Evaluates report field combinations at deepest configured drill level in the live engine; does not simulate UI clicks or rendering.",
+  "tests": [
+    {
+      "page": "classifications",
+      "name": "asof",
+      "passed": true,
+      "rows": 21,
+      "ms": 28
+    },
+    {
+      "page": "classifications",
+      "name": "class_hours",
+      "passed": true,
+      "rows": 4,
+      "ms": 14
+    },
+    {
+      "page": "classifications",
+      "name": "comparison",
+      "passed": true,
+      "rows": 48,
+      "ms": 22
+    },
+    {
+      "page": "classifications",
+      "name": "rider",
+      "passed": true,
+      "rows": 48,
+      "ms": 3
+    },
+    {
+      "page": "classifications",
+      "name": "team",
+      "passed": true,
+      "rows": 6,
+      "ms": 3
+    },
+    {
+      "page": "countries",
+      "name": "country",
+      "passed": true,
+      "rows": 12,
+      "ms": 3
+    },
+    {
+      "page": "countries",
+      "name": "foreign",
+      "passed": true,
+      "rows": 1,
+      "ms": 6
+    },
+    {
+      "page": "countries",
+      "name": "represented",
+      "passed": true,
+      "rows": 1,
+      "ms": 6
+    },
+    {
+      "page": "countries",
+      "name": "riders",
+      "passed": true,
+      "rows": 1,
+      "ms": 5
+    },
+    {
+      "page": "countries",
+      "name": "riders_country",
+      "passed": true,
+      "rows": 12,
+      "ms": 5
+    },
+    {
+      "page": "countries",
+      "name": "roster",
+      "passed": true,
+      "rows": 48,
+      "ms": 7
+    },
+    {
+      "page": "countries",
+      "name": "teams",
+      "passed": true,
+      "rows": 1,
+      "ms": 4
+    },
+    {
+      "page": "countries",
+      "name": "teams_country",
+      "passed": true,
+      "rows": 12,
+      "ms": 5
+    },
+    {
+      "page": "overview",
+      "name": "asof",
+      "passed": true,
+      "rows": 21,
+      "ms": 3
+    },
+    {
+      "page": "overview",
+      "name": "eligible",
+      "passed": true,
+      "rows": 1,
+      "ms": 3
+    },
+    {
+      "page": "overview",
+      "name": "exited",
+      "passed": true,
+      "rows": 1,
+      "ms": 3
+    },
+    {
+      "page": "overview",
+      "name": "gc",
+      "passed": true,
+      "rows": 40,
+      "ms": 9
+    },
+    {
+      "page": "overview",
+      "name": "hours",
+      "passed": true,
+      "rows": 1,
+      "ms": 3
+    },
+    {
+      "page": "overview",
+      "name": "registered",
+      "passed": true,
+      "rows": 1,
+      "ms": 2
+    },
+    {
+      "page": "overview",
+      "name": "team",
+      "passed": true,
+      "rows": 6,
+      "ms": 6
+    },
+    {
+      "page": "overview",
+      "name": "team_rider",
+      "passed": true,
+      "rows": 40,
+      "ms": 5
+    },
+    {
+      "page": "stages",
+      "name": "bonus",
+      "passed": true,
+      "rows": 1,
+      "ms": 12
+    },
+    {
+      "page": "stages",
+      "name": "finishes",
+      "passed": true,
+      "rows": 1,
+      "ms": 2
+    },
+    {
+      "page": "stages",
+      "name": "penalty",
+      "passed": true,
+      "rows": 1,
+      "ms": 3
+    },
+    {
+      "page": "stages",
+      "name": "rider",
+      "passed": true,
+      "rows": 48,
+      "ms": 3
+    },
+    {
+      "page": "stages",
+      "name": "stage",
+      "passed": true,
+      "rows": 21,
+      "ms": 3
+    },
+    {
+      "page": "stages",
+      "name": "stage_matrix",
+      "passed": true,
+      "rows": 940,
+      "ms": 62
+    },
+    {
+      "page": "stages",
+      "name": "team",
+      "passed": true,
+      "rows": 6,
+      "ms": 3
+    },
+    {
+      "page": "stages",
+      "name": "time",
+      "passed": true,
+      "rows": 1,
+      "ms": 3
+    },
+    {
+      "page": "stages",
+      "name": "trend",
+      "passed": true,
+      "rows": 21,
+      "ms": 6
+    },
+    {
+      "page": "stages",
+      "name": "type",
+      "passed": true,
+      "rows": 4,
+      "ms": 3
+    },
+    {
+      "page": "teams",
+      "name": "asof",
+      "passed": true,
+      "rows": 21,
+      "ms": 3
+    },
+    {
+      "page": "teams",
+      "name": "detail",
+      "passed": true,
+      "rows": 126,
+      "ms": 10
+    },
+    {
+      "page": "teams",
+      "name": "ranking",
+      "passed": true,
+      "rows": 6,
+      "ms": 8
+    },
+    {
+      "page": "teams",
+      "name": "team",
+      "passed": true,
+      "rows": 6,
+      "ms": 3
+    },
+    {
+      "page": "teams",
+      "name": "team_trend",
+      "passed": true,
+      "rows": 122,
+      "ms": 6
+    }
+  ]
+}

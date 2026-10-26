@@ -1,0 +1,31 @@
+relationship Result_Rider
+	fromColumn: Result.Bib
+	toColumn: Rider.Bib
+
+relationship Result_Stage
+	fromColumn: Result.Stage
+	toColumn: Stage.Stage
+
+relationship Standing_Rider
+	fromColumn: Standing.Bib
+	toColumn: Rider.Bib
+
+relationship Standing_Stage
+	fromColumn: Standing.Stage
+	toColumn: Stage.Stage
+
+relationship 'Team Stage_Team'
+	fromColumn: 'Team Stage'.Team
+	toColumn: Team.Team
+
+relationship 'Team Stage_Stage'
+	fromColumn: 'Team Stage'.Stage
+	toColumn: Stage.Stage
+
+relationship 'Team Standing_Team'
+	fromColumn: 'Team Standing'.Team
+	toColumn: Team.Team
+
+relationship 'Team Standing_Stage'
+	fromColumn: 'Team Standing'.Stage
+	toColumn: Stage.Stage

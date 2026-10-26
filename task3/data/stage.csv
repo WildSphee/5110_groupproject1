@@ -1,0 +1,22 @@
+stage_id,stage_date,distance_km,stage_type,start_location,end_location
+1,2026-07-04,162,flat,Lille,Amiens
+2,2026-07-05,179,flat,Amiens,Rouen
+3,2026-07-06,196,hilly,Rouen,Caen
+4,2026-07-07,148,flat,Caen,Rennes
+5,2026-07-08,30.2,individual time-trial,Rennes,Nantes
+6,2026-07-09,182,hilly,Nantes,Tours
+7,2026-07-10,199,flat,Tours,Limoges
+8,2026-07-11,151,mountain,Limoges,Bordeaux
+9,2026-07-12,168,mountain,Bordeaux,Pau
+10,2026-07-14,185,flat,Pau,Tarbes
+11,2026-07-15,202,hilly,Tarbes,Foix
+12,2026-07-16,154,mountain,Foix,Carcassonne
+13,2026-07-17,171,flat,Carcassonne,Montpellier
+14,2026-07-18,188,hilly,Montpellier,Nimes
+15,2026-07-19,205,mountain,Nimes,Valence
+16,2026-07-20,157,mountain,Valence,Grenoble
+17,2026-07-22,174,flat,Grenoble,Annecy
+18,2026-07-23,191,mountain,Annecy,Chambery
+19,2026-07-24,34.8,individual time-trial,Chambery,Dijon
+20,2026-07-25,160,hilly,Dijon,Paris
+21,2026-07-26,177,flat,Paris,Versailles

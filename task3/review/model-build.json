@@ -1,0 +1,87 @@
+[
+  {
+    "name": "connection_operations",
+    "operation": "Connect",
+    "result": {
+      "_meta": {
+        "annotations": {
+          "title": "connection_operations.connect",
+          "readOnlyHint": true
+        }
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"message\":\"Connection \\u0027PBIDesktop-Tour de France-56587\\u0027 established successfully\",\"operation\":\"Connect\",\"data\":\"PBIDesktop-Tour de France-56587\"}"
+        }
+      ],
+      "isError": false
+    }
+  },
+  {
+    "name": "measure_operations",
+    "operation": "List",
+    "result": {
+      "_meta": {
+        "annotations": {
+          "title": "measure_operations.list",
+          "readOnlyHint": true
+        }
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"message\":\"Found 43 measures across 1 tables\",\"operation\":\"List\",\"data\":[{\"tableName\":\"Metrics\",\"measures\":[{\"displayFolder\":\"Context\",\"formatString\":\"0\",\"name\":\"As of Stage Number\",\"description\":\"Latest selected stage; no selection means stage 21.\"},{\"displayFolder\":\"Context\",\"name\":\"Snapshot Label\",\"description\":\"Snapshot Label\"},{\"displayFolder\":\"Participation\",\"formatString\":\"0\",\"name\":\"Registered Riders\",\"description\":\"Registered Riders\"},{\"displayFolder\":\"Participation\",\"formatString\":\"0\",\"name\":\"Registered Teams\",\"description\":\"Registered Teams\"},{\"displayFolder\":\"Performance\",\"formatString\":\"#,0\",\"name\":\"Stage Finishes\",\"description\":\"Stage Finishes\"},{\"displayFolder\":\"Performance\",\"formatString\":\"#,0.00\",\"name\":\"Adjusted Hours\",\"description\":\"Adjusted Hours\"},{\"displayFolder\":\"Performance\",\"formatString\":\"#,0\",\"name\":\"Adjusted Seconds\",\"description\":\"Adjusted Seconds\"},{\"displayFolder\":\"Performance\",\"formatString\":\"#,0\",\"name\":\"Finish Seconds\",\"description\":\"Finish Seconds\"},{\"displayFolder\":\"Performance\",\"formatString\":\"#,0\",\"name\":\"Bonus Seconds\",\"description\":\"Bonus Seconds\"},{\"displayFolder\":\"Performance\",\"formatString\":\"#,0\",\"name\":\"Penalty Seconds\",\"description\":\"Penalty Seconds\"},{\"displayFolder\":\"Performance\",\"formatString\":\"0\",\"name\":\"Stage Position\",\"description\":\"Stage Position\"},{\"displayFolder\":\"Performance\",\"formatString\":\"#,0\",\"name\":\"Stage Points\",\"description\":\"Stage Points\"},{\"displayFolder\":\"Performance\",\"formatString\":\"#,0\",\"name\":\"Stage KOM Points\",\"description\":\"Stage KOM Points\"},{\"displayFolder\":\"Performance\",\"formatString\":\"0.0\",\"name\":\"Average Stage Minutes\",\"description\":\"Average Stage Minutes\"},{\"displayFolder\":\"Performance\",\"formatString\":\"0\",\"name\":\"Eligible Riders\",\"description\":\"Eligible Riders\"},{\"displayFolder\":\"Performance\",\"formatString\":\"0\",\"name\":\"Exited Riders\",\"description\":\"Exited Riders\"},{\"displayFolder\":\"Performance\",\"formatString\":\"#,0.00\",\"name\":\"Eligible Cumulative Hours\",\"description\":\"Sum of eligible riders cumulative adjusted time in the selected rider/team slice.\"},{\"displayFolder\":\"Performance\",\"formatString\":\"#,0\",\"name\":\"Rider Cumulative Seconds\",\"description\":\"Rider Cumulative Seconds\"},{\"displayFolder\":\"Performance\",\"name\":\"Rider Cumulative Time\",\"description\":\"Rider Cumulative Time\"},{\"displayFolder\":\"Classifications\",\"formatString\":\"0\",\"name\":\"GC Rank\",\"description\":\"Global competition rank. Preserved under rider/team filtering; blank when ineligible.\"},{\"displayFolder\":\"Classifications\",\"formatString\":\"0\",\"name\":\"Points Rank\",\"description\":\"Global competition rank. Preserved under rider/team filtering; blank when ineligible.\"},{\"displayFolder\":\"Classifications\",\"formatString\":\"0\",\"name\":\"KOM Rank\",\"description\":\"Global competition rank. Preserved under rider/team filtering; blank when ineligible.\"},{\"displayFolder\":\"Classifications\",\"formatString\":\"0\",\"name\":\"Young Rank\",\"description\":\"Global competition rank. Preserved under rider/team filtering; blank when ineligible.\"},{\"displayFolder\":\"Classifications\",\"formatString\":\"#,0\",\"name\":\"Cumulative Points\",\"description\":\"Cumulative Points\"},{\"displayFolder\":\"Classifications\",\"formatString\":\"#,0\",\"name\":\"Cumulative KOM Points\",\"description\":\"Cumulative KOM Points\"},{\"displayFolder\":\"Context\",\"name\":\"Rider Status\",\"description\":\"Rider Status\"},{\"displayFolder\":\"Classifications\",\"formatString\":\"#,0\",\"name\":\"GC Gap Seconds\",\"description\":\"Gap to global GC leader, seconds.\"},{\"displayFolder\":\"Classifications\",\"formatString\":\"0\",\"name\":\"Classification Rank\",\"description\":\"Classification Rank\"},{\"displayFolder\":\"Classifications\",\"formatString\":\"#,0.00\",\"name\":\"Classification Rider Hours\",\"description\":\"The same eligible field participates in General, Points and Mountains; time is not their points score.\"},{\"displayFolder\":\"Performance\",\"formatString\":\"#,0.00\",\"name\":\"Running Rider Hours\",\"description\":\"All stage types through the x-axis stage; includes historical completed effort before exits.\"},{\"displayFolder\":\"Team\",\"formatString\":\"0\",\"name\":\"Best Team Rank\",\"description\":\"Rank by stages scored DESC, then cumulative stage top-3 time ASC.\"},{\"displayFolder\":\"Team\",\"formatString\":\"#,0.00\",\"name\":\"Team Cumulative Hours\",\"description\":\"Team Cumulative Hours\"},{\"displayFolder\":\"Team\",\"formatString\":\"0\",\"name\":\"Stages Scored\",\"description\":\"Stages Scored\"},{\"displayFolder\":\"Team\",\"name\":\"Team Coverage\",\"description\":\"Team Coverage\"},{\"displayFolder\":\"Team\",\"formatString\":\"#,0.00\",\"name\":\"Stage Top3 Hours\",\"description\":\"Stage Top3 Hours\"},{\"displayFolder\":\"Team\",\"formatString\":\"0\",\"name\":\"Team Finishers\",\"description\":\"Team Finishers\"},{\"displayFolder\":\"Participation\",\"formatString\":\"0\",\"name\":\"Teams by Country\",\"description\":\"Country dimension intentionally applies team nationality independently.\"},{\"displayFolder\":\"Participation\",\"formatString\":\"0\",\"name\":\"Riders by Country\",\"description\":\"Registered rider nationality, independent of team nationality; includes exited riders.\"},{\"displayFolder\":\"Participation\",\"formatString\":\"0\",\"name\":\"Foreign Team Riders\",\"description\":\"Foreign Team Riders\"},{\"displayFolder\":\"Participation\",\"formatString\":\"0.0%\",\"name\":\"Foreign Team Share\",\"description\":\"Foreign Team Share\"},{\"displayFolder\":\"Participation\",\"formatString\":\"0\",\"name\":\"Country Foreign Riders\",\"description\":\"Country Foreign Riders\"},{\"displayFolder\":\"Participation\",\"formatString\":\"0\",\"name\":\"Countries Represented\",\"description\":\"Countries Represented\"},{\"displayFolder\":\"Participation\",\"formatString\":\"0\",\"name\":\"Roster Riders\",\"description\":\"Intersection of selected country and roster hierarchy; blank hides unrelated roster branches.\"}]}]}"
+        }
+      ],
+      "isError": false
+    }
+  },
+  {
+    "name": "measure_operations",
+    "operation": "Update",
+    "result": {
+      "_meta": {
+        "annotations": {
+          "title": "measure_operations.update",
+          "readOnlyHint": false
+        }
+      },
+      "content": [],
+      "isError": false
+    }
+  },
+  {
+    "name": "model_operations",
+    "operation": "RefreshWithXMLA",
+    "result": {
+      "_meta": {
+        "annotations": {
+          "title": "model_operations.refreshwithxmla",
+          "readOnlyHint": false
+        }
+      },
+      "content": [],
+      "isError": false
+    }
+  },
+  {
+    "name": "database_operations",
+    "operation": "ExportToTmdlFolder",
+    "result": {
+      "_meta": {
+        "annotations": {
+          "title": "database_operations.exporttotmdlfolder",
+          "readOnlyHint": true
+        }
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"databaseName\":\"b1fd35de-e302-46e9-a9c2-0d06d46cae2f\",\"message\":\"Successfully exported database \\u0027b1fd35de-e302-46e9-a9c2-0d06d46cae2f\\u0027 to TMDL folder \\u0027C:\\\\Users\\\\Chan\\\\Desktop\\\\5110_groupproject1\\\\task3\\\\Tour de France.SemanticModel\\\\definition\\u0027\",\"operation\":\"ExportToTmdlFolder\",\"data\":{\"folderPath\":\"C:\\\\Users\\\\Chan\\\\Desktop\\\\5110_groupproject1\\\\task3\\\\Tour de France.SemanticModel\\\\definition\",\"databaseName\":\"b1fd35de-e302-46e9-a9c2-0d06d46cae2f\",\"filesCreated\":[\"As Of.tmdl\",\"Classification.tmdl\",\"Country.tmdl\",\"database.tmdl\",\"en-US.tmdl\",\"Metrics.tmdl\",\"model.tmdl\",\"relationships.tmdl\",\"Result.tmdl\",\"Rider.tmdl\",\"Stage.tmdl\",\"Standing.tmdl\",\"Team Stage.tmdl\",\"Team Standing.tmdl\",\"Team.tmdl\"],\"fileCount\":15,\"serializedAt\":\"2026-10-26T10:39:02.1420536Z\",\"message\":\"Successfully exported database \\u0027b1fd35de-e302-46e9-a9c2-0d06d46cae2f\\u0027 to TMDL folder\"}}"
+        }
+      ],
+      "isError": false
+    }
+  }
+]

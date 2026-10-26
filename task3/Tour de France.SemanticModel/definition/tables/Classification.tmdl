@@ -1,0 +1,25 @@
+/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
+table Classification
+	lineageTag: 9c1fdfc1-1f93-4724-99d6-f448f1fc076b
+
+	column Classification
+		dataType: string
+		lineageTag: 262c16b1-cf83-40b7-9e84-82aa23c3d35b
+		summarizeBy: none
+		sourceColumn: Classification
+
+	column Order
+		dataType: int64
+		lineageTag: 454bb7f2-961e-4beb-a0ec-1325b44f5a14
+		summarizeBy: none
+		sourceColumn: Order
+
+	partition Classification = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Classification" = nullable text, #"Order" = Int64.Type], {
+				{"General",1},
+				{"Points",2},
+				{"Mountains",3},
+				{"Young Rider",4}
+				}) in Source

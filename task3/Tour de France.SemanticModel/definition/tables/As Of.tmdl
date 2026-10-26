@@ -1,0 +1,42 @@
+/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
+table 'As Of'
+	lineageTag: 6c133453-4239-4337-93d2-411e4f932e60
+
+	column Stage
+		dataType: int64
+		lineageTag: 358eb8c4-ef04-44a6-b061-1e08b7a8f7f6
+		summarizeBy: none
+		sourceColumn: Stage
+
+	column 'As of Stage'
+		dataType: string
+		lineageTag: de933b58-f137-473b-a098-dadd33e3b266
+		summarizeBy: none
+		sourceColumn: As of Stage
+
+	partition 'As Of' = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Stage" = Int64.Type, #"As of Stage" = nullable text], {
+				{1,"Stage 01"},
+				{2,"Stage 02"},
+				{3,"Stage 03"},
+				{4,"Stage 04"},
+				{5,"Stage 05"},
+				{6,"Stage 06"},
+				{7,"Stage 07"},
+				{8,"Stage 08"},
+				{9,"Stage 09"},
+				{10,"Stage 10"},
+				{11,"Stage 11"},
+				{12,"Stage 12"},
+				{13,"Stage 13"},
+				{14,"Stage 14"},
+				{15,"Stage 15"},
+				{16,"Stage 16"},
+				{17,"Stage 17"},
+				{18,"Stage 18"},
+				{19,"Stage 19"},
+				{20,"Stage 20"},
+				{21,"Stage 21"}
+				}) in Source

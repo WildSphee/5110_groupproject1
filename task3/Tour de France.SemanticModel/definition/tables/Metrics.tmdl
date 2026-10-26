@@ -1,0 +1,270 @@
+/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
+table Metrics
+	lineageTag: 163acef5-4c86-40ee-b599-ac64a7388227
+
+	/// Latest selected stage; no selection means stage 21.
+	measure 'As of Stage Number' = MAX('As Of'[Stage])
+		formatString: 0
+		displayFolder: Context
+		lineageTag: 4235e109-414e-4489-94d1-c2b7debe3ce6
+
+	/// Snapshot Label
+	measure 'Snapshot Label' = "STANDINGS AFTER STAGE " & FORMAT([As of Stage Number], "00")
+		displayFolder: Context
+		lineageTag: cb272e0a-8f82-46c7-918b-08b57aa4af26
+
+	/// Registered Riders
+	measure 'Registered Riders' = COUNTROWS('Rider')
+		formatString: 0
+		displayFolder: Participation
+		lineageTag: 7b1ac6fb-7a21-458b-b659-3dbd73af341e
+
+	/// Registered Teams
+	measure 'Registered Teams' = COUNTROWS('Team')
+		formatString: 0
+		displayFolder: Participation
+		lineageTag: eb8b8ee6-db0d-4adb-b1ab-6af224c5e779
+
+	/// Stage Finishes
+	measure 'Stage Finishes' = COUNTROWS('Result')
+		formatString: #,0
+		displayFolder: Performance
+		lineageTag: 5bd554bb-614d-481a-a548-1a2cde5fcdac
+
+	/// Adjusted Hours
+	measure 'Adjusted Hours' = DIVIDE(SUM('Result'[Adjusted Seconds]),3600)
+		formatString: #,0.00
+		displayFolder: Performance
+		lineageTag: e4cdeca2-5129-4ce3-987a-3ce25c8e4d1b
+
+	/// Adjusted Seconds
+	measure 'Adjusted Seconds' = SUM('Result'[Adjusted Seconds])
+		formatString: #,0
+		displayFolder: Performance
+		lineageTag: 083c40d0-f898-4e9f-b687-7113fecfaacd
+
+	/// Finish Seconds
+	measure 'Finish Seconds' = SUM('Result'[Finish Seconds])
+		formatString: #,0
+		displayFolder: Performance
+		lineageTag: 949846fb-3e90-4f03-a7c5-116d7aa38b3d
+
+	/// Bonus Seconds
+	measure 'Bonus Seconds' = SUM('Result'[Bonus Seconds])
+		formatString: #,0
+		displayFolder: Performance
+		lineageTag: b82d9e6a-daa3-4ccf-87af-fcf6b55bed56
+
+	/// Penalty Seconds
+	measure 'Penalty Seconds' = SUM('Result'[Penalty Seconds])
+		formatString: #,0
+		displayFolder: Performance
+		lineageTag: 9631c045-b781-46f1-9b14-92db96150a96
+
+	/// Stage Position
+	measure 'Stage Position' = IF(HASONEVALUE('Rider'[Bib]) && HASONEVALUE('Stage'[Stage]), MAX('Result'[Position]))
+		formatString: 0
+		displayFolder: Performance
+		lineageTag: 00efb5d4-c6de-4bcb-a651-2e9269df139c
+
+	/// Stage Points
+	measure 'Stage Points' = SUM('Result'[Points])
+		formatString: #,0
+		displayFolder: Performance
+		lineageTag: 88d191c3-1136-4b0f-adf6-8b13d3fe41de
+
+	/// Stage KOM Points
+	measure 'Stage KOM Points' = SUM('Result'[KOM Points])
+		formatString: #,0
+		displayFolder: Performance
+		lineageTag: cbf94d7b-d3a5-439a-99c2-88058559bebb
+
+	/// Average Stage Minutes
+	measure 'Average Stage Minutes' = DIVIDE(AVERAGE('Result'[Adjusted Seconds]),60)
+		formatString: 0.0
+		displayFolder: Performance
+		lineageTag: dce2f44c-b53c-4850-9129-f8668d857e57
+
+	/// Eligible Riders
+	measure 'Eligible Riders' = VAR s = [As of Stage Number] RETURN CALCULATE(SUM('Standing'[Eligible]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s)
+		formatString: 0
+		displayFolder: Performance
+		lineageTag: ac237848-0920-49f9-8fce-690f8f7ab78a
+
+	/// Explicit withdrawals by the selected stage; incomplete results alone are not an exit.
+	measure 'Exited Riders' = VAR s=[As of Stage Number] RETURN COALESCE(COUNTROWS(FILTER('Rider',NOT ISBLANK('Rider'[Exit Stage]) && 'Rider'[Exit Stage]<=s)),0)
+		formatString: 0
+		displayFolder: Performance
+		lineageTag: f50f6f0d-1b3a-48a9-a7ee-239a156283e7
+
+	/// Sum of eligible riders cumulative adjusted time in the selected rider/team slice.
+	measure 'Eligible Cumulative Hours' = VAR s = [As of Stage Number] RETURN CALCULATE(DIVIDE(CALCULATE(SUM('Standing'[Cumulative Seconds]), 'Standing'[Eligible] = 1),3600), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s)
+		formatString: #,0.00
+		displayFolder: Performance
+		lineageTag: 63dbc432-f3cd-4dfd-9c1e-156334137803
+
+	/// Rider Cumulative Seconds
+	measure 'Rider Cumulative Seconds' = IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(CALCULATE(MAX('Standing'[Cumulative Seconds]), 'Standing'[Eligible]=1), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))
+		formatString: #,0
+		displayFolder: Performance
+		lineageTag: 1f31663d-8089-4695-a6a1-5b7a911255ce
+
+	/// Rider Cumulative Time
+	measure 'Rider Cumulative Time' = VAR t=[Rider Cumulative Seconds] RETURN IF(NOT ISBLANK(t), FORMAT(INT(t/3600),"0") & ":" & FORMAT(INT(MOD(t,3600)/60),"00") & ":" & FORMAT(MOD(t,60),"00"))
+		displayFolder: Performance
+		lineageTag: 19b8f521-9d7d-4db2-a0d6-3adf8dc5a621
+
+	/// Global competition rank. Preserved under rider/team filtering; blank when ineligible.
+	measure 'GC Rank' = IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Standing'[GC Rank]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))
+		formatString: 0
+		displayFolder: Classifications
+		lineageTag: 5ee647e5-1911-4a30-b7f6-22e2cc79016c
+
+	/// Global competition rank. Preserved under rider/team filtering; blank when ineligible.
+	measure 'Points Rank' = IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Standing'[Points Rank]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))
+		formatString: 0
+		displayFolder: Classifications
+		lineageTag: b7241019-f9ae-44c1-a003-37cd31d47896
+
+	/// Global competition rank. Preserved under rider/team filtering; blank when ineligible.
+	measure 'KOM Rank' = IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Standing'[KOM Rank]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))
+		formatString: 0
+		displayFolder: Classifications
+		lineageTag: 304ab33d-0c00-4a8a-bf41-9476c14300ba
+
+	/// Global competition rank. Preserved under rider/team filtering; blank when ineligible.
+	measure 'Young Rank' = IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Standing'[Young Rank]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))
+		formatString: 0
+		displayFolder: Classifications
+		lineageTag: 9f0df7ac-15d9-4e11-9e6c-d57fff878aeb
+
+	/// Cumulative Points
+	measure 'Cumulative Points' = VAR s = [As of Stage Number] RETURN CALCULATE(CALCULATE(SUM('Standing'[Points]), 'Standing'[Eligible]=1), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s)
+		formatString: #,0
+		displayFolder: Classifications
+		lineageTag: 2226097f-fe18-4d8b-90e9-f9f0ef2f5b8b
+
+	/// Cumulative KOM Points
+	measure 'Cumulative KOM Points' = VAR s = [As of Stage Number] RETURN CALCULATE(CALCULATE(SUM('Standing'[KOM Points]), 'Standing'[Eligible]=1), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s)
+		formatString: #,0
+		displayFolder: Classifications
+		lineageTag: 641cf3e1-d6cb-4860-a124-5aa76c9ee20f
+
+	/// Rider Status
+	measure 'Rider Status' = IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(SELECTEDVALUE('Standing'[Status]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))
+		displayFolder: Context
+		lineageTag: a1d8ea8e-9e26-4fc6-ad76-6d1bf9d07567
+
+	/// Gap to global GC leader, seconds.
+	measure 'GC Gap Seconds' = VAR t=[Rider Cumulative Seconds] VAR s=[As of Stage Number] VAR leader=CALCULATE(MIN('Standing'[Cumulative Seconds]),REMOVEFILTERS('Rider'),REMOVEFILTERS('Stage'),'Standing'[Stage]=s,'Standing'[Eligible]=1) RETURN IF(NOT ISBLANK(t),t-leader)
+		formatString: #,0
+		displayFolder: Classifications
+		lineageTag: 2eb5b860-c2b5-46fd-92e6-b20a58690f03
+
+	/// Classification Rank
+	measure 'Classification Rank' = SWITCH(SELECTEDVALUE('Classification'[Classification]),"General",[GC Rank],"Points",[Points Rank],"Mountains",[KOM Rank],"Young Rider",[Young Rank])
+		formatString: 0
+		displayFolder: Classifications
+		lineageTag: 98f76fb7-0bba-4b97-bd64-934efdfc7553
+
+	/// The same eligible field participates in General, Points and Mountains; time is not their points score.
+	measure 'Classification Rider Hours' = VAR c=SELECTEDVALUE('Classification'[Classification]) RETURN IF(c="Young Rider",CALCULATE([Eligible Cumulative Hours],'Rider'[Young Rider]=1),[Eligible Cumulative Hours])
+		formatString: #,0.00
+		displayFolder: Classifications
+		lineageTag: 05fe3938-da01-4a5d-92dd-ca1c08d1837a
+
+	/// All stage types through the x-axis stage; includes historical completed effort before exits.
+	measure 'Running Rider Hours' = VAR s=MAX('Stage'[Stage]) RETURN CALCULATE(DIVIDE(SUM('Result'[Adjusted Seconds]),3600),FILTER(ALL('Stage'),'Stage'[Stage]<=s))
+		formatString: #,0.00
+		displayFolder: Performance
+		lineageTag: daa12025-05c0-45aa-9bd6-a2aa8ecdfa57
+
+	/// Rank by stages scored DESC, then cumulative stage top-3 time ASC.
+	measure 'Best Team Rank' = IF(HASONEVALUE('Team'[Team]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Team Standing'[Team Rank]), REMOVEFILTERS('Stage'), 'Team Standing'[Stage] = s))
+		formatString: 0
+		displayFolder: Team
+		lineageTag: c9e032ac-c249-4534-be58-b8f19ea04fd3
+
+	/// Team Cumulative Hours
+	measure 'Team Cumulative Hours' = VAR s = [As of Stage Number] RETURN CALCULATE(DIVIDE(SUM('Team Standing'[Cumulative Top3 Seconds]),3600), REMOVEFILTERS('Stage'), 'Team Standing'[Stage] = s)
+		formatString: #,0.00
+		displayFolder: Team
+		lineageTag: 14e8cb07-45ac-4309-afbc-1bf28033409b
+
+	/// Stages Scored
+	measure 'Stages Scored' = IF(HASONEVALUE('Team'[Team]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Team Standing'[Stages Scored]), REMOVEFILTERS('Stage'), 'Team Standing'[Stage] = s))
+		formatString: 0
+		displayFolder: Team
+		lineageTag: 36567775-f757-4446-a90b-2abd1ec8c711
+
+	/// Team Coverage
+	measure 'Team Coverage' = IF(HASONEVALUE('Team'[Team]), VAR s = [As of Stage Number] RETURN CALCULATE(SELECTEDVALUE('Team Standing'[Coverage]), REMOVEFILTERS('Stage'), 'Team Standing'[Stage] = s))
+		displayFolder: Team
+		lineageTag: ad5e0617-8bcf-45f0-ab52-294c0235c68a
+
+	/// Stage Top3 Hours
+	measure 'Stage Top3 Hours' = DIVIDE(SUM('Team Stage'[Top3 Seconds]),3600)
+		formatString: #,0.00
+		displayFolder: Team
+		lineageTag: fd6f31e8-3798-465f-95e2-f637b9c6f4c4
+
+	/// Team Finishers
+	measure 'Team Finishers' = IF(HASONEVALUE('Stage'[Stage]) && HASONEVALUE('Team'[Team]),MAX('Team Stage'[Finishers]))
+		formatString: 0
+		displayFolder: Team
+		lineageTag: b58ee5b9-c689-46fd-bf86-aaa31a4edc54
+
+	/// Country dimension intentionally applies team nationality independently.
+	measure 'Teams by Country' = COALESCE(CALCULATE(COUNTROWS('Team'),KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Team'[Team Country]))),0)
+		formatString: 0
+		displayFolder: Participation
+		lineageTag: ea2cd101-b2d7-410f-93a0-ea15c32fd0df
+
+	/// Registered rider nationality, independent of team nationality; includes exited riders.
+	measure 'Riders by Country' = COALESCE(CALCULATE(COUNTROWS('Rider'),KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country]))),0)
+		formatString: 0
+		displayFolder: Participation
+		lineageTag: fba36dc5-5772-45f7-9fdd-5a7910d29779
+
+	/// Foreign Team Riders
+	measure 'Foreign Team Riders' = COUNTROWS(FILTER('Rider','Rider'[Rider Country]<>'Rider'[Team Country]))
+		formatString: 0
+		displayFolder: Participation
+		lineageTag: cd446f34-228f-47db-ad12-1e08fc26b15a
+
+	/// Foreign Team Share
+	measure 'Foreign Team Share' = DIVIDE([Foreign Team Riders],[Registered Riders])
+		formatString: 0.0%
+		displayFolder: Participation
+		lineageTag: 4cd32a34-b7f6-44e9-a3c5-08516f38c19b
+
+	/// Country Foreign Riders
+	measure 'Country Foreign Riders' = COALESCE(CALCULATE([Foreign Team Riders],KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country]))),0)
+		formatString: 0
+		displayFolder: Participation
+		lineageTag: f478bbfe-2d41-4098-a82e-befe68a22bd0
+
+	/// Countries Represented
+	measure 'Countries Represented' = COUNTROWS(FILTER(ALL('Country'),[Teams by Country]+[Riders by Country]>0))
+		formatString: 0
+		displayFolder: Participation
+		lineageTag: bd812b4b-c6b2-48ac-b8d8-8f959c535b58
+
+	/// Intersection of selected country and roster hierarchy; blank hides unrelated roster branches.
+	measure 'Roster Riders' = CALCULATE(COUNTROWS('Rider'),KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country])))
+		formatString: 0
+		displayFolder: Participation
+		lineageTag: fbe8def8-0749-4ab6-96c0-f34cbb1d316c
+
+	column Label
+		dataType: string
+		lineageTag: fe8f0536-51e2-44e7-aac4-1cacd22e0f20
+		summarizeBy: none
+		sourceColumn: Label
+
+	partition Metrics = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Label" = nullable text], {
+				{"Measures"}
+				}) in Source

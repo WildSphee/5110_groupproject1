@@ -1,0 +1,60 @@
+/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
+table Stage
+	lineageTag: c91e4b74-ed65-4975-84e3-cda4473c9256
+
+	column Stage
+		dataType: int64
+		lineageTag: 15edb0d7-0cdf-4c47-ad69-77b1ae36ee41
+		summarizeBy: none
+		sourceColumn: Stage
+
+	column 'Stage Label'
+		dataType: string
+		lineageTag: d415bd3f-da99-41be-9695-1d16b16094e5
+		summarizeBy: none
+		sourceColumn: Stage Label
+
+	column 'Stage Type'
+		dataType: string
+		lineageTag: df9b2337-1977-487f-9ac2-11c83e476de0
+		summarizeBy: none
+		sourceColumn: Stage Type
+
+	column Date
+		dataType: string
+		lineageTag: 5b7db676-206f-4dc6-9711-ca6b4a48e676
+		summarizeBy: none
+		sourceColumn: Date
+
+	column 'Distance km'
+		dataType: double
+		lineageTag: d15fed57-7ba3-4872-9a40-73d2e28bef3d
+		summarizeBy: none
+		sourceColumn: Distance km
+
+	partition Stage = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Stage" = Int64.Type, #"Stage Label" = nullable text, #"Stage Type" = nullable text, #"Date" = nullable text, #"Distance km" = number], {
+				{1,"01 | Lille - Amiens","Flat","2026-07-04",162},
+				{2,"02 | Amiens - Rouen","Flat","2026-07-05",179},
+				{3,"03 | Rouen - Caen","Hilly","2026-07-06",196},
+				{4,"04 | Caen - Rennes","Flat","2026-07-07",148},
+				{5,"05 | Rennes - Nantes","Individual Time-Trial","2026-07-08",30.2},
+				{6,"06 | Nantes - Tours","Hilly","2026-07-09",182},
+				{7,"07 | Tours - Limoges","Flat","2026-07-10",199},
+				{8,"08 | Limoges - Bordeaux","Mountain","2026-07-11",151},
+				{9,"09 | Bordeaux - Pau","Mountain","2026-07-12",168},
+				{10,"10 | Pau - Tarbes","Flat","2026-07-14",185},
+				{11,"11 | Tarbes - Foix","Hilly","2026-07-15",202},
+				{12,"12 | Foix - Carcassonne","Mountain","2026-07-16",154},
+				{13,"13 | Carcassonne - Montpellier","Flat","2026-07-17",171},
+				{14,"14 | Montpellier - Nimes","Hilly","2026-07-18",188},
+				{15,"15 | Nimes - Valence","Mountain","2026-07-19",205},
+				{16,"16 | Valence - Grenoble","Mountain","2026-07-20",157},
+				{17,"17 | Grenoble - Annecy","Flat","2026-07-22",174},
+				{18,"18 | Annecy - Chambery","Mountain","2026-07-23",191},
+				{19,"19 | Chambery - Dijon","Individual Time-Trial","2026-07-24",34.8},
+				{20,"20 | Dijon - Paris","Hilly","2026-07-25",160},
+				{21,"21 | Paris - Versailles","Flat","2026-07-26",177}
+				}) in Source

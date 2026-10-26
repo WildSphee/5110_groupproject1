@@ -1,0 +1,209 @@
+{
+  "connection": "Data Source=localhost:56587",
+  "tests": [
+    {
+      "name": "All four ranks, stage 1",
+      "passed": true,
+      "rows": 48,
+      "ms": 44
+    },
+    {
+      "name": "All four ranks, stage 6",
+      "passed": true,
+      "rows": 48,
+      "ms": 13
+    },
+    {
+      "name": "All four ranks, stage 7",
+      "passed": true,
+      "rows": 47,
+      "ms": 14
+    },
+    {
+      "name": "All four ranks, stage 17",
+      "passed": true,
+      "rows": 41,
+      "ms": 15
+    },
+    {
+      "name": "All four ranks, stage 18",
+      "passed": true,
+      "rows": 40,
+      "ms": 13
+    },
+    {
+      "name": "All four ranks, stage 21",
+      "passed": true,
+      "rows": 40,
+      "ms": 14
+    },
+    {
+      "name": "Independent countries including zeros",
+      "passed": true,
+      "rows": 12,
+      "ms": 13
+    },
+    {
+      "name": "Roster country_name / None",
+      "passed": true,
+      "rows": 10,
+      "ms": 12
+    },
+    {
+      "name": "Roster country_name / France",
+      "passed": true,
+      "rows": 1,
+      "ms": 9
+    },
+    {
+      "name": "Roster country_name / Singapore",
+      "passed": true,
+      "rows": 0,
+      "ms": 9
+    },
+    {
+      "name": "Roster country_name,team_name / None",
+      "passed": true,
+      "rows": 48,
+      "ms": 9
+    },
+    {
+      "name": "Roster country_name,team_name / France",
+      "passed": true,
+      "rows": 5,
+      "ms": 8
+    },
+    {
+      "name": "Roster country_name,team_name / Singapore",
+      "passed": true,
+      "rows": 0,
+      "ms": 7
+    },
+    {
+      "name": "Roster country_name,team_name,bib_no / None",
+      "passed": true,
+      "rows": 48,
+      "ms": 8
+    },
+    {
+      "name": "Roster country_name,team_name,bib_no / France",
+      "passed": true,
+      "rows": 5,
+      "ms": 11
+    },
+    {
+      "name": "Roster country_name,team_name,bib_no / Singapore",
+      "passed": true,
+      "rows": 0,
+      "ms": 9
+    },
+    {
+      "name": "Team coverage stage 17",
+      "passed": true,
+      "rows": 6,
+      "ms": 24
+    },
+    {
+      "name": "Team coverage stage 18",
+      "passed": true,
+      "rows": 6,
+      "ms": 20
+    },
+    {
+      "name": "Team coverage stage 21",
+      "passed": true,
+      "rows": 6,
+      "ms": 9
+    },
+    {
+      "name": "Drill stage_type",
+      "passed": true,
+      "rows": 4,
+      "ms": 5
+    },
+    {
+      "name": "Drill stage_type,stage_id",
+      "passed": true,
+      "rows": 21,
+      "ms": 6
+    },
+    {
+      "name": "Drill stage_id,team_name",
+      "passed": true,
+      "rows": 126,
+      "ms": 7
+    },
+    {
+      "name": "Drill stage_id,team_name,bib_no",
+      "passed": true,
+      "rows": 940,
+      "ms": 30
+    },
+    {
+      "name": "Single rider preserves global rank",
+      "passed": true,
+      "rows": 1,
+      "ms": 12
+    },
+    {
+      "name": "Duration string does not wrap after 24 hours",
+      "passed": true,
+      "rows": 1,
+      "ms": 6
+    },
+    {
+      "name": "Explicit exit count at stage 1",
+      "passed": true,
+      "rows": 1,
+      "ms": 8
+    },
+    {
+      "name": "Explicit exit count at stage 6",
+      "passed": true,
+      "rows": 1,
+      "ms": 5
+    },
+    {
+      "name": "Explicit exit count at stage 7",
+      "passed": true,
+      "rows": 1,
+      "ms": 5
+    },
+    {
+      "name": "Explicit exit count at stage 18",
+      "passed": true,
+      "rows": 1,
+      "ms": 6
+    },
+    {
+      "name": "Explicit exit count at stage 21",
+      "passed": true,
+      "rows": 1,
+      "ms": 5
+    },
+    {
+      "name": "Multi stage selector uses latest",
+      "passed": true,
+      "rows": 1,
+      "ms": 6
+    },
+    {
+      "name": "Historical exit: stage 6 vs 7",
+      "passed": true,
+      "rows": 1,
+      "ms": 9
+    },
+    {
+      "name": "Running time ignores stage type filter",
+      "passed": true,
+      "rows": 1,
+      "ms": 9
+    },
+    {
+      "name": "No results returns blank, no fake zero rank",
+      "passed": true,
+      "rows": 1,
+      "ms": 8
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
+table Rider
+	lineageTag: e79075c4-f885-4b4e-94d3-2861d4a11f54
+
+	column Bib
+		dataType: int64
+		lineageTag: eb871b3e-7aee-4733-b51f-81ccada06f7f
+		summarizeBy: none
+		sourceColumn: Bib
+
+	column Rider
+		dataType: string
+		lineageTag: 29beddbf-a0b1-4c88-ae2f-0a2fa71c4cee
+		summarizeBy: none
+		sourceColumn: Rider
+
+	column 'Rider Label'
+		dataType: string
+		lineageTag: 3a127113-a90a-4602-80b7-4a425af75416
+		summarizeBy: none
+		sourceColumn: Rider Label
+
+	column Team
+		dataType: string
+		lineageTag: a8fa9348-9368-478c-9b3c-cf73e2c902f8
+		summarizeBy: none
+		sourceColumn: Team
+
+	column 'Rider Country'
+		dataType: string
+		lineageTag: 961d9401-ec8f-4efb-ae9d-debc9903c575
+		summarizeBy: none
+		sourceColumn: Rider Country
+
+	column 'Team Country'
+		dataType: string
+		lineageTag: ea0f9b8e-1ffb-4b73-94db-10519187a79f
+		summarizeBy: none
+		sourceColumn: Team Country
+
+	column DOB
+		dataType: string
+		lineageTag: fd975b2f-7c18-4224-8bd7-fb9b1f38dd8e
+		summarizeBy: none
+		sourceColumn: DOB
+
+	column 'Young Rider'
+		dataType: int64
+		lineageTag: 3392998c-fd9f-4bec-901a-71be57a97acb
+		summarizeBy: none
+		sourceColumn: Young Rider
+
+	column Leader
+		dataType: int64
+		lineageTag: 187973db-cc57-4888-9b70-9367da4d246b
+		summarizeBy: none
+		sourceColumn: Leader
+
+	column 'Exit Stage'
+		dataType: int64
+		lineageTag: deaa0888-6466-4efb-896f-b21db03ff2f2
+		summarizeBy: none
+		sourceColumn: Exit Stage
+
+	column 'Exit Reason'
+		dataType: string
+		lineageTag: 76abc8b7-e9ab-4e43-b933-01ae65a7f9de
+		summarizeBy: none
+		sourceColumn: Exit Reason
+
+	partition Rider = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Bib" = Int64.Type, #"Rider" = nullable text, #"Rider Label" = nullable text, #"Team" = nullable text, #"Rider Country" = nullable text, #"Team Country" = nullable text, #"DOB" = nullable text, #"Young Rider" = Int64.Type, #"Leader" = Int64.Type, #"Exit Stage" = Int64.Type, #"Exit Reason" = nullable text], {
+				{1,"Alex Laurent","Alex Laurent (1)","Alpine Velo","France","France","2002-01-01",1,1,null,"None"},
+				{2,"Morgan Laurent","Morgan Laurent (2)","Alpine Velo","Belgium","France","1994-03-02",0,0,null,"None"},
+				{3,"Robin Laurent","Robin Laurent (3)","Alpine Velo","Germany","France","1995-05-03",0,0,null,"None"},
+				{4,"Sam Laurent","Sam Laurent (4)","Alpine Velo","Colombia","France","2002-07-04",1,0,null,"None"},
+				{5,"Taylor Laurent","Taylor Laurent (5)","Alpine Velo","Italy","France","1997-09-05",0,0,null,"None"},
+				{6,"Jamie Laurent","Jamie Laurent (6)","Alpine Velo","United Kingdom","France","1993-11-06",0,0,null,"None"},
+				{7,"Casey Laurent","Casey Laurent (7)","Alpine Velo","Australia","France","2002-01-07",1,0,null,"None"},
+				{8,"Avery Laurent","Avery Laurent (8)","Alpine Velo","Spain","France","1995-03-08",0,0,7,"Illness"},
+				{11,"Alex Moreau","Alex Moreau (11)","Atlantic Racing","Spain","France","2002-01-01",1,1,null,"None"},
+				{12,"Morgan Moreau","Morgan Moreau (12)","Atlantic Racing","Netherlands","France","1994-03-02",0,0,null,"None"},
+				{13,"Robin Moreau","Robin Moreau (13)","Atlantic Racing","Denmark","France","1995-05-03",0,0,null,"None"},
+				{14,"Sam Moreau","Sam Moreau (14)","Atlantic Racing","France","France","2002-07-04",1,0,null,"None"},
+				{15,"Taylor Moreau","Taylor Moreau (15)","Atlantic Racing","Belgium","France","1997-09-05",0,0,null,"None"},
+				{16,"Jamie Moreau","Jamie Moreau (16)","Atlantic Racing","Germany","France","1993-11-06",0,0,null,"None"},
+				{17,"Casey Moreau","Casey Moreau (17)","Atlantic Racing","Colombia","France","2002-01-07",1,0,null,"None"},
+				{18,"Avery Moreau","Avery Moreau (18)","Atlantic Racing","Italy","France","1995-03-08",0,0,null,"None"},
+				{21,"Alex Sierra","Alex Sierra (21)","Iberia Wheels","Italy","Spain","2002-01-01",1,1,null,"None"},
+				{22,"Morgan Sierra","Morgan Sierra (22)","Iberia Wheels","United Kingdom","Spain","1994-03-02",0,0,null,"None"},
+				{23,"Robin Sierra","Robin Sierra (23)","Iberia Wheels","Australia","Spain","1995-05-03",0,0,null,"None"},
+				{24,"Sam Sierra","Sam Sierra (24)","Iberia Wheels","Spain","Spain","2002-07-04",1,0,null,"None"},
+				{25,"Taylor Sierra","Taylor Sierra (25)","Iberia Wheels","Netherlands","Spain","1997-09-05",0,0,null,"None"},
+				{26,"Jamie Sierra","Jamie Sierra (26)","Iberia Wheels","Denmark","Spain","1993-11-06",0,0,null,"None"},
+				{27,"Casey Sierra","Casey Sierra (27)","Iberia Wheels","France","Spain","2002-01-07",1,0,12,"Injury"},
+				{28,"Avery Sierra","Avery Sierra (28)","Iberia Wheels","Belgium","Spain","1995-03-08",0,0,null,"None"},
+				{31,"Alex Bianchi","Alex Bianchi (31)","Azzurro Cycling","Belgium","Italy","2002-01-01",1,1,null,"None"},
+				{32,"Morgan Bianchi","Morgan Bianchi (32)","Azzurro Cycling","Germany","Italy","1994-03-02",0,0,null,"None"},
+				{33,"Robin Bianchi","Robin Bianchi (33)","Azzurro Cycling","Colombia","Italy","1995-05-03",0,0,null,"None"},
+				{34,"Sam Bianchi","Sam Bianchi (34)","Azzurro Cycling","Italy","Italy","2002-07-04",1,0,null,"None"},
+				{35,"Taylor Bianchi","Taylor Bianchi (35)","Azzurro Cycling","United Kingdom","Italy","1997-09-05",0,0,null,"None"},
+				{36,"Jamie Bianchi","Jamie Bianchi (36)","Azzurro Cycling","Australia","Italy","1993-11-06",0,0,null,"None"},
+				{37,"Casey Bianchi","Casey Bianchi (37)","Azzurro Cycling","Spain","Italy","2002-01-07",1,0,null,"None"},
+				{38,"Avery Bianchi","Avery Bianchi (38)","Azzurro Cycling","Netherlands","Italy","1995-03-08",0,0,null,"None"},
+				{41,"Alex Vanden","Alex Vanden (41)","Lowland Sprint","Netherlands","Belgium","2002-01-01",1,1,null,"None"},
+				{42,"Morgan Vanden","Morgan Vanden (42)","Lowland Sprint","Denmark","Belgium","1994-03-02",0,0,null,"None"},
+				{43,"Robin Vanden","Robin Vanden (43)","Lowland Sprint","France","Belgium","1995-05-03",0,0,null,"None"},
+				{44,"Sam Vanden","Sam Vanden (44)","Lowland Sprint","Belgium","Belgium","2002-07-04",1,0,null,"None"},
+				{45,"Taylor Vanden","Taylor Vanden (45)","Lowland Sprint","Germany","Belgium","1997-09-05",0,0,null,"None"},
+				{46,"Jamie Vanden","Jamie Vanden (46)","Lowland Sprint","Colombia","Belgium","1993-11-06",0,0,null,"None"},
+				{47,"Casey Vanden","Casey Vanden (47)","Lowland Sprint","Italy","Belgium","2002-01-07",1,0,null,"None"},
+				{48,"Avery Vanden","Avery Vanden (48)","Lowland Sprint","United Kingdom","Belgium","1995-03-08",0,0,null,"None"},
+				{51,"Alex Berg","Alex Berg (51)","Northstar Velo","United Kingdom","Netherlands","2002-01-01",1,1,null,"None"},
+				{52,"Morgan Berg","Morgan Berg (52)","Northstar Velo","Australia","Netherlands","1994-03-02",0,0,null,"None"},
+				{53,"Robin Berg","Robin Berg (53)","Northstar Velo","Spain","Netherlands","1995-05-03",0,0,10,"Illness"},
+				{54,"Sam Berg","Sam Berg (54)","Northstar Velo","Netherlands","Netherlands","2002-07-04",1,0,13,"Injury"},
+				{55,"Taylor Berg","Taylor Berg (55)","Northstar Velo","Denmark","Netherlands","1997-09-05",0,0,15,"Fatigue"},
+				{56,"Jamie Berg","Jamie Berg (56)","Northstar Velo","France","Netherlands","1993-11-06",0,0,16,"Illness"},
+				{57,"Casey Berg","Casey Berg (57)","Northstar Velo","Belgium","Netherlands","2002-01-07",1,0,17,"Injury"},
+				{58,"Avery Berg","Avery Berg (58)","Northstar Velo","Germany","Netherlands","1995-03-08",0,0,18,"Fatigue"}
+				}) in Source

@@ -1,0 +1,346 @@
+[
+  {
+    "tableName": "Metrics",
+    "name": "As of Stage Number",
+    "expression": "MAX('As Of'[Stage])",
+    "formatString": "0",
+    "description": "Latest selected stage; no selection means stage 21.",
+    "displayFolder": "Context"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Snapshot Label",
+    "expression": "\"STANDINGS AFTER STAGE \" & FORMAT([As of Stage Number], \"00\")",
+    "formatString": "",
+    "description": "Snapshot Label",
+    "displayFolder": "Context"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Registered Riders",
+    "expression": "COUNTROWS('Rider')",
+    "formatString": "0",
+    "description": "Registered Riders",
+    "displayFolder": "Participation"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Registered Teams",
+    "expression": "COUNTROWS('Team')",
+    "formatString": "0",
+    "description": "Registered Teams",
+    "displayFolder": "Participation"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Stage Finishes",
+    "expression": "COUNTROWS('Result')",
+    "formatString": "#,0",
+    "description": "Stage Finishes",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Adjusted Hours",
+    "expression": "DIVIDE(SUM('Result'[Adjusted Seconds]),3600)",
+    "formatString": "#,0.00",
+    "description": "Adjusted Hours",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Adjusted Seconds",
+    "expression": "SUM('Result'[Adjusted Seconds])",
+    "formatString": "#,0",
+    "description": "Adjusted Seconds",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Finish Seconds",
+    "expression": "SUM('Result'[Finish Seconds])",
+    "formatString": "#,0",
+    "description": "Finish Seconds",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Bonus Seconds",
+    "expression": "SUM('Result'[Bonus Seconds])",
+    "formatString": "#,0",
+    "description": "Bonus Seconds",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Penalty Seconds",
+    "expression": "SUM('Result'[Penalty Seconds])",
+    "formatString": "#,0",
+    "description": "Penalty Seconds",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Stage Position",
+    "expression": "IF(HASONEVALUE('Rider'[Bib]) && HASONEVALUE('Stage'[Stage]), MAX('Result'[Position]))",
+    "formatString": "0",
+    "description": "Stage Position",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Stage Points",
+    "expression": "SUM('Result'[Points])",
+    "formatString": "#,0",
+    "description": "Stage Points",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Stage KOM Points",
+    "expression": "SUM('Result'[KOM Points])",
+    "formatString": "#,0",
+    "description": "Stage KOM Points",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Average Stage Minutes",
+    "expression": "DIVIDE(AVERAGE('Result'[Adjusted Seconds]),60)",
+    "formatString": "0.0",
+    "description": "Average Stage Minutes",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Eligible Riders",
+    "expression": "VAR s = [As of Stage Number] RETURN CALCULATE(SUM('Standing'[Eligible]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s)",
+    "formatString": "0",
+    "description": "Eligible Riders",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Exited Riders",
+    "expression": "VAR s=[As of Stage Number] RETURN COALESCE(COUNTROWS(FILTER('Rider',NOT ISBLANK('Rider'[Exit Stage]) && 'Rider'[Exit Stage]<=s)),0)",
+    "formatString": "0",
+    "description": "Explicit withdrawals by the selected stage; incomplete results alone are not an exit.",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Eligible Cumulative Hours",
+    "expression": "VAR s = [As of Stage Number] RETURN CALCULATE(DIVIDE(CALCULATE(SUM('Standing'[Cumulative Seconds]), 'Standing'[Eligible] = 1),3600), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s)",
+    "formatString": "#,0.00",
+    "description": "Sum of eligible riders cumulative adjusted time in the selected rider/team slice.",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Rider Cumulative Seconds",
+    "expression": "IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(CALCULATE(MAX('Standing'[Cumulative Seconds]), 'Standing'[Eligible]=1), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))",
+    "formatString": "#,0",
+    "description": "Rider Cumulative Seconds",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Rider Cumulative Time",
+    "expression": "VAR t=[Rider Cumulative Seconds] RETURN IF(NOT ISBLANK(t), FORMAT(INT(t/3600),\"0\") & \":\" & FORMAT(INT(MOD(t,3600)/60),\"00\") & \":\" & FORMAT(MOD(t,60),\"00\"))",
+    "formatString": "",
+    "description": "Rider Cumulative Time",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "GC Rank",
+    "expression": "IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Standing'[GC Rank]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))",
+    "formatString": "0",
+    "description": "Global competition rank. Preserved under rider/team filtering; blank when ineligible.",
+    "displayFolder": "Classifications"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Points Rank",
+    "expression": "IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Standing'[Points Rank]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))",
+    "formatString": "0",
+    "description": "Global competition rank. Preserved under rider/team filtering; blank when ineligible.",
+    "displayFolder": "Classifications"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "KOM Rank",
+    "expression": "IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Standing'[KOM Rank]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))",
+    "formatString": "0",
+    "description": "Global competition rank. Preserved under rider/team filtering; blank when ineligible.",
+    "displayFolder": "Classifications"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Young Rank",
+    "expression": "IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Standing'[Young Rank]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))",
+    "formatString": "0",
+    "description": "Global competition rank. Preserved under rider/team filtering; blank when ineligible.",
+    "displayFolder": "Classifications"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Cumulative Points",
+    "expression": "VAR s = [As of Stage Number] RETURN CALCULATE(CALCULATE(SUM('Standing'[Points]), 'Standing'[Eligible]=1), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s)",
+    "formatString": "#,0",
+    "description": "Cumulative Points",
+    "displayFolder": "Classifications"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Cumulative KOM Points",
+    "expression": "VAR s = [As of Stage Number] RETURN CALCULATE(CALCULATE(SUM('Standing'[KOM Points]), 'Standing'[Eligible]=1), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s)",
+    "formatString": "#,0",
+    "description": "Cumulative KOM Points",
+    "displayFolder": "Classifications"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Rider Status",
+    "expression": "IF(HASONEVALUE('Rider'[Bib]), VAR s = [As of Stage Number] RETURN CALCULATE(SELECTEDVALUE('Standing'[Status]), REMOVEFILTERS('Stage'), 'Standing'[Stage] = s))",
+    "formatString": "",
+    "description": "Rider Status",
+    "displayFolder": "Context"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "GC Gap Seconds",
+    "expression": "VAR t=[Rider Cumulative Seconds] VAR s=[As of Stage Number] VAR leader=CALCULATE(MIN('Standing'[Cumulative Seconds]),REMOVEFILTERS('Rider'),REMOVEFILTERS('Stage'),'Standing'[Stage]=s,'Standing'[Eligible]=1) RETURN IF(NOT ISBLANK(t),t-leader)",
+    "formatString": "#,0",
+    "description": "Gap to global GC leader, seconds.",
+    "displayFolder": "Classifications"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Classification Rank",
+    "expression": "SWITCH(SELECTEDVALUE('Classification'[Classification]),\"General\",[GC Rank],\"Points\",[Points Rank],\"Mountains\",[KOM Rank],\"Young Rider\",[Young Rank])",
+    "formatString": "0",
+    "description": "Classification Rank",
+    "displayFolder": "Classifications"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Classification Rider Hours",
+    "expression": "VAR c=SELECTEDVALUE('Classification'[Classification]) RETURN IF(c=\"Young Rider\",CALCULATE([Eligible Cumulative Hours],'Rider'[Young Rider]=1),[Eligible Cumulative Hours])",
+    "formatString": "#,0.00",
+    "description": "The same eligible field participates in General, Points and Mountains; time is not their points score.",
+    "displayFolder": "Classifications"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Running Rider Hours",
+    "expression": "VAR s=MAX('Stage'[Stage]) RETURN CALCULATE(DIVIDE(SUM('Result'[Adjusted Seconds]),3600),FILTER(ALL('Stage'),'Stage'[Stage]<=s))",
+    "formatString": "#,0.00",
+    "description": "All stage types through the x-axis stage; includes historical completed effort before exits.",
+    "displayFolder": "Performance"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Best Team Rank",
+    "expression": "IF(HASONEVALUE('Team'[Team]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Team Standing'[Team Rank]), REMOVEFILTERS('Stage'), 'Team Standing'[Stage] = s))",
+    "formatString": "0",
+    "description": "Rank by stages scored DESC, then cumulative stage top-3 time ASC.",
+    "displayFolder": "Team"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Team Cumulative Hours",
+    "expression": "VAR s = [As of Stage Number] RETURN CALCULATE(DIVIDE(SUM('Team Standing'[Cumulative Top3 Seconds]),3600), REMOVEFILTERS('Stage'), 'Team Standing'[Stage] = s)",
+    "formatString": "#,0.00",
+    "description": "Team Cumulative Hours",
+    "displayFolder": "Team"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Stages Scored",
+    "expression": "IF(HASONEVALUE('Team'[Team]), VAR s = [As of Stage Number] RETURN CALCULATE(MAX('Team Standing'[Stages Scored]), REMOVEFILTERS('Stage'), 'Team Standing'[Stage] = s))",
+    "formatString": "0",
+    "description": "Stages Scored",
+    "displayFolder": "Team"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Team Coverage",
+    "expression": "IF(HASONEVALUE('Team'[Team]), VAR s = [As of Stage Number] RETURN CALCULATE(SELECTEDVALUE('Team Standing'[Coverage]), REMOVEFILTERS('Stage'), 'Team Standing'[Stage] = s))",
+    "formatString": "",
+    "description": "Team Coverage",
+    "displayFolder": "Team"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Stage Top3 Hours",
+    "expression": "DIVIDE(SUM('Team Stage'[Top3 Seconds]),3600)",
+    "formatString": "#,0.00",
+    "description": "Stage Top3 Hours",
+    "displayFolder": "Team"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Team Finishers",
+    "expression": "IF(HASONEVALUE('Stage'[Stage]) && HASONEVALUE('Team'[Team]),MAX('Team Stage'[Finishers]))",
+    "formatString": "0",
+    "description": "Team Finishers",
+    "displayFolder": "Team"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Teams by Country",
+    "expression": "COALESCE(CALCULATE(COUNTROWS('Team'),KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Team'[Team Country]))),0)",
+    "formatString": "0",
+    "description": "Country dimension intentionally applies team nationality independently.",
+    "displayFolder": "Participation"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Riders by Country",
+    "expression": "COALESCE(CALCULATE(COUNTROWS('Rider'),KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country]))),0)",
+    "formatString": "0",
+    "description": "Registered rider nationality, independent of team nationality; includes exited riders.",
+    "displayFolder": "Participation"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Roster Riders",
+    "expression": "CALCULATE(COUNTROWS('Rider'),KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country])))",
+    "formatString": "0",
+    "description": "Intersection of selected country and roster hierarchy; blank hides unrelated roster branches.",
+    "displayFolder": "Participation"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Foreign Team Riders",
+    "expression": "COUNTROWS(FILTER('Rider','Rider'[Rider Country]<>'Rider'[Team Country]))",
+    "formatString": "0",
+    "description": "Foreign Team Riders",
+    "displayFolder": "Participation"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Foreign Team Share",
+    "expression": "DIVIDE([Foreign Team Riders],[Registered Riders])",
+    "formatString": "0.0%",
+    "description": "Foreign Team Share",
+    "displayFolder": "Participation"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Country Foreign Riders",
+    "expression": "COALESCE(CALCULATE([Foreign Team Riders],KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country]))),0)",
+    "formatString": "0",
+    "description": "Country Foreign Riders",
+    "displayFolder": "Participation"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Countries Represented",
+    "expression": "COUNTROWS(FILTER(ALL('Country'),[Teams by Country]+[Riders by Country]>0))",
+    "formatString": "0",
+    "description": "Countries Represented",
+    "displayFolder": "Participation"
+  }
+]

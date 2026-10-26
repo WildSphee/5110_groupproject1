@@ -1,0 +1,27 @@
+/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
+table Team
+	lineageTag: b38160c3-b9af-4117-be4f-5ab2666a6e26
+
+	column Team
+		dataType: string
+		lineageTag: f0c9c6f7-12f1-4a5c-9d67-442be7f859dc
+		summarizeBy: none
+		sourceColumn: Team
+
+	column 'Team Country'
+		dataType: string
+		lineageTag: fa07f53e-efa7-4f0b-9c58-f01cba37c70c
+		summarizeBy: none
+		sourceColumn: Team Country
+
+	partition Team = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Team" = nullable text, #"Team Country" = nullable text], {
+				{"Alpine Velo","France"},
+				{"Atlantic Racing","France"},
+				{"Iberia Wheels","Spain"},
+				{"Azzurro Cycling","Italy"},
+				{"Lowland Sprint","Belgium"},
+				{"Northstar Velo","Netherlands"}
+				}) in Source

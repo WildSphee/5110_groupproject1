@@ -1,0 +1,172 @@
+/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
+table 'Team Standing'
+	lineageTag: d38818bd-0188-499f-8a69-0670688ea6b8
+
+	column Team
+		dataType: string
+		lineageTag: d94d3a03-0a4f-462c-a089-92a0bb648a52
+		summarizeBy: none
+		sourceColumn: Team
+
+	column Stage
+		dataType: int64
+		isHidden
+		lineageTag: 2e1ee502-bafa-4b45-8820-cf29df78b849
+		summarizeBy: none
+		sourceColumn: Stage
+
+	column 'Stages Scored'
+		dataType: int64
+		lineageTag: 674e91a0-d0b0-4bb8-8c42-f2e51fa0fa39
+		summarizeBy: none
+		sourceColumn: Stages Scored
+
+	column 'Cumulative Top3 Seconds'
+		dataType: int64
+		lineageTag: bab52d5d-97b3-4fea-a222-c65c532ccd4c
+		summarizeBy: none
+		sourceColumn: Cumulative Top3 Seconds
+
+	column Coverage
+		dataType: string
+		lineageTag: 6d068086-7a19-4a7f-b4df-340e217156ea
+		summarizeBy: none
+		sourceColumn: Coverage
+
+	column 'Team Rank'
+		dataType: int64
+		lineageTag: 8b379da5-0e4d-4c58-a5a2-a6d6d7972e97
+		summarizeBy: none
+		sourceColumn: Team Rank
+
+	partition 'Team Standing' = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Team" = nullable text, #"Stage" = Int64.Type, #"Stages Scored" = Int64.Type, #"Cumulative Top3 Seconds" = Int64.Type, #"Coverage" = nullable text, #"Team Rank" = Int64.Type], {
+				{"Alpine Velo",1,1,40750,"Complete",1},
+				{"Atlantic Racing",1,1,40860,"Complete",2},
+				{"Iberia Wheels",1,1,40860,"Complete",2},
+				{"Azzurro Cycling",1,1,40920,"Complete",4},
+				{"Lowland Sprint",1,1,40935,"Complete",5},
+				{"Northstar Velo",1,1,41010,"Complete",6},
+				{"Alpine Velo",2,2,85790,"Complete",1},
+				{"Atlantic Racing",2,2,86025,"Complete",3},
+				{"Iberia Wheels",2,2,86010,"Complete",2},
+				{"Azzurro Cycling",2,2,86130,"Complete",4},
+				{"Lowland Sprint",2,2,86160,"Complete",5},
+				{"Northstar Velo",2,2,86295,"Complete",6},
+				{"Alpine Velo",3,3,140169,"Complete",1},
+				{"Atlantic Racing",3,3,140464,"Complete",3},
+				{"Iberia Wheels",3,3,140438,"Complete",2},
+				{"Azzurro Cycling",3,3,140596,"Complete",4},
+				{"Lowland Sprint",3,3,140672,"Complete",5},
+				{"Northstar Velo",3,3,140845,"Complete",6},
+				{"Alpine Velo",4,4,177379,"Complete",1},
+				{"Atlantic Racing",4,4,177799,"Complete",2},
+				{"Iberia Wheels",4,4,177818,"Complete",3},
+				{"Azzurro Cycling",4,4,177976,"Complete",4},
+				{"Lowland Sprint",4,4,178067,"Complete",5},
+				{"Northstar Velo",4,4,178240,"Complete",6},
+				{"Alpine Velo",5,5,184515,"Complete",1},
+				{"Atlantic Racing",5,5,185014,"Complete",2},
+				{"Iberia Wheels",5,5,185032,"Complete",3},
+				{"Azzurro Cycling",5,5,185208,"Complete",4},
+				{"Lowland Sprint",5,5,185420,"Complete",5},
+				{"Northstar Velo",5,5,185604,"Complete",6},
+				{"Alpine Velo",6,6,235051,"Complete",1},
+				{"Atlantic Racing",6,6,235579,"Complete",2},
+				{"Iberia Wheels",6,6,235594,"Complete",3},
+				{"Azzurro Cycling",6,6,235785,"Complete",4},
+				{"Lowland Sprint",6,6,236122,"Complete",5},
+				{"Northstar Velo",6,6,236326,"Complete",6},
+				{"Alpine Velo",7,7,285071,"Complete",1},
+				{"Atlantic Racing",7,7,285649,"Complete",2},
+				{"Iberia Wheels",7,7,285709,"Complete",3},
+				{"Azzurro Cycling",7,7,286035,"Complete",4},
+				{"Lowland Sprint",7,7,286342,"Complete",5},
+				{"Northstar Velo",7,7,286546,"Complete",6},
+				{"Alpine Velo",8,8,336198,"Complete",1},
+				{"Atlantic Racing",8,8,336932,"Complete",3},
+				{"Iberia Wheels",8,8,336918,"Complete",2},
+				{"Azzurro Cycling",8,8,337342,"Complete",4},
+				{"Lowland Sprint",8,8,337741,"Complete",5},
+				{"Northstar Velo",8,8,337890,"Complete",6},
+				{"Alpine Velo",9,9,393040,"Complete",1},
+				{"Atlantic Racing",9,9,393956,"Complete",3},
+				{"Iberia Wheels",9,9,393928,"Complete",2},
+				{"Azzurro Cycling",9,9,394398,"Complete",4},
+				{"Lowland Sprint",9,9,394782,"Complete",5},
+				{"Northstar Velo",9,9,394953,"Complete",6},
+				{"Alpine Velo",10,10,439535,"Complete",1},
+				{"Atlantic Racing",10,10,440606,"Complete",3},
+				{"Iberia Wheels",10,10,440533,"Complete",2},
+				{"Azzurro Cycling",10,10,441138,"Complete",4},
+				{"Lowland Sprint",10,10,441477,"Complete",5},
+				{"Northstar Velo",10,10,441633,"Complete",6},
+				{"Alpine Velo",11,11,495622,"Complete",1},
+				{"Atlantic Racing",11,11,496639,"Complete",3},
+				{"Iberia Wheels",11,11,496618,"Complete",2},
+				{"Azzurro Cycling",11,11,497342,"Complete",4},
+				{"Lowland Sprint",11,11,497673,"Complete",5},
+				{"Northstar Velo",11,11,497948,"Complete",6},
+				{"Alpine Velo",12,12,547815,"Complete",1},
+				{"Atlantic Racing",12,12,548950,"Complete",3},
+				{"Iberia Wheels",12,12,548850,"Complete",2},
+				{"Azzurro Cycling",12,12,549737,"Complete",4},
+				{"Lowland Sprint",12,12,550006,"Complete",5},
+				{"Northstar Velo",12,12,550299,"Complete",6},
+				{"Alpine Velo",13,13,590821,"Complete",1},
+				{"Atlantic Racing",13,13,591979,"Complete",3},
+				{"Iberia Wheels",13,13,591915,"Complete",2},
+				{"Azzurro Cycling",13,13,592862,"Complete",4},
+				{"Lowland Sprint",13,13,593176,"Complete",5},
+				{"Northstar Velo",13,13,593514,"Complete",6},
+				{"Alpine Velo",14,14,642942,"Complete",1},
+				{"Atlantic Racing",14,14,644125,"Complete",2},
+				{"Iberia Wheels",14,14,644219,"Complete",3},
+				{"Azzurro Cycling",14,14,645143,"Complete",4},
+				{"Lowland Sprint",14,14,645469,"Complete",5},
+				{"Northstar Velo",14,14,645885,"Complete",6},
+				{"Alpine Velo",15,15,712398,"Complete",1},
+				{"Atlantic Racing",15,15,713678,"Complete",3},
+				{"Iberia Wheels",15,15,713670,"Complete",2},
+				{"Azzurro Cycling",15,15,714636,"Complete",4},
+				{"Lowland Sprint",15,15,715127,"Complete",5},
+				{"Northstar Velo",15,15,715582,"Complete",6},
+				{"Alpine Velo",16,16,765637,"Complete",1},
+				{"Atlantic Racing",16,16,766921,"Complete",2},
+				{"Iberia Wheels",16,16,766931,"Complete",3},
+				{"Azzurro Cycling",16,16,767985,"Complete",4},
+				{"Lowland Sprint",16,16,768523,"Complete",5},
+				{"Northstar Velo",16,16,769192,"Complete",6},
+				{"Alpine Velo",17,17,809376,"Complete",1},
+				{"Atlantic Racing",17,17,810732,"Complete",2},
+				{"Iberia Wheels",17,17,810821,"Complete",3},
+				{"Azzurro Cycling",17,17,811890,"Complete",4},
+				{"Lowland Sprint",17,17,812458,"Complete",5},
+				{"Northstar Velo",17,17,813157,"Complete",6},
+				{"Alpine Velo",18,18,874010,"Complete",1},
+				{"Atlantic Racing",18,18,875498,"Complete",2},
+				{"Iberia Wheels",18,18,875698,"Complete",3},
+				{"Azzurro Cycling",18,18,876703,"Complete",4},
+				{"Lowland Sprint",18,18,877300,"Complete",5},
+				{"Northstar Velo",18,17,813157,"Incomplete",6},
+				{"Alpine Velo",19,19,882183,"Complete",1},
+				{"Atlantic Racing",19,19,883777,"Complete",2},
+				{"Iberia Wheels",19,19,884011,"Complete",3},
+				{"Azzurro Cycling",19,19,885049,"Complete",4},
+				{"Lowland Sprint",19,19,885703,"Complete",5},
+				{"Northstar Velo",19,17,813157,"Incomplete",6},
+				{"Alpine Velo",20,20,926564,"Complete",1},
+				{"Atlantic Racing",20,20,928254,"Complete",2},
+				{"Iberia Wheels",20,20,928580,"Complete",3},
+				{"Azzurro Cycling",20,20,929689,"Complete",4},
+				{"Lowland Sprint",20,20,930277,"Complete",5},
+				{"Northstar Velo",20,17,813157,"Incomplete",6},
+				{"Alpine Velo",21,21,971038,"Complete",1},
+				{"Atlantic Racing",21,21,972785,"Complete",2},
+				{"Iberia Wheels",21,21,973235,"Complete",3},
+				{"Azzurro Cycling",21,21,974314,"Complete",4},
+				{"Lowland Sprint",21,21,974977,"Complete",5},
+				{"Northstar Velo",21,17,813157,"Incomplete",6}
+				}) in Source

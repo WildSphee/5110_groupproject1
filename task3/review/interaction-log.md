@@ -1,0 +1,23 @@
+# Desktop interaction evidence — initial build
+
+Tested in Power BI Desktop 2.159.883.0, using the saved PBIP opened in a separate Desktop instance, refreshed via Microsoft Power BI MCP. Screenshots in `screenshots/` are real Desktop captures, not mockups. The authoring panes were collapsed for review. At fit-to-page on a 1536×816 display the canvas is shown at 72%.
+
+1. **Overview drill and roll-up — PASS.** Selected the team bar, enabled down-arrow drill mode, clicked Alpine Velo. Chart displayed seven eligible riders, cards changed to 7 eligible / 1 exited / 631.13 cumulative rider-hours / 8 registered. GC table retained global ranks (including 7, 11, 18, 23). Clicking the up arrow restored 40 eligible / 8 exited / 48 registered and all six teams. Evidence: `01-overview-drilled.png`, `01-overview-rolled-up.png`.
+2. **Stage hierarchy — PASS.** Expanded Mountain → stage 08 Limoges–Bordeaux → Alpine Velo → individual riders using matrix plus controls. Rider positions and raw finish/bonus/penalty/adjusted seconds appeared. Evidence: `02-stage-drill-to-rider.png`.
+3. **Cross-filter — PASS.** Selected Alex Laurent's stage 08 matrix row. KPI became one result, 4.73 hours, 6 bonus seconds, zero penalty seconds; cumulative chart reduced to a stage-8 point. Raw result: 17,028 finish seconds − 6 = 17,022 adjusted seconds. Evidence: `02-cross-filter-single-result.png`.
+4. **As-of slicer — PASS.** On Classifications selected stage 06, then additionally selected stage 07. The selector showed multiple selections, totals advanced to stage 07 and an exited rider appeared with blank ranks. This confirms the documented latest-selected-stage behavior. Evidence: `03-asof-stage06.png`, `03-asof-multiple-latest07.png`; all ranks separately checked against SQL reference via DAX.
+5. **Team page — rendered; initial UX issue.** Northstar is correctly sixth with 17 scored stages and Incomplete status. Series colours on the trend are indistinguishable in initial build and require revision. Evidence: `04-team-performance.png`.
+6. **Country page — initial defect identified.** Team/rider country bars and totals are correct and include zero countries. Roster country rows incorrectly each show 48 because TREATAS overwrites the row filter. This needs KEEPFILTERS and a regression test at every roster level. Evidence: `05-country-initial-review.png`. This defect is not covered by the initial 19 DAX tests and prevents approval until fixed.
+7. **Initial presentation issues.** Table text is too small at fit-to-page. Header/footer text boxes show overflow scrollbars. The initial table sorts blank classification ranks first. These are being addressed before final delivery.
+
+Final revision verification will be appended below; initial evidence is retained to make fixes auditable.
+
+## Revised build verification — 26 October 2026
+
+The country measures now intersect filters using KEEPFILTERS. The roster uses a separate measure that returns blank for unrelated branches. Nine new live DAX scenarios verify country → team → rider both unfiltered and with France/Singapore slicer contexts; all pass. France shows five riders, while Singapore has no roster rows. Standalone country charts retain explicit zero counts.
+
+Table/matrix grid text is increased to 14 with 13-point values/headers, shortened human-readable column labels, and increased row padding. Title/footer boxes are taller; static bounds/overlap checks validate placement. The team trend no longer forces every series to the same colour. Classifications sort by eligibility status then GC rank, so eligible competitors precede exits. These are verified report-definition changes, **not yet visually reconfirmed after revision**.
+
+Power BI Desktop was reopened against the revised PBIP and its local model refreshed through MCP (new localhost port 56587). Thirty-four live DAX comparison tests pass against that loaded model. This includes the fixed roster, an actual formatted duration beyond 24 hours, explicit exit counts and zero-exit states. Nineteen Python tests pass, including prologue stage 0, noncontiguous stage IDs, incomplete-result status and DOB threshold boundaries.
+
+Desktop-control tools became unavailable after the conversation resumed. Both the author and independent evaluator confirmed that no compliant screenshot/UI tool was exposed. Consequently, the screenshots above document **the initial build**; no fresh final-layout or revised-roster click screenshot is claimed. The earlier real Desktop drill/roll-up/cross-filter tests remain valid evidence of those implemented controls, and the revised filter calculations are tested through the live engine. A final visual pass at the user's display scale remains a handover limitation.
