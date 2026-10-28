@@ -11,6 +11,7 @@ table Country
 	column Country
 		dataType: string
 		lineageTag: 6f437153-6637-4ca2-9e1d-3267b1e31281
+		dataCategory: Country
 		summarizeBy: none
 		sourceColumn: Country
 
@@ -31,3 +32,4 @@ table Country
 				{"SGP","Singapore"},
 				{"JPN","Japan"}
 				}) in Source
+

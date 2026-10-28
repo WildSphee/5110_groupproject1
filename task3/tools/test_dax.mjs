@@ -3,7 +3,8 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {connect,call} from './mcp.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const tests=JSON.parse(fs.readFileSync(path.join(root,'tests/dax_expected.json'),'utf8'));
+const suite=process.argv[3]||'dax';
+const tests=JSON.parse(fs.readFileSync(path.join(root,`tests/${suite}_expected.json`),'utf8'));
 const {client}=await connect();
 await call(client,'connection_operations',{operation:'Connect',connectionString:process.argv[2]});
 const results=[];
@@ -18,5 +19,5 @@ for(const t of tests){
   console.log(passed?'PASS':'FAIL',t.name,data.rowCount+' rows',data.executionTimeMs+'ms');
  }catch(e){results.push({name:t.name,passed:false,error:String(e)});console.log('ERROR',t.name,String(e).slice(0,300));}
 }
-fs.writeFileSync(path.join(root,'review/dax-tests.json'),JSON.stringify({connection:process.argv[2],tests:results},null,2));
+fs.writeFileSync(path.join(root,`review/${suite}-tests.json`),JSON.stringify({connection:process.argv[2],tests:results},null,2));
 await client.close();process.exitCode=results.some(r=>!r.passed)?1:0;

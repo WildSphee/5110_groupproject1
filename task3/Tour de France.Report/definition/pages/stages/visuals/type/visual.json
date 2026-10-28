@@ -1,16 +1,39 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "type",
   "position": {
     "x": 28,
     "y": 109,
-    "width": 316,
+    "z": 51,
     "height": 88,
-    "z": 35,
-    "tabOrder": 36
+    "width": 316,
+    "tabOrder": 52
   },
   "visual": {
     "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage"
+                    }
+                  },
+                  "Property": "Stage Type"
+                }
+              },
+              "queryRef": "Stage.Stage Type",
+              "nativeQueryRef": "Stage Type",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "data": [
         {
@@ -47,15 +70,7 @@
       ],
       "items": [
         {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "12"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ]
     },
@@ -74,13 +89,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Stage type'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13"
                 }
               }
             },
@@ -125,13 +133,6 @@
                   }
                 }
               }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
-                }
-              }
             }
           }
         }
@@ -163,28 +164,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Stage"
-                    }
-                  },
-                  "Property": "Stage Type"
-                }
-              },
-              "queryRef": "Stage.Stage Type",
-              "nativeQueryRef": "Stage Type"
-            }
-          ]
-        }
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

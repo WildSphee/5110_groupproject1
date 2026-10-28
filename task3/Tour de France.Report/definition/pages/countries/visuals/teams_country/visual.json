@@ -1,34 +1,90 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "teams_country",
   "position": {
-    "x": 28,
+    "x": 728,
     "y": 345,
-    "width": 440,
-    "height": 487,
-    "z": 66,
-    "tabOrder": 67
+    "z": 83,
+    "height": 300,
+    "width": 684,
+    "tabOrder": 84
   },
   "visual": {
-    "visualType": "clusteredBarChart",
-    "objects": {
-      "dataPoint": [
-        {
-          "properties": {
-            "defaultColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#087F8C'"
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Country"
                     }
-                  }
+                  },
+                  "Property": "Country"
                 }
-              }
+              },
+              "queryRef": "Country.Country",
+              "nativeQueryRef": "Country",
+              "active": true
             }
-          }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Teams by Country"
+                }
+              },
+              "queryRef": "Metrics.Teams by Country",
+              "nativeQueryRef": "Teams by Country"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Riders by Country"
+                }
+              },
+              "queryRef": "Metrics.Riders by Country",
+              "nativeQueryRef": "Riders by Country"
+            }
+          ]
         }
-      ],
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Teams by Country"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
       "categoryAxis": [
         {
           "properties": {
@@ -36,20 +92,6 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11"
                 }
               }
             }
@@ -65,20 +107,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1"
-                }
-              }
             }
           }
         }
@@ -89,14 +117,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11"
+                  "Value": "true"
                 }
               }
             }
@@ -110,20 +131,6 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1"
                 }
               }
             }
@@ -145,14 +152,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Teams by team country'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13"
+                  "Value": "'Participation by nation • teams and riders'"
                 }
               }
             },
@@ -197,13 +197,6 @@
                   }
                 }
               }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
-                }
-              }
             }
           }
         }
@@ -235,65 +228,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Country"
-                    }
-                  },
-                  "Property": "Country"
-                }
-              },
-              "queryRef": "Country.Country",
-              "nativeQueryRef": "Country",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Teams by Country"
-                }
-              },
-              "queryRef": "Metrics.Teams by Country",
-              "nativeQueryRef": "Teams by Country"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Teams by Country"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

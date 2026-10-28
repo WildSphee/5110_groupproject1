@@ -72,6 +72,7 @@ m('Foreign Team Riders',"COUNTROWS(FILTER('Rider','Rider'[Rider Country]<>'Rider
 m('Foreign Team Share',"DIVIDE([Foreign Team Riders],[Registered Riders])",'0.0%',undefined,'Participation');
 m('Country Foreign Riders',"COALESCE(CALCULATE([Foreign Team Riders],KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country]))),0)",'0',undefined,'Participation');
 m('Countries Represented',"COUNTROWS(FILTER(ALL('Country'),[Teams by Country]+[Riders by Country]>0))",'0',undefined,'Participation');
+measures.push(...JSON.parse(fs.readFileSync(path.join(root,'data/analytics_measures.json'),'utf8')));
 if(process.argv.includes('--update-measures')){
  const existing=await op('measure_operations',{operation:'List'});
  const text=JSON.stringify(existing);

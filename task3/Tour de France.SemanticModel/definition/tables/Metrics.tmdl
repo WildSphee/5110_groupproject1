@@ -256,6 +256,172 @@ table Metrics
 		displayFolder: Participation
 		lineageTag: fbe8def8-0749-4ab6-96c0-f34cbb1d316c
 
+	/// Top Ten Finishes
+	measure 'Top Ten Finishes' = COALESCE(CALCULATE(COUNTROWS('Result'),KEEPFILTERS('Result'[Position]<=10)),0)
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: 8498f09a-8a10-49a2-96cf-e46f09503445
+
+	/// Stage Wins
+	measure 'Stage Wins' = COALESCE(CALCULATE(COUNTROWS('Result'),KEEPFILTERS('Result'[Position]=1)),0)
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: e41c25e5-23e3-43bd-8a3d-cdc0d1002ea0
+
+	/// Stage Podiums
+	measure 'Stage Podiums' = COALESCE(CALCULATE(COUNTROWS('Result'),KEEPFILTERS('Result'[Position]<=3)),0)
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: 3525d19e-9d3f-47b9-a2f2-fd8d55202d99
+
+	/// Mountain Podiums
+	measure 'Mountain Podiums' = CALCULATE([Stage Podiums],KEEPFILTERS('Stage'[Stage Type]="Mountain"))
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: 3a899a85-d14c-49dc-8922-50e6a8482f3d
+
+	/// Mean adjusted-time gap to the rider placed first; can be negative after adjustments.
+	measure 'Stage Winner Gap Seconds' = AVERAGEX('Result', VAR s='Result'[Stage] VAR winner=CALCULATE(MIN('Result'[Adjusted Seconds]),REMOVEFILTERS('Rider'),REMOVEFILTERS('Result'),'Result'[Stage]=s,'Result'[Position]=1) RETURN 'Result'[Adjusted Seconds]-winner)
+		formatString: 0.0
+		displayFolder: PDF analytics
+		lineageTag: a62dfeaa-5db1-4ae7-8396-6ef95bd0fa36
+
+	/// Mountain Mean Gap Seconds
+	measure 'Mountain Mean Gap Seconds' = CALCULATE([Stage Winner Gap Seconds],KEEPFILTERS('Stage'[Stage Type]="Mountain"))
+		formatString: 0.0
+		displayFolder: PDF analytics
+		lineageTag: 5433e59f-0c36-4dcf-b808-4089cc50ae04
+
+	/// Distance / raw finish hours. Teams use summed rider-distance / summed rider-time, not summed speeds.
+	measure 'Speed Proxy kmh' = DIVIDE(SUMX('Result',RELATED('Stage'[Distance km])),DIVIDE(SUM('Result'[Finish Seconds]),3600))
+		formatString: 0.0
+		displayFolder: PDF analytics
+		lineageTag: d1f72993-07d5-41d6-82fa-bc9930e22683
+
+	/// Mountain Cumulative Seconds
+	measure 'Mountain Cumulative Seconds' = IF(HASONEVALUE('Rider'[Bib]) && NOT ISBLANK([GC Rank]), VAR s=[As of Stage Number] RETURN CALCULATE(SUM('Result'[Adjusted Seconds]),FILTER(ALL('Stage'),'Stage'[Stage]<=s && 'Stage'[Stage Type]="Mountain")))
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: 60d9d21b-3016-4c9c-81ad-25bc6ad53d6f
+
+	/// Time-only mountain proxy, distinct from KOM points.
+	measure 'Mountain GC Proxy Rank' = VAR t=[Mountain Cumulative Seconds] VAR field=FILTER(ALL('Rider'),NOT ISBLANK(CALCULATE([Mountain Cumulative Seconds]))) RETURN IF(NOT ISBLANK(t),RANKX(field,[Mountain Cumulative Seconds],t,ASC,Skip))
+		formatString: 0
+		displayFolder: PDF analytics
+		lineageTag: 097a860a-ae31-49b4-996e-b482881611aa
+
+	/// Under 26 on the first stage date; separate from the original calendar-year Young Rider rule.
+	measure 'Young GC at Race Start Rank' = VAR t=[Rider Cumulative Seconds] VAR age=SELECTEDVALUE('Rider'[Age at Race Start]) VAR field=FILTER(ALL('Rider'),'Rider'[Age at Race Start]<26 && NOT ISBLANK(CALCULATE([Rider Cumulative Seconds]))) RETURN IF(NOT ISBLANK(t) && age<26,RANKX(field,[Rider Cumulative Seconds],t,ASC,Skip))
+		formatString: 0
+		displayFolder: PDF analytics
+		lineageTag: 38f94d36-947b-44e0-a5db-b216ec8d97f2
+
+	/// GC Trace Hours
+	measure 'GC Trace Hours' = IF(HASONEVALUE('Rider'[Bib]),DIVIDE(CALCULATE(MAX('Standing'[Cumulative Seconds]),'Standing'[Eligible]=1),3600))
+		formatString: 0.00
+		displayFolder: PDF analytics
+		lineageTag: d3eb8ced-02e4-410c-93ba-0785b2ce9687
+
+	/// GC Trace Rank
+	measure 'GC Trace Rank' = IF(HASONEVALUE('Rider'[Bib]) && HASONEVALUE('Stage'[Stage]),MAX('Standing'[GC Rank]))
+		formatString: 0
+		displayFolder: PDF analytics
+		lineageTag: 0cd0cae6-26a3-4846-8d6b-e5a780c30485
+
+	/// Positive = places gained; blank on first stage or after exit.
+	measure 'GC Rank Change' = VAR s=SELECTEDVALUE('Stage'[Stage]) VAR nowRank=[GC Trace Rank] VAR prior=CALCULATE(MAX('Standing'[GC Rank]),REMOVEFILTERS('Stage'),'Standing'[Stage]=s-1) RETURN IF(NOT ISBLANK(nowRank) && NOT ISBLANK(prior),prior-nowRank)
+		formatString: 0
+		displayFolder: PDF analytics
+		lineageTag: a86a2c97-8560-4ec4-a06b-b5e400863d14
+
+	/// Mountain Trace Hours
+	measure 'Mountain Trace Hours' = CALCULATE([GC Trace Hours],KEEPFILTERS('Stage'[Stage Type]="Mountain"))
+		formatString: 0.00
+		displayFolder: PDF analytics
+		lineageTag: cca1e03b-6dae-4568-bedb-21e2ad064ed7
+
+	/// Stage Distance km
+	measure 'Stage Distance km' = SELECTEDVALUE('Stage'[Distance km])
+		formatString: 0.0
+		displayFolder: PDF analytics
+		lineageTag: ce347a56-8792-4e33-8911-a7a06d7320dd
+
+	/// Stage Winner
+	measure 'Stage Winner' = VAR winner=CALCULATE(SELECTEDVALUE('Result'[Bib]),REMOVEFILTERS('Rider'),'Result'[Position]=1) RETURN IF(NOT ISBLANK(winner),LOOKUPVALUE('Rider'[Rider Label],'Rider'[Bib],winner))
+		displayFolder: PDF analytics
+		lineageTag: 85c5dd1d-b112-46f3-81d2-f764a149ac5f
+
+	/// Top Ten Adjusted Seconds
+	measure 'Top Ten Adjusted Seconds' = IF(HASONEVALUE('Rider'[Bib]) && HASONEVALUE('Stage'[Stage]),CALCULATE(SUM('Result'[Adjusted Seconds]),KEEPFILTERS('Result'[Position]<=10)))
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: 10ea5534-f482-410b-9e74-477785aa6a40
+
+	/// Top Ten Position
+	measure 'Top Ten Position' = VAR pos=[Stage Position] RETURN IF(NOT ISBLANK(pos) && pos<=10,pos)
+		formatString: 0
+		displayFolder: PDF analytics
+		lineageTag: 2c6a6db7-18af-49e9-8d1a-2fa91af62006
+
+	/// Cumulative Bonus Seconds
+	measure 'Cumulative Bonus Seconds' = VAR s=[As of Stage Number] RETURN CALCULATE([Bonus Seconds],FILTER(ALL('Stage'),'Stage'[Stage]<=s))
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: ada64c83-cd4f-49bd-b60d-e7bc191afc00
+
+	/// Cumulative Penalty Seconds
+	measure 'Cumulative Penalty Seconds' = VAR s=[As of Stage Number] RETURN CALCULATE([Penalty Seconds],FILTER(ALL('Stage'),'Stage'[Stage]<=s))
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: 398b333e-fb44-4fc3-9a46-46016c3d0447
+
+	/// Scenario Seconds
+	measure 'Scenario Seconds' = VAR t=[Rider Cumulative Seconds] VAR mode=SELECTEDVALUE('Scenario'[Scenario],"Official adjusted") RETURN IF(NOT ISBLANK(t),t+IF(mode IN {"No bonuses","No bonuses or penalties"},[Cumulative Bonus Seconds],0)-IF(mode IN {"No penalties","No bonuses or penalties"},[Cumulative Penalty Seconds],0))
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: efb3f42b-64d7-45c3-9d2b-32d4caa189cc
+
+	/// Scenario GC Rank
+	measure 'Scenario GC Rank' = VAR t=[Scenario Seconds] VAR field=FILTER(ALL('Rider'),NOT ISBLANK(CALCULATE([Scenario Seconds]))) RETURN IF(NOT ISBLANK(t),RANKX(field,[Scenario Seconds],t,ASC,Skip))
+		formatString: 0
+		displayFolder: PDF analytics
+		lineageTag: d3d79644-10a9-47e2-8a0e-466efda790f0
+
+	/// Scenario Rank Change
+	measure 'Scenario Rank Change' = IF(NOT ISBLANK([GC Rank]),[GC Rank]-[Scenario GC Rank])
+		formatString: 0
+		displayFolder: PDF analytics
+		lineageTag: 05089664-69db-4aff-98e0-36c37d078458
+
+	/// Top Ten Movement
+	measure 'Top Ten Movement' = VAR a=[GC Rank] VAR b=[Scenario GC Rank] RETURN IF(NOT ISBLANK(a),SWITCH(TRUE(),a>10 && b<=10,"Entered top 10",a<=10 && b>10,"Left top 10",a<=10,"Stayed top 10","Outside top 10"))
+		displayFolder: PDF analytics
+		lineageTag: e450446d-70e8-4000-bf1a-f1264dfbf77a
+
+	/// Country Wins
+	measure 'Country Wins' = CALCULATE([Stage Wins],KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country])))
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: bdc9bb4a-9f5c-4553-bb7e-9609e13e9ccf
+
+	/// Country Podiums
+	measure 'Country Podiums' = CALCULATE([Stage Podiums],KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country])))
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: 426a9e98-f8e5-4639-ad40-a43c6b039a4b
+
+	/// Country Best GC Rank
+	measure 'Country Best GC Rank' = VAR s=[As of Stage Number] RETURN CALCULATE(MIN('Standing'[GC Rank]),REMOVEFILTERS('Stage'),'Standing'[Stage]=s,KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country])))
+		formatString: 0
+		displayFolder: PDF analytics
+		lineageTag: e551616e-7fe1-4d9f-ad4f-b8d18325f33d
+
+	/// Country Result Count
+	measure 'Country Result Count' = CALCULATE(COUNTROWS('Result'),KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country])))
+		formatString: #,0
+		displayFolder: PDF analytics
+		lineageTag: b2ddb0ad-76b7-4ee0-91c3-55eae8380caa
+
 	column Label
 		dataType: string
 		lineageTag: fe8f0536-51e2-44e7-aac4-1cacd22e0f20
@@ -268,3 +434,4 @@ table Metrics
 				let Source = #table(type table [#"Label" = nullable text], {
 				{"Measures"}
 				}) in Source
+

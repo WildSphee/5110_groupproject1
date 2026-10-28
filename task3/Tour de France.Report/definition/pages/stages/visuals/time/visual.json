@@ -1,16 +1,38 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "time",
   "position": {
     "x": 374,
     "y": 216,
-    "width": 326,
+    "z": 56,
     "height": 105,
-    "z": 40,
-    "tabOrder": 41
+    "width": 326,
+    "tabOrder": 57
   },
   "visual": {
     "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Adjusted Hours"
+                }
+              },
+              "queryRef": "Metrics.Adjusted Hours",
+              "nativeQueryRef": "Adjusted Hours"
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "labels": [
         {
@@ -23,27 +45,6 @@
                       "Value": "'#087F8C'"
                     }
                   }
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "30"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
-                }
-              }
-            },
-            "displayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
                 }
               }
             }
@@ -79,13 +80,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Adjusted time • rider-hours'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13"
                 }
               }
             },
@@ -130,13 +124,6 @@
                   }
                 }
               }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
-                }
-              }
             }
           }
         }
@@ -168,28 +155,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Adjusted Hours"
-                }
-              },
-              "queryRef": "Metrics.Adjusted Hours",
-              "nativeQueryRef": "Adjusted Hours"
-            }
-          ]
-        }
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

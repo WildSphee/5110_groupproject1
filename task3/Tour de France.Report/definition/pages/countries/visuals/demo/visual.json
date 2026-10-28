@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "demo",
   "position": {
     "x": 1120,
     "y": 2,
-    "width": 292,
-    "height": 40,
     "z": 18,
+    "height": 40,
+    "width": 292,
     "tabOrder": 19
   },
   "visual": {
@@ -52,13 +52,6 @@
                 }
               }
             },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13"
-                }
-              }
-            },
             "fontColor": {
               "solid": {
                 "color": {
@@ -98,13 +91,6 @@
                       "Value": "'#FFFFFF'"
                     }
                   }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
                 }
               }
             }

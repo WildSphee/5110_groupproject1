@@ -1,26 +1,146 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "class_hours",
   "position": {
     "x": 28,
     "y": 610,
-    "width": 660,
+    "z": 67,
     "height": 222,
-    "z": 51,
-    "tabOrder": 52
+    "width": 884,
+    "tabOrder": 68
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Rider"
+                    }
+                  },
+                  "Property": "Rider Label"
+                }
+              },
+              "queryRef": "Rider.Rider Label",
+              "nativeQueryRef": "Rider"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Rider"
+                    }
+                  },
+                  "Property": "Age at Race Start"
+                }
+              },
+              "queryRef": "Rider.Age at Race Start",
+              "nativeQueryRef": "Age at Race Start"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "GC Rank"
+                }
+              },
+              "queryRef": "Metrics.GC Rank",
+              "nativeQueryRef": "GC rank"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Young GC at Race Start Rank"
+                }
+              },
+              "queryRef": "Metrics.Young GC at Race Start Rank",
+              "nativeQueryRef": "Young GC at Race Start Rank"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Mountain GC Proxy Rank"
+                }
+              },
+              "queryRef": "Metrics.Mountain GC Proxy Rank",
+              "nativeQueryRef": "Mountain GC Proxy Rank"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "GC Rank"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
-      "dataPoint": [
+      "grid": [
         {
           "properties": {
-            "defaultColor": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#087F8C'"
+                      "Value": "'#182B3A'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EEF2F4'"
                     }
                   }
                 }
@@ -29,101 +149,18 @@
           }
         }
       ],
-      "categoryAxis": [
+      "values": [
         {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
-      "valueAxis": [
+      "total": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "legend": [
-        {
-          "properties": {
-            "show": {
+            "totals": {
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1"
                 }
               }
             }
@@ -145,14 +182,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cumulative rider-hours by classification eligibility'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13"
+                  "Value": "'Parallel time rankings • race-start age and mountain proxy'"
                 }
               }
             },
@@ -197,13 +227,6 @@
                   }
                 }
               }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
-                }
-              }
             }
           }
         }
@@ -235,65 +258,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Classification"
-                    }
-                  },
-                  "Property": "Classification"
-                }
-              },
-              "queryRef": "Classification.Classification",
-              "nativeQueryRef": "Classification",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Classification Rider Hours"
-                }
-              },
-              "queryRef": "Metrics.Classification Rider Hours",
-              "nativeQueryRef": "Classification Rider Hours"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Classification Rider Hours"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

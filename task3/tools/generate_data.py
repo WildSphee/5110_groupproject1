@@ -137,3 +137,5 @@ def build():
 
 if __name__=='__main__':
     DATA.mkdir(exist_ok=True,parents=True);build()
+    from extend_analytics import extend
+    extend()

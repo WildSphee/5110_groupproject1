@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Tour de France"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0cb883e0-1516-4266-bb16-b62fc80a9db9"
+  }
+}

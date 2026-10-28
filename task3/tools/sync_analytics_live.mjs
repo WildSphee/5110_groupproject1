@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import {connect,call} from './mcp.mjs';
+const {client}=await connect();
+await call(client,'connection_operations',{operation:'Connect',connectionString:process.argv[2]});
+const tmdl=fs.readFileSync(new URL('../Tour de France.SemanticModel/definition/tables/Stage.tmdl',import.meta.url),'utf8');
+const expression=tmdl.replaceAll('\r\n','\n').split('\t\tsource =\n')[1].split('\n').map(l=>l.replace(/^\t{4}/,'')).join('\n').trim();
+await call(client,'column_operations',{operation:'Update',definitions:[{tableName:'Stage',name:'Distance km',dataType:'Double'}]});
+await call(client,'partition_operations',{operation:'Update',definitions:[{tableName:'Stage',name:'Stage',expression}]});
+const definitions=JSON.parse(fs.readFileSync(new URL('../data/analytics_measures.json',import.meta.url),'utf8'));
+const existing=JSON.stringify(await call(client,'measure_operations',{operation:'List'}));
+const missing=definitions.filter(m=>!existing.includes(m.name));
+if(missing.length)await call(client,'measure_operations',{operation:'Create',definitions:missing});
+await call(client,'measure_operations',{operation:'Update',definitions});
+await call(client,'model_operations',{operation:'RefreshWithXMLA',refreshType:'Full'});
+console.log('Refreshed model with decimal stage distances.');
+await client.close();

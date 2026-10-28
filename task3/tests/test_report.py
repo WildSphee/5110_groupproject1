@@ -17,12 +17,22 @@ def fields(obj):
 class ReportTests(unittest.TestCase):
     def test_pages(self):
         order=json.loads((REPORT/'pages/pages.json').read_text())
-        self.assertEqual(order['pageOrder'],['overview','stages','classifications','teams','countries','guide'])
-        self.assertEqual(len(FILES),74)
+        self.assertEqual(order['pageOrder'],['overview','stages','classifications','teams','countries','story','terrain','stage_focus','scenarios','guide'])
+        self.assertEqual(len(FILES),120)
     def test_bindings(self):
         for file in FILES:
-            for kind,f in fields(json.loads(file.read_text())):
-                table=f['Expression']['SourceRef']['Entity'];name=f['Property']
+            definition=json.loads(file.read_text())
+            aliases={}
+            def sources(obj):
+                if isinstance(obj,dict):
+                    for source in obj.get('From',[]):aliases[source['Name']]=source['Entity']
+                    for value in obj.values():sources(value)
+                elif isinstance(obj,list):
+                    for value in obj:sources(value)
+            sources(definition)
+            for kind,f in fields(definition):
+                ref=f['Expression']['SourceRef']
+                table=ref.get('Entity') or aliases[ref['Source']];name=f['Property']
                 if kind=='Measure':self.assertEqual(table,'Metrics');self.assertIn(name,MEASURES)
                 else:self.assertIn(table,DATA);self.assertIn(name,DATA[table][0])
     def test_bounds_and_no_overlap(self):
@@ -52,7 +62,7 @@ class ReportTests(unittest.TestCase):
         self.assertEqual([s['field']['Measure']['Property'] for s in sorts],['Rider Status','GC Rank'])
     def test_self_contained_model(self):
         tmdl=list((ROOT/'Tour de France.SemanticModel/definition/tables').glob('*.tmdl'))
-        self.assertEqual(len(tmdl),11)
+        self.assertEqual(len(tmdl),12)
         for file in tmdl:
             text=file.read_text(encoding='utf-8-sig');self.assertNotIn('File.Contents(',text);self.assertIn('#table(',text)
 if __name__=='__main__':unittest.main(verbosity=2)

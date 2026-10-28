@@ -200,6 +200,166 @@
     "height": 46
   },
   {
+    "page": "story",
+    "name": "brand",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 2,
+    "width": 1060,
+    "height": 40
+  },
+  {
+    "page": "story",
+    "name": "title",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 44,
+    "width": 1376,
+    "height": 63
+  },
+  {
+    "page": "story",
+    "name": "demo",
+    "type": "textbox",
+    "title": "",
+    "x": 1120,
+    "y": 2,
+    "width": 292,
+    "height": 40
+  },
+  {
+    "page": "story",
+    "name": "footer",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 850,
+    "width": 1376,
+    "height": 46
+  },
+  {
+    "page": "terrain",
+    "name": "brand",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 2,
+    "width": 1060,
+    "height": 40
+  },
+  {
+    "page": "terrain",
+    "name": "title",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 44,
+    "width": 1376,
+    "height": 63
+  },
+  {
+    "page": "terrain",
+    "name": "demo",
+    "type": "textbox",
+    "title": "",
+    "x": 1120,
+    "y": 2,
+    "width": 292,
+    "height": 40
+  },
+  {
+    "page": "terrain",
+    "name": "footer",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 850,
+    "width": 1376,
+    "height": 46
+  },
+  {
+    "page": "stage_focus",
+    "name": "brand",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 2,
+    "width": 1060,
+    "height": 40
+  },
+  {
+    "page": "stage_focus",
+    "name": "title",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 44,
+    "width": 1376,
+    "height": 63
+  },
+  {
+    "page": "stage_focus",
+    "name": "demo",
+    "type": "textbox",
+    "title": "",
+    "x": 1120,
+    "y": 2,
+    "width": 292,
+    "height": 40
+  },
+  {
+    "page": "stage_focus",
+    "name": "footer",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 850,
+    "width": 1376,
+    "height": 46
+  },
+  {
+    "page": "scenarios",
+    "name": "brand",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 2,
+    "width": 1060,
+    "height": 40
+  },
+  {
+    "page": "scenarios",
+    "name": "title",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 44,
+    "width": 1376,
+    "height": 63
+  },
+  {
+    "page": "scenarios",
+    "name": "demo",
+    "type": "textbox",
+    "title": "",
+    "x": 1120,
+    "y": 2,
+    "width": 292,
+    "height": 40
+  },
+  {
+    "page": "scenarios",
+    "name": "footer",
+    "type": "textbox",
+    "title": "",
+    "x": 28,
+    "y": 850,
+    "width": 1376,
+    "height": 46
+  },
+  {
     "page": "guide",
     "name": "brand",
     "type": "textbox",
@@ -433,7 +593,7 @@
     "page": "overview",
     "name": "team_rider",
     "type": "clusteredBarChart",
-    "title": "Cumulative rider-hours  |  Team → Rider",
+    "title": "Whole-race time contribution  |  Team → Rider",
     "x": 28,
     "y": 345,
     "width": 704,
@@ -483,11 +643,11 @@
                     "Entity": "Metrics"
                   }
                 },
-                "Property": "Eligible Cumulative Hours"
+                "Property": "Adjusted Hours"
               }
             },
-            "queryRef": "Metrics.Eligible Cumulative Hours",
-            "nativeQueryRef": "Eligible Cumulative Hours"
+            "queryRef": "Metrics.Adjusted Hours",
+            "nativeQueryRef": "Adjusted Hours"
           }
         ]
       }
@@ -568,12 +728,66 @@
   {
     "page": "overview",
     "name": "drill_help",
-    "type": "textbox",
-    "title": "",
+    "type": "treemap",
+    "title": "Squad depth • registered riders • Team → Rider",
     "x": 28,
     "y": 696,
     "width": 704,
-    "height": 145
+    "height": 145,
+    "fields": {
+      "Group": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Rider.Team",
+            "nativeQueryRef": "Team",
+            "active": true
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider",
+            "active": false
+          }
+        ]
+      },
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Registered Riders"
+              }
+            },
+            "queryRef": "Metrics.Registered Riders",
+            "nativeQueryRef": "Registered Riders"
+          }
+        ]
+      }
+    }
   },
   {
     "page": "overview",
@@ -1279,34 +1493,43 @@
   {
     "page": "classifications",
     "name": "class_hours",
-    "type": "clusteredBarChart",
-    "title": "Cumulative rider-hours by classification eligibility",
+    "type": "tableEx",
+    "title": "Parallel time rankings • race-start age and mountain proxy",
     "x": 28,
     "y": 610,
-    "width": 660,
+    "width": 884,
     "height": 222,
     "fields": {
-      "Category": {
+      "Values": {
         "projections": [
           {
             "field": {
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Classification"
+                    "Entity": "Rider"
                   }
                 },
-                "Property": "Classification"
+                "Property": "Rider Label"
               }
             },
-            "queryRef": "Classification.Classification",
-            "nativeQueryRef": "Classification",
-            "active": true
-          }
-        ]
-      },
-      "Y": {
-        "projections": [
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Age at Race Start"
+              }
+            },
+            "queryRef": "Rider.Age at Race Start",
+            "nativeQueryRef": "Age at Race Start"
+          },
           {
             "field": {
               "Measure": {
@@ -1315,11 +1538,39 @@
                     "Entity": "Metrics"
                   }
                 },
-                "Property": "Classification Rider Hours"
+                "Property": "GC Rank"
               }
             },
-            "queryRef": "Metrics.Classification Rider Hours",
-            "nativeQueryRef": "Classification Rider Hours"
+            "queryRef": "Metrics.GC Rank",
+            "nativeQueryRef": "GC rank"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Young GC at Race Start Rank"
+              }
+            },
+            "queryRef": "Metrics.Young GC at Race Start Rank",
+            "nativeQueryRef": "Young GC at Race Start Rank"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Mountain GC Proxy Rank"
+              }
+            },
+            "queryRef": "Metrics.Mountain GC Proxy Rank",
+            "nativeQueryRef": "Mountain GC Proxy Rank"
           }
         ]
       }
@@ -1330,9 +1581,9 @@
     "name": "rules",
     "type": "textbox",
     "title": "",
-    "x": 708,
+    "x": 932,
     "y": 610,
-    "width": 704,
+    "width": 480,
     "height": 222
   },
   {
@@ -1808,13 +2059,108 @@
   },
   {
     "page": "countries",
-    "name": "teams_country",
-    "type": "clusteredBarChart",
-    "title": "Teams by team country",
+    "name": "riders_country",
+    "type": "azureMap",
+    "title": "Where the peloton comes from • registered riders",
     "x": 28,
     "y": 345,
-    "width": 440,
-    "height": 487,
+    "width": 680,
+    "height": 300,
+    "fields": {
+      "Category": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Country"
+                  }
+                },
+                "Property": "Country"
+              }
+            },
+            "queryRef": "Country.Country",
+            "nativeQueryRef": "Country",
+            "active": true
+          }
+        ]
+      },
+      "Size": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Riders by Country"
+              }
+            },
+            "queryRef": "Metrics.Riders by Country",
+            "nativeQueryRef": "Riders by Country"
+          }
+        ]
+      },
+      "Tooltips": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Teams by Country"
+              }
+            },
+            "queryRef": "Metrics.Teams by Country",
+            "nativeQueryRef": "Teams by Country"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Country Wins"
+              }
+            },
+            "queryRef": "Metrics.Country Wins",
+            "nativeQueryRef": "Country Wins"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Country Podiums"
+              }
+            },
+            "queryRef": "Metrics.Country Podiums",
+            "nativeQueryRef": "Country Podiums"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "countries",
+    "name": "teams_country",
+    "type": "clusteredColumnChart",
+    "title": "Participation by nation • teams and riders",
+    "x": 728,
+    "y": 345,
+    "width": 684,
+    "height": 300,
     "fields": {
       "Category": {
         "projections": [
@@ -1850,42 +2196,7 @@
             },
             "queryRef": "Metrics.Teams by Country",
             "nativeQueryRef": "Teams by Country"
-          }
-        ]
-      }
-    }
-  },
-  {
-    "page": "countries",
-    "name": "riders_country",
-    "type": "clusteredBarChart",
-    "title": "Riders by rider country",
-    "x": 488,
-    "y": 345,
-    "width": 440,
-    "height": 487,
-    "fields": {
-      "Category": {
-        "projections": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Country"
-                  }
-                },
-                "Property": "Country"
-              }
-            },
-            "queryRef": "Country.Country",
-            "nativeQueryRef": "Country",
-            "active": true
-          }
-        ]
-      },
-      "Y": {
-        "projections": [
+          },
           {
             "field": {
               "Measure": {
@@ -1909,10 +2220,10 @@
     "name": "roster",
     "type": "pivotTable",
     "title": "Expand +  |  Rider country → Team → Rider",
-    "x": 948,
-    "y": 345,
-    "width": 464,
-    "height": 487,
+    "x": 28,
+    "y": 665,
+    "width": 680,
+    "height": 167,
     "fields": {
       "Rows": {
         "projections": [
@@ -1982,6 +2293,1554 @@
         ]
       }
     }
+  },
+  {
+    "page": "countries",
+    "name": "outcomes",
+    "type": "tableEx",
+    "title": "National outcomes • select a nation to inspect its riders",
+    "x": 728,
+    "y": 665,
+    "width": 684,
+    "height": 167,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Country"
+                  }
+                },
+                "Property": "Country"
+              }
+            },
+            "queryRef": "Country.Country",
+            "nativeQueryRef": "Country"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Country Best GC Rank"
+              }
+            },
+            "queryRef": "Metrics.Country Best GC Rank",
+            "nativeQueryRef": "Country Best GC Rank"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Country Wins"
+              }
+            },
+            "queryRef": "Metrics.Country Wins",
+            "nativeQueryRef": "Country Wins"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Country Podiums"
+              }
+            },
+            "queryRef": "Metrics.Country Podiums",
+            "nativeQueryRef": "Country Podiums"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "story",
+    "name": "rider",
+    "type": "slicer",
+    "title": "GC contender / riders",
+    "x": 28,
+    "y": 109,
+    "width": 360,
+    "height": 88,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "story",
+    "name": "team",
+    "type": "slicer",
+    "title": "Rider team",
+    "x": 408,
+    "y": 109,
+    "width": 300,
+    "height": 88,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Rider.Team",
+            "nativeQueryRef": "Team"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "story",
+    "name": "intro",
+    "type": "textbox",
+    "title": "",
+    "x": 728,
+    "y": 109,
+    "width": 684,
+    "height": 88
+  },
+  {
+    "page": "story",
+    "name": "gc_trace",
+    "type": "lineChart",
+    "title": "GC journey • cumulative adjusted hours",
+    "x": 28,
+    "y": 216,
+    "width": 884,
+    "height": 340,
+    "fields": {
+      "Category": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage"
+              }
+            },
+            "queryRef": "Stage.Stage",
+            "nativeQueryRef": "Stage",
+            "active": true
+          }
+        ]
+      },
+      "Y": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "GC Trace Hours"
+              }
+            },
+            "queryRef": "Metrics.GC Trace Hours",
+            "nativeQueryRef": "GC Trace Hours"
+          }
+        ]
+      },
+      "Series": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "story",
+    "name": "rank_changes",
+    "type": "clusteredColumnChart",
+    "title": "Places gained / lost each day",
+    "x": 932,
+    "y": 216,
+    "width": 480,
+    "height": 340,
+    "fields": {
+      "Category": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage"
+              }
+            },
+            "queryRef": "Stage.Stage",
+            "nativeQueryRef": "Stage",
+            "active": true
+          }
+        ]
+      },
+      "Y": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "GC Rank Change"
+              }
+            },
+            "queryRef": "Metrics.GC Rank Change",
+            "nativeQueryRef": "GC Rank Change"
+          }
+        ]
+      },
+      "Series": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "story",
+    "name": "daily",
+    "type": "tableEx",
+    "title": "Daily evidence • sort places gained to locate a turning point",
+    "x": 28,
+    "y": 576,
+    "width": 884,
+    "height": 256,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage"
+              }
+            },
+            "queryRef": "Stage.Stage",
+            "nativeQueryRef": "Stage"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage Type"
+              }
+            },
+            "queryRef": "Stage.Stage Type",
+            "nativeQueryRef": "Stage Type"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "GC Trace Rank"
+              }
+            },
+            "queryRef": "Metrics.GC Trace Rank",
+            "nativeQueryRef": "GC Trace Rank"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "GC Rank Change"
+              }
+            },
+            "queryRef": "Metrics.GC Rank Change",
+            "nativeQueryRef": "GC Rank Change"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Adjusted Seconds"
+              }
+            },
+            "queryRef": "Metrics.Adjusted Seconds",
+            "nativeQueryRef": "Adjusted (s)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "story",
+    "name": "mountain_markers",
+    "type": "lineChart",
+    "title": "Mountain stages • cumulative hours",
+    "x": 932,
+    "y": 576,
+    "width": 480,
+    "height": 256,
+    "fields": {
+      "Category": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage"
+              }
+            },
+            "queryRef": "Stage.Stage",
+            "nativeQueryRef": "Stage",
+            "active": true
+          }
+        ]
+      },
+      "Y": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Mountain Trace Hours"
+              }
+            },
+            "queryRef": "Metrics.Mountain Trace Hours",
+            "nativeQueryRef": "Mountain Trace Hours"
+          }
+        ]
+      },
+      "Series": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "terrain",
+    "name": "team",
+    "type": "slicer",
+    "title": "Rider team",
+    "x": 28,
+    "y": 109,
+    "width": 300,
+    "height": 88,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Rider.Team",
+            "nativeQueryRef": "Team"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "terrain",
+    "name": "rider",
+    "type": "slicer",
+    "title": "Rider",
+    "x": 348,
+    "y": 109,
+    "width": 340,
+    "height": 88,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "terrain",
+    "name": "type",
+    "type": "slicer",
+    "title": "Terrain",
+    "x": 708,
+    "y": 109,
+    "width": 300,
+    "height": 88,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage Type"
+              }
+            },
+            "queryRef": "Stage.Stage Type",
+            "nativeQueryRef": "Stage Type"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "terrain",
+    "name": "intro",
+    "type": "textbox",
+    "title": "",
+    "x": 1028,
+    "y": 109,
+    "width": 384,
+    "height": 88
+  },
+  {
+    "page": "terrain",
+    "name": "speed",
+    "type": "clusteredColumnChart",
+    "title": "Speed profile • terrain × team",
+    "x": 28,
+    "y": 216,
+    "width": 680,
+    "height": 284,
+    "fields": {
+      "Category": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage Type"
+              }
+            },
+            "queryRef": "Stage.Stage Type",
+            "nativeQueryRef": "Stage Type",
+            "active": true
+          }
+        ]
+      },
+      "Y": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Speed Proxy kmh"
+              }
+            },
+            "queryRef": "Metrics.Speed Proxy kmh",
+            "nativeQueryRef": "Speed Proxy kmh"
+          }
+        ]
+      },
+      "Series": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Rider.Team",
+            "nativeQueryRef": "Team"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "terrain",
+    "name": "mountain_scatter",
+    "type": "scatterChart",
+    "title": "Mountain specialists • more podiums, smaller gaps",
+    "x": 728,
+    "y": 216,
+    "width": 684,
+    "height": 284,
+    "fields": {
+      "Category": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider",
+            "active": true
+          }
+        ]
+      },
+      "X": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Mountain Mean Gap Seconds"
+              }
+            },
+            "queryRef": "Metrics.Mountain Mean Gap Seconds",
+            "nativeQueryRef": "Mountain Mean Gap Seconds"
+          }
+        ]
+      },
+      "Y": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Mountain Podiums"
+              }
+            },
+            "queryRef": "Metrics.Mountain Podiums",
+            "nativeQueryRef": "Mountain Podiums"
+          }
+        ]
+      },
+      "Series": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Rider.Team",
+            "nativeQueryRef": "Team"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "terrain",
+    "name": "top_ten",
+    "type": "barChart",
+    "title": "Top-ten intensity • Team → Rider",
+    "x": 28,
+    "y": 520,
+    "width": 680,
+    "height": 312,
+    "fields": {
+      "Category": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Rider.Team",
+            "nativeQueryRef": "Team",
+            "active": true
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider",
+            "active": false
+          }
+        ]
+      },
+      "Y": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Top Ten Finishes"
+              }
+            },
+            "queryRef": "Metrics.Top Ten Finishes",
+            "nativeQueryRef": "Top Ten Finishes"
+          }
+        ]
+      },
+      "Series": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage Type"
+              }
+            },
+            "queryRef": "Stage.Stage Type",
+            "nativeQueryRef": "Stage Type"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "terrain",
+    "name": "evidence",
+    "type": "pivotTable",
+    "title": "Expand +  |  Rider → Stage → Terrain",
+    "x": 728,
+    "y": 520,
+    "width": 684,
+    "height": 312,
+    "fields": {
+      "Rows": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider",
+            "active": true
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage Label"
+              }
+            },
+            "queryRef": "Stage.Stage Label",
+            "nativeQueryRef": "Stage Label",
+            "active": false
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage Type"
+              }
+            },
+            "queryRef": "Stage.Stage Type",
+            "nativeQueryRef": "Stage Type",
+            "active": false
+          }
+        ]
+      },
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Top Ten Finishes"
+              }
+            },
+            "queryRef": "Metrics.Top Ten Finishes",
+            "nativeQueryRef": "Top Ten Finishes"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Mountain Podiums"
+              }
+            },
+            "queryRef": "Metrics.Mountain Podiums",
+            "nativeQueryRef": "Mountain Podiums"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Stage Winner Gap Seconds"
+              }
+            },
+            "queryRef": "Metrics.Stage Winner Gap Seconds",
+            "nativeQueryRef": "Stage Winner Gap Seconds"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Speed Proxy kmh"
+              }
+            },
+            "queryRef": "Metrics.Speed Proxy kmh",
+            "nativeQueryRef": "Speed Proxy kmh"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "stage_focus",
+    "name": "stage",
+    "type": "slicer",
+    "title": "Stage / route",
+    "x": 28,
+    "y": 109,
+    "width": 450,
+    "height": 88,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage Label"
+              }
+            },
+            "queryRef": "Stage.Stage Label",
+            "nativeQueryRef": "Stage Label"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "stage_focus",
+    "name": "type",
+    "type": "slicer",
+    "title": "Stage type • select ITT for catalogue",
+    "x": 498,
+    "y": 109,
+    "width": 300,
+    "height": 88,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage Type"
+              }
+            },
+            "queryRef": "Stage.Stage Type",
+            "nativeQueryRef": "Stage Type"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "stage_focus",
+    "name": "team",
+    "type": "slicer",
+    "title": "Rider team",
+    "x": 818,
+    "y": 109,
+    "width": 280,
+    "height": 88,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Rider.Team",
+            "nativeQueryRef": "Team"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "stage_focus",
+    "name": "intro",
+    "type": "textbox",
+    "title": "",
+    "x": 1118,
+    "y": 109,
+    "width": 294,
+    "height": 88
+  },
+  {
+    "page": "stage_focus",
+    "name": "routes",
+    "type": "tableEx",
+    "title": "Route catalogue • distance descending • filter Individual Time-Trial for ITT",
+    "x": 28,
+    "y": 216,
+    "width": 1384,
+    "height": 238,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage Label"
+              }
+            },
+            "queryRef": "Stage.Stage Label",
+            "nativeQueryRef": "Stage Label"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Date"
+              }
+            },
+            "queryRef": "Stage.Date",
+            "nativeQueryRef": "Date"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage Type"
+              }
+            },
+            "queryRef": "Stage.Stage Type",
+            "nativeQueryRef": "Stage Type"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Start"
+              }
+            },
+            "queryRef": "Stage.Start",
+            "nativeQueryRef": "Start"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Finish"
+              }
+            },
+            "queryRef": "Stage.Finish",
+            "nativeQueryRef": "Finish"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Stage Distance km"
+              }
+            },
+            "queryRef": "Metrics.Stage Distance km",
+            "nativeQueryRef": "Stage Distance km"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Stage Winner"
+              }
+            },
+            "queryRef": "Metrics.Stage Winner",
+            "nativeQueryRef": "Stage Winner"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "stage_focus",
+    "name": "finishers",
+    "type": "tableEx",
+    "title": "Leading finishers • select one stage above",
+    "x": 28,
+    "y": 474,
+    "width": 884,
+    "height": 358,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Rider.Team",
+            "nativeQueryRef": "Team"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Country"
+              }
+            },
+            "queryRef": "Rider.Rider Country",
+            "nativeQueryRef": "Rider Country"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Top Ten Position"
+              }
+            },
+            "queryRef": "Metrics.Top Ten Position",
+            "nativeQueryRef": "Top Ten Position"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Top Ten Adjusted Seconds"
+              }
+            },
+            "queryRef": "Metrics.Top Ten Adjusted Seconds",
+            "nativeQueryRef": "Top Ten Adjusted Seconds"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "stage_focus",
+    "name": "squads",
+    "type": "donutChart",
+    "title": "Share of top-ten finishes • team",
+    "x": 932,
+    "y": 474,
+    "width": 480,
+    "height": 358,
+    "fields": {
+      "Category": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Rider.Team",
+            "nativeQueryRef": "Team",
+            "active": true
+          }
+        ]
+      },
+      "Y": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Top Ten Finishes"
+              }
+            },
+            "queryRef": "Metrics.Top Ten Finishes",
+            "nativeQueryRef": "Top Ten Finishes"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "scenarios",
+    "name": "asof",
+    "type": "slicer",
+    "title": "Standings as of",
+    "x": 28,
+    "y": 109,
+    "width": 280,
+    "height": 88,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "As Of"
+                  }
+                },
+                "Property": "As of Stage"
+              }
+            },
+            "queryRef": "As Of.As of Stage",
+            "nativeQueryRef": "As of Stage"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "scenarios",
+    "name": "scenario",
+    "type": "slicer",
+    "title": "Counterfactual • choose one",
+    "x": 328,
+    "y": 109,
+    "width": 400,
+    "height": 88,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Scenario"
+                  }
+                },
+                "Property": "Scenario"
+              }
+            },
+            "queryRef": "Scenario.Scenario",
+            "nativeQueryRef": "Scenario"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "scenarios",
+    "name": "team",
+    "type": "slicer",
+    "title": "Rider team",
+    "x": 748,
+    "y": 109,
+    "width": 300,
+    "height": 88,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Rider.Team",
+            "nativeQueryRef": "Team"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "scenarios",
+    "name": "intro",
+    "type": "textbox",
+    "title": "",
+    "x": 1068,
+    "y": 109,
+    "width": 344,
+    "height": 88
+  },
+  {
+    "page": "scenarios",
+    "name": "comparison",
+    "type": "tableEx",
+    "title": "Official versus counterfactual • global ranks; eligibility held fixed",
+    "x": 28,
+    "y": 216,
+    "width": 1384,
+    "height": 340,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Rider Status"
+              }
+            },
+            "queryRef": "Metrics.Rider Status",
+            "nativeQueryRef": "Status"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "GC Rank"
+              }
+            },
+            "queryRef": "Metrics.GC Rank",
+            "nativeQueryRef": "GC rank"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Scenario GC Rank"
+              }
+            },
+            "queryRef": "Metrics.Scenario GC Rank",
+            "nativeQueryRef": "Scenario GC Rank"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Scenario Rank Change"
+              }
+            },
+            "queryRef": "Metrics.Scenario Rank Change",
+            "nativeQueryRef": "Scenario Rank Change"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Top Ten Movement"
+              }
+            },
+            "queryRef": "Metrics.Top Ten Movement",
+            "nativeQueryRef": "Top Ten Movement"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Cumulative Bonus Seconds"
+              }
+            },
+            "queryRef": "Metrics.Cumulative Bonus Seconds",
+            "nativeQueryRef": "Cumulative Bonus Seconds"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Cumulative Penalty Seconds"
+              }
+            },
+            "queryRef": "Metrics.Cumulative Penalty Seconds",
+            "nativeQueryRef": "Cumulative Penalty Seconds"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "scenarios",
+    "name": "adjustments",
+    "type": "clusteredBarChart",
+    "title": "Cumulative adjustments • bonus and penalty seconds",
+    "x": 28,
+    "y": 576,
+    "width": 884,
+    "height": 256,
+    "fields": {
+      "Category": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Rider Label"
+              }
+            },
+            "queryRef": "Rider.Rider Label",
+            "nativeQueryRef": "Rider",
+            "active": true
+          }
+        ]
+      },
+      "Y": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Cumulative Bonus Seconds"
+              }
+            },
+            "queryRef": "Metrics.Cumulative Bonus Seconds",
+            "nativeQueryRef": "Cumulative Bonus Seconds"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Cumulative Penalty Seconds"
+              }
+            },
+            "queryRef": "Metrics.Cumulative Penalty Seconds",
+            "nativeQueryRef": "Cumulative Penalty Seconds"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "scenarios",
+    "name": "rules",
+    "type": "textbox",
+    "title": "",
+    "x": 932,
+    "y": 576,
+    "width": 480,
+    "height": 256
   },
   {
     "page": "guide",

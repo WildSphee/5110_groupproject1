@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "team_help",
   "position": {
     "x": 948,
     "y": 520,
-    "width": 464,
+    "z": 75,
     "height": 312,
-    "z": 59,
-    "tabOrder": 60
+    "width": 464,
+    "tabOrder": 76
   },
   "visual": {
     "visualType": "textbox",
@@ -91,13 +91,6 @@
                 }
               }
             },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13"
-                }
-              }
-            },
             "fontColor": {
               "solid": {
                 "color": {
@@ -137,13 +130,6 @@
                       "Value": "'#FFFFFF'"
                     }
                   }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
                 }
               }
             }

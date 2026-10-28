@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "explain",
   "position": {
     "x": 768,
     "y": 109,
-    "width": 644,
+    "z": 71,
     "height": 88,
-    "z": 55,
-    "tabOrder": 56
+    "width": 644,
+    "tabOrder": 72
   },
   "visual": {
     "visualType": "textbox",
@@ -65,13 +65,6 @@
                 }
               }
             },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13"
-                }
-              }
-            },
             "fontColor": {
               "solid": {
                 "color": {
@@ -111,13 +104,6 @@
                       "Value": "'#FFFFFF'"
                     }
                   }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
                 }
               }
             }

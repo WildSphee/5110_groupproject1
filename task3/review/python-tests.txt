@@ -22,11 +22,20 @@ test_bounds_and_no_overlap (test_report.ReportTests.test_bounds_and_no_overlap) 
 test_drill_depth (test_report.ReportTests.test_drill_depth) ... ok
 test_eligible_first_sort (test_report.ReportTests.test_eligible_first_sort) ... ok
 test_pages (test_report.ReportTests.test_pages) ... ok
-test_readability_and_series (test_report.ReportTests.test_readability_and_series) ... ok
+test_readability_and_series (test_report.ReportTests.test_readability_and_series) ... ERROR
 test_roster_correct_measure (test_report.ReportTests.test_roster_correct_measure) ... ok
 test_self_contained_model (test_report.ReportTests.test_self_contained_model) ... ok
 
+======================================================================
+ERROR: test_readability_and_series (test_report.ReportTests.test_readability_and_series)
 ----------------------------------------------------------------------
-Ran 27 tests in 2.506s
+Traceback (most recent call last):
+  File "C:\Users\Chan\Desktop\5110_groupproject1\task3\tests\test_report.py", line 58, in test_readability_and_series
+    if v['visualType'] in ['tableEx','pivotTable']:self.assertEqual(v['objects']['grid'][0]['properties']['textSize']['expr']['Literal']['Value'],'14')
+                                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'textSize'
 
-OK
+----------------------------------------------------------------------
+Ran 27 tests in 2.282s
+
+FAILED (errors=1)

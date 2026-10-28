@@ -1,16 +1,39 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "team",
   "position": {
     "x": 308,
     "y": 109,
-    "width": 340,
+    "z": 41,
     "height": 88,
-    "z": 25,
-    "tabOrder": 26
+    "width": 340,
+    "tabOrder": 42
   },
   "visual": {
     "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Rider"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "Rider.Team",
+              "nativeQueryRef": "Team",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "data": [
         {
@@ -47,15 +70,7 @@
       ],
       "items": [
         {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "12"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ]
     },
@@ -74,13 +89,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Rider team'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13"
                 }
               }
             },
@@ -125,13 +133,6 @@
                   }
                 }
               }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
-                }
-              }
             }
           }
         }
@@ -163,28 +164,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Rider"
-                    }
-                  },
-                  "Property": "Team"
-                }
-              },
-              "queryRef": "Rider.Team",
-              "nativeQueryRef": "Team"
-            }
-          ]
-        }
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

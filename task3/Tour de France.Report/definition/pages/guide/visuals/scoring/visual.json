@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "scoring",
   "position": {
     "x": 28,
     "y": 532,
-    "width": 660,
+    "z": 118,
     "height": 300,
-    "z": 72,
-    "tabOrder": 73
+    "width": 660,
+    "tabOrder": 119
   },
   "visual": {
     "visualType": "textbox",
@@ -91,13 +91,6 @@
                 }
               }
             },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13"
-                }
-              }
-            },
             "fontColor": {
               "solid": {
                 "color": {
@@ -137,13 +130,6 @@
                       "Value": "'#FFFFFF'"
                     }
                   }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
                 }
               }
             }

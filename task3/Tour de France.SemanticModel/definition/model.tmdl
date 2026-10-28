@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_ProTooling = ["MCP-PBIModeling"]
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
 
 ref table Country
 ref table Team
@@ -22,5 +22,7 @@ ref table 'Team Stage'
 ref table 'Team Standing'
 ref table Classification
 ref table Metrics
+ref table Scenario
 
 ref cultureInfo en-US
+

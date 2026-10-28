@@ -87,7 +87,8 @@
       "Young Rider": 1,
       "Leader": 1,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 2,
@@ -100,7 +101,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 32
     },
     {
       "Bib": 3,
@@ -113,7 +115,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 31
     },
     {
       "Bib": 4,
@@ -126,7 +129,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 5,
@@ -139,7 +143,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 28
     },
     {
       "Bib": 6,
@@ -152,7 +157,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 32
     },
     {
       "Bib": 7,
@@ -165,7 +171,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 8,
@@ -178,7 +185,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": 7,
-      "Exit Reason": "Illness"
+      "Exit Reason": "Illness",
+      "Age at Race Start": 31
     },
     {
       "Bib": 11,
@@ -191,7 +199,8 @@
       "Young Rider": 1,
       "Leader": 1,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 12,
@@ -204,7 +213,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 32
     },
     {
       "Bib": 13,
@@ -217,7 +227,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 31
     },
     {
       "Bib": 14,
@@ -230,7 +241,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 15,
@@ -243,7 +255,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 28
     },
     {
       "Bib": 16,
@@ -256,7 +269,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 32
     },
     {
       "Bib": 17,
@@ -269,7 +283,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 18,
@@ -282,7 +297,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 31
     },
     {
       "Bib": 21,
@@ -295,7 +311,8 @@
       "Young Rider": 1,
       "Leader": 1,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 22,
@@ -308,7 +325,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 32
     },
     {
       "Bib": 23,
@@ -321,7 +339,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 31
     },
     {
       "Bib": 24,
@@ -334,7 +353,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 25,
@@ -347,7 +367,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 28
     },
     {
       "Bib": 26,
@@ -360,7 +381,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 32
     },
     {
       "Bib": 27,
@@ -373,7 +395,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": 12,
-      "Exit Reason": "Injury"
+      "Exit Reason": "Injury",
+      "Age at Race Start": 24
     },
     {
       "Bib": 28,
@@ -386,7 +409,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 31
     },
     {
       "Bib": 31,
@@ -399,7 +423,8 @@
       "Young Rider": 1,
       "Leader": 1,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 32,
@@ -412,7 +437,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 32
     },
     {
       "Bib": 33,
@@ -425,7 +451,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 31
     },
     {
       "Bib": 34,
@@ -438,7 +465,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 35,
@@ -451,7 +479,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 28
     },
     {
       "Bib": 36,
@@ -464,7 +493,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 32
     },
     {
       "Bib": 37,
@@ -477,7 +507,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 38,
@@ -490,7 +521,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 31
     },
     {
       "Bib": 41,
@@ -503,7 +535,8 @@
       "Young Rider": 1,
       "Leader": 1,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 42,
@@ -516,7 +549,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 32
     },
     {
       "Bib": 43,
@@ -529,7 +563,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 31
     },
     {
       "Bib": 44,
@@ -542,7 +577,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 45,
@@ -555,7 +591,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 28
     },
     {
       "Bib": 46,
@@ -568,7 +605,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 32
     },
     {
       "Bib": 47,
@@ -581,7 +619,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 48,
@@ -594,7 +633,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 31
     },
     {
       "Bib": 51,
@@ -607,7 +647,8 @@
       "Young Rider": 1,
       "Leader": 1,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 24
     },
     {
       "Bib": 52,
@@ -620,7 +661,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": null,
-      "Exit Reason": "None"
+      "Exit Reason": "None",
+      "Age at Race Start": 32
     },
     {
       "Bib": 53,
@@ -633,7 +675,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": 10,
-      "Exit Reason": "Illness"
+      "Exit Reason": "Illness",
+      "Age at Race Start": 31
     },
     {
       "Bib": 54,
@@ -646,7 +689,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": 13,
-      "Exit Reason": "Injury"
+      "Exit Reason": "Injury",
+      "Age at Race Start": 24
     },
     {
       "Bib": 55,
@@ -659,7 +703,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": 15,
-      "Exit Reason": "Fatigue"
+      "Exit Reason": "Fatigue",
+      "Age at Race Start": 28
     },
     {
       "Bib": 56,
@@ -672,7 +717,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": 16,
-      "Exit Reason": "Illness"
+      "Exit Reason": "Illness",
+      "Age at Race Start": 32
     },
     {
       "Bib": 57,
@@ -685,7 +731,8 @@
       "Young Rider": 1,
       "Leader": 0,
       "Exit Stage": 17,
-      "Exit Reason": "Injury"
+      "Exit Reason": "Injury",
+      "Age at Race Start": 24
     },
     {
       "Bib": 58,
@@ -698,7 +745,8 @@
       "Young Rider": 0,
       "Leader": 0,
       "Exit Stage": 18,
-      "Exit Reason": "Fatigue"
+      "Exit Reason": "Fatigue",
+      "Age at Race Start": 31
     }
   ],
   "Stage": [
@@ -707,147 +755,189 @@
       "Stage Label": "01 | Lille - Amiens",
       "Stage Type": "Flat",
       "Date": "2026-07-04",
-      "Distance km": 162
+      "Distance km": 162,
+      "Start": "Lille",
+      "Finish": "Amiens"
     },
     {
       "Stage": 2,
       "Stage Label": "02 | Amiens - Rouen",
       "Stage Type": "Flat",
       "Date": "2026-07-05",
-      "Distance km": 179
+      "Distance km": 179,
+      "Start": "Amiens",
+      "Finish": "Rouen"
     },
     {
       "Stage": 3,
       "Stage Label": "03 | Rouen - Caen",
       "Stage Type": "Hilly",
       "Date": "2026-07-06",
-      "Distance km": 196
+      "Distance km": 196,
+      "Start": "Rouen",
+      "Finish": "Caen"
     },
     {
       "Stage": 4,
       "Stage Label": "04 | Caen - Rennes",
       "Stage Type": "Flat",
       "Date": "2026-07-07",
-      "Distance km": 148
+      "Distance km": 148,
+      "Start": "Caen",
+      "Finish": "Rennes"
     },
     {
       "Stage": 5,
       "Stage Label": "05 | Rennes - Nantes",
       "Stage Type": "Individual Time-Trial",
       "Date": "2026-07-08",
-      "Distance km": 30.2
+      "Distance km": 30.2,
+      "Start": "Rennes",
+      "Finish": "Nantes"
     },
     {
       "Stage": 6,
       "Stage Label": "06 | Nantes - Tours",
       "Stage Type": "Hilly",
       "Date": "2026-07-09",
-      "Distance km": 182
+      "Distance km": 182,
+      "Start": "Nantes",
+      "Finish": "Tours"
     },
     {
       "Stage": 7,
       "Stage Label": "07 | Tours - Limoges",
       "Stage Type": "Flat",
       "Date": "2026-07-10",
-      "Distance km": 199
+      "Distance km": 199,
+      "Start": "Tours",
+      "Finish": "Limoges"
     },
     {
       "Stage": 8,
       "Stage Label": "08 | Limoges - Bordeaux",
       "Stage Type": "Mountain",
       "Date": "2026-07-11",
-      "Distance km": 151
+      "Distance km": 151,
+      "Start": "Limoges",
+      "Finish": "Bordeaux"
     },
     {
       "Stage": 9,
       "Stage Label": "09 | Bordeaux - Pau",
       "Stage Type": "Mountain",
       "Date": "2026-07-12",
-      "Distance km": 168
+      "Distance km": 168,
+      "Start": "Bordeaux",
+      "Finish": "Pau"
     },
     {
       "Stage": 10,
       "Stage Label": "10 | Pau - Tarbes",
       "Stage Type": "Flat",
       "Date": "2026-07-14",
-      "Distance km": 185
+      "Distance km": 185,
+      "Start": "Pau",
+      "Finish": "Tarbes"
     },
     {
       "Stage": 11,
       "Stage Label": "11 | Tarbes - Foix",
       "Stage Type": "Hilly",
       "Date": "2026-07-15",
-      "Distance km": 202
+      "Distance km": 202,
+      "Start": "Tarbes",
+      "Finish": "Foix"
     },
     {
       "Stage": 12,
       "Stage Label": "12 | Foix - Carcassonne",
       "Stage Type": "Mountain",
       "Date": "2026-07-16",
-      "Distance km": 154
+      "Distance km": 154,
+      "Start": "Foix",
+      "Finish": "Carcassonne"
     },
     {
       "Stage": 13,
       "Stage Label": "13 | Carcassonne - Montpellier",
       "Stage Type": "Flat",
       "Date": "2026-07-17",
-      "Distance km": 171
+      "Distance km": 171,
+      "Start": "Carcassonne",
+      "Finish": "Montpellier"
     },
     {
       "Stage": 14,
       "Stage Label": "14 | Montpellier - Nimes",
       "Stage Type": "Hilly",
       "Date": "2026-07-18",
-      "Distance km": 188
+      "Distance km": 188,
+      "Start": "Montpellier",
+      "Finish": "Nimes"
     },
     {
       "Stage": 15,
       "Stage Label": "15 | Nimes - Valence",
       "Stage Type": "Mountain",
       "Date": "2026-07-19",
-      "Distance km": 205
+      "Distance km": 205,
+      "Start": "Nimes",
+      "Finish": "Valence"
     },
     {
       "Stage": 16,
       "Stage Label": "16 | Valence - Grenoble",
       "Stage Type": "Mountain",
       "Date": "2026-07-20",
-      "Distance km": 157
+      "Distance km": 157,
+      "Start": "Valence",
+      "Finish": "Grenoble"
     },
     {
       "Stage": 17,
       "Stage Label": "17 | Grenoble - Annecy",
       "Stage Type": "Flat",
       "Date": "2026-07-22",
-      "Distance km": 174
+      "Distance km": 174,
+      "Start": "Grenoble",
+      "Finish": "Annecy"
     },
     {
       "Stage": 18,
       "Stage Label": "18 | Annecy - Chambery",
       "Stage Type": "Mountain",
       "Date": "2026-07-23",
-      "Distance km": 191
+      "Distance km": 191,
+      "Start": "Annecy",
+      "Finish": "Chambery"
     },
     {
       "Stage": 19,
       "Stage Label": "19 | Chambery - Dijon",
       "Stage Type": "Individual Time-Trial",
       "Date": "2026-07-24",
-      "Distance km": 34.8
+      "Distance km": 34.8,
+      "Start": "Chambery",
+      "Finish": "Dijon"
     },
     {
       "Stage": 20,
       "Stage Label": "20 | Dijon - Paris",
       "Stage Type": "Hilly",
       "Date": "2026-07-25",
-      "Distance km": 160
+      "Distance km": 160,
+      "Start": "Dijon",
+      "Finish": "Paris"
     },
     {
       "Stage": 21,
       "Stage Label": "21 | Paris - Versailles",
       "Stage Type": "Flat",
       "Date": "2026-07-26",
-      "Distance km": 177
+      "Distance km": 177,
+      "Start": "Paris",
+      "Finish": "Versailles"
     }
   ],
   "As Of": [
@@ -28184,6 +28274,20 @@
     {
       "Classification": "Young Rider",
       "Order": 4
+    }
+  ],
+  "Scenario": [
+    {
+      "Scenario": "Official adjusted"
+    },
+    {
+      "Scenario": "No bonuses"
+    },
+    {
+      "Scenario": "No penalties"
+    },
+    {
+      "Scenario": "No bonuses or penalties"
     }
   ]
 }

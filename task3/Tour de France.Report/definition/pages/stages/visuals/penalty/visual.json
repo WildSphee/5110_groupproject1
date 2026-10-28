@@ -1,16 +1,38 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "penalty",
   "position": {
     "x": 1066,
     "y": 216,
-    "width": 346,
+    "z": 58,
     "height": 105,
-    "z": 42,
-    "tabOrder": 43
+    "width": 346,
+    "tabOrder": 59
   },
   "visual": {
     "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Penalty Seconds"
+                }
+              },
+              "queryRef": "Metrics.Penalty Seconds",
+              "nativeQueryRef": "Penalty (s)"
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "labels": [
         {
@@ -23,27 +45,6 @@
                       "Value": "'#B34B39'"
                     }
                   }
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "30"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
-                }
-              }
-            },
-            "displayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
                 }
               }
             }
@@ -79,13 +80,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Time penalties • seconds'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13"
                 }
               }
             },
@@ -130,13 +124,6 @@
                   }
                 }
               }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
-                }
-              }
             }
           }
         }
@@ -168,28 +155,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Penalty Seconds"
-                }
-              },
-              "queryRef": "Metrics.Penalty Seconds",
-              "nativeQueryRef": "Penalty (s)"
-            }
-          ]
-        }
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

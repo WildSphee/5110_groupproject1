@@ -1,10 +1,10 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "teams",
   "displayName": "04  Team performance",
   "displayOption": "FitToPage",
-  "width": 1440,
   "height": 900,
+  "width": 1440,
   "objects": {
     "background": [
       {
@@ -14,16 +14,9 @@
               "color": {
                 "expr": {
                   "Literal": {
-                    "Value": "'#F3F5F4'"
+                    "Value": "'#F2F5F7'"
                   }
                 }
-              }
-            }
-          },
-          "transparency": {
-            "expr": {
-              "Literal": {
-                "Value": "0"
               }
             }
           }

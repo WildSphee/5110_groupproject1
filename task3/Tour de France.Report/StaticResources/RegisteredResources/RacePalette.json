@@ -1,0 +1,24 @@
+{
+  "name": "RacePalette",
+  "dataColors": [
+    "#087F8C",
+    "#D5A51C",
+    "#7963AD",
+    "#DC715B",
+    "#397BBB",
+    "#62A887"
+  ],
+  "background": "#F2F5F7",
+  "foreground": "#182B3A",
+  "tableAccent": "#087F8C",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#182B3A"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "color": "#526372"
+    }
+  }
+}

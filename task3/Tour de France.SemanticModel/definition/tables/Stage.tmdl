@@ -1,60 +1,72 @@
-/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
 table Stage
-	lineageTag: c91e4b74-ed65-4975-84e3-cda4473c9256
+	lineageTag: 02095895-2cdd-4ea4-ae39-156b2f0f1d13
 
 	column Stage
 		dataType: int64
-		lineageTag: 15edb0d7-0cdf-4c47-ad69-77b1ae36ee41
+		lineageTag: 57541842-c6b7-4969-9947-31843156273b
 		summarizeBy: none
 		sourceColumn: Stage
 
 	column 'Stage Label'
 		dataType: string
-		lineageTag: d415bd3f-da99-41be-9695-1d16b16094e5
+		lineageTag: 1359c92a-59a1-4134-b8b1-ea93adf050da
 		summarizeBy: none
 		sourceColumn: Stage Label
 
 	column 'Stage Type'
 		dataType: string
-		lineageTag: df9b2337-1977-487f-9ac2-11c83e476de0
+		lineageTag: 10dfc198-b51b-4ae9-8c87-fe1ed9c55690
 		summarizeBy: none
 		sourceColumn: Stage Type
 
 	column Date
 		dataType: string
-		lineageTag: 5b7db676-206f-4dc6-9711-ca6b4a48e676
+		lineageTag: ce9a3890-2258-4816-b6c3-a1a1daafad19
 		summarizeBy: none
 		sourceColumn: Date
 
 	column 'Distance km'
 		dataType: double
-		lineageTag: d15fed57-7ba3-4872-9a40-73d2e28bef3d
+		lineageTag: bded2e44-526f-4559-94c6-a5287a13e9cb
 		summarizeBy: none
 		sourceColumn: Distance km
+
+	column Start
+		dataType: string
+		lineageTag: ca8ec6a2-788d-4155-b52c-3e7be689bc92
+		summarizeBy: none
+		sourceColumn: Start
+
+	column Finish
+		dataType: string
+		lineageTag: 8433c12f-023c-4f4a-86c3-c8a035400437
+		summarizeBy: none
+		sourceColumn: Finish
 
 	partition Stage = m
 		mode: import
 		source =
-				let Source = #table(type table [#"Stage" = Int64.Type, #"Stage Label" = nullable text, #"Stage Type" = nullable text, #"Date" = nullable text, #"Distance km" = number], {
-				{1,"01 | Lille - Amiens","Flat","2026-07-04",162},
-				{2,"02 | Amiens - Rouen","Flat","2026-07-05",179},
-				{3,"03 | Rouen - Caen","Hilly","2026-07-06",196},
-				{4,"04 | Caen - Rennes","Flat","2026-07-07",148},
-				{5,"05 | Rennes - Nantes","Individual Time-Trial","2026-07-08",30.2},
-				{6,"06 | Nantes - Tours","Hilly","2026-07-09",182},
-				{7,"07 | Tours - Limoges","Flat","2026-07-10",199},
-				{8,"08 | Limoges - Bordeaux","Mountain","2026-07-11",151},
-				{9,"09 | Bordeaux - Pau","Mountain","2026-07-12",168},
-				{10,"10 | Pau - Tarbes","Flat","2026-07-14",185},
-				{11,"11 | Tarbes - Foix","Hilly","2026-07-15",202},
-				{12,"12 | Foix - Carcassonne","Mountain","2026-07-16",154},
-				{13,"13 | Carcassonne - Montpellier","Flat","2026-07-17",171},
-				{14,"14 | Montpellier - Nimes","Hilly","2026-07-18",188},
-				{15,"15 | Nimes - Valence","Mountain","2026-07-19",205},
-				{16,"16 | Valence - Grenoble","Mountain","2026-07-20",157},
-				{17,"17 | Grenoble - Annecy","Flat","2026-07-22",174},
-				{18,"18 | Annecy - Chambery","Mountain","2026-07-23",191},
-				{19,"19 | Chambery - Dijon","Individual Time-Trial","2026-07-24",34.8},
-				{20,"20 | Dijon - Paris","Hilly","2026-07-25",160},
-				{21,"21 | Paris - Versailles","Flat","2026-07-26",177}
+				let Source = #table(type table [#"Stage" = Int64.Type, #"Stage Label" = nullable text, #"Stage Type" = nullable text, #"Date" = nullable text, #"Distance km" = number, #"Start" = nullable text, #"Finish" = nullable text], {
+				{1,"01 | Lille - Amiens","Flat","2026-07-04",162,"Lille","Amiens"},
+				{2,"02 | Amiens - Rouen","Flat","2026-07-05",179,"Amiens","Rouen"},
+				{3,"03 | Rouen - Caen","Hilly","2026-07-06",196,"Rouen","Caen"},
+				{4,"04 | Caen - Rennes","Flat","2026-07-07",148,"Caen","Rennes"},
+				{5,"05 | Rennes - Nantes","Individual Time-Trial","2026-07-08",30.2,"Rennes","Nantes"},
+				{6,"06 | Nantes - Tours","Hilly","2026-07-09",182,"Nantes","Tours"},
+				{7,"07 | Tours - Limoges","Flat","2026-07-10",199,"Tours","Limoges"},
+				{8,"08 | Limoges - Bordeaux","Mountain","2026-07-11",151,"Limoges","Bordeaux"},
+				{9,"09 | Bordeaux - Pau","Mountain","2026-07-12",168,"Bordeaux","Pau"},
+				{10,"10 | Pau - Tarbes","Flat","2026-07-14",185,"Pau","Tarbes"},
+				{11,"11 | Tarbes - Foix","Hilly","2026-07-15",202,"Tarbes","Foix"},
+				{12,"12 | Foix - Carcassonne","Mountain","2026-07-16",154,"Foix","Carcassonne"},
+				{13,"13 | Carcassonne - Montpellier","Flat","2026-07-17",171,"Carcassonne","Montpellier"},
+				{14,"14 | Montpellier - Nimes","Hilly","2026-07-18",188,"Montpellier","Nimes"},
+				{15,"15 | Nimes - Valence","Mountain","2026-07-19",205,"Nimes","Valence"},
+				{16,"16 | Valence - Grenoble","Mountain","2026-07-20",157,"Valence","Grenoble"},
+				{17,"17 | Grenoble - Annecy","Flat","2026-07-22",174,"Grenoble","Annecy"},
+				{18,"18 | Annecy - Chambery","Mountain","2026-07-23",191,"Annecy","Chambery"},
+				{19,"19 | Chambery - Dijon","Individual Time-Trial","2026-07-24",34.8,"Chambery","Dijon"},
+				{20,"20 | Dijon - Paris","Hilly","2026-07-25",160,"Dijon","Paris"},
+				{21,"21 | Paris - Versailles","Flat","2026-07-26",177,"Paris","Versailles"}
 				}) in Source
+

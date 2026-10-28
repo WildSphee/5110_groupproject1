@@ -6,28 +6,28 @@
       "name": "asof",
       "passed": true,
       "rows": 21,
-      "ms": 28
+      "ms": 52
     },
     {
       "page": "classifications",
       "name": "class_hours",
       "passed": true,
-      "rows": 4,
-      "ms": 14
+      "rows": 40,
+      "ms": 30
     },
     {
       "page": "classifications",
       "name": "comparison",
       "passed": true,
       "rows": 48,
-      "ms": 22
+      "ms": 21
     },
     {
       "page": "classifications",
       "name": "rider",
       "passed": true,
       "rows": 48,
-      "ms": 3
+      "ms": 4
     },
     {
       "page": "classifications",
@@ -41,98 +41,112 @@
       "name": "country",
       "passed": true,
       "rows": 12,
-      "ms": 3
+      "ms": 5
     },
     {
       "page": "countries",
       "name": "foreign",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 8
+    },
+    {
+      "page": "countries",
+      "name": "outcomes",
+      "passed": true,
+      "rows": 12,
+      "ms": 8
     },
     {
       "page": "countries",
       "name": "represented",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 7
     },
     {
       "page": "countries",
       "name": "riders",
       "passed": true,
       "rows": 1,
-      "ms": 5
+      "ms": 6
     },
     {
       "page": "countries",
       "name": "riders_country",
       "passed": true,
       "rows": 12,
-      "ms": 5
+      "ms": 8
     },
     {
       "page": "countries",
       "name": "roster",
       "passed": true,
       "rows": 48,
-      "ms": 7
+      "ms": 8
     },
     {
       "page": "countries",
       "name": "teams",
       "passed": true,
       "rows": 1,
-      "ms": 4
+      "ms": 8
     },
     {
       "page": "countries",
       "name": "teams_country",
       "passed": true,
       "rows": 12,
-      "ms": 5
+      "ms": 7
     },
     {
       "page": "overview",
       "name": "asof",
       "passed": true,
       "rows": 21,
-      "ms": 3
+      "ms": 5
+    },
+    {
+      "page": "overview",
+      "name": "drill_help",
+      "passed": true,
+      "rows": 48,
+      "ms": 7
     },
     {
       "page": "overview",
       "name": "eligible",
       "passed": true,
       "rows": 1,
-      "ms": 3
+      "ms": 5
     },
     {
       "page": "overview",
       "name": "exited",
       "passed": true,
       "rows": 1,
-      "ms": 3
+      "ms": 9
     },
     {
       "page": "overview",
       "name": "gc",
       "passed": true,
       "rows": 40,
-      "ms": 9
+      "ms": 17
     },
     {
       "page": "overview",
       "name": "hours",
       "passed": true,
       "rows": 1,
-      "ms": 3
+      "ms": 30
     },
     {
       "page": "overview",
       "name": "registered",
       "passed": true,
       "rows": 1,
-      "ms": 2
+      "ms": 3
     },
     {
       "page": "overview",
@@ -145,64 +159,99 @@
       "page": "overview",
       "name": "team_rider",
       "passed": true,
-      "rows": 40,
+      "rows": 48,
+      "ms": 6
+    },
+    {
+      "page": "scenarios",
+      "name": "adjustments",
+      "passed": true,
+      "rows": 48,
+      "ms": 9
+    },
+    {
+      "page": "scenarios",
+      "name": "asof",
+      "passed": true,
+      "rows": 21,
+      "ms": 6
+    },
+    {
+      "page": "scenarios",
+      "name": "comparison",
+      "passed": true,
+      "rows": 48,
+      "ms": 83
+    },
+    {
+      "page": "scenarios",
+      "name": "scenario",
+      "passed": true,
+      "rows": 4,
       "ms": 5
+    },
+    {
+      "page": "scenarios",
+      "name": "team",
+      "passed": true,
+      "rows": 6,
+      "ms": 4
     },
     {
       "page": "stages",
       "name": "bonus",
       "passed": true,
       "rows": 1,
-      "ms": 12
+      "ms": 6
     },
     {
       "page": "stages",
       "name": "finishes",
       "passed": true,
       "rows": 1,
-      "ms": 2
+      "ms": 7
     },
     {
       "page": "stages",
       "name": "penalty",
       "passed": true,
       "rows": 1,
-      "ms": 3
+      "ms": 6
     },
     {
       "page": "stages",
       "name": "rider",
       "passed": true,
       "rows": 48,
-      "ms": 3
+      "ms": 11
     },
     {
       "page": "stages",
       "name": "stage",
       "passed": true,
       "rows": 21,
-      "ms": 3
+      "ms": 5
     },
     {
       "page": "stages",
       "name": "stage_matrix",
       "passed": true,
       "rows": 940,
-      "ms": 62
+      "ms": 133
     },
     {
       "page": "stages",
       "name": "team",
       "passed": true,
       "rows": 6,
-      "ms": 3
+      "ms": 4
     },
     {
       "page": "stages",
       "name": "time",
       "passed": true,
       "rows": 1,
-      "ms": 3
+      "ms": 5
     },
     {
       "page": "stages",
@@ -216,6 +265,90 @@
       "name": "type",
       "passed": true,
       "rows": 4,
+      "ms": 4
+    },
+    {
+      "page": "stage_focus",
+      "name": "finishers",
+      "passed": true,
+      "rows": 0,
+      "ms": 4
+    },
+    {
+      "page": "stage_focus",
+      "name": "routes",
+      "passed": true,
+      "rows": 21,
+      "ms": 15
+    },
+    {
+      "page": "stage_focus",
+      "name": "squads",
+      "passed": true,
+      "rows": 6,
+      "ms": 6
+    },
+    {
+      "page": "stage_focus",
+      "name": "stage",
+      "passed": true,
+      "rows": 21,
+      "ms": 7
+    },
+    {
+      "page": "stage_focus",
+      "name": "team",
+      "passed": true,
+      "rows": 6,
+      "ms": 16
+    },
+    {
+      "page": "stage_focus",
+      "name": "type",
+      "passed": true,
+      "rows": 4,
+      "ms": 12
+    },
+    {
+      "page": "story",
+      "name": "daily",
+      "passed": true,
+      "rows": 940,
+      "ms": 103
+    },
+    {
+      "page": "story",
+      "name": "gc_trace",
+      "passed": true,
+      "rows": 940,
+      "ms": 30
+    },
+    {
+      "page": "story",
+      "name": "mountain_markers",
+      "passed": true,
+      "rows": 264,
+      "ms": 18
+    },
+    {
+      "page": "story",
+      "name": "rank_changes",
+      "passed": true,
+      "rows": 892,
+      "ms": 28
+    },
+    {
+      "page": "story",
+      "name": "rider",
+      "passed": true,
+      "rows": 48,
+      "ms": 4
+    },
+    {
+      "page": "story",
+      "name": "team",
+      "passed": true,
+      "rows": 6,
       "ms": 3
     },
     {
@@ -223,21 +356,21 @@
       "name": "asof",
       "passed": true,
       "rows": 21,
-      "ms": 3
+      "ms": 4
     },
     {
       "page": "teams",
       "name": "detail",
       "passed": true,
       "rows": 126,
-      "ms": 10
+      "ms": 14
     },
     {
       "page": "teams",
       "name": "ranking",
       "passed": true,
       "rows": 6,
-      "ms": 8
+      "ms": 10
     },
     {
       "page": "teams",
@@ -251,7 +384,56 @@
       "name": "team_trend",
       "passed": true,
       "rows": 122,
-      "ms": 6
+      "ms": 9
+    },
+    {
+      "page": "terrain",
+      "name": "evidence",
+      "passed": true,
+      "rows": 1008,
+      "ms": 99
+    },
+    {
+      "page": "terrain",
+      "name": "mountain_scatter",
+      "passed": true,
+      "rows": 48,
+      "ms": 11
+    },
+    {
+      "page": "terrain",
+      "name": "rider",
+      "passed": true,
+      "rows": 48,
+      "ms": 5
+    },
+    {
+      "page": "terrain",
+      "name": "speed",
+      "passed": true,
+      "rows": 24,
+      "ms": 5
+    },
+    {
+      "page": "terrain",
+      "name": "team",
+      "passed": true,
+      "rows": 6,
+      "ms": 4
+    },
+    {
+      "page": "terrain",
+      "name": "top_ten",
+      "passed": true,
+      "rows": 192,
+      "ms": 13
+    },
+    {
+      "page": "terrain",
+      "name": "type",
+      "passed": true,
+      "rows": 4,
+      "ms": 4
     }
   ]
 }

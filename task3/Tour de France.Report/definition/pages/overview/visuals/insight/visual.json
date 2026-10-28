@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "insight",
   "position": {
     "x": 752,
     "y": 696,
-    "width": 660,
+    "z": 50,
     "height": 145,
-    "z": 34,
-    "tabOrder": 35
+    "width": 660,
+    "tabOrder": 51
   },
   "visual": {
     "visualType": "textbox",
@@ -19,10 +19,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "READ THE TOTALS CORRECTLY",
+                    "value": "EXPLORE THE FIELD",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "14pt",
+                      "fontSize": "13pt",
                       "color": "#182B3A",
                       "fontWeight": "normal"
                     }
@@ -32,10 +32,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "Rider-hours add the effort of eligible riders. They are not the Best Team score. Page 04 uses each stage’s three fastest adjusted times, and shows incomplete team coverage.",
+                    "value": "The bar chart adds all completed race effort, including days before exit. Drill Team → Rider, then explore daily profiles on pages 02 and 06. The treemap shows roster depth; page 04 uses the separate fastest-three team score.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "14pt",
+                      "fontSize": "13pt",
                       "color": "#182B3A",
                       "fontWeight": "normal"
                     }
@@ -62,13 +62,6 @@
               "expr": {
                 "Literal": {
                   "Value": "''"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13"
                 }
               }
             },
@@ -111,13 +104,6 @@
                       "Value": "'#FFFFFF'"
                     }
                   }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0"
                 }
               }
             }

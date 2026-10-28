@@ -1,0 +1,1559 @@
+[
+  {
+    "name": "Official adjusted: rank rider 1 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 1 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13601
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: rank rider 8 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 8 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13605
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: rank rider 21 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 11
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 21 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13635
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 1 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 1 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13605
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 8 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 8 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13605
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 21 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 11
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 21 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13635
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 1 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 1 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13601
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 8 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 8 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13605
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 21 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 12
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 21 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13635
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 1 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 1 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13605
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 8 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 8 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13605
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 21 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 12
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 21 stage 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 13635
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: rank rider 1 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 1 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78490
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: rank rider 8 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 21
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 8 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78776
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: rank rider 21 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 7
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 21 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78589
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 1 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 1 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78504
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 8 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 21
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 8 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78780
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 21 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 7
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 21 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78589
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 1 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 1 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78490
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 8 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 22
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 8 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78776
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 21 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 7
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 21 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78589
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 1 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 1 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78504
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 8 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 22
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 8 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78780
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 21 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 7
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 21 stage 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 78589
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: rank rider 1 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 1 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 95185
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: rank rider 8 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 8 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: rank rider 21 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 8
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 21 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 95329
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 1 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 1 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 95199
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 8 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 8 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 21 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 8
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 21 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 95329
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 1 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 1 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 95185
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 8 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 8 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 21 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 8
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 21 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 95329
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 1 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 1 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 95199
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 8 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 8 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 21 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 8
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 21 stage 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 95329
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: rank rider 1 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 1 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 323803
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: rank rider 8 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 8 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: rank rider 21 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "Official adjusted: time rider 21 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 324263
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 1 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 1 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 323875
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 8 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 8 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: rank rider 21 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "No bonuses: time rider 21 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 324303
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 1 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 1 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 323803
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 8 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 8 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No penalties: rank rider 21 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "No penalties: time rider 21 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 324263
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 1 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 1 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 323875
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 8 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 8 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: rank rider 21 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "No bonuses or penalties: time rider 21 stage 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 324303
+      }
+    ]
+  },
+  {
+    "name": "Speed Alpine Velo Flat",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Speed Proxy kmh]),TREATAS({\"Alpine Velo\"},'Rider'[Team]),TREATAS({\"Flat\"},'Stage'[Stage Type]))",
+    "expected": [
+      {
+        "value": 42.85370992738607
+      }
+    ]
+  },
+  {
+    "name": "Speed Alpine Velo Hilly",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Speed Proxy kmh]),TREATAS({\"Alpine Velo\"},'Rider'[Team]),TREATAS({\"Hilly\"},'Stage'[Stage Type]))",
+    "expected": [
+      {
+        "value": 38.84914448803508
+      }
+    ]
+  },
+  {
+    "name": "Speed Alpine Velo Mountain",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Speed Proxy kmh]),TREATAS({\"Alpine Velo\"},'Rider'[Team]),TREATAS({\"Mountain\"},'Stage'[Stage Type]))",
+    "expected": [
+      {
+        "value": 31.781143866489497
+      }
+    ]
+  },
+  {
+    "name": "Speed Alpine Velo Individual Time-Trial",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Speed Proxy kmh]),TREATAS({\"Alpine Velo\"},'Rider'[Team]),TREATAS({\"Individual Time-Trial\"},'Stage'[Stage Type]))",
+    "expected": [
+      {
+        "value": 44.583067459608465
+      }
+    ]
+  },
+  {
+    "name": "Speed Northstar Velo Flat",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Speed Proxy kmh]),TREATAS({\"Northstar Velo\"},'Rider'[Team]),TREATAS({\"Flat\"},'Stage'[Stage Type]))",
+    "expected": [
+      {
+        "value": 42.65631702584006
+      }
+    ]
+  },
+  {
+    "name": "Speed Northstar Velo Hilly",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Speed Proxy kmh]),TREATAS({\"Northstar Velo\"},'Rider'[Team]),TREATAS({\"Hilly\"},'Stage'[Stage Type]))",
+    "expected": [
+      {
+        "value": 38.70458655268782
+      }
+    ]
+  },
+  {
+    "name": "Speed Northstar Velo Mountain",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Speed Proxy kmh]),TREATAS({\"Northstar Velo\"},'Rider'[Team]),TREATAS({\"Mountain\"},'Stage'[Stage Type]))",
+    "expected": [
+      {
+        "value": 31.63493710706458
+      }
+    ]
+  },
+  {
+    "name": "Speed Northstar Velo Individual Time-Trial",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Speed Proxy kmh]),TREATAS({\"Northstar Velo\"},'Rider'[Team]),TREATAS({\"Individual Time-Trial\"},'Stage'[Stage Type]))",
+    "expected": [
+      {
+        "value": 43.44009305932532
+      }
+    ]
+  },
+  {
+    "name": "Mountain podiums 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Podiums]),TREATAS({1},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 5
+      }
+    ]
+  },
+  {
+    "name": "Mountain winner gaps 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Mean Gap Seconds]),TREATAS({1},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 13.833333333333334
+      }
+    ]
+  },
+  {
+    "name": "Top ten finishes 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Finishes]),TREATAS({1},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 18
+      }
+    ]
+  },
+  {
+    "name": "Rank change 1 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Rank change 1 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "name": "Rank change 1 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({1},'Rider'[Bib]),TREATAS({9},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Rank change 1 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "name": "Mountain podiums 8",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Podiums]),TREATAS({8},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "name": "Mountain winner gaps 8",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Mean Gap Seconds]),TREATAS({8},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Top ten finishes 8",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Finishes]),TREATAS({8},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "Rank change 8 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Rank change 8 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({8},'Rider'[Bib]),TREATAS({7},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Rank change 8 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({8},'Rider'[Bib]),TREATAS({9},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Rank change 8 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({8},'Rider'[Bib]),TREATAS({21},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Mountain podiums 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Podiums]),TREATAS({21},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "Mountain winner gaps 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Mean Gap Seconds]),TREATAS({21},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 37.5
+      }
+    ]
+  },
+  {
+    "name": "Top ten finishes 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Finishes]),TREATAS({21},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 13
+      }
+    ]
+  },
+  {
+    "name": "Rank change 21 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Rank change 21 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": -1
+      }
+    ]
+  },
+  {
+    "name": "Rank change 21 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({21},'Rider'[Bib]),TREATAS({9},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": -1
+      }
+    ]
+  },
+  {
+    "name": "Rank change 21 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "name": "Mountain podiums 58",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Podiums]),TREATAS({58},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "name": "Mountain winner gaps 58",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Mean Gap Seconds]),TREATAS({58},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 317.6
+      }
+    ]
+  },
+  {
+    "name": "Top ten finishes 58",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Finishes]),TREATAS({58},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "name": "Rank change 58 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({58},'Rider'[Bib]),TREATAS({1},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Rank change 58 7",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({58},'Rider'[Bib]),TREATAS({7},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Rank change 58 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({58},'Rider'[Bib]),TREATAS({9},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "name": "Rank change 58 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({58},'Rider'[Bib]),TREATAS({21},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "National wins France",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Wins]),TREATAS({\"France\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": 6
+      }
+    ]
+  },
+  {
+    "name": "National podiums France",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Podiums]),TREATAS({\"France\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": 10
+      }
+    ]
+  },
+  {
+    "name": "National best GC France",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Best GC Rank]),TREATAS({\"France\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "National wins Singapore",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Wins]),TREATAS({\"Singapore\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "name": "National podiums Singapore",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Podiums]),TREATAS({\"Singapore\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "name": "National best GC Singapore",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Best GC Rank]),TREATAS({\"Singapore\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "National wins Colombia",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Wins]),TREATAS({\"Colombia\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "National podiums Colombia",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Podiums]),TREATAS({\"Colombia\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": 5
+      }
+    ]
+  },
+  {
+    "name": "National best GC Colombia",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Best GC Rank]),TREATAS({\"Colombia\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": 7
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 1 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 1 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 2 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({2},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 2 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({2},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 8 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 8 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 21 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 21 6",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 1 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 1 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 2 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({2},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 2 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({2},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 8 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 8 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 21 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 21 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 1 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 1 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 2 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({2},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 2 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({2},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 8 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 8 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Mountain proxy rank 21 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "Race-start young rank 21 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
+    "expected": [
+      {
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "Top-ten-only result 1 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Top-ten-only result 8 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "Top-ten-only result 21 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Top-ten-only result 58 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({58},'Rider'[Bib]),TREATAS({1},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Top-ten-only result 1 15",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({1},'Rider'[Bib]),TREATAS({15},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 5
+      }
+    ]
+  },
+  {
+    "name": "Top-ten-only result 8 15",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({8},'Rider'[Bib]),TREATAS({15},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Top-ten-only result 21 15",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({21},'Rider'[Bib]),TREATAS({15},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Top-ten-only result 58 15",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({58},'Rider'[Bib]),TREATAS({15},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  }
+]

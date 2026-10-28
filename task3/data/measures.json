@@ -342,5 +342,229 @@
     "formatString": "0",
     "description": "Countries Represented",
     "displayFolder": "Participation"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Top Ten Finishes",
+    "expression": "COALESCE(CALCULATE(COUNTROWS('Result'),KEEPFILTERS('Result'[Position]<=10)),0)",
+    "formatString": "#,0",
+    "description": "Top Ten Finishes",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Stage Wins",
+    "expression": "COALESCE(CALCULATE(COUNTROWS('Result'),KEEPFILTERS('Result'[Position]=1)),0)",
+    "formatString": "#,0",
+    "description": "Stage Wins",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Stage Podiums",
+    "expression": "COALESCE(CALCULATE(COUNTROWS('Result'),KEEPFILTERS('Result'[Position]<=3)),0)",
+    "formatString": "#,0",
+    "description": "Stage Podiums",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Mountain Podiums",
+    "expression": "CALCULATE([Stage Podiums],KEEPFILTERS('Stage'[Stage Type]=\"Mountain\"))",
+    "formatString": "#,0",
+    "description": "Mountain Podiums",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Stage Winner Gap Seconds",
+    "expression": "AVERAGEX('Result', VAR s='Result'[Stage] VAR winner=CALCULATE(MIN('Result'[Adjusted Seconds]),REMOVEFILTERS('Rider'),REMOVEFILTERS('Result'),'Result'[Stage]=s,'Result'[Position]=1) RETURN 'Result'[Adjusted Seconds]-winner)",
+    "formatString": "0.0",
+    "description": "Mean adjusted-time gap to the rider placed first; can be negative after adjustments.",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Mountain Mean Gap Seconds",
+    "expression": "CALCULATE([Stage Winner Gap Seconds],KEEPFILTERS('Stage'[Stage Type]=\"Mountain\"))",
+    "formatString": "0.0",
+    "description": "Mountain Mean Gap Seconds",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Speed Proxy kmh",
+    "expression": "DIVIDE(SUMX('Result',RELATED('Stage'[Distance km])),DIVIDE(SUM('Result'[Finish Seconds]),3600))",
+    "formatString": "0.0",
+    "description": "Distance / raw finish hours. Teams use summed rider-distance / summed rider-time, not summed speeds.",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Mountain Cumulative Seconds",
+    "expression": "IF(HASONEVALUE('Rider'[Bib]) && NOT ISBLANK([GC Rank]), VAR s=[As of Stage Number] RETURN CALCULATE(SUM('Result'[Adjusted Seconds]),FILTER(ALL('Stage'),'Stage'[Stage]<=s && 'Stage'[Stage Type]=\"Mountain\")))",
+    "formatString": "#,0",
+    "description": "Mountain Cumulative Seconds",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Mountain GC Proxy Rank",
+    "expression": "VAR t=[Mountain Cumulative Seconds] VAR field=FILTER(ALL('Rider'),NOT ISBLANK(CALCULATE([Mountain Cumulative Seconds]))) RETURN IF(NOT ISBLANK(t),RANKX(field,[Mountain Cumulative Seconds],t,ASC,Skip))",
+    "formatString": "0",
+    "description": "Time-only mountain proxy, distinct from KOM points.",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Young GC at Race Start Rank",
+    "expression": "VAR t=[Rider Cumulative Seconds] VAR age=SELECTEDVALUE('Rider'[Age at Race Start]) VAR field=FILTER(ALL('Rider'),'Rider'[Age at Race Start]<26 && NOT ISBLANK(CALCULATE([Rider Cumulative Seconds]))) RETURN IF(NOT ISBLANK(t) && age<26,RANKX(field,[Rider Cumulative Seconds],t,ASC,Skip))",
+    "formatString": "0",
+    "description": "Under 26 on the first stage date; separate from the original calendar-year Young Rider rule.",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "GC Trace Hours",
+    "expression": "IF(HASONEVALUE('Rider'[Bib]),DIVIDE(CALCULATE(MAX('Standing'[Cumulative Seconds]),'Standing'[Eligible]=1),3600))",
+    "formatString": "0.00",
+    "description": "GC Trace Hours",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "GC Trace Rank",
+    "expression": "IF(HASONEVALUE('Rider'[Bib]) && HASONEVALUE('Stage'[Stage]),MAX('Standing'[GC Rank]))",
+    "formatString": "0",
+    "description": "GC Trace Rank",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "GC Rank Change",
+    "expression": "VAR s=SELECTEDVALUE('Stage'[Stage]) VAR nowRank=[GC Trace Rank] VAR prior=CALCULATE(MAX('Standing'[GC Rank]),REMOVEFILTERS('Stage'),'Standing'[Stage]=s-1) RETURN IF(NOT ISBLANK(nowRank) && NOT ISBLANK(prior),prior-nowRank)",
+    "formatString": "0",
+    "description": "Positive = places gained; blank on first stage or after exit.",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Mountain Trace Hours",
+    "expression": "CALCULATE([GC Trace Hours],KEEPFILTERS('Stage'[Stage Type]=\"Mountain\"))",
+    "formatString": "0.00",
+    "description": "Mountain Trace Hours",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Stage Distance km",
+    "expression": "SELECTEDVALUE('Stage'[Distance km])",
+    "formatString": "0.0",
+    "description": "Stage Distance km",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Stage Winner",
+    "expression": "VAR winner=CALCULATE(SELECTEDVALUE('Result'[Bib]),REMOVEFILTERS('Rider'),'Result'[Position]=1) RETURN IF(NOT ISBLANK(winner),LOOKUPVALUE('Rider'[Rider Label],'Rider'[Bib],winner))",
+    "formatString": "",
+    "description": "Stage Winner",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Top Ten Adjusted Seconds",
+    "expression": "IF(HASONEVALUE('Rider'[Bib]) && HASONEVALUE('Stage'[Stage]),CALCULATE(SUM('Result'[Adjusted Seconds]),KEEPFILTERS('Result'[Position]<=10)))",
+    "formatString": "#,0",
+    "description": "Top Ten Adjusted Seconds",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Top Ten Position",
+    "expression": "VAR pos=[Stage Position] RETURN IF(NOT ISBLANK(pos) && pos<=10,pos)",
+    "formatString": "0",
+    "description": "Top Ten Position",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Cumulative Bonus Seconds",
+    "expression": "VAR s=[As of Stage Number] RETURN CALCULATE([Bonus Seconds],FILTER(ALL('Stage'),'Stage'[Stage]<=s))",
+    "formatString": "#,0",
+    "description": "Cumulative Bonus Seconds",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Cumulative Penalty Seconds",
+    "expression": "VAR s=[As of Stage Number] RETURN CALCULATE([Penalty Seconds],FILTER(ALL('Stage'),'Stage'[Stage]<=s))",
+    "formatString": "#,0",
+    "description": "Cumulative Penalty Seconds",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Scenario Seconds",
+    "expression": "VAR t=[Rider Cumulative Seconds] VAR mode=SELECTEDVALUE('Scenario'[Scenario],\"Official adjusted\") RETURN IF(NOT ISBLANK(t),t+IF(mode IN {\"No bonuses\",\"No bonuses or penalties\"},[Cumulative Bonus Seconds],0)-IF(mode IN {\"No penalties\",\"No bonuses or penalties\"},[Cumulative Penalty Seconds],0))",
+    "formatString": "#,0",
+    "description": "Scenario Seconds",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Scenario GC Rank",
+    "expression": "VAR t=[Scenario Seconds] VAR field=FILTER(ALL('Rider'),NOT ISBLANK(CALCULATE([Scenario Seconds]))) RETURN IF(NOT ISBLANK(t),RANKX(field,[Scenario Seconds],t,ASC,Skip))",
+    "formatString": "0",
+    "description": "Scenario GC Rank",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Scenario Rank Change",
+    "expression": "IF(NOT ISBLANK([GC Rank]),[GC Rank]-[Scenario GC Rank])",
+    "formatString": "0",
+    "description": "Scenario Rank Change",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Top Ten Movement",
+    "expression": "VAR a=[GC Rank] VAR b=[Scenario GC Rank] RETURN IF(NOT ISBLANK(a),SWITCH(TRUE(),a>10 && b<=10,\"Entered top 10\",a<=10 && b>10,\"Left top 10\",a<=10,\"Stayed top 10\",\"Outside top 10\"))",
+    "formatString": "",
+    "description": "Top Ten Movement",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Country Wins",
+    "expression": "CALCULATE([Stage Wins],KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country])))",
+    "formatString": "#,0",
+    "description": "Country Wins",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Country Podiums",
+    "expression": "CALCULATE([Stage Podiums],KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country])))",
+    "formatString": "#,0",
+    "description": "Country Podiums",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Country Best GC Rank",
+    "expression": "VAR s=[As of Stage Number] RETURN CALCULATE(MIN('Standing'[GC Rank]),REMOVEFILTERS('Stage'),'Standing'[Stage]=s,KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country])))",
+    "formatString": "0",
+    "description": "Country Best GC Rank",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Country Result Count",
+    "expression": "CALCULATE(COUNTROWS('Result'),KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country])))",
+    "formatString": "#,0",
+    "description": "Country Result Count",
+    "displayFolder": "PDF analytics"
   }
 ]

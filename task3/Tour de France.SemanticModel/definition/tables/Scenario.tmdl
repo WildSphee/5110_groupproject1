@@ -1,0 +1,19 @@
+table Scenario
+	lineageTag: 977bb615-db44-4233-bfa6-6ce35179e9e1
+
+	column Scenario
+		dataType: string
+		lineageTag: ececd6e6-523c-4926-876f-b0639ae665ff
+		summarizeBy: none
+		sourceColumn: Scenario
+
+	partition Scenario = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Scenario" = nullable text], {
+				{"Official adjusted"},
+				{"No bonuses"},
+				{"No penalties"},
+				{"No bonuses or penalties"}
+				}) in Source
+
