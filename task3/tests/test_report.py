@@ -17,8 +17,21 @@ def fields(obj):
 class ReportTests(unittest.TestCase):
     def test_pages(self):
         order=json.loads((REPORT/'pages/pages.json').read_text())
-        self.assertEqual(order['pageOrder'],['overview','stages','classifications','teams','countries','story','terrain','stage_focus','scenarios','guide'])
-        self.assertEqual(len(FILES),120)
+        self.assertEqual(order['pageOrder'],['overview','stages','classifications','teams','story','terrain','scenarios'])
+        self.assertEqual(set(order['pageOrder']),{p.parent.name for p in (REPORT/'pages').glob('*/page.json')})
+        self.assertEqual(visual('overview','riders_country')['visualType'],'azureMap')
+        self.assertEqual(visual('scenarios','net_adjustments')['visualType'],'waterfallChart')
+    def test_minimal_controls(self):
+        dropdowns=set(); lists=set()
+        for f in FILES:
+            v=json.loads(f.read_text())['visual']; key=(f.parents[2].name,f.parent.name)
+            self.assertNotIn(v['visualType'],('card','multiRowCard'))
+            if v['visualType']=='textbox':self.assertIn(key[1],{'title','demo'})
+            if v['visualType']=='slicer':
+                mode=v['objects']['data'][0]['properties']['mode']['expr']['Literal']['Value']
+                (dropdowns if mode=="'Dropdown'" else lists).add(key)
+        self.assertEqual(dropdowns,{('teams','asof'),('scenarios','asof'),('classifications','asof')})
+        self.assertEqual(lists,{('story','rider'),('scenarios','scenario')})
     def test_bindings(self):
         for file in FILES:
             definition=json.loads(file.read_text())
@@ -48,15 +61,24 @@ class ReportTests(unittest.TestCase):
                     overlap=min(a['x']+a['width'],b['x']+b['width'])>max(a['x'],b['x']) and min(a['y']+a['height'],b['y']+b['height'])>max(a['y'],b['y'])
                     self.assertFalse(overlap,f'{page.parent.name}: {name} overlaps {other}')
     def test_drill_depth(self):
-        for pg,n,role,depth in [('overview','team_rider','Category',2),('stages','stage_matrix','Rows',4),('teams','detail','Rows',2),('countries','roster','Rows',3)]:
+        for pg,n,role,depth in [('overview','team_rider','Category',2),('stages','stage_matrix','Rows',4),('teams','detail','Rows',2)]:
             v=visual(pg,n);self.assertEqual(len(v['query']['queryState'][role]['projections']),depth);self.assertTrue(v['drillFilterOtherVisuals'])
     def test_roster_correct_measure(self):
-        self.assertEqual(visual('countries','roster')['query']['queryState']['Values']['projections'][0]['field']['Measure']['Property'],'Roster Riders')
+        v=visual('overview','roster');self.assertEqual(v['visualType'],'tableEx')
+        cols=v['query']['queryState']['Values']['projections']
+        self.assertEqual([next(iter(p['field'].values()))['Property'] for p in cols],['Roster Bib','Rider','Team','Rider Country'])
+    def test_stage_selector_and_awards(self):
+        v=visual('stages','stage_pick')
+        self.assertEqual(v['visualType'],'advancedSlicerVisual')
+        self.assertEqual(v['objects']['selection'][0]['properties']['strictSingleSelect']['expr']['Literal']['Value'],'true')
+        data=DATA['Stage'];self.assertEqual([s['Stage'] for s in data],list(range(1,22)))
+        winner=visual('classifications','winners')['query']['queryState']['Values']['projections']
+        self.assertEqual([next(iter(p['field'].values()))['Property'] for p in winner],['Classification','Award leaders','Winning score','Winning rule'])
     def test_readability_and_series(self):
         for file in FILES:
             v=json.loads(file.read_text())['visual']
-            if v['visualType'] in ['tableEx','pivotTable']:self.assertEqual(v['objects']['grid'][0]['properties']['textSize']['expr']['Literal']['Value'],'14')
-        self.assertNotIn('dataPoint',visual('teams','team_trend')['objects'])
+            if v['visualType'] in ['tableEx','pivotTable']:self.assertEqual(v['objects']['grid'][0]['properties']['textSize']['expr']['Literal']['Value'],'14D')
+        self.assertEqual(visual('terrain','mountain_podiums')['visualType'],'clusteredBarChart')
     def test_eligible_first_sort(self):
         sorts=visual('classifications','comparison')['query']['sortDefinition']['sort']
         self.assertEqual([s['field']['Measure']['Property'] for s in sorts],['Rider Status','GC Rank'])

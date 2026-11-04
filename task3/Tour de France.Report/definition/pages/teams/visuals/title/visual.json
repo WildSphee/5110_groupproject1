@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "title",
   "position": {
-    "x": 28,
-    "y": 44,
-    "z": 13,
-    "height": 63,
-    "width": 1376,
-    "tabOrder": 14
+    "x": 24,
+    "y": 12,
+    "width": 760,
+    "height": 68,
+    "z": 6,
+    "tabOrder": 7
   },
   "visual": {
     "visualType": "textbox",
@@ -22,7 +22,7 @@
                     "value": "Team performance",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "24pt",
+                      "fontSize": "26pt",
                       "color": "#182B3A",
                       "fontWeight": "bold"
                     }
@@ -49,6 +49,13 @@
               "expr": {
                 "Literal": {
                   "Value": "''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
                 }
               }
             },
@@ -91,6 +98,13 @@
                       "Value": "'#FFFFFF'"
                     }
                   }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }

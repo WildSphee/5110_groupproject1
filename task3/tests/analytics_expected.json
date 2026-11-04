@@ -1555,5 +1555,455 @@
         "value": null
       }
     ]
+  },
+  {
+    "name": "Overview rider-hours: Hong Kong",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Rider Hours]),TREATAS({\"Hong Kong\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": 89.93666666666667
+      }
+    ]
+  },
+  {
+    "name": "Overview rider-hours: Singapore",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Rider Hours]),TREATAS({\"Singapore\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": 269.65722222222223
+      }
+    ]
+  },
+  {
+    "name": "Overview rider-hours: Japan",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Rider Hours]),TREATAS({\"Japan\"},'Country'[Country]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: Official adjusted, checkpoint 7, day 2",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({7},'As Of'[Stage]),TREATAS({2},'Stage'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 10
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: No bonuses, checkpoint 7, day 2",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({7},'As Of'[Stage]),TREATAS({2},'Stage'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 30
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: No penalties, checkpoint 7, day 2",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({7},'As Of'[Stage]),TREATAS({2},'Stage'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": -20
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: No bonuses or penalties, checkpoint 7, day 2",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({7},'As Of'[Stage]),TREATAS({2},'Stage'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: Official adjusted, checkpoint 7, day 8",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({7},'As Of'[Stage]),TREATAS({8},'Stage'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: No bonuses, checkpoint 7, day 8",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({7},'As Of'[Stage]),TREATAS({8},'Stage'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: No penalties, checkpoint 7, day 8",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({7},'As Of'[Stage]),TREATAS({8},'Stage'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: No bonuses or penalties, checkpoint 7, day 8",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({7},'As Of'[Stage]),TREATAS({8},'Stage'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: Official adjusted, checkpoint 21, day 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({21},'As Of'[Stage]),TREATAS({21},'Stage'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 10
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: No bonuses, checkpoint 21, day 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({21},'As Of'[Stage]),TREATAS({21},'Stage'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 30
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: No penalties, checkpoint 21, day 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({21},'As Of'[Stage]),TREATAS({21},'Stage'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": -20
+      }
+    ]
+  },
+  {
+    "name": "Waterfall: No bonuses or penalties, checkpoint 21, day 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Stage Adjustment Seconds]),TREATAS({21},'As Of'[Stage]),TREATAS({21},'Stage'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
+    "expected": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / General / 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({1},'As Of'[Stage]),TREATAS({\"General\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Sara Tan Kwan Ling"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / General / 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({1},'As Of'[Stage]),TREATAS({\"General\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "3:45:35"
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / Points / 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Sara Tan Kwan Ling"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / Points / 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "50 pts"
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / Mountains / 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Field tied on zero points"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / Mountains / 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "0 pts"
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / Young Rider / 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Young Rider\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Sara Tan Kwan Ling"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / Young Rider / 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Young Rider\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "3:45:35"
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / General / 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({9},'As Of'[Stage]),TREATAS({\"General\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Sara Tan Kwan Ling"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / General / 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({9},'As Of'[Stage]),TREATAS({\"General\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "36:21:54"
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / Points / 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({9},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Sara Tan Kwan Ling"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / Points / 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({9},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "213 pts"
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / Mountains / 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({9},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Sara Tan Kwan Ling"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / Mountains / 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({9},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "20 pts"
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / Young Rider / 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({9},'As Of'[Stage]),TREATAS({\"Young Rider\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Sara Tan Kwan Ling"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / Young Rider / 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({9},'As Of'[Stage]),TREATAS({\"Young Rider\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "36:21:54"
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / General / 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({21},'As Of'[Stage]),TREATAS({\"General\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Aishwarya Jayaraman"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / General / 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({21},'As Of'[Stage]),TREATAS({\"General\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "89:52:11"
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / Points / 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Aishwarya Jayaraman"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / Points / 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "380 pts"
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / Mountains / 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Chan Hiu Lok, Phua Zhuo Wei, Sara Tan Kwan Ling"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / Mountains / 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "38 pts"
+      }
+    ]
+  },
+  {
+    "name": "Award leaders / Young Rider / 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Young Rider\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "Aishwarya Jayaraman"
+      }
+    ]
+  },
+  {
+    "name": "Winning score / Young Rider / 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Young Rider\"},'Classification'[Classification]))",
+    "expected": [
+      {
+        "value": "89:52:11"
+      }
+    ]
+  },
+  {
+    "name": "Best Team time behind leader / MSBA Breeze",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Team deficit minutes]),TREATAS({\"MSBA Breeze\"},'Team'[Team]))",
+    "expected": [
+      {
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "name": "Best Team time behind leader / Alpine Velo",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Team deficit minutes]),TREATAS({\"Alpine Velo\"},'Team'[Team]))",
+    "expected": [
+      {
+        "value": 34.07
+      }
+    ]
+  },
+  {
+    "name": "Best Team time behind leader / Northstar Velo",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Team deficit minutes]),TREATAS({\"Northstar Velo\"},'Team'[Team]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Daily GC gap / 61 / 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC daily deficit seconds]),TREATAS({1},'Stage'[Stage]),TREATAS({61},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 19
+      }
+    ]
+  },
+  {
+    "name": "Daily GC gap / 62 / 9",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC daily deficit seconds]),TREATAS({9},'Stage'[Stage]),TREATAS({62},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 256
+      }
+    ]
+  },
+  {
+    "name": "Daily GC gap / 1 / 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC daily deficit seconds]),TREATAS({21},'Stage'[Stage]),TREATAS({1},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 318
+      }
+    ]
+  },
+  {
+    "name": "Daily GC gap / 8 / 8",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC daily deficit seconds]),TREATAS({8},'Stage'[Stage]),TREATAS({8},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Rider table bib / Singapore / 61",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Roster Bib]),TREATAS({\"Singapore\"},'Country'[Country]),TREATAS({61},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 61
+      }
+    ]
+  },
+  {
+    "name": "Rider table bib / Hong Kong / 62",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Roster Bib]),TREATAS({\"Hong Kong\"},'Country'[Country]),TREATAS({62},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": 62
+      }
+    ]
+  },
+  {
+    "name": "Rider table bib / Singapore / 62",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Roster Bib]),TREATAS({\"Singapore\"},'Country'[Country]),TREATAS({62},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
+  },
+  {
+    "name": "Rider table bib / Japan / 61",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Roster Bib]),TREATAS({\"Japan\"},'Country'[Country]),TREATAS({61},'Rider'[Bib]))",
+    "expected": [
+      {
+        "value": null
+      }
+    ]
   }
 ]

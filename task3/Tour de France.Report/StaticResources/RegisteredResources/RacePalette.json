@@ -11,6 +11,30 @@
   "background": "#F2F5F7",
   "foreground": "#182B3A",
   "tableAccent": "#087F8C",
+  "visualStyles": {
+    "advancedSlicerVisual": {
+      "*": {
+        "layout": [
+          {
+            "orientation": 0,
+            "rowCount": 1,
+            "columnCount": 21,
+            "maxTiles": 21,
+            "autoGrid": false,
+            "showFixedSize": false,
+            "rowPadding": 2,
+            "columnPadding": 2
+          }
+        ],
+        "value": [
+          {
+            "show": true,
+            "fontSize": 12
+          }
+        ]
+      }
+    }
+  },
   "textClasses": {
     "title": {
       "fontFace": "Segoe UI Semibold",

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "demo",
   "position": {
-    "x": 1120,
-    "y": 2,
-    "z": 6,
-    "height": 40,
-    "width": 292,
-    "tabOrder": 7
+    "x": 1148,
+    "y": 14,
+    "width": 264,
+    "height": 48,
+    "z": 3,
+    "tabOrder": 4
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "SYNTHETIC DATA  •  BT5110 / GROUP 5",
+                    "value": "BT5110  /  SYNTHETIC RACE",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "10pt",
-                      "color": "#526372",
+                      "fontSize": "11pt",
+                      "color": "#087F8C",
                       "fontWeight": "bold"
                     }
                   }
@@ -49,6 +49,13 @@
               "expr": {
                 "Literal": {
                   "Value": "''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
                 }
               }
             },
@@ -91,6 +98,13 @@
                       "Value": "'#FFFFFF'"
                     }
                   }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }

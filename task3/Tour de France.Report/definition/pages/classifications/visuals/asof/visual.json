@@ -1,39 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "asof",
   "position": {
-    "x": 28,
-    "y": 109,
-    "z": 62,
-    "height": 88,
-    "width": 300,
-    "tabOrder": 63
+    "x": 830,
+    "y": 8,
+    "width": 290,
+    "height": 74,
+    "z": 26,
+    "tabOrder": 27
   },
   "visual": {
     "visualType": "slicer",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "As Of"
-                    }
-                  },
-                  "Property": "As of Stage"
-                }
-              },
-              "queryRef": "As Of.As of Stage",
-              "nativeQueryRef": "As of Stage",
-              "active": true
-            }
-          ]
-        }
-      }
-    },
     "objects": {
       "data": [
         {
@@ -61,7 +38,7 @@
             "selectAllCheckboxEnabled": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -70,7 +47,15 @@
       ],
       "items": [
         {
-          "properties": {}
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -88,7 +73,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Standings as of (latest selected)'"
+                  "Value": "'Standings after stage'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
                 }
               }
             },
@@ -133,6 +125,13 @@
                   }
                 }
               }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
             }
           }
         }
@@ -164,6 +163,28 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "As Of"
+                    }
+                  },
+                  "Property": "As of Stage"
+                }
+              },
+              "queryRef": "As Of.As of Stage",
+              "nativeQueryRef": "As of Stage"
+            }
+          ]
+        }
+      }
+    }
   }
 }

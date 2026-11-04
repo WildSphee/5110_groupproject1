@@ -422,6 +422,53 @@ table Metrics
 		displayFolder: PDF analytics
 		lineageTag: b2ddb0ad-76b7-4ee0-91c3-55eae8380caa
 
+	/// Completed effort from riders representing the selected country; includes effort before exit.
+	measure 'Country Rider Hours' = CALCULATE([Adjusted Hours],KEEPFILTERS(TREATAS(VALUES('Country'[Country]),'Rider'[Rider Country])))
+		formatString: #,0.00
+		displayFolder: PDF analytics
+
+	/// Net seconds applied to raw finish time under the selected rules, for riders eligible at the snapshot.
+	measure 'Scenario Stage Adjustment Seconds' = VAR s=[As of Stage Number] VAR mode=SELECTEDVALUE('Scenario'[Scenario],"Official adjusted") VAR bibs=CALCULATETABLE(VALUES('Standing'[Bib]),REMOVEFILTERS('Stage'),'Standing'[Stage]=s,'Standing'[Eligible]=1) VAR bonus=CALCULATE([Bonus Seconds],KEEPFILTERS(TREATAS(bibs,'Rider'[Bib])),KEEPFILTERS('Stage'[Stage]<=s)) VAR penalty=CALCULATE([Penalty Seconds],KEEPFILTERS(TREATAS(bibs,'Rider'[Bib])),KEEPFILTERS('Stage'[Stage]<=s)) RETURN IF(NOT ISBLANK(bonus)||NOT ISBLANK(penalty),IF(mode IN {"Official adjusted","No bonuses"},penalty,0)-IF(mode IN {"Official adjusted","No penalties"},bonus,0))
+		formatString: #,0
+		displayFolder: PDF analytics
+
+	/// Bib of a rider in the intersection of the selected team and country.
+	measure 'Roster Bib' = IF(NOT ISBLANK([Roster Riders]),SELECTEDVALUE('Rider'[Bib]))
+		formatString: 0
+		displayFolder: PDF analytics
+
+	/// All joint leaders in the full field through the selected stage.
+	measure 'Award leaders' = VAR c=SELECTEDVALUE('Classification'[Classification]) VAR leaders=CALCULATETABLE(FILTER(ALL('Rider'),[Classification Rank]=1),REMOVEFILTERS('Rider'),REMOVEFILTERS('Stage')) VAR score=MAXX(leaders,SWITCH(c,"Points",[Cumulative Points],"Mountains",[Cumulative KOM Points],[Rider Cumulative Seconds])) RETURN IF(NOT ISBLANK(score),IF(c IN {"Points","Mountains"} && score=0,"Field tied on zero points",CONCATENATEX(leaders,'Rider'[Rider],", ",'Rider'[Bib],ASC)))
+		displayFolder: PDF analytics
+
+	/// Winning score
+	measure 'Winning score' = VAR c=SELECTEDVALUE('Classification'[Classification]) VAR leaders=CALCULATETABLE(FILTER(ALL('Rider'),[Classification Rank]=1),REMOVEFILTERS('Rider'),REMOVEFILTERS('Stage')) VAR score=MAXX(leaders,SWITCH(c,"Points",[Cumulative Points],"Mountains",[Cumulative KOM Points],[Rider Cumulative Seconds])) RETURN IF(NOT ISBLANK(score),IF(c IN {"Points","Mountains"},FORMAT(score,"0") & " pts",FORMAT(INT(score/3600),"0") & ":" & FORMAT(INT(MOD(score,3600)/60),"00") & ":" & FORMAT(MOD(score,60),"00")))
+		displayFolder: PDF analytics
+
+	/// Winning rule
+	measure 'Winning rule' = SWITCH(SELECTEDVALUE('Classification'[Classification]),"General","Lowest total adjusted time","Points","Most cumulative finish points","Mountains","Most cumulative mountain points","Young Rider","Lowest total adjusted time; born on or after 1 Jan 2001")
+		displayFolder: PDF analytics
+
+	/// Time behind the leading team; only teams with the same scored-stage coverage are comparable.
+	measure 'Team deficit minutes' = VAR scored=[Stages Scored] VAR most=MAXX(ALL('Team'),[Stages Scored]) VAR referenceTime=MINX(FILTER(ALL('Team'),[Stages Scored]=most),[Team Cumulative Hours]) RETURN IF(HASONEVALUE('Team'[Team]) && scored=most,ROUND(60*([Team Cumulative Hours]-referenceTime),2))
+		formatString: 0.00
+		displayFolder: PDF analytics
+
+	/// Gap to the overall leader on the axis stage; zero is a shared or outright lead.
+	measure 'GC daily deficit seconds' = VAR t=IF(HASONEVALUE('Stage'[Stage]) && HASONEVALUE('Rider'[Bib]),CALCULATE(MIN('Standing'[Cumulative Seconds]),'Standing'[Eligible]=1)) VAR bestTime=CALCULATE(MIN('Standing'[Cumulative Seconds]),REMOVEFILTERS('Rider'),'Standing'[Eligible]=1) RETURN IF(NOT ISBLANK(t),t-bestTime)
+		formatString: #,0
+		displayFolder: PDF analytics
+
+	/// Mountain-stage top-three finishes; only podium finishers are shown.
+	measure 'Mountain podium finishes' = IF([Mountain Podiums]>0,[Mountain Podiums])
+		formatString: 0
+		displayFolder: PDF analytics
+
+	/// Raw finish seconds behind the stage winner; tied finish times may have different positions.
+	measure 'Top Ten Finish Gap' = VAR pos=[Top Ten Position] VAR winner=CALCULATE(MIN('Result'[Finish Seconds]),REMOVEFILTERS('Rider'),'Result'[Position]=1) RETURN IF(NOT ISBLANK(pos),MAX('Result'[Finish Seconds])-winner)
+		formatString: #,0
+		displayFolder: PDF analytics
+
 	column Label
 		dataType: string
 		lineageTag: fe8f0536-51e2-44e7-aac4-1cacd22e0f20
