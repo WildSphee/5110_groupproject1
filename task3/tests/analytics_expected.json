@@ -4,7 +4,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 3
+        "value": 6
       }
     ]
   },
@@ -13,7 +13,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 13601
+        "value": 13605
       }
     ]
   },
@@ -22,7 +22,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 4
+        "value": 6
       }
     ]
   },
@@ -40,7 +40,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 11
+        "value": 14
       }
     ]
   },
@@ -58,7 +58,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 3
+        "value": 6
       }
     ]
   },
@@ -76,7 +76,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 3
+        "value": 6
       }
     ]
   },
@@ -94,7 +94,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 11
+        "value": 14
       }
     ]
   },
@@ -112,7 +112,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 3
+        "value": 6
       }
     ]
   },
@@ -121,7 +121,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 13601
+        "value": 13605
       }
     ]
   },
@@ -130,7 +130,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 4
+        "value": 6
       }
     ]
   },
@@ -148,7 +148,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 12
+        "value": 15
       }
     ]
   },
@@ -166,7 +166,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 3
+        "value": 6
       }
     ]
   },
@@ -184,7 +184,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 3
+        "value": 6
       }
     ]
   },
@@ -202,7 +202,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({1},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 12
+        "value": 15
       }
     ]
   },
@@ -220,7 +220,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 2
+        "value": 6
       }
     ]
   },
@@ -229,7 +229,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 78490
+        "value": 78498
       }
     ]
   },
@@ -238,7 +238,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 21
+        "value": 25
       }
     ]
   },
@@ -247,7 +247,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 78776
+        "value": 78780
       }
     ]
   },
@@ -256,7 +256,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 7
+        "value": 11
       }
     ]
   },
@@ -274,7 +274,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 2
+        "value": 6
       }
     ]
   },
@@ -292,7 +292,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 21
+        "value": 25
       }
     ]
   },
@@ -310,7 +310,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 7
+        "value": 11
       }
     ]
   },
@@ -328,7 +328,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 2
+        "value": 6
       }
     ]
   },
@@ -337,7 +337,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 78490
+        "value": 78498
       }
     ]
   },
@@ -346,7 +346,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 22
+        "value": 26
       }
     ]
   },
@@ -355,7 +355,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 78776
+        "value": 78780
       }
     ]
   },
@@ -364,7 +364,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 7
+        "value": 11
       }
     ]
   },
@@ -382,7 +382,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 2
+        "value": 6
       }
     ]
   },
@@ -400,7 +400,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({8},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 22
+        "value": 26
       }
     ]
   },
@@ -418,7 +418,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 7
+        "value": 11
       }
     ]
   },
@@ -436,7 +436,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 2
+        "value": 6
       }
     ]
   },
@@ -445,7 +445,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 95185
+        "value": 95193
       }
     ]
   },
@@ -472,7 +472,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 8
+        "value": 12
       }
     ]
   },
@@ -490,7 +490,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 2
+        "value": 6
       }
     ]
   },
@@ -526,7 +526,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 8
+        "value": 12
       }
     ]
   },
@@ -544,7 +544,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 2
+        "value": 6
       }
     ]
   },
@@ -553,7 +553,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 95185
+        "value": 95193
       }
     ]
   },
@@ -580,7 +580,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 8
+        "value": 12
       }
     ]
   },
@@ -598,7 +598,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 2
+        "value": 6
       }
     ]
   },
@@ -634,7 +634,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 8
+        "value": 12
       }
     ]
   },
@@ -652,7 +652,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 1
+        "value": 5
       }
     ]
   },
@@ -661,7 +661,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 323803
+        "value": 323849
       }
     ]
   },
@@ -688,7 +688,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 4
+        "value": 8
       }
     ]
   },
@@ -697,7 +697,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Official adjusted\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 324263
+        "value": 324299
       }
     ]
   },
@@ -706,7 +706,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 1
+        "value": 5
       }
     ]
   },
@@ -742,7 +742,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 4
+        "value": 8
       }
     ]
   },
@@ -760,7 +760,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 1
+        "value": 5
       }
     ]
   },
@@ -769,7 +769,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 323803
+        "value": 323849
       }
     ]
   },
@@ -796,7 +796,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 4
+        "value": 8
       }
     ]
   },
@@ -805,7 +805,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario Seconds]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 324263
+        "value": 324299
       }
     ]
   },
@@ -814,7 +814,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 1
+        "value": 5
       }
     ]
   },
@@ -850,7 +850,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Scenario GC Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]),TREATAS({\"No bonuses or penalties\"},'Scenario'[Scenario]))",
     "expected": [
       {
-        "value": 4
+        "value": 8
       }
     ]
   },
@@ -940,7 +940,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Podiums]),TREATAS({1},'Rider'[Bib]))",
     "expected": [
       {
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -949,7 +949,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Mean Gap Seconds]),TREATAS({1},'Rider'[Bib]))",
     "expected": [
       {
-        "value": 13.833333333333334
+        "value": 45.666666666666664
       }
     ]
   },
@@ -958,7 +958,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Finishes]),TREATAS({1},'Rider'[Bib]))",
     "expected": [
       {
-        "value": 18
+        "value": 15
       }
     ]
   },
@@ -985,7 +985,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Rank Change]),TREATAS({1},'Rider'[Bib]),TREATAS({9},'Stage'[Stage]))",
     "expected": [
       {
-        "value": 1
+        "value": 2
       }
     ]
   },
@@ -1066,7 +1066,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Podiums]),TREATAS({21},'Rider'[Bib]))",
     "expected": [
       {
-        "value": 4
+        "value": 1
       }
     ]
   },
@@ -1075,7 +1075,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Mean Gap Seconds]),TREATAS({21},'Rider'[Bib]))",
     "expected": [
       {
-        "value": 37.5
+        "value": 69.33333333333333
       }
     ]
   },
@@ -1084,7 +1084,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Finishes]),TREATAS({21},'Rider'[Bib]))",
     "expected": [
       {
-        "value": 13
+        "value": 9
       }
     ]
   },
@@ -1138,7 +1138,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain Mean Gap Seconds]),TREATAS({58},'Rider'[Bib]))",
     "expected": [
       {
-        "value": 317.6
+        "value": 339.8
       }
     ]
   },
@@ -1192,7 +1192,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Wins]),TREATAS({\"France\"},'Country'[Country]))",
     "expected": [
       {
-        "value": 6
+        "value": 2
       }
     ]
   },
@@ -1201,7 +1201,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Podiums]),TREATAS({\"France\"},'Country'[Country]))",
     "expected": [
       {
-        "value": 10
+        "value": 5
       }
     ]
   },
@@ -1210,7 +1210,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Best GC Rank]),TREATAS({\"France\"},'Country'[Country]))",
     "expected": [
       {
-        "value": 1
+        "value": 5
       }
     ]
   },
@@ -1219,7 +1219,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Wins]),TREATAS({\"Singapore\"},'Country'[Country]))",
     "expected": [
       {
-        "value": 0
+        "value": 13
       }
     ]
   },
@@ -1228,7 +1228,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Podiums]),TREATAS({\"Singapore\"},'Country'[Country]))",
     "expected": [
       {
-        "value": 0
+        "value": 35
       }
     ]
   },
@@ -1237,7 +1237,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Best GC Rank]),TREATAS({\"Singapore\"},'Country'[Country]))",
     "expected": [
       {
-        "value": null
+        "value": 1
       }
     ]
   },
@@ -1246,7 +1246,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Wins]),TREATAS({\"Colombia\"},'Country'[Country]))",
     "expected": [
       {
-        "value": 1
+        "value": 0
       }
     ]
   },
@@ -1255,7 +1255,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Podiums]),TREATAS({\"Colombia\"},'Country'[Country]))",
     "expected": [
       {
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -1264,7 +1264,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Country Best GC Rank]),TREATAS({\"Colombia\"},'Country'[Country]))",
     "expected": [
       {
-        "value": 7
+        "value": 11
       }
     ]
   },
@@ -1282,7 +1282,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 1
+        "value": 3
       }
     ]
   },
@@ -1336,7 +1336,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({6},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 4
+        "value": 6
       }
     ]
   },
@@ -1345,7 +1345,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 1
+        "value": 3
       }
     ]
   },
@@ -1354,7 +1354,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 1
+        "value": 3
       }
     ]
   },
@@ -1363,7 +1363,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({2},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 2
+        "value": 4
       }
     ]
   },
@@ -1399,7 +1399,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 3
+        "value": 5
       }
     ]
   },
@@ -1408,7 +1408,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({9},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 2
+        "value": 4
       }
     ]
   },
@@ -1417,7 +1417,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 1
+        "value": 4
       }
     ]
   },
@@ -1426,7 +1426,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({1},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 1
+        "value": 3
       }
     ]
   },
@@ -1435,7 +1435,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({2},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 3
+        "value": 7
       }
     ]
   },
@@ -1471,7 +1471,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Mountain GC Proxy Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 2
+        "value": 6
       }
     ]
   },
@@ -1480,7 +1480,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Young GC at Race Start Rank]),TREATAS({21},'Rider'[Bib]),TREATAS({21},'As Of'[Stage]))",
     "expected": [
       {
-        "value": 2
+        "value": 4
       }
     ]
   },
@@ -1489,7 +1489,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({1},'Rider'[Bib]),TREATAS({1},'Stage'[Stage]))",
     "expected": [
       {
-        "value": 3
+        "value": 6
       }
     ]
   },
@@ -1498,7 +1498,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({8},'Rider'[Bib]),TREATAS({1},'Stage'[Stage]))",
     "expected": [
       {
-        "value": 4
+        "value": 7
       }
     ]
   },
@@ -1525,7 +1525,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({1},'Rider'[Bib]),TREATAS({15},'Stage'[Stage]))",
     "expected": [
       {
-        "value": 5
+        "value": 8
       }
     ]
   },
@@ -1543,7 +1543,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Top Ten Position]),TREATAS({21},'Rider'[Bib]),TREATAS({15},'Stage'[Stage]))",
     "expected": [
       {
-        "value": 1
+        "value": 4
       }
     ]
   },

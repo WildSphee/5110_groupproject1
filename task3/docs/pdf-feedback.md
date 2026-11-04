@@ -29,7 +29,7 @@ Source: `project+dashboard+suggested+functions (1).pdf`, E1–E15. The report no
 - Mountain gaps use the adjusted time of the rider with recorded position 1 as the benchmark, across the complete field. Adjustments can theoretically produce a negative gap.
 - What-if scenarios hold eligibility fixed and recompute global competition ranks. Positive movement means places gained. Removing adjustments can change times without changing any ranks or top-ten membership.
 - Country participation uses registration; national outcomes use rider nationality. Team nationality remains independent. Country best GC uses the final stage, while wins/podiums include completed results before a rider withdrew.
-- The Azure map needs internet access and Azure Maps availability. The adjacent columns retain every country, including Singapore and Japan with zero counts.
+- The Azure map needs internet access and Azure Maps availability. The adjacent columns retain every country, including Japan with zero counts.
 
 ## Validation
 

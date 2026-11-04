@@ -30,6 +30,7 @@ table Country
 				{"AUS","Australia"},
 				{"COL","Colombia"},
 				{"SGP","Singapore"},
-				{"JPN","Japan"}
+				{"JPN","Japan"},
+				{"HKG","Hong Kong"}
 				}) in Source
 

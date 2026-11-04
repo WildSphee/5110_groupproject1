@@ -34,7 +34,7 @@ def build():
     countries = [dict(country_code=c, country_name=n) for c,n in [
         ('FRA','France'),('ESP','Spain'),('ITA','Italy'),('BEL','Belgium'),('NLD','Netherlands'),
         ('GBR','United Kingdom'),('DEU','Germany'),('DNK','Denmark'),('AUS','Australia'),
-        ('COL','Colombia'),('SGP','Singapore'),('JPN','Japan')]]
+        ('COL','Colombia'),('SGP','Singapore'),('JPN','Japan'),('HKG','Hong Kong')]]
     names = {c['country_code']:c['country_name'] for c in countries}
     teams = [dict(team_name=n,country_code=c) for n,c in [
         ('Alpine Velo','FRA'),('Atlantic Racing','FRA'),('Iberia Wheels','ESP'),
@@ -48,6 +48,15 @@ def build():
             born=date(2002 if i in [0,3,6] else 1993+(i%5),1+(i*2)%12,1+i)
             riders.append(dict(bib_no=bib,rider_name=f'{first[i]} {last[t]}',dob=born.isoformat(),
                 is_leader=i==0,team_name=team['team_name'],country_code=countries[(t+i*3)%10]['country_code']))
+    teams.append(dict(team_name='MSBA Breeze',country_code='SGP'))
+    # Names and nationalities supplied for the fictional team. DOB, bib, role and times are invented.
+    for bib,name,code,dob in [(61,'Aishwarya Jayaraman','SGP','2002-04-12'),
+                              (62,'Chan Hiu Lok','HKG','1998-07-09'),
+                              (63,'Phua Zhuo Wei','SGP','2000-02-17'),
+                              (64,'Sara Tan Kwan Ling','SGP','2001-10-03')]:
+        riders.append(dict(bib_no=bib,rider_name=name,dob=dob,is_leader=bib==61,
+                           team_name='MSBA Breeze',country_code=code))
+    breeze_rng=random.Random(511061)
     places=['Lille','Amiens','Rouen','Caen','Rennes','Nantes','Tours','Limoges','Bordeaux','Pau','Tarbes',
             'Foix','Carcassonne','Montpellier','Nimes','Valence','Grenoble','Annecy','Chambery','Dijon','Paris','Versailles']
     locations=[dict(location_name=n,country_code='FRA') for n in places]
@@ -71,7 +80,12 @@ def build():
             if exit_at.get(b,999)<=sid: continue
             pace={'flat':43,'hilly':39,'mountain':32,'individual time-trial':47}[kind]
             ability=role*28 if kind in ['mountain','individual time-trial'] else abs(role-2)*7
-            elapsed=round(st['distance_km']/pace*3600)+ability+rng.randint(0,100)+(b//10)*13
+            base=round(st['distance_km']/pace*3600)
+            if r['team_name']=='MSBA Breeze':
+                # Three quick finishers per stage; rotate the support rider. No award/rank overrides.
+                elapsed=base+breeze_rng.randint(-8,52)+(100 if (b-61)==(sid%4) else 0)
+            else:
+                elapsed=base+ability+rng.randint(0,100)+(b//10)*13
             if kind=='flat': elapsed=(elapsed//15)*15  # real equal finish times, unique positions
             rows.append(dict(bib_no=b,stage_id=sid,finish_time=elapsed,bonus=0,time_penalty=30 if (b+sid)%43==0 else 0))
         rows.sort(key=lambda r:(r['finish_time'],r['bib_no']))
@@ -138,4 +152,4 @@ def build():
 if __name__=='__main__':
     DATA.mkdir(exist_ok=True,parents=True);build()
     from extend_analytics import extend
-    extend()
+    extend(refresh_fixture=True)

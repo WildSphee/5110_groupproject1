@@ -1,83 +1,83 @@
 {
-  "connection": "Data Source=localhost:51992",
+  "connection": "Data Source=localhost:65247",
   "tests": [
     {
       "name": "Official adjusted: rank rider 1 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 69
+      "ms": 48
     },
     {
       "name": "Official adjusted: time rider 1 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 10
+      "ms": 11
     },
     {
       "name": "Official adjusted: rank rider 8 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 25
+      "ms": 26
     },
     {
       "name": "Official adjusted: time rider 8 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 10
+      "ms": 11
     },
     {
       "name": "Official adjusted: rank rider 21 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 24
+      "ms": 32
     },
     {
       "name": "Official adjusted: time rider 21 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 10
+      "ms": 15
     },
     {
       "name": "No bonuses: rank rider 1 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 30
+      "ms": 44
     },
     {
       "name": "No bonuses: time rider 1 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 19
+      "ms": 18
     },
     {
       "name": "No bonuses: rank rider 8 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 31
+      "ms": 33
     },
     {
       "name": "No bonuses: time rider 8 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 13
+      "ms": 14
     },
     {
       "name": "No bonuses: rank rider 21 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 30
+      "ms": 36
     },
     {
       "name": "No bonuses: time rider 21 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 13
+      "ms": 12
     },
     {
       "name": "No penalties: rank rider 1 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 30
+      "ms": 34
     },
     {
       "name": "No penalties: time rider 1 stage 1",
@@ -89,19 +89,19 @@
       "name": "No penalties: rank rider 8 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 30
+      "ms": 32
     },
     {
       "name": "No penalties: time rider 8 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 12
     },
     {
       "name": "No penalties: rank rider 21 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 33
+      "ms": 34
     },
     {
       "name": "No penalties: time rider 21 stage 1",
@@ -113,7 +113,7 @@
       "name": "No bonuses or penalties: rank rider 1 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 36
+      "ms": 43
     },
     {
       "name": "No bonuses or penalties: time rider 1 stage 1",
@@ -125,7 +125,7 @@
       "name": "No bonuses or penalties: rank rider 8 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 39
+      "ms": 40
     },
     {
       "name": "No bonuses or penalties: time rider 8 stage 1",
@@ -137,25 +137,25 @@
       "name": "No bonuses or penalties: rank rider 21 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 36
+      "ms": 40
     },
     {
       "name": "No bonuses or penalties: time rider 21 stage 1",
       "passed": true,
       "rows": 1,
-      "ms": 15
+      "ms": 16
     },
     {
       "name": "Official adjusted: rank rider 1 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 26
+      "ms": 27
     },
     {
       "name": "Official adjusted: time rider 1 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 10
+      "ms": 11
     },
     {
       "name": "Official adjusted: rank rider 8 stage 6",
@@ -167,37 +167,37 @@
       "name": "Official adjusted: time rider 8 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 10
+      "ms": 13
     },
     {
       "name": "Official adjusted: rank rider 21 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 24
+      "ms": 35
     },
     {
       "name": "Official adjusted: time rider 21 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 11
+      "ms": 10
     },
     {
       "name": "No bonuses: rank rider 1 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 42
+      "ms": 32
     },
     {
       "name": "No bonuses: time rider 1 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 13
     },
     {
       "name": "No bonuses: rank rider 8 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 30
+      "ms": 31
     },
     {
       "name": "No bonuses: time rider 8 stage 6",
@@ -209,457 +209,457 @@
       "name": "No bonuses: rank rider 21 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 32
+      "ms": 36
     },
     {
       "name": "No bonuses: time rider 21 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 17
+      "ms": 13
     },
     {
       "name": "No penalties: rank rider 1 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 44
+      "ms": 35
     },
     {
       "name": "No penalties: time rider 1 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 15
+      "ms": 13
     },
     {
       "name": "No penalties: rank rider 8 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 37
+      "ms": 31
     },
     {
       "name": "No penalties: time rider 8 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 16
+      "ms": 14
     },
     {
       "name": "No penalties: rank rider 21 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 34
+      "ms": 35
     },
     {
       "name": "No penalties: time rider 21 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 18
+      "ms": 11
     },
     {
       "name": "No bonuses or penalties: rank rider 1 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 73
+      "ms": 36
     },
     {
       "name": "No bonuses or penalties: time rider 1 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 23
+      "ms": 22
     },
     {
       "name": "No bonuses or penalties: rank rider 8 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 62
+      "ms": 37
     },
     {
       "name": "No bonuses or penalties: time rider 8 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 21
+      "ms": 14
     },
     {
       "name": "No bonuses or penalties: rank rider 21 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 79
+      "ms": 44
     },
     {
       "name": "No bonuses or penalties: time rider 21 stage 6",
       "passed": true,
       "rows": 1,
-      "ms": 20
+      "ms": 15
     },
     {
       "name": "Official adjusted: rank rider 1 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 54
+      "ms": 23
     },
     {
       "name": "Official adjusted: time rider 1 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 27
+      "ms": 10
     },
     {
       "name": "Official adjusted: rank rider 8 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 41
+      "ms": 22
     },
     {
       "name": "Official adjusted: time rider 8 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 13
+      "ms": 11
     },
     {
       "name": "Official adjusted: rank rider 21 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 29
+      "ms": 24
     },
     {
       "name": "Official adjusted: time rider 21 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 11
+      "ms": 10
     },
     {
       "name": "No bonuses: rank rider 1 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 37
+      "ms": 28
     },
     {
       "name": "No bonuses: time rider 1 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 17
+      "ms": 13
     },
     {
       "name": "No bonuses: rank rider 8 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 31
+      "ms": 25
     },
     {
       "name": "No bonuses: time rider 8 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 10
     },
     {
       "name": "No bonuses: rank rider 21 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 39
+      "ms": 30
     },
     {
       "name": "No bonuses: time rider 21 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 16
+      "ms": 11
     },
     {
       "name": "No penalties: rank rider 1 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 59
+      "ms": 28
     },
     {
       "name": "No penalties: time rider 1 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 21
+      "ms": 13
     },
     {
       "name": "No penalties: rank rider 8 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 35
+      "ms": 22
     },
     {
       "name": "No penalties: time rider 8 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 20
+      "ms": 9
     },
     {
       "name": "No penalties: rank rider 21 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 44
+      "ms": 28
     },
     {
       "name": "No penalties: time rider 21 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 11
     },
     {
       "name": "No bonuses or penalties: rank rider 1 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 50
+      "ms": 33
     },
     {
       "name": "No bonuses or penalties: time rider 1 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 18
+      "ms": 15
     },
     {
       "name": "No bonuses or penalties: rank rider 8 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 31
+      "ms": 24
     },
     {
       "name": "No bonuses or penalties: time rider 8 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 10
     },
     {
       "name": "No bonuses or penalties: rank rider 21 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 62
+      "ms": 34
     },
     {
       "name": "No bonuses or penalties: time rider 21 stage 7",
       "passed": true,
       "rows": 1,
-      "ms": 16
+      "ms": 18
     },
     {
       "name": "Official adjusted: rank rider 1 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 32
+      "ms": 24
     },
     {
       "name": "Official adjusted: time rider 1 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 10
     },
     {
       "name": "Official adjusted: rank rider 8 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 28
+      "ms": 21
     },
     {
       "name": "Official adjusted: time rider 8 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 12
+      "ms": 10
     },
     {
       "name": "Official adjusted: rank rider 21 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 26
+      "ms": 23
     },
     {
       "name": "Official adjusted: time rider 21 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 11
+      "ms": 9
     },
     {
       "name": "No bonuses: rank rider 1 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 42
+      "ms": 28
     },
     {
       "name": "No bonuses: time rider 1 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 16
+      "ms": 11
     },
     {
       "name": "No bonuses: rank rider 8 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 28
+      "ms": 21
     },
     {
       "name": "No bonuses: time rider 8 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 11
+      "ms": 9
     },
     {
       "name": "No bonuses: rank rider 21 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 35
+      "ms": 26
     },
     {
       "name": "No bonuses: time rider 21 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 16
+      "ms": 11
     },
     {
       "name": "No penalties: rank rider 1 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 34
+      "ms": 47
     },
     {
       "name": "No penalties: time rider 1 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 17
+      "ms": 13
     },
     {
       "name": "No penalties: rank rider 8 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 27
+      "ms": 21
     },
     {
       "name": "No penalties: time rider 8 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 9
     },
     {
       "name": "No penalties: rank rider 21 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 36
+      "ms": 27
     },
     {
       "name": "No penalties: time rider 21 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 12
     },
     {
       "name": "No bonuses or penalties: rank rider 1 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 43
+      "ms": 33
     },
     {
       "name": "No bonuses or penalties: time rider 1 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 18
+      "ms": 15
     },
     {
       "name": "No bonuses or penalties: rank rider 8 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 31
+      "ms": 23
     },
     {
       "name": "No bonuses or penalties: time rider 8 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 12
+      "ms": 9
     },
     {
       "name": "No bonuses or penalties: rank rider 21 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 42
+      "ms": 32
     },
     {
       "name": "No bonuses or penalties: time rider 21 stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 22
+      "ms": 14
     },
     {
       "name": "Speed Alpine Velo Flat",
       "passed": true,
       "rows": 1,
-      "ms": 15
+      "ms": 11
     },
     {
       "name": "Speed Alpine Velo Hilly",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 5
     },
     {
       "name": "Speed Alpine Velo Mountain",
       "passed": true,
       "rows": 1,
-      "ms": 10
+      "ms": 9
     },
     {
       "name": "Speed Alpine Velo Individual Time-Trial",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 7
     },
     {
       "name": "Speed Northstar Velo Flat",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 6
     },
     {
       "name": "Speed Northstar Velo Hilly",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 6
     },
     {
       "name": "Speed Northstar Velo Mountain",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 5
     },
     {
       "name": "Speed Northstar Velo Individual Time-Trial",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 4
     },
     {
       "name": "Mountain podiums 1",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 4
     },
     {
       "name": "Mountain winner gaps 1",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 10
     },
     {
       "name": "Top ten finishes 1",
       "passed": true,
       "rows": 1,
-      "ms": 5
+      "ms": 4
     },
     {
       "name": "Rank change 1 1",
       "passed": true,
       "rows": 1,
-      "ms": 9
+      "ms": 7
     },
     {
       "name": "Rank change 1 7",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 7
     },
     {
       "name": "Rank change 1 9",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 7
     },
     {
       "name": "Rank change 1 21",
@@ -671,127 +671,127 @@
       "name": "Mountain podiums 8",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 4
     },
     {
       "name": "Mountain winner gaps 8",
       "passed": true,
       "rows": 1,
-      "ms": 10
+      "ms": 6
     },
     {
       "name": "Top ten finishes 8",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 4
     },
     {
       "name": "Rank change 8 1",
       "passed": true,
       "rows": 1,
-      "ms": 9
+      "ms": 6
     },
     {
       "name": "Rank change 8 7",
       "passed": true,
       "rows": 1,
-      "ms": 12
+      "ms": 7
     },
     {
       "name": "Rank change 8 9",
       "passed": true,
       "rows": 1,
-      "ms": 16
+      "ms": 7
     },
     {
       "name": "Rank change 8 21",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 7
     },
     {
       "name": "Mountain podiums 21",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 5
     },
     {
       "name": "Mountain winner gaps 21",
       "passed": true,
       "rows": 1,
-      "ms": 11
+      "ms": 8
     },
     {
       "name": "Top ten finishes 21",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 4
     },
     {
       "name": "Rank change 21 1",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 6
     },
     {
       "name": "Rank change 21 7",
       "passed": true,
       "rows": 1,
-      "ms": 9
+      "ms": 7
     },
     {
       "name": "Rank change 21 9",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 6
     },
     {
       "name": "Rank change 21 21",
       "passed": true,
       "rows": 1,
-      "ms": 9
+      "ms": 7
     },
     {
       "name": "Mountain podiums 58",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 4
     },
     {
       "name": "Mountain winner gaps 58",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 6
     },
     {
       "name": "Top ten finishes 58",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 4
     },
     {
       "name": "Rank change 58 1",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 7
     },
     {
       "name": "Rank change 58 7",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 6
     },
     {
       "name": "Rank change 58 9",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 7
     },
     {
       "name": "Rank change 58 21",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 7
     },
     {
       "name": "National wins France",
@@ -809,169 +809,169 @@
       "name": "National best GC France",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 7
     },
     {
       "name": "National wins Singapore",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 6
     },
     {
       "name": "National podiums Singapore",
       "passed": true,
       "rows": 1,
-      "ms": 9
+      "ms": 5
     },
     {
       "name": "National best GC Singapore",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 6
     },
     {
       "name": "National wins Colombia",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 6
     },
     {
       "name": "National podiums Colombia",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 6
     },
     {
       "name": "National best GC Colombia",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 5
     },
     {
       "name": "Mountain proxy rank 1 6",
       "passed": true,
       "rows": 1,
-      "ms": 19
+      "ms": 14
     },
     {
       "name": "Race-start young rank 1 6",
       "passed": true,
       "rows": 1,
-      "ms": 15
+      "ms": 12
     },
     {
       "name": "Mountain proxy rank 2 6",
       "passed": true,
       "rows": 1,
-      "ms": 17
+      "ms": 16
     },
     {
       "name": "Race-start young rank 2 6",
       "passed": true,
       "rows": 1,
-      "ms": 11
+      "ms": 10
     },
     {
       "name": "Mountain proxy rank 8 6",
       "passed": true,
       "rows": 1,
-      "ms": 19
+      "ms": 15
     },
     {
       "name": "Race-start young rank 8 6",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 11
     },
     {
       "name": "Mountain proxy rank 21 6",
       "passed": true,
       "rows": 1,
-      "ms": 19
+      "ms": 17
     },
     {
       "name": "Race-start young rank 21 6",
       "passed": true,
       "rows": 1,
-      "ms": 16
+      "ms": 11
     },
     {
       "name": "Mountain proxy rank 1 9",
       "passed": true,
       "rows": 1,
-      "ms": 24
+      "ms": 21
     },
     {
       "name": "Race-start young rank 1 9",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 11
     },
     {
       "name": "Mountain proxy rank 2 9",
       "passed": true,
       "rows": 1,
-      "ms": 26
+      "ms": 18
     },
     {
       "name": "Race-start young rank 2 9",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 9
     },
     {
       "name": "Mountain proxy rank 8 9",
       "passed": true,
       "rows": 1,
-      "ms": 21
+      "ms": 13
     },
     {
       "name": "Race-start young rank 8 9",
       "passed": true,
       "rows": 1,
-      "ms": 16
+      "ms": 10
     },
     {
       "name": "Mountain proxy rank 21 9",
       "passed": true,
       "rows": 1,
-      "ms": 28
+      "ms": 17
     },
     {
       "name": "Race-start young rank 21 9",
       "passed": true,
       "rows": 1,
-      "ms": 17
+      "ms": 24
     },
     {
       "name": "Mountain proxy rank 1 21",
       "passed": true,
       "rows": 1,
-      "ms": 30
+      "ms": 21
     },
     {
       "name": "Race-start young rank 1 21",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 13
     },
     {
       "name": "Mountain proxy rank 2 21",
       "passed": true,
       "rows": 1,
-      "ms": 45
+      "ms": 22
     },
     {
       "name": "Race-start young rank 2 21",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 11
     },
     {
       "name": "Mountain proxy rank 8 21",
       "passed": true,
       "rows": 1,
-      "ms": 16
+      "ms": 12
     },
     {
       "name": "Race-start young rank 8 21",
@@ -983,19 +983,19 @@
       "name": "Mountain proxy rank 21 21",
       "passed": true,
       "rows": 1,
-      "ms": 24
+      "ms": 19
     },
     {
       "name": "Race-start young rank 21 21",
       "passed": true,
       "rows": 1,
-      "ms": 14
+      "ms": 11
     },
     {
       "name": "Top-ten-only result 1 1",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 5
     },
     {
       "name": "Top-ten-only result 8 1",
@@ -1007,37 +1007,37 @@
       "name": "Top-ten-only result 21 1",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 5
     },
     {
       "name": "Top-ten-only result 58 1",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 5
     },
     {
       "name": "Top-ten-only result 1 15",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 5
     },
     {
       "name": "Top-ten-only result 8 15",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 5
     },
     {
       "name": "Top-ten-only result 21 15",
       "passed": true,
       "rows": 1,
-      "ms": 6
+      "ms": 5
     },
     {
       "name": "Top-ten-only result 58 15",
       "passed": true,
       "rows": 1,
-      "ms": 8
+      "ms": 5
     }
   ]
 }

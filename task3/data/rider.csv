@@ -47,3 +47,7 @@ bib_no,rider_name,dob,is_leader,team_name,country_code
 56,Jamie Berg,1993-11-06,False,Northstar Velo,FRA
 57,Casey Berg,2002-01-07,False,Northstar Velo,BEL
 58,Avery Berg,1995-03-08,False,Northstar Velo,DEU
+61,Aishwarya Jayaraman,2002-04-12,True,MSBA Breeze,SGP
+62,Chan Hiu Lok,1998-07-09,False,MSBA Breeze,HKG
+63,Phua Zhuo Wei,2000-02-17,False,MSBA Breeze,SGP
+64,Sara Tan Kwan Ling,2001-10-03,False,MSBA Breeze,SGP

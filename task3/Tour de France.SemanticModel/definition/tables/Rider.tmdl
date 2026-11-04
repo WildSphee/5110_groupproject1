@@ -124,6 +124,10 @@ table Rider
 				{55,"Taylor Berg","Taylor Berg (55)","Northstar Velo","Denmark","Netherlands","1997-09-05",0,0,15,"Fatigue",28},
 				{56,"Jamie Berg","Jamie Berg (56)","Northstar Velo","France","Netherlands","1993-11-06",0,0,16,"Illness",32},
 				{57,"Casey Berg","Casey Berg (57)","Northstar Velo","Belgium","Netherlands","2002-01-07",1,0,17,"Injury",24},
-				{58,"Avery Berg","Avery Berg (58)","Northstar Velo","Germany","Netherlands","1995-03-08",0,0,18,"Fatigue",31}
+				{58,"Avery Berg","Avery Berg (58)","Northstar Velo","Germany","Netherlands","1995-03-08",0,0,18,"Fatigue",31},
+				{61,"Aishwarya Jayaraman","Aishwarya Jayaraman (61)","MSBA Breeze","Singapore","Singapore","2002-04-12",1,1,null,"None",24},
+				{62,"Chan Hiu Lok","Chan Hiu Lok (62)","MSBA Breeze","Hong Kong","Singapore","1998-07-09",0,0,null,"None",27},
+				{63,"Phua Zhuo Wei","Phua Zhuo Wei (63)","MSBA Breeze","Singapore","Singapore","2000-02-17",0,0,null,"None",26},
+				{64,"Sara Tan Kwan Ling","Sara Tan Kwan Ling (64)","MSBA Breeze","Singapore","Singapore","2001-10-03",1,0,null,"None",24}
 				}) in Source
 

@@ -1,4 +1,5 @@
 test_all_snapshot_ranks (test_data.DataTests.test_all_snapshot_ranks) ... ok
+test_breeze_roster_and_award (test_data.DataTests.test_breeze_roster_and_award) ... ok
 test_countries (test_data.DataTests.test_countries) ... ok
 test_counts (test_data.DataTests.test_counts) ... ok
 test_duration_over_24h (test_data.DataTests.test_duration_over_24h) ... ok
@@ -36,6 +37,6 @@ Traceback (most recent call last):
 KeyError: 'textSize'
 
 ----------------------------------------------------------------------
-Ran 27 tests in 2.282s
+Ran 28 tests in 0.488s
 
 FAILED (errors=1)

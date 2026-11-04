@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "No stage selection = stage 21. Rankings stay global when you filter a team. All people, scores and results are fictional.",
+                    "value": "No stage selection = stage 21. Rankings stay global when you filter a team. Teams, scores and results are fictional.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "12pt",

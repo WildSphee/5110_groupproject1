@@ -2,7 +2,9 @@
 
 Open **Tour de France.pbip** in Power BI Desktop. Keep the `.Report` and `.SemanticModel` directories beside it. If first-open visuals are empty, choose **Home → Refresh**; the embedded dummy data requires no credentials or external paths. Save after refresh to retain a local data cache. Use **File → Save As → Power BI (.pbix)** if a single packaged file is needed. The source-controlled deliverable is the editable PBIP/TMDL/PBIR project.
 
-**All data is fictional.** This is a reproducible demonstration of Task 3, not real Tour de France results. The report has ten pages: Race overview, Stage explorer, Classifications, Team performance, Country participation, GC storyline, Terrain & consistency, Routes & stage focus, GC what-if, and Guide & definitions.
+**The race is fictional.** On **04 Team performance**, clear the stage selector for the final standings. MSBA Breeze (Singapore) wins Best Team across 21 scored stages. On **05 Country participation**, three of its riders represent Singapore and Chan Hiu Lok represents Hong Kong. The supplied roster names identify demo riders; birth dates, roles and race times are synthetic.
+
+The report has ten pages: Race overview, Stage explorer, Classifications, Team performance, Country participation, GC storyline, Terrain & consistency, Routes & stage focus, GC what-if, and Guide & definitions.
 
 The PDF feedback refresh adds an Azure participation map, treemap, scatterplot, grouped columns, stacked bars and donut alongside the existing line charts and tables, under one shared palette. See [PDF feedback coverage and definitions](docs/pdf-feedback.md) for E1?E15 and the new controls.
 
@@ -11,8 +13,8 @@ The PDF feedback refresh adds an Azure participation map, treemap, scatterplot, 
 1. Overview: select the team bar chart, enable its down arrow and click a team. The chart drills to riders; the up arrow rolls back up.
 2. Stage explorer: expand the matrix from stage type to stage, team and rider. Check finish − bonus + penalty against adjusted seconds. Slicers narrow the stage, rider or team.
 3. Classifications: compare all four global ranks. Select stage 06 then 07 and rider Avery Laurent (bib 8): the exit removes current eligibility at stage 07.
-4. Team performance: compare stages 17 and 18 for Northstar Velo. Fewer than three finishers creates an unscored stage; the team cannot win merely by accumulating less time.
-5. Countries: inspect France's two teams; Singapore and Japan remain visible with zero participation. Expand the roster to see riders whose nationality differs from their team.
+4. Team performance: check the final Best Team rank for MSBA Breeze. Fewer than three finishers creates an unscored stage; the team cannot win merely by accumulating less time.
+5. Countries: inspect France's two teams; Singapore has one team and three riders; Hong Kong has one rider and no teams. Japan remains visible with zero participation. Expand the roster to see riders whose nationality differs from their team.
 
 Slicers are local to a page. No As Of selection means the final stage; multiple selections use the latest stage. Use a slicer's eraser to clear it. Click a selected chart mark again to clear cross-filtering. Page 10 explains these controls and the demo scoring assumptions.
 

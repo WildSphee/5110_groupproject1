@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
 
-def extend():
+def extend(refresh_fixture=False):
     tables = json.loads((DATA/'model_data.json').read_text(encoding='utf-8'))
     stages = {int(r['stage_id']): r for r in csv.DictReader((DATA/'stage.csv').open())}
     race_start = min(date.fromisoformat(r['stage_date']) for r in stages.values())
@@ -20,6 +20,19 @@ def extend():
         row['Age at Race Start'] = race_start.year-dob.year-((race_start.month,race_start.day)<(dob.month,dob.day))
     tables['Scenario'] = [{'Scenario': s} for s in ['Official adjusted','No bonuses','No penalties','No bonuses or penalties']]
     (DATA/'model_data.json').write_text(json.dumps(tables,indent=2),encoding='utf-8')
+    # Refresh embedded rows too: Power BI reads these partitions, not the generated CSVs.
+    for name in (tables if refresh_fixture else ['Team','Country','Result','Standing','Team Stage','Team Standing']):
+        path=ROOT/'Tour de France.SemanticModel/definition/tables'/f'{name}.tmdl'
+        text=path.read_text(encoding='utf-8')
+        rows=tables[name]
+        def literal(v):
+            return 'null' if v is None else '"' + v.replace('"','""') + '"' if isinstance(v,str) else str(v)
+        body=',\n'.join('\t'*4+'{'+','.join(literal(v) for v in row.values())+'}' for row in rows)
+        start=text.index('], {\n',text.index('let Source = #table'))+len('], {\n')
+        end=text.index('\t'*4+'}) in Source',start)
+        updated=text[:start]+body+'\n'+text[end:]
+        if text!=updated:path.write_text(updated,encoding='utf-8')
+    if refresh_fixture:return  # Retain the checked-in measures, columns and lineage tags.
     measures=[]
     def m(name,expression,fmt='#,0',description=None):
         measures.append(dict(tableName='Metrics',name=name,expression=expression,formatString=fmt,description=description or name,displayFolder='PDF analytics'))

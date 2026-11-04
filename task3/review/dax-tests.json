@@ -1,98 +1,146 @@
 {
-  "connection": "Data Source=localhost:51992",
+  "connection": "Data Source=localhost:65247",
   "tests": [
+    {
+      "name": "MSBA Breeze final award",
+      "passed": true,
+      "rows": 1,
+      "ms": 27
+    },
+    {
+      "name": "MSBA Breeze roster",
+      "passed": true,
+      "rows": 4,
+      "ms": 5
+    },
     {
       "name": "All four ranks, stage 1",
       "passed": true,
-      "rows": 48,
-      "ms": 36
+      "rows": 52,
+      "ms": 12
     },
     {
       "name": "All four ranks, stage 6",
       "passed": true,
-      "rows": 48,
-      "ms": 12
+      "rows": 52,
+      "ms": 11
     },
     {
       "name": "All four ranks, stage 7",
       "passed": true,
-      "rows": 47,
+      "rows": 51,
       "ms": 12
     },
     {
       "name": "All four ranks, stage 17",
       "passed": true,
-      "rows": 41,
+      "rows": 45,
       "ms": 11
     },
     {
       "name": "All four ranks, stage 18",
       "passed": true,
-      "rows": 40,
-      "ms": 11
+      "rows": 44,
+      "ms": 13
     },
     {
       "name": "All four ranks, stage 21",
       "passed": true,
-      "rows": 40,
-      "ms": 13
+      "rows": 44,
+      "ms": 12
     },
     {
       "name": "Independent countries including zeros",
       "passed": true,
-      "rows": 12,
-      "ms": 9
+      "rows": 13,
+      "ms": 8
     },
     {
       "name": "Roster country_name / None",
       "passed": true,
-      "rows": 10,
-      "ms": 6
+      "rows": 12,
+      "ms": 8
     },
     {
       "name": "Roster country_name / France",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 8
     },
     {
       "name": "Roster country_name / Singapore",
       "passed": true,
+      "rows": 1,
+      "ms": 8
+    },
+    {
+      "name": "Roster country_name / Hong Kong",
+      "passed": true,
+      "rows": 1,
+      "ms": 16
+    },
+    {
+      "name": "Roster country_name / Japan",
+      "passed": true,
       "rows": 0,
-      "ms": 6
+      "ms": 8
     },
     {
       "name": "Roster country_name,team_name / None",
       "passed": true,
-      "rows": 48,
-      "ms": 6
+      "rows": 50,
+      "ms": 10
     },
     {
       "name": "Roster country_name,team_name / France",
       "passed": true,
       "rows": 5,
-      "ms": 6
+      "ms": 7
     },
     {
       "name": "Roster country_name,team_name / Singapore",
       "passed": true,
-      "rows": 0,
+      "rows": 1,
+      "ms": 8
+    },
+    {
+      "name": "Roster country_name,team_name / Hong Kong",
+      "passed": true,
+      "rows": 1,
       "ms": 6
+    },
+    {
+      "name": "Roster country_name,team_name / Japan",
+      "passed": true,
+      "rows": 0,
+      "ms": 15
     },
     {
       "name": "Roster country_name,team_name,bib_no / None",
       "passed": true,
-      "rows": 48,
+      "rows": 52,
       "ms": 7
     },
     {
       "name": "Roster country_name,team_name,bib_no / France",
       "passed": true,
       "rows": 5,
-      "ms": 6
+      "ms": 7
     },
     {
       "name": "Roster country_name,team_name,bib_no / Singapore",
+      "passed": true,
+      "rows": 3,
+      "ms": 6
+    },
+    {
+      "name": "Roster country_name,team_name,bib_no / Hong Kong",
+      "passed": true,
+      "rows": 1,
+      "ms": 7
+    },
+    {
+      "name": "Roster country_name,team_name,bib_no / Japan",
       "passed": true,
       "rows": 0,
       "ms": 6
@@ -100,19 +148,19 @@
     {
       "name": "Team coverage stage 17",
       "passed": true,
-      "rows": 6,
-      "ms": 18
+      "rows": 7,
+      "ms": 17
     },
     {
       "name": "Team coverage stage 18",
       "passed": true,
-      "rows": 6,
-      "ms": 16
+      "rows": 7,
+      "ms": 7
     },
     {
       "name": "Team coverage stage 21",
       "passed": true,
-      "rows": 6,
+      "rows": 7,
       "ms": 8
     },
     {
@@ -125,31 +173,31 @@
       "name": "Drill stage_type,stage_id",
       "passed": true,
       "rows": 21,
-      "ms": 5
+      "ms": 6
     },
     {
       "name": "Drill stage_id,team_name",
       "passed": true,
-      "rows": 126,
+      "rows": 147,
       "ms": 8
     },
     {
       "name": "Drill stage_id,team_name,bib_no",
       "passed": true,
-      "rows": 940,
-      "ms": 28
+      "rows": 1024,
+      "ms": 36
     },
     {
       "name": "Single rider preserves global rank",
       "passed": true,
       "rows": 1,
-      "ms": 7
+      "ms": 6
     },
     {
       "name": "Duration string does not wrap after 24 hours",
       "passed": true,
       "rows": 1,
-      "ms": 5
+      "ms": 6
     },
     {
       "name": "Explicit exit count at stage 1",
@@ -179,25 +227,25 @@
       "name": "Explicit exit count at stage 21",
       "passed": true,
       "rows": 1,
-      "ms": 5
+      "ms": 4
     },
     {
       "name": "Multi stage selector uses latest",
       "passed": true,
       "rows": 1,
-      "ms": 5
+      "ms": 6
     },
     {
       "name": "Historical exit: stage 6 vs 7",
       "passed": true,
       "rows": 1,
-      "ms": 9
+      "ms": 8
     },
     {
       "name": "Running time ignores stage type filter",
       "passed": true,
       "rows": 1,
-      "ms": 11
+      "ms": 8
     },
     {
       "name": "No results returns blank, no fake zero rank",

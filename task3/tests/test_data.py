@@ -28,16 +28,16 @@ def reference(s):
     SELECT ranked.*,youth.yr FROM ranked LEFT JOIN youth USING(bib_no) ORDER BY bib_no''',s,s,scalar('SELECT COUNT(*) FROM stage WHERE stage_id<=?',s))
 
 class DataTests(unittest.TestCase):
-    def test_counts(self):self.assertEqual([len(raw[n]) for n in ['rider','team','stage','country','result']],[48,6,21,12,940])
+    def test_counts(self):self.assertEqual([len(raw[n]) for n in ['rider','team','stage','country','result']],[52,7,21,13,1024])
     def test_keys(self):
-        self.assertEqual(scalar('SELECT COUNT(*) FROM (SELECT bib_no,stage_id FROM result GROUP BY bib_no,stage_id)'),940)
-        self.assertEqual(scalar('SELECT COUNT(*) FROM (SELECT stage_id,position FROM result GROUP BY stage_id,position)'),940)
+        self.assertEqual(scalar('SELECT COUNT(*) FROM (SELECT bib_no,stage_id FROM result GROUP BY bib_no,stage_id)'),1024)
+        self.assertEqual(scalar('SELECT COUNT(*) FROM (SELECT stage_id,position FROM result GROUP BY stage_id,position)'),1024)
     def test_foreign_keys(self):
         for table,col,dim,key in [('result','bib_no','rider','bib_no'),('result','stage_id','stage','stage_id'),('rider','team_name','team','team_name'),('rider','country_code','country','country_code'),('team','country_code','country','country_code')]:
             self.assertEqual(scalar(f'SELECT COUNT(*) FROM {table} t LEFT JOIN {dim} d ON t.{col}=d.{key} WHERE d.{key} IS NULL'),0)
     def test_team_members_leader(self):
         for r in q("SELECT team_name,COUNT(*) n,SUM(is_leader='True') leaders FROM rider GROUP BY team_name"):
-            self.assertEqual((r['n'],r['leaders']),(8,1))
+            self.assertEqual((r['n'],r['leaders']),(4 if r['team_name']=='MSBA Breeze' else 8,1))
     def test_time_positive(self):self.assertEqual(scalar('SELECT COUNT(*) FROM result WHERE finish_time<=0 OR bonus<0 OR time_penalty<0 OR finish_time-bonus+time_penalty<=0'),0)
     def test_exits(self):self.assertEqual(scalar('SELECT COUNT(*) FROM result r JOIN exit e USING(bib_no) WHERE r.stage_id>=e.stage_id'),0)
     def test_equal_finish_times(self):self.assertGreater(scalar('SELECT COUNT(*) FROM (SELECT stage_id,finish_time FROM result GROUP BY stage_id,finish_time HAVING COUNT(*)>1)'),0)
@@ -65,12 +65,19 @@ class DataTests(unittest.TestCase):
     def test_incomplete_team(self):
         self.assertEqual(scalar("SELECT finishers FROM team_stage WHERE team_name='Northstar Velo' AND stage_id=18"),2)
         self.assertIsNone(scalar("SELECT top3_seconds FROM team_stage WHERE team_name='Northstar Velo' AND stage_id=18"))
-        self.assertEqual(scalar("SELECT team_rank FROM team_snapshot WHERE team_name='Northstar Velo' AND stage_id=21"),6)
+        self.assertEqual(scalar("SELECT team_rank FROM team_snapshot WHERE team_name='Northstar Velo' AND stage_id=21"),7)
     def test_countries(self):
         self.assertEqual(scalar("SELECT COUNT(*) FROM team WHERE country_code='FRA'"),2)
-        for c in ['SGP','JPN']:
+        for c in ['JPN']:
             self.assertEqual(scalar('SELECT COUNT(*) FROM rider WHERE country_code=?',c),0)
             self.assertEqual(scalar('SELECT COUNT(*) FROM team WHERE country_code=?',c),0)
+    def test_breeze_roster_and_award(self):
+        roster=q("SELECT rider_name,country_code FROM rider WHERE team_name='MSBA Breeze' ORDER BY bib_no")
+        self.assertEqual([(r['rider_name'],r['country_code']) for r in roster],
+            [('Aishwarya Jayaraman','SGP'),('Chan Hiu Lok','HKG'),('Phua Zhuo Wei','SGP'),('Sara Tan Kwan Ling','SGP')])
+        self.assertEqual(scalar("SELECT country_code FROM team WHERE team_name='MSBA Breeze'"),'SGP')
+        winners=q("SELECT team_name,stages_scored FROM team_snapshot WHERE stage_id=21 AND team_rank=1")
+        self.assertEqual(winners,[{'team_name':'MSBA Breeze','stages_scored':21}])
     def test_nationality_independence(self):self.assertGreater(scalar('SELECT COUNT(*) FROM rider r JOIN team t USING(team_name) WHERE r.country_code<>t.country_code'),0)
     def test_locations_used(self):self.assertEqual(scalar('SELECT COUNT(*) FROM location l WHERE NOT EXISTS(SELECT 1 FROM stage s WHERE s.start_location=l.location_name OR s.end_location=l.location_name)'),0)
     def test_total_reconciles(self):
@@ -98,6 +105,9 @@ class DataTests(unittest.TestCase):
 def expected():
     tests=[]
     def add(name,query,rows):tests.append(dict(name=name,query=query,expected=rows))
+    add('MSBA Breeze final award',"""EVALUATE CALCULATETABLE(ROW("rank",[Best Team Rank],"scored",[Stages Scored]),TREATAS({"MSBA Breeze"},'Team'[Team]))""",[dict(rank=1,scored=21)])
+    add('MSBA Breeze roster',"""EVALUATE SELECTCOLUMNS(FILTER('Rider','Rider'[Team]="MSBA Breeze"),"rider",'Rider'[Rider],"country",'Rider'[Rider Country])""",
+        q("SELECT rider_name rider,country_name country FROM rider JOIN country USING(country_code) WHERE team_name='MSBA Breeze'"))
     for s in [1,6,7,17,18,21]:
         add(f'All four ranks, stage {s}',f'''EVALUATE SELECTCOLUMNS(CALCULATETABLE(SUMMARIZECOLUMNS('Rider'[Bib],"gc",[GC Rank],"pr",[Points Rank],"kr",[KOM Rank],"yr",[Young Rank],"secs",[Rider Cumulative Seconds]),TREATAS({{{s}}},'As Of'[Stage])),"bib",'Rider'[Bib],"gc",[gc],"pr",[pr],"kr",[kr],"yr",[yr],"secs",[secs])''',
             [dict(bib=r['bib_no'],gc=r['gc'],pr=r['pr'],kr=r['kr'],yr=r['yr'],secs=r['secs']) for r in reference(s)])
@@ -108,7 +118,7 @@ def expected():
         dax=','.join(f"'Rider'[{c}]" for c,k in fields)
         sel=','.join(f'"{k}",\'Rider\'[{c}]' for c,k in fields)
         sql=','.join(k for c,k in fields)
-        for country_filter in [None,'France','Singapore']:
+        for country_filter in [None,'France','Singapore','Hong Kong','Japan']:
             where=' WHERE country_name=?' if country_filter else ''
             rows=q(f'SELECT {sql},COUNT(*) riders FROM rider JOIN country USING(country_code){where} GROUP BY {sql}',*([country_filter] if country_filter else []))
             query=f'SELECTCOLUMNS(SUMMARIZECOLUMNS({dax},"riders",[Roster Riders]),{sel},"riders",[riders])'

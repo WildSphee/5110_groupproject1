@@ -1,6 +1,6 @@
 # Data and calculation contract
 
-All race participants, performances, routes, dates and scores are **synthetic**. The fixture is a teaching dataset, not actual Tour de France results, official regulations or a forecast. Python seed: 5110. No personal data from the group report is copied into the analytical model.
+Team memberships, rider roles, birth dates, performances, routes and scores are **synthetic**. The fixture is a teaching dataset, not actual Tour de France results, official regulations or a forecast. Python seed: 5110. MSBA Breeze uses the four names and represented countries supplied for this demo. Its race records do not describe real performances.
 
 ## Source alignment and analytics extensions
 
