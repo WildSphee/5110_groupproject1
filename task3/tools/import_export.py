@@ -101,6 +101,7 @@ def build():
           'Avg required per stage':duration(round(budget/remaining))})
     return {'Country':[{'Country Code':r['country_code'],'Country':r['country_name']} for r in countries]+[{'Country Code':None,'Country':'Unknown'}],
         'Team':[{'Team':t,'Team Country':c} for t,c in team_country.items()],'Rider':rider_dim,'Stage':stage_dim,
+        'Stage choice':[{'Choice':choice,'Stage':s,'Order':order} for s in ids for choice,order in [('All',0),(f'{s:02d}',s)]],
         'As Of':[{'Stage':s,'As of Stage':f'Stage {s:02d}'} for s in ids],'Result':result,'Standing':standings,
         'Team Stage':team_stage,'Team Standing':team_history,'Withdrawal':withdrawals,
         'Classification':[{'Classification':c,'Order':i} for i,c in enumerate(['General','Points','Mountains','Young Rider'],1)],
@@ -132,13 +133,20 @@ def embed_model(tables):
             prefix=re.sub(r'\A///[^\n]*\n','',prefix)
         else:
             prefix="table '"+name+"'\n\n"+''.join(f"\tcolumn '{col}'\n\t\tdataType: {types[col]}\n\t\tsummarizeBy: none\n\t\tsourceColumn: {col}\n\n" for col in cols)+f"\tpartition '{name}' = m\n\t\tmode: import\n"
+        if name=='Stage choice' and 'sortByColumn:' not in prefix:
+            prefix=prefix.replace("sourceColumn: Choice","sourceColumn: Choice\n\t\tsortByColumn: Order")
         def literal(v):return 'null' if v is None else '"'+v.replace('"','""')+'"' if isinstance(v,str) else str(v)
         ms={'string':'nullable text','double':'number','int64':'Int64.Type'}
         m='let Source = #table(type table ['+', '.join(f'#"{c}" = '+ms[types[c]] for c in cols)+'], {\n'+',\n'.join('{'+','.join(literal(r[c]) for c in cols)+'}' for r in rows)+'\n}) in Source'
         file.write_text(prefix+'\t\tsource =\n'+''.join('\t'*4+l+'\n' for l in m.splitlines()),encoding='utf8',newline='\n')
     p=MODEL/'model.tmdl';s=p.read_text(encoding='utf8')
     if 'ref table Withdrawal' not in s:p.write_text(s.replace('ref table Scenario','ref table Scenario\nref table Withdrawal'),encoding='utf8')
+    p=MODEL/'model.tmdl';s=p.read_text(encoding='utf8')
+    if "ref table 'Stage choice'" not in s:
+        p.write_text(s.replace('ref table Stage\n',"ref table Stage\nref table 'Stage choice'\n"),encoding='utf8')
     p=MODEL/'relationships.tmdl';s=p.read_text(encoding='utf8')
+    if 'relationship StageChoice_Stage' not in s:
+        s+="\nrelationship StageChoice_Stage\n\tcrossFilteringBehavior: bothDirections\n\tfromColumn: 'Stage choice'.Stage\n\ttoColumn: Stage.Stage\n"
     for dim,key in [('Stage','Stage'),('Rider','Bib')]:
         if f'Withdrawal_{dim}' not in s:s+=f'\nrelationship Withdrawal_{dim}\n\tfromColumn: Withdrawal.{key}\n\ttoColumn: {dim}.{key}\n'
     p.write_text(s.rstrip()+'\n',encoding='utf8',newline='\n')

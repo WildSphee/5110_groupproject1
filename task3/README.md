@@ -5,10 +5,10 @@ Open **Tour de France.pbip** in Power BI Desktop. On a fresh clone, choose **Hom
 | Page | What to look for |
 |---|---|
 | 01 Race & participation | Select a nationality or team to see its riders, bibs and teams in the roster. The country columns also work offline. |
-| 02 Stages & terrain | Pick one of 21 stages. Stage 15 shows Tim Wellens first on Muret–Carcassonne. Expand its results from terrain to route, team and rider. The bottom row compares the entire race. |
+| 02 Stages & terrain | Opens on All. Pick one stage or click All to restore the full race. Stage 15 shows Tim Wellens first on Muret–Carcassonne. Expand its results from terrain to route, team and rider. The terrain charts follow the stage selection. |
 | 03 Classifications | Compare the General and Young Rider leaders, times and winning criteria at each checkpoint. Sprint and climb scores are missing from this export. |
 | 04 Team performance | Compare cumulative team ranks, then expand a team to see its stage scores and finisher counts. Team Visma won across 21 scored stages. |
-| 05 GC progression | Follow a rider's daily rank and gap. Remco Evenepoel was third after stage 13. |
+| 05 GC progression | Opens with the full field. Select a rider to follow their daily rank and gap, or clear the selection for the field again. Remco Evenepoel was third after stage 13. |
 | 06 Rider exits | Select a stage or terrain to see which riders left, how the exit was recorded and their last GC positions. Remco withdrew on stage 14. |
 | 07 GC what-if | Compare four bonus and penalty rules. The separate exit table gives the adjusted time each rider had left to tie the actual final GC winner. |
 

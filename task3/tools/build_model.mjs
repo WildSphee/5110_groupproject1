@@ -15,18 +15,18 @@ const definitions=Object.entries(tables).map(([name,rows])=>{
  const cols=Object.keys(rows[0]).map(n=>{
   const sample=rows.map(r=>r[n]).find(v=>v!==null);
   const dataType=sample===undefined?'Int64':typeof sample==='number'?(Number.isInteger(sample)&&n!=='Distance km'?'Int64':'Double'):'String';
-  return {name:n,sourceColumn:n,dataType,...(name==='Country'&&n==='Country'?{dataCategory:'Country'}:{}),summarizeBy:'None',isHidden:['Bib','Stage'].includes(n)&&!['Rider','Stage','As Of'].includes(name)};
+  return {name:n,sourceColumn:n,dataType,...(name==='Stage choice'&&n==='Choice'?{sortByColumn:'Order'}:{}),...(name==='Country'&&n==='Country'?{dataCategory:'Country'}:{}),summarizeBy:'None',isHidden:['Bib','Stage'].includes(n)&&!['Rider','Stage','As Of'].includes(name)};
  });
  const val=v=>v===null?'null':typeof v==='string'?'"'+v.replaceAll('"','""')+'"':String(v);
  const mExpression='let Source = #table(type table ['+cols.map(c=>'#"'+c.name+'" = '+(c.dataType==='String'?'nullable text':c.dataType==='Int64'?'Int64.Type':'number')).join(', ')+'], {\n'+rows.map(r=>'{'+cols.map(c=>val(r[c.name])).join(',')+'}').join(',\n')+'\n}) in Source';
  return {name,description:'2025 Tour de France database export. See task3/docs/semantics.md for grain and rules.',mExpression,columns:cols};
 });
 if(!process.argv.includes('--update-measures'))await op('table_operations',{operation:'Create',definitions:process.argv.includes('--resume')?definitions.filter(d=>d.name==='Metrics'):definitions});
-const rels=[];
+const rels=[['Stage choice','Stage','Stage','Stage']];
 for(const fact of ['Result','Standing','Withdrawal'])for(const [dim,col] of [['Rider','Bib'],['Stage','Stage']])rels.push([fact,col,dim,col]);
 for(const fact of ['Team Stage','Team Standing'])for(const [dim,col] of [['Team','Team'],['Stage','Stage']])rels.push([fact,col,dim,col]);
 if(!process.argv.includes('--resume')&&!process.argv.includes('--update-measures'))await op('relationship_operations',{operation:'Create',definitions:rels.map(([fromTable,fromColumn,toTable,toColumn])=>({
- name:fromTable+'_'+toTable,fromTable,fromColumn,toTable,toColumn,fromCardinality:'Many',toCardinality:'One',crossFilteringBehavior:'OneDirection',isActive:true}))});
+ name:fromTable+'_'+toTable,fromTable,fromColumn,toTable,toColumn,fromCardinality:'Many',toCardinality:'One',crossFilteringBehavior:fromTable==='Stage choice'?'BothDirections':'OneDirection',isActive:true}))});
 const measures=JSON.parse(fs.readFileSync(path.join(root,'data/measures.json'),'utf8'));
 if(process.argv.includes('--update-measures')){
  const existing=await op('measure_operations',{operation:'List'});

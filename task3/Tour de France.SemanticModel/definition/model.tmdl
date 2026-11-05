@@ -15,6 +15,7 @@ ref table Country
 ref table Team
 ref table Rider
 ref table Stage
+ref table 'Stage choice'
 ref table 'As Of'
 ref table Result
 ref table Standing

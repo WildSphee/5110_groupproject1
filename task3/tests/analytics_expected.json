@@ -2194,5 +2194,428 @@
         "value": null
       }
     ]
+  },
+  {
+    "name": "Stage selector / All / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"All\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3602
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / All / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"All\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 63
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 01 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"01\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 182
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 01 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"01\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 02 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"02\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 182
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 02 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"02\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 03 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"03\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 181
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 03 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"03\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 04 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"04\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 181
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 04 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"04\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 05 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"05\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 179
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 05 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"05\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 06 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"06\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 179
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 06 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"06\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 07 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"07\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 177
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 07 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"07\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 08 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"08\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 176
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 08 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"08\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 09 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"09\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 175
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 09 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"09\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 10 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"10\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 172
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 10 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"10\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 11 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"11\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 172
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 11 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"11\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 12 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"12\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 171
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 12 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"12\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 13 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"13\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 171
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 13 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"13\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 14 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"14\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 167
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 14 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"14\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 15 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"15\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 166
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 15 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"15\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 16 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"16\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 165
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 16 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"16\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 17 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"17\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 164
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 17 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"17\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 18 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"18\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 161
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 18 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"18\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 19 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"19\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 161
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 19 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"19\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 20 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"20\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 160
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 20 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"20\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 21 / finishes",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Stage Finishes]),TREATAS({\"21\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 160
+      }
+    ]
+  },
+  {
+    "name": "Stage selector / 21 / podiums",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Podium finishes]),TREATAS({\"21\"},'Stage choice'[Choice]))",
+    "expected": [
+      {
+        "value": 3
+      }
+    ]
+  },
+  {
+    "name": "All riders / average GC hours after 1",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Trace Hours]),TREATAS({1},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 3.9229700854700855
+      }
+    ]
+  },
+  {
+    "name": "All riders / average GC hours after 13",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Trace Hours]),TREATAS({13},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 47.46551169590643
+      }
+    ]
+  },
+  {
+    "name": "All riders / average GC hours after 21",
+    "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[GC Trace Hours]),TREATAS({21},'Stage'[Stage]))",
+    "expected": [
+      {
+        "value": 80.70804166666667
+      }
+    ]
   }
 ]

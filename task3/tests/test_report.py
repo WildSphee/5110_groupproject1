@@ -71,6 +71,12 @@ class ReportTests(unittest.TestCase):
         v=visual('stages','stage_pick')
         self.assertEqual(v['visualType'],'advancedSlicerVisual')
         self.assertEqual(v['objects']['selection'][0]['properties']['strictSingleSelect']['expr']['Literal']['Value'],'true')
+        default=v['objects']['general'][0]['properties']['filter']['filter']['Where'][0]['Condition']['In']['Values']
+        self.assertEqual(default,[[{'Literal':{'Value':"'All'"}}]])
+        choices=DATA['Stage choice']
+        self.assertEqual([r['Stage'] for r in choices if r['Choice']=='All'],list(range(1,22)))
+        self.assertEqual([(r['Choice'],r['Stage']) for r in choices if r['Choice']!='All'],[(f'{s:02d}',s) for s in range(1,22)])
+        self.assertNotIn('general',visual('story','rider')['objects'])
         data=DATA['Stage'];self.assertEqual([s['Stage'] for s in data],list(range(1,22)))
         winner=visual('classifications','winners')['query']['queryState']['Values']['projections']
         self.assertEqual([next(iter(p['field'].values()))['Property'] for p in winner],['Classification','Award leaders','Winning score','Winning rule'])
@@ -84,7 +90,7 @@ class ReportTests(unittest.TestCase):
         self.assertEqual([s['field']['Measure']['Property'] for s in sorts],['Rider Status','GC Rank'])
     def test_self_contained_model(self):
         tmdl=list((ROOT/'Tour de France.SemanticModel/definition/tables').glob('*.tmdl'))
-        self.assertEqual(len(tmdl),13)
+        self.assertEqual(len(tmdl),14)
         for file in tmdl:
             text=file.read_text(encoding='utf-8-sig');self.assertNotIn('File.Contents(',text);self.assertIn('#table(',text)
 if __name__=='__main__':unittest.main(verbosity=2)

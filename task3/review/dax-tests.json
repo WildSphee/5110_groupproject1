@@ -1,65 +1,65 @@
 {
-  "connection": "Data Source=localhost:60131",
+  "connection": "Data Source=localhost:65434",
   "tests": [
     {
       "name": "GC and Young ranks after stage 1",
       "passed": true,
       "rows": 182,
-      "ms": 36
+      "ms": 49
     },
     {
       "name": "Best Team after stage 1",
       "passed": true,
       "rows": 23,
-      "ms": 24
+      "ms": 31
     },
     {
       "name": "GC and Young ranks after stage 7",
       "passed": true,
       "rows": 177,
-      "ms": 15
+      "ms": 22
     },
     {
       "name": "Best Team after stage 7",
       "passed": true,
       "rows": 23,
-      "ms": 11
+      "ms": 14
     },
     {
       "name": "GC and Young ranks after stage 13",
       "passed": true,
       "rows": 171,
-      "ms": 15
+      "ms": 22
     },
     {
       "name": "Best Team after stage 13",
       "passed": true,
       "rows": 23,
-      "ms": 13
+      "ms": 14
     },
     {
       "name": "GC and Young ranks after stage 14",
       "passed": true,
       "rows": 167,
-      "ms": 17
+      "ms": 20
     },
     {
       "name": "Best Team after stage 14",
       "passed": true,
       "rows": 23,
-      "ms": 12
+      "ms": 18
     },
     {
       "name": "GC and Young ranks after stage 21",
       "passed": true,
       "rows": 160,
-      "ms": 14
+      "ms": 18
     },
     {
       "name": "Best Team after stage 21",
       "passed": true,
       "rows": 23,
-      "ms": 21
+      "ms": 17
     },
     {
       "name": "Drill stage_id",
@@ -71,43 +71,43 @@
       "name": "Drill stage_id,team_name",
       "passed": true,
       "rows": 483,
-      "ms": 17
+      "ms": 22
     },
     {
       "name": "Drill stage_id,team_name,bib_no",
       "passed": true,
       "rows": 3602,
-      "ms": 141
+      "ms": 257
     },
     {
       "name": "Registration by independent country roles",
       "passed": true,
       "rows": 30,
-      "ms": 9
+      "ms": 12
     },
     {
       "name": "Exit stage and type",
       "passed": true,
       "rows": 17,
-      "ms": 6
+      "ms": 8
     },
     {
       "name": "Exits by terrain",
       "passed": true,
       "rows": 4,
-      "ms": 5
+      "ms": 7
     },
     {
       "name": "Remaining field",
       "passed": true,
       "rows": 21,
-      "ms": 6
+      "ms": 10
     },
     {
       "name": "Last real GC and finish-time budget",
       "passed": true,
       "rows": 24,
-      "ms": 6
+      "ms": 8
     }
   ]
 }

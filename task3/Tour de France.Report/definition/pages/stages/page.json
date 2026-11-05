@@ -33,8 +33,28 @@
   },
   "visualInteractions": [
     {
-      "source": "stage_pick",
-      "target": "terrain_speed",
+      "source": "stage_matrix",
+      "target": "stage_pick",
+      "type": "NoFilter"
+    },
+    {
+      "source": "routes",
+      "target": "stage_pick",
+      "type": "NoFilter"
+    },
+    {
+      "source": "finishers",
+      "target": "stage_pick",
+      "type": "NoFilter"
+    },
+    {
+      "source": "finish_gaps",
+      "target": "stage_pick",
+      "type": "NoFilter"
+    },
+    {
+      "source": "squads",
+      "target": "stage_pick",
       "type": "NoFilter"
     },
     {
@@ -43,173 +63,13 @@
       "type": "NoFilter"
     },
     {
-      "source": "stage_pick",
-      "target": "terrain_podiums",
-      "type": "NoFilter"
-    },
-    {
       "source": "terrain_podiums",
       "target": "stage_pick",
       "type": "NoFilter"
     },
     {
-      "source": "stage_pick",
-      "target": "terrain_topten",
-      "type": "NoFilter"
-    },
-    {
       "source": "terrain_topten",
       "target": "stage_pick",
-      "type": "NoFilter"
-    },
-    {
-      "source": "routes",
-      "target": "terrain_speed",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_speed",
-      "target": "routes",
-      "type": "NoFilter"
-    },
-    {
-      "source": "routes",
-      "target": "terrain_podiums",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_podiums",
-      "target": "routes",
-      "type": "NoFilter"
-    },
-    {
-      "source": "routes",
-      "target": "terrain_topten",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_topten",
-      "target": "routes",
-      "type": "NoFilter"
-    },
-    {
-      "source": "finishers",
-      "target": "terrain_speed",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_speed",
-      "target": "finishers",
-      "type": "NoFilter"
-    },
-    {
-      "source": "finishers",
-      "target": "terrain_podiums",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_podiums",
-      "target": "finishers",
-      "type": "NoFilter"
-    },
-    {
-      "source": "finishers",
-      "target": "terrain_topten",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_topten",
-      "target": "finishers",
-      "type": "NoFilter"
-    },
-    {
-      "source": "stage_matrix",
-      "target": "terrain_speed",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_speed",
-      "target": "stage_matrix",
-      "type": "NoFilter"
-    },
-    {
-      "source": "stage_matrix",
-      "target": "terrain_podiums",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_podiums",
-      "target": "stage_matrix",
-      "type": "NoFilter"
-    },
-    {
-      "source": "stage_matrix",
-      "target": "terrain_topten",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_topten",
-      "target": "stage_matrix",
-      "type": "NoFilter"
-    },
-    {
-      "source": "finish_gaps",
-      "target": "terrain_speed",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_speed",
-      "target": "finish_gaps",
-      "type": "NoFilter"
-    },
-    {
-      "source": "finish_gaps",
-      "target": "terrain_podiums",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_podiums",
-      "target": "finish_gaps",
-      "type": "NoFilter"
-    },
-    {
-      "source": "finish_gaps",
-      "target": "terrain_topten",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_topten",
-      "target": "finish_gaps",
-      "type": "NoFilter"
-    },
-    {
-      "source": "squads",
-      "target": "terrain_speed",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_speed",
-      "target": "squads",
-      "type": "NoFilter"
-    },
-    {
-      "source": "squads",
-      "target": "terrain_podiums",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_podiums",
-      "target": "squads",
-      "type": "NoFilter"
-    },
-    {
-      "source": "squads",
-      "target": "terrain_topten",
-      "type": "NoFilter"
-    },
-    {
-      "source": "terrain_topten",
-      "target": "squads",
       "type": "NoFilter"
     }
   ]

@@ -316,7 +316,7 @@ table Metrics
 		lineageTag: 38f94d36-947b-44e0-a5db-b216ec8d97f2
 
 	/// GC Trace Hours
-	measure 'GC Trace Hours' = IF(HASONEVALUE('Rider'[Bib]),DIVIDE(CALCULATE(MAX('Standing'[Cumulative Seconds]),'Standing'[Eligible]=1),3600))
+	measure 'GC Trace Hours' = DIVIDE(CALCULATE(AVERAGE('Standing'[Cumulative Seconds]),'Standing'[Eligible]=1),3600)
 		formatString: 0.00
 		displayFolder: PDF analytics
 		lineageTag: d3eb8ced-02e4-410c-93ba-0785b2ce9687
@@ -480,6 +480,16 @@ table Metrics
 
 	/// Unknown nationality is retained in the roster, not geocoded.
 	measure 'Mapped riders' = IF(SELECTEDVALUE('Country'[Country])<>"Unknown",[Riders by Country])
+		formatString: 0
+		displayFolder: PDF analytics
+
+	/// Mean raw time gap across stages where this rider placed in the top ten.
+	measure 'Mean top-ten finish gap' = AVERAGEX(VALUES('Stage'[Stage]),[Top Ten Finish Gap])
+		formatString: 0.0
+		displayFolder: PDF analytics
+
+	/// Podium finishes
+	measure 'Podium finishes' = CALCULATE(COUNTROWS('Result'),KEEPFILTERS('Result'[Position]<=3))
 		formatString: 0
 		displayFolder: PDF analytics
 

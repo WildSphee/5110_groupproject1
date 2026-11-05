@@ -82,7 +82,7 @@
   {
     "tableName": "Metrics",
     "name": "GC Trace Hours",
-    "expression": "IF(HASONEVALUE('Rider'[Bib]),DIVIDE(CALCULATE(MAX('Standing'[Cumulative Seconds]),'Standing'[Eligible]=1),3600))",
+    "expression": "DIVIDE(CALCULATE(AVERAGE('Standing'[Cumulative Seconds]),'Standing'[Eligible]=1),3600)",
     "formatString": "0.00",
     "description": "GC Trace Hours",
     "displayFolder": "PDF analytics"
@@ -325,6 +325,22 @@
     "expression": "IF(SELECTEDVALUE('Country'[Country])<>\"Unknown\",[Riders by Country])",
     "formatString": "0",
     "description": "Unknown nationality is retained in the roster, not geocoded.",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Mean top-ten finish gap",
+    "expression": "AVERAGEX(VALUES('Stage'[Stage]),[Top Ten Finish Gap])",
+    "formatString": "0.0",
+    "description": "Mean raw time gap across stages where this rider placed in the top ten.",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Podium finishes",
+    "expression": "CALCULATE(COUNTROWS('Result'),KEEPFILTERS('Result'[Position]<=3))",
+    "formatString": "0",
+    "description": "Podium finishes",
     "displayFolder": "PDF analytics"
   }
 ]

@@ -21,7 +21,7 @@ write(path.join(root,'Tour de France.pbip'),{$schema:'https://developer.microsof
 write(path.join(root,'Tour de France.SemanticModel/definition.pbism'),{$schema:'https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/definitionProperties/1.0.0/schema.json',version:'4.0',settings:{}});
 write(path.join(report,'definition.pbir'),{$schema:base+'definitionProperties/2.0.0/schema.json',version:'4.0',datasetReference:{byPath:{path:'../Tour de France.SemanticModel'}}});
 write(path.join(report,'definition/version.json'),{$schema:schema('versionMetadata'),version:'2.0.0'});
-write(path.join(report,'StaticResources/RegisteredResources/RacePalette.json'),{name:'RacePalette',dataColors:palette,background:bg,foreground:ink,tableAccent:teal,visualStyles:{advancedSlicerVisual:{'*':{layout:[{orientation:0,rowCount:1,columnCount:21,maxTiles:21,autoGrid:false,showFixedSize:false,rowPadding:2,columnPadding:2}],value:[{show:true,fontSize:12}]}}},textClasses:{title:{fontFace:'Segoe UI Semibold',color:ink},label:{fontFace:'Segoe UI',color:muted}}});
+write(path.join(report,'StaticResources/RegisteredResources/RacePalette.json'),{name:'RacePalette',dataColors:palette,background:bg,foreground:ink,tableAccent:teal,visualStyles:{advancedSlicerVisual:{'*':{layout:[{orientation:0,rowCount:1,columnCount:22,maxTiles:22,autoGrid:false,showFixedSize:false,rowPadding:2,columnPadding:2}],value:[{show:true,fontSize:12}]}}},textClasses:{title:{fontFace:'Segoe UI Semibold',color:ink},label:{fontFace:'Segoe UI',color:muted}}});
 write(path.join(report,'definition/report.json'),{$schema:schema('report'),themeCollection:{customTheme:{name:'RacePalette',reportVersionAtImport:'5.50',type:'RegisteredResources'}},resourcePackages:[{name:'RegisteredResources',type:'RegisteredResources',items:[{name:'RacePalette',path:'RacePalette.json',type:'CustomTheme'}]}],layoutOptimization:'None',settings:{useStylableVisualContainerHeader:true,defaultDrillFilterOtherVisuals:true,defaultFilterActionIsDataFilter:true}});
 write(path.join(report,'definition/pages/pages.json'),{$schema:schema('pagesMetadata'),pageOrder:pages.map(x=>x[0]),activePageName:'overview'});
 let z=0;
@@ -60,7 +60,7 @@ function chart(pg,name,type,x,y,w,h,title,levels,metrics,options={}){
   categoryAxis:[{properties:{show:lit(true),fontSize:lit(11),titleFontSize:lit(11)}}],
   valueAxis:[{properties:{show:lit(true),fontSize:lit(11),labelDisplayUnits:lit(1)}}],
   legend:[{properties:{show:lit(!!options.legend||metrics.length>1),fontSize:lit(11)}}],
-  labels:[{properties:{show:lit(type!=='lineChart'),fontSize:lit(10),labelDisplayUnits:lit(1)}}]
+  labels:[{properties:{show:lit(options.showLabels ?? (type!=='lineChart')),fontSize:lit(10),labelDisplayUnits:lit(1)}}]
  },options.sort||(type==='lineChart'?[col(...levels[0]),'Ascending']:[met(metrics[0]),'Descending']));
 }
 function matrix(pg,name,x,y,w,h,title,rows,values,columns){
@@ -96,13 +96,13 @@ table('overview','roster',24,656,680,220,'Riders in the selection',['Roster Bib'
 table('overview','outcomes',720,656,696,220,'Results by rider nationality',[['Country','Country'],'Country Best GC Rank','Country Wins','Country Podiums'],[met('Country Wins'),'Descending']);
 
 // A route or matrix row selects a stage; the stage key keeps each top-ten result separate.
-visual('stages','stage_pick','advancedSlicerVisual',24,86,1392,79,'Stage',{Values:{projections:[p('Stage','Stage',true)]}},{layout:[{properties:{orientation:{expr:{Literal:{Value:'0D'}}},rowCount:{expr:{Literal:{Value:'1D'}}},columnCount:{expr:{Literal:{Value:'21D'}}},maxTiles:{expr:{Literal:{Value:'21D'}}},autoGrid:lit(false),columnPadding:{expr:{Literal:{Value:'2D'}}}}}],value:[{properties:{fontSize:lit(12)}}]},[col('Stage','Stage'),'Ascending']);
-defaultSelection('stages','stage_pick','Stage','Stage',[1],true);
+visual('stages','stage_pick','advancedSlicerVisual',24,86,1392,79,'Stage',{Values:{projections:[p('Stage choice','Choice',true)]}},{layout:[{properties:{orientation:{expr:{Literal:{Value:'0D'}}},rowCount:{expr:{Literal:{Value:'1D'}}},columnCount:{expr:{Literal:{Value:'22D'}}},maxTiles:{expr:{Literal:{Value:'22D'}}},autoGrid:lit(false),columnPadding:{expr:{Literal:{Value:'2D'}}}}}],value:[{properties:{fontSize:lit(12)}}]},[col('Stage choice','Choice'),'Ascending']);
+defaultSelection('stages','stage_pick','Stage choice','Choice',['All'],true);
 {const f=path.join(report,'definition/pages/stages/visuals/stage_pick/visual.json'),v=JSON.parse(fs.readFileSync(f));v.visual.objects.selection[0].properties.strictSingleSelect=lit(true);write(f,v);}
 matrix('stages','stage_matrix',24,482,780,222,'Stage results and time adjustments',[['Stage','Stage Type'],['Stage','Stage Label'],['Rider','Team'],['Rider','Rider Label']],['Finish Seconds','Bonus Seconds','Penalty Seconds','Adjusted Seconds','Stage Position','Speed Proxy kmh']);
-table('stages','routes',820,181,596,125,'Selected route and stage winner',[['Stage','Stage Label'],['Stage','Stage Type'],['Stage','Date'],'Stage Distance km','Stage Winner'],[met('Stage Distance km'),'Descending']);
+table('stages','routes',820,181,596,125,'Routes and stage winners',[['Stage','Stage Label'],['Stage','Stage Type'],['Stage','Date'],'Stage Distance km','Stage Winner'],[col('Stage','Stage Label'),'Ascending']);
 table('stages','finishers',24,181,780,285,'Stage finish order • first ten riders',[['Stage','Stage'],['Rider','Rider Label'],['Rider','Team'],['Rider','Rider Country'],'Top Ten Position','Top Ten Adjusted Seconds'],[[col('Stage','Stage'),'Ascending'],[met('Top Ten Position'),'Ascending']]);
-chart('stages','finish_gaps','clusteredBarChart',820,334,596,177,'Top ten: signed gap to recorded winner (s)',[['Rider','Rider Label']],['Top Ten Finish Gap'],{sort:[met('Top Ten Finish Gap'),'Ascending']});
+chart('stages','finish_gaps','clusteredBarChart',820,334,596,177,'Average gap to winner in top-ten finishes (s)',[['Rider','Rider Label']],['Mean top-ten finish gap'],{sort:[met('Mean top-ten finish gap'),'Ascending']});
 chart('stages','squads','donutChart',820,527,596,177,'Top-ten finishes by team',[['Rider','Team']],['Top Ten Finishes'],{legend:['Rider','Team']});
 
 asof('classifications');
@@ -116,20 +116,18 @@ table('teams','ranking',24,94,690,330,'Best Team • most stages scored, then sh
 chart('teams','team_gap','clusteredBarChart',730,94,686,330,'Minutes behind the leader • same stage coverage',[['Team','Team']],['Team deficit minutes'],{sort:[met('Team deficit minutes'),'Ascending']});
 matrix('teams','detail',24,440,1392,436,'Stage scores • sum of the three fastest finishers per team',[['Team','Team'],['Stage','Stage Label']],['Stage Top3 Hours','Team Finishers']);
 
-slicer('story','rider',24,94,244,782,'Contenders','Rider','Rider Label','Basic');
-defaultSelection('story','rider','Rider','Rider Label',['Remco Evenepoel (21)'],true);
+slicer('story','rider',24,94,244,782,'Riders','Rider','Rider Label','Basic');
 chart('story','gc_trace','lineChart',284,94,680,374,'Time behind the GC leader (seconds) • zero is the lead',[['Stage','Stage']],['GC daily deficit seconds'],{legend:['Rider','Rider Label']});
-chart('story','rank_changes','clusteredColumnChart',980,94,436,374,'Change in GC position • positive means gained',[['Stage','Stage']],['GC Rank Change'],{legend:['Rider','Rider Label'],sort:[col('Stage','Stage'),'Ascending']});
+chart('story','rank_changes','clusteredColumnChart',980,94,436,374,'Change in GC position • positive means gained',[['Stage','Stage']],['GC Rank Change'],{showLabels:false,legend:['Rider','Rider Label'],sort:[col('Stage','Stage'),'Ascending']});
 table('story','daily',284,484,680,392,'Daily GC positions',[['Stage','Stage'],['Stage','Stage Type'],['Rider','Rider Label'],'GC Trace Rank','GC daily deficit seconds','GC Rank Change','Adjusted Seconds'],[col('Stage','Stage'),'Ascending']);
-chart('story','mountain_markers','lineChart',980,484,436,392,'Total race hours at each stage and mountain checkpoint',[['Stage','Stage']],['GC Trace Hours','Mountain Trace Hours']);
+chart('story','mountain_markers','lineChart',980,484,436,392,'Average cumulative hours per eligible rider',[['Stage','Stage']],['GC Trace Hours','Mountain Trace Hours']);
 
-chart('stages','terrain_speed','clusteredColumnChart',24,720,444,266,'Race-wide speed by terrain (km/h)',[['Stage','Stage Type'],['Rider','Team']],['Speed Proxy kmh']);
-chart('stages','terrain_podiums','clusteredBarChart',484,720,452,266,'Mountain-stage podium finishes',[['Rider','Rider Label']],['Mountain podium finishes'],{color:violet});
-chart('stages','terrain_topten','barChart',952,720,464,266,'Race-wide top-ten finishes by terrain',[['Rider','Team'],['Rider','Rider Label']],['Top Ten Finishes'],{legend:['Stage','Stage Type']});
-// The day selector drives the upper panels; the lower comparisons cover the entire race.
+chart('stages','terrain_speed','clusteredColumnChart',24,720,444,266,'Speed by terrain (km/h)',[['Stage','Stage Type'],['Rider','Team']],['Speed Proxy kmh']);
+chart('stages','terrain_podiums','clusteredBarChart',484,720,452,266,'Podium finishes in selected stages',[['Rider','Rider Label']],['Podium finishes'],{color:violet});
+chart('stages','terrain_topten','barChart',952,720,464,266,'Top-ten finishes by terrain',[['Rider','Team'],['Rider','Rider Label']],['Top Ten Finishes'],{legend:['Stage','Stage Type']});
+// Keep all stage choices available while users explore individual visual marks.
 {const f=path.join(report,'definition/pages/stages/page.json'),d=JSON.parse(fs.readFileSync(f));
- const day=['stage_pick','routes','finishers','stage_matrix','finish_gaps','squads'],race=['terrain_speed','terrain_podiums','terrain_topten'];
- d.visualInteractions=day.flatMap(source=>race.flatMap(target=>[{source,target,type:'NoFilter'},{source:target,target:source,type:'NoFilter'}]));write(f,d);}
+ d.visualInteractions=manifest.filter(v=>v.page==='stages' && v.fields && v.name!=='stage_pick').map(v=>({source:v.name,target:'stage_pick',type:'NoFilter'}));write(f,d);}
 
 chart('exits','stage_exits','columnChart',24,94,780,292,'Exits by stage: DNS or mid-stage withdrawal',[['Stage','Stage']],['Exit count'],{legend:['Withdrawal','Exit type'],sort:[col('Stage','Stage'),'Ascending']});
 chart('exits','field','lineChart',820,94,596,292,'Riders remaining after each stage',[['Stage','Stage']],['Field remaining']);

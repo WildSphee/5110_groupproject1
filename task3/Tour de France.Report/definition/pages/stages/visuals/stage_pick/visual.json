@@ -32,14 +32,14 @@
             "columnCount": {
               "expr": {
                 "Literal": {
-                  "Value": "21D"
+                  "Value": "22D"
                 }
               }
             },
             "maxTiles": {
               "expr": {
                 "Literal": {
-                  "Value": "21D"
+                  "Value": "22D"
                 }
               }
             },
@@ -82,7 +82,7 @@
                 "From": [
                   {
                     "Name": "s",
-                    "Entity": "Stage",
+                    "Entity": "Stage choice",
                     "Type": 0
                   }
                 ],
@@ -98,7 +98,7 @@
                                   "Source": "s"
                                 }
                               },
-                              "Property": "Stage"
+                              "Property": "Choice"
                             }
                           }
                         ],
@@ -106,7 +106,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "1L"
+                                "Value": "'All'"
                               }
                             }
                           ]
@@ -262,14 +262,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Stage"
+                      "Entity": "Stage choice"
                     }
                   },
-                  "Property": "Stage"
+                  "Property": "Choice"
                 }
               },
-              "queryRef": "Stage.Stage",
-              "nativeQueryRef": "Stage",
+              "queryRef": "Stage choice.Choice",
+              "nativeQueryRef": "Choice",
               "active": true
             }
           ]
@@ -282,10 +282,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Stage"
+                    "Entity": "Stage choice"
                   }
                 },
-                "Property": "Stage"
+                "Property": "Choice"
               }
             },
             "direction": "Ascending"

@@ -115,7 +115,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Selected route and stage winner'"
+                  "Value": "'Routes and stage winners'"
                 }
               }
             },
@@ -287,16 +287,16 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Metrics"
+                    "Entity": "Stage"
                   }
                 },
-                "Property": "Stage Distance km"
+                "Property": "Stage Label"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ],
         "isDefaultSort": true

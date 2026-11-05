@@ -19,6 +19,6 @@ test_self_contained_model (test_report.ReportTests.test_self_contained_model) ..
 test_stage_selector_and_awards (test_report.ReportTests.test_stage_selector_and_awards) ... ok
 
 ----------------------------------------------------------------------
-Ran 19 tests in 0.953s
+Ran 19 tests in 0.707s
 
 OK

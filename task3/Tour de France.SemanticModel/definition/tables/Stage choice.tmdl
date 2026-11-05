@@ -1,0 +1,65 @@
+table 'Stage choice'
+
+	column 'Choice'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Choice
+		sortByColumn: Order
+
+	column 'Stage'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Stage
+
+	column 'Order'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Order
+
+	partition 'Stage choice' = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Choice" = nullable text, #"Stage" = Int64.Type, #"Order" = Int64.Type], {
+				{"All",1,0},
+				{"01",1,1},
+				{"All",2,0},
+				{"02",2,2},
+				{"All",3,0},
+				{"03",3,3},
+				{"All",4,0},
+				{"04",4,4},
+				{"All",5,0},
+				{"05",5,5},
+				{"All",6,0},
+				{"06",6,6},
+				{"All",7,0},
+				{"07",7,7},
+				{"All",8,0},
+				{"08",8,8},
+				{"All",9,0},
+				{"09",9,9},
+				{"All",10,0},
+				{"10",10,10},
+				{"All",11,0},
+				{"11",11,11},
+				{"All",12,0},
+				{"12",12,12},
+				{"All",13,0},
+				{"13",13,13},
+				{"All",14,0},
+				{"14",14,14},
+				{"All",15,0},
+				{"15",15,15},
+				{"All",16,0},
+				{"16",16,16},
+				{"All",17,0},
+				{"17",17,17},
+				{"All",18,0},
+				{"18",18,18},
+				{"All",19,0},
+				{"19",19,19},
+				{"All",20,0},
+				{"20",20,20},
+				{"All",21,0},
+				{"21",21,21}
+				}) in Source

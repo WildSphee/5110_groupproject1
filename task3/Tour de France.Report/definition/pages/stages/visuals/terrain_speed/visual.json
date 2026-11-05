@@ -145,7 +145,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Race-wide speed by terrain (km/h)'"
+                  "Value": "'Speed by terrain (km/h)'"
                 }
               }
             },

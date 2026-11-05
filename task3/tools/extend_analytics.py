@@ -13,7 +13,7 @@ def analytics_definitions():
     m('Mountain Cumulative Seconds',"IF(HASONEVALUE('Rider'[Bib]) && NOT ISBLANK([GC Rank]), VAR s=[As of Stage Number] RETURN CALCULATE(SUM('Result'[Adjusted Seconds]),FILTER(ALL('Stage'),'Stage'[Stage]<=s && 'Stage'[Stage Type]=\"Mountain\")))")
     m('Mountain GC Proxy Rank',"VAR t=[Mountain Cumulative Seconds] VAR field=FILTER(ALL('Rider'),NOT ISBLANK(CALCULATE([Mountain Cumulative Seconds]))) RETURN IF(NOT ISBLANK(t),RANKX(field,[Mountain Cumulative Seconds],t,ASC,Skip))",'0','Time-only mountain proxy, distinct from KOM points.')
     m('Young GC at Race Start Rank',"VAR t=[Rider Cumulative Seconds] VAR age=SELECTEDVALUE('Rider'[Age at Race Start]) VAR field=FILTER(ALL('Rider'),'Rider'[Age at Race Start]<26 && NOT ISBLANK(CALCULATE([Rider Cumulative Seconds]))) RETURN IF(NOT ISBLANK(t) && age<26,RANKX(field,[Rider Cumulative Seconds],t,ASC,Skip))",'0','Under 26 on the first stage date; separate from the original calendar-year Young Rider rule.')
-    m('GC Trace Hours',"IF(HASONEVALUE('Rider'[Bib]),DIVIDE(CALCULATE(MAX('Standing'[Cumulative Seconds]),'Standing'[Eligible]=1),3600))",'0.00')
+    m('GC Trace Hours',"DIVIDE(CALCULATE(AVERAGE('Standing'[Cumulative Seconds]),'Standing'[Eligible]=1),3600)",'0.00')
     m('GC Trace Rank',"IF(HASONEVALUE('Rider'[Bib]) && HASONEVALUE('Stage'[Stage]),MAX('Standing'[GC Rank]))",'0')
     m('GC Rank Change',"VAR s=SELECTEDVALUE('Stage'[Stage]) VAR nowRank=[GC Trace Rank] VAR prior=CALCULATE(MAX('Standing'[GC Rank]),REMOVEFILTERS('Stage'),'Standing'[Stage]=s-1) RETURN IF(NOT ISBLANK(nowRank) && NOT ISBLANK(prior),prior-nowRank)",'0','Positive = places gained; blank on first stage or after exit.')
     m('Mountain Trace Hours',"CALCULATE([GC Trace Hours],KEEPFILTERS('Stage'[Stage Type]=\"Mountain\"))",'0.00')
@@ -45,4 +45,6 @@ def analytics_definitions():
     m('Exit count',"COUNTROWS('Withdrawal')",'0','Recorded exits, attributed to the stage not completed; DNS is distinct from mid-stage withdrawal.')
     m('Field remaining',"""VAR s=SELECTEDVALUE('Stage'[Stage]) VAR started=CALCULATE(COUNTROWS('Rider'),REMOVEFILTERS('Rider')) VAR departed=CALCULATE(COUNTROWS('Withdrawal'),REMOVEFILTERS('Withdrawal'),REMOVEFILTERS('Stage'),REMOVEFILTERS('Rider'),'Withdrawal'[Stage]<=s) RETURN IF(NOT ISBLANK(s),started-COALESCE(departed,0))""",'0','Whole registered field less all exits through this stage.')
     m('Mapped riders',"""IF(SELECTEDVALUE('Country'[Country])<>"Unknown",[Riders by Country])""",'0','Unknown nationality is retained in the roster, not geocoded.')
+    m('Mean top-ten finish gap',"AVERAGEX(VALUES('Stage'[Stage]),[Top Ten Finish Gap])",'0.0','Mean raw time gap across stages where this rider placed in the top ten.')
+    m('Podium finishes',"CALCULATE(COUNTROWS('Result'),KEEPFILTERS('Result'[Position]<=3))",'0')
     return measures

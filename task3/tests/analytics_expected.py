@@ -101,5 +101,15 @@ for sid in (1,13,17,21):
         if r['Position'] not in (1,2,10,11,108): continue
         add(f"Recorded position gap / {sid} / {r['Bib']}",'Top Ten Finish Gap',r['Finish Seconds']-first['Finish Seconds'] if r['Position']<=10 else None,
             f"TREATAS({{{sid}}},'Stage'[Stage]),TREATAS({{{r['Bib']}}},'Rider'[Bib])")
+# Verify both entry states of the stage selector, plus the unfiltered GC chart.
+for choice in ['All']+[f'{s:02d}' for s in stages]:
+    selected=[r for r in data['Result'] if choice=='All' or r['Stage']==int(choice)]
+    context=f"""TREATAS({{"{choice}"}},'Stage choice'[Choice])"""
+    add(f'Stage selector / {choice} / finishes','Stage Finishes',len(selected),context)
+    add(f'Stage selector / {choice} / podiums','Podium finishes',sum(r['Position']<=3 for r in selected),context)
+for sid in [1,13,21]:
+    eligible=[r['Cumulative Seconds'] for r in data['Standing'] if r['Stage']==sid and r['Eligible']]
+    add(f'All riders / average GC hours after {sid}','GC Trace Hours',sum(eligible)/len(eligible)/3600,
+        f"TREATAS({{{sid}}},'Stage'[Stage])")
 (ROOT/'tests/analytics_expected.json').write_text(json.dumps(tests,indent=2))
 print(f'{len(tests)} independent analytics expectations')
