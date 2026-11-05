@@ -254,7 +254,8 @@
                 }
               },
               "queryRef": "Metrics.GC Rank Change",
-              "nativeQueryRef": "Places gained / lost"
+              "nativeQueryRef": "Places gained / lost",
+              "displayName": "Places gained / lost"
             }
           ]
         },
@@ -272,7 +273,8 @@
                 }
               },
               "queryRef": "Rider.Rider Label",
-              "nativeQueryRef": "Rider"
+              "nativeQueryRef": "Rider",
+              "displayName": "Rider"
             }
           ]
         }

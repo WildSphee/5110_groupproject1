@@ -222,7 +222,8 @@
                 }
               },
               "queryRef": "Rider.Rider Label",
-              "nativeQueryRef": "Rider"
+              "nativeQueryRef": "Rider",
+              "displayName": "Rider"
             },
             {
               "field": {
@@ -236,35 +237,8 @@
                 }
               },
               "queryRef": "Metrics.GC Rank",
-              "nativeQueryRef": "GC rank"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Points Rank"
-                }
-              },
-              "queryRef": "Metrics.Points Rank",
-              "nativeQueryRef": "Points rank"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "KOM Rank"
-                }
-              },
-              "queryRef": "Metrics.KOM Rank",
-              "nativeQueryRef": "KOM rank"
+              "nativeQueryRef": "GC rank",
+              "displayName": "GC rank"
             },
             {
               "field": {
@@ -278,7 +252,8 @@
                 }
               },
               "queryRef": "Metrics.Young Rank",
-              "nativeQueryRef": "Young rank"
+              "nativeQueryRef": "Young rank",
+              "displayName": "Young rank"
             },
             {
               "field": {
@@ -292,7 +267,8 @@
                 }
               },
               "queryRef": "Metrics.Rider Cumulative Time",
-              "nativeQueryRef": "Time (h:mm:ss)"
+              "nativeQueryRef": "Time (h:mm:ss)",
+              "displayName": "Time (h:mm:ss)"
             },
             {
               "field": {
@@ -316,39 +292,12 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Cumulative Points"
-                }
-              },
-              "queryRef": "Metrics.Cumulative Points",
-              "nativeQueryRef": "Points"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Cumulative KOM Points"
-                }
-              },
-              "queryRef": "Metrics.Cumulative KOM Points",
-              "nativeQueryRef": "KOM points"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
                   "Property": "Rider Status"
                 }
               },
               "queryRef": "Metrics.Rider Status",
-              "nativeQueryRef": "Status"
+              "nativeQueryRef": "Status",
+              "displayName": "Status"
             }
           ]
         }

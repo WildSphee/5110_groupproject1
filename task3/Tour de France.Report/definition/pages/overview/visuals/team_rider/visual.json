@@ -268,6 +268,7 @@
               },
               "queryRef": "Rider.Rider Label",
               "nativeQueryRef": "Rider",
+              "displayName": "Rider",
               "active": false
             }
           ]

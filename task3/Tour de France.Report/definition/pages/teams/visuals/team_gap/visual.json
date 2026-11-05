@@ -271,7 +271,8 @@
                 }
               },
               "queryRef": "Metrics.Team deficit minutes",
-              "nativeQueryRef": "Gap (min)"
+              "nativeQueryRef": "Gap (min)",
+              "displayName": "Gap (min)"
             }
           ]
         }

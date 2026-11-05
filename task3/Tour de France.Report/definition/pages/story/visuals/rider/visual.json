@@ -91,7 +91,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Alex Laurent (1)'"
+                                "Value": "'Remco Evenepoel (21)'"
                               }
                             }
                           ]
@@ -227,7 +227,8 @@
                 }
               },
               "queryRef": "Rider.Rider Label",
-              "nativeQueryRef": "Rider"
+              "nativeQueryRef": "Rider",
+              "displayName": "Rider"
             }
           ]
         }

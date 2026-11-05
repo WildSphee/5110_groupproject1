@@ -180,57 +180,11 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Riders by Country"
+                  "Property": "Mapped riders"
                 }
               },
-              "queryRef": "Metrics.Riders by Country",
-              "nativeQueryRef": "Riders by Country"
-            }
-          ]
-        },
-        "Tooltips": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Teams by Country"
-                }
-              },
-              "queryRef": "Metrics.Teams by Country",
-              "nativeQueryRef": "Teams by Country"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Country Wins"
-                }
-              },
-              "queryRef": "Metrics.Country Wins",
-              "nativeQueryRef": "Country Wins"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Country Podiums"
-                }
-              },
-              "queryRef": "Metrics.Country Podiums",
-              "nativeQueryRef": "Country Podiums"
+              "queryRef": "Metrics.Mapped riders",
+              "nativeQueryRef": "Mapped riders"
             }
           ]
         }

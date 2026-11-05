@@ -1,4 +1,3 @@
-/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
 table Team
 	lineageTag: b38160c3-b9af-4117-be4f-5ab2666a6e26
 
@@ -18,12 +17,27 @@ table Team
 		mode: import
 		source =
 				let Source = #table(type table [#"Team" = nullable text, #"Team Country" = nullable text], {
-				{"Alpine Velo","France"},
-				{"Atlantic Racing","France"},
-				{"Iberia Wheels","Spain"},
-				{"Azzurro Cycling","Italy"},
-				{"Lowland Sprint","Belgium"},
-				{"Northstar Velo","Netherlands"},
-				{"MSBA Breeze","Singapore"}
+				{"MOVISTAR TEAM","Spain"},
+				{"LOTTO","Belgium"},
+				{"DECATHLON AG2R LA MONDIALE TEAM","France"},
+				{"TOTALENERGIES","France"},
+				{"ARKEA-B&B HOTELS","France"},
+				{"ALPECIN-DECEUNINCK","Belgium"},
+				{"BAHRAIN VICTORIOUS","Bahrain"},
+				{"TUDOR PRO CYCLING TEAM","Switzerland"},
+				{"XDS ASTANA TEAM","Kazakhstan"},
+				{"SOUDAL QUICK-STEP","Belgium"},
+				{"UAE TEAM EMIRATES XRG","United Arab Emirates"},
+				{"TEAM PICNIC POSTNL","Netherlands, Kingdom of the"},
+				{"COFIDIS","France"},
+				{"LIDL-TREK","United States of America"},
+				{"INTERMARCHÉ - WANTY","Belgium"},
+				{"TEAM JAYCO ALULA","Australia"},
+				{"GROUPAMA-FDJ","France"},
+				{"UNO-X MOBILITY","Norway"},
+				{"TEAM VISMA | LEASE A BIKE","Netherlands, Kingdom of the"},
+				{"ISRAEL - PREMIER TECH","Israel"},
+				{"RED BULL - BORA - HANSGROHE","Germany"},
+				{"INEOS GRENADIERS","United Kingdom of Great Britain and Northern Ireland"},
+				{"EF EDUCATION - EASYPOST","United States of America"}
 				}) in Source
-

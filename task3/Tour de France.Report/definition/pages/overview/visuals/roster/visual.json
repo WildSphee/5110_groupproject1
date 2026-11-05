@@ -222,7 +222,8 @@
                 }
               },
               "queryRef": "Metrics.Roster Bib",
-              "nativeQueryRef": "Bib"
+              "nativeQueryRef": "Bib",
+              "displayName": "Bib"
             },
             {
               "field": {
@@ -264,7 +265,8 @@
                 }
               },
               "queryRef": "Rider.Rider Country",
-              "nativeQueryRef": "Nationality"
+              "nativeQueryRef": "Nationality",
+              "displayName": "Nationality"
             }
           ]
         }

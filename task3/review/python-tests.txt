@@ -1,23 +1,12 @@
-test_all_snapshot_ranks (test_data.DataTests.test_all_snapshot_ranks) ... ok
-test_breeze_roster_and_award (test_data.DataTests.test_breeze_roster_and_award) ... ok
-test_countries (test_data.DataTests.test_countries) ... ok
-test_counts (test_data.DataTests.test_counts) ... ok
-test_duration_over_24h (test_data.DataTests.test_duration_over_24h) ... ok
-test_equal_finish_times (test_data.DataTests.test_equal_finish_times) ... ok
-test_exited_unranked (test_data.DataTests.test_exited_unranked) ... ok
-test_exits (test_data.DataTests.test_exits) ... ok
-test_foreign_keys (test_data.DataTests.test_foreign_keys) ... ok
-test_incomplete_team (test_data.DataTests.test_incomplete_team) ... ok
-test_keys (test_data.DataTests.test_keys) ... ok
-test_locations_used (test_data.DataTests.test_locations_used) ... ok
-test_nationality_independence (test_data.DataTests.test_nationality_independence) ... ok
-test_prologue_and_noncontiguous_ids (test_data.DataTests.test_prologue_and_noncontiguous_ids) ... ok
-test_team_members_leader (test_data.DataTests.test_team_members_leader) ... ok
-test_team_rank (test_data.DataTests.test_team_rank) ... ok
-test_team_top_three (test_data.DataTests.test_team_top_three) ... ok
-test_time_positive (test_data.DataTests.test_time_positive) ... ok
-test_total_reconciles (test_data.DataTests.test_total_reconciles) ... ok
-test_youth (test_data.DataTests.test_youth) ... ok
+test_anomalies_not_corrected (test_data.RaceTests.test_anomalies_not_corrected) ... ok
+test_exact_adjusted_view (test_data.RaceTests.test_exact_adjusted_view) ... ok
+test_exit_baseline_and_budget (test_data.RaceTests.test_exit_baseline_and_budget) ... ok
+test_export_grain (test_data.RaceTests.test_export_grain) ... ok
+test_final_views (test_data.RaceTests.test_final_views) ... ok
+test_gc_and_age_ranks_all_stages (test_data.RaceTests.test_gc_and_age_ranks_all_stages) ... ok
+test_missing_points_are_null (test_data.RaceTests.test_missing_points_are_null) ... ok
+test_team_rank_all_stages (test_data.RaceTests.test_team_rank_all_stages) ... ok
+test_unknown_and_tied_position (test_data.RaceTests.test_unknown_and_tied_position) ... ok
 test_bindings (test_report.ReportTests.test_bindings) ... ok
 test_bounds_and_no_overlap (test_report.ReportTests.test_bounds_and_no_overlap) ... ok
 test_drill_depth (test_report.ReportTests.test_drill_depth) ... ok
@@ -30,6 +19,6 @@ test_self_contained_model (test_report.ReportTests.test_self_contained_model) ..
 test_stage_selector_and_awards (test_report.ReportTests.test_stage_selector_and_awards) ... ok
 
 ----------------------------------------------------------------------
-Ran 30 tests in 0.185s
+Ran 19 tests in 0.953s
 
 OK

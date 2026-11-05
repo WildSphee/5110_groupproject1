@@ -1,0 +1,91 @@
+table 'Withdrawal'
+
+	column 'Bib'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Bib
+
+	column 'Stage'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Stage
+
+	column 'Rider'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Rider
+
+	column 'Team'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Team
+
+	column 'Exit type'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Exit type
+
+	column 'Previous stage'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Previous stage
+
+	column 'Previous GC rank'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Previous GC rank
+
+	column 'Completed seconds'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Completed seconds
+
+	column 'Stages left'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Stages left
+
+	column 'Budget seconds'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Budget seconds
+
+	column 'Time to match winner'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Time to match winner
+
+	column 'Avg required per stage'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Avg required per stage
+
+	partition 'Withdrawal' = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Bib" = Int64.Type, #"Stage" = Int64.Type, #"Rider" = nullable text, #"Team" = nullable text, #"Exit type" = nullable text, #"Previous stage" = Int64.Type, #"Previous GC rank" = Int64.Type, #"Completed seconds" = Int64.Type, #"Stages left" = Int64.Type, #"Budget seconds" = Int64.Type, #"Time to match winner" = nullable text, #"Avg required per stage" = nullable text], {
+				{2,9,"Joao Almeida","UAE TEAM EMIRATES XRG","withdrawal",8,37,108453,13,168896,"46:54:56","3:36:32"},
+				{21,14,"Remco Evenepoel","SOUDAL QUICK-STEP","withdrawal",13,3,165195,8,112154,"31:09:14","3:53:39"},
+				{22,7,"Mattia Cattaneo","SOUDAL QUICK-STEP","withdrawal",6,92,80545,15,196804,"54:40:04","3:38:40"},
+				{38,10,"Marijn Van Den Berg","EF EDUCATION - EASYPOST","DNS",9,155,124071,12,153278,"42:34:38","3:32:53"},
+				{48,10,"Georg Zimmermann","INTERMARCHÉ - WANTY","DNS",9,115,123277,12,154072,"42:47:52","3:33:59"},
+				{54,7,"Jack Haig","BAHRAIN VICTORIOUS","withdrawal",6,19,79063,15,198286,"55:04:46","3:40:19"},
+				{64,1,"Filippo Ganna","INEOS GRENADIERS","withdrawal",null,null,0,21,277349,"77:02:29","3:40:07"},
+				{66,18,"Carlos Rodriguez","INEOS GRENADIERS","DNS",17,10,223861,4,53488,"14:51:28","3:42:52"},
+				{77,17,"Danny Van Poppel","RED BULL - BORA - HANSGROHE","DNS",16,118,222902,5,54447,"15:07:27","3:01:29"},
+				{85,14,"Mattias Skjelmose","LIDL-TREK","withdrawal",13,19,166761,8,110588,"30:43:08","3:50:24"},
+				{93,18,"Cyril Barthe","GROUPAMA-FDJ","DNS",17,78,232100,4,45249,"12:34:09","3:08:32"},
+				{101,3,"Jasper Philipsen","ALPECIN-DECEUNINCK","withdrawal",2,7,31153,19,246196,"68:23:16","3:35:58"},
+				{106,16,"Mathieu Van Der Poel","ALPECIN-DECEUNINCK","DNS",15,41,201623,6,75726,"21:02:06","3:30:21"},
+				{122,8,"Edward Dunbar","TEAM JAYCO ALULA","withdrawal",7,33,94473,14,182876,"50:47:56","3:37:43"},
+				{141,18,"Enric Mas","MOVISTAR TEAM","withdrawal",17,18,225840,4,51509,"14:18:29","3:34:37"},
+				{154,1,"Stefan Bissegger","DECATHLON AG2R LA MONDIALE TEAM","withdrawal",null,null,0,21,277349,"77:02:29","3:40:07"},
+				{163,14,"Bryan Coquard","COFIDIS","DNS",13,117,172547,8,104802,"29:06:42","3:38:20"},
+				{173,12,"Cees Bol","XDS ASTANA TEAM","DNS",11,143,154199,10,123150,"34:12:30","3:25:15"},
+				{175,20,"Yevgeniy Fedorov","XDS ASTANA TEAM","DNS",19,157,270257,2,7092,"1:58:12","0:59:06"},
+				{181,14,"Steff Cras","TOTALENERGIES","withdrawal",13,29,168061,8,109288,"30:21:28","3:47:41"},
+				{185,5,"Emilien Jeanniere","TOTALENERGIES","DNS",4,143,61909,17,215440,"59:50:40","3:31:13"},
+				{213,5,"Jasper De Buyst","LOTTO","DNS",4,132,61796,17,215553,"59:52:33","3:31:20"},
+				{217,15,"Lennert Van Eetvelt","LOTTO","DNS",14,146,194289,7,83060,"23:04:20","3:17:46"},
+				{228,10,"Soren Waerenskjold","UNO-X MOBILITY","withdrawal",9,158,124145,12,153204,"42:33:24","3:32:47"}
+				}) in Source

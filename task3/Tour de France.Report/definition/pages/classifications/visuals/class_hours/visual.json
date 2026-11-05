@@ -115,7 +115,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Age and mountain time rankings'"
+                  "Value": "'Alternative ranks: under 26 on stage 1 and mountain-stage time'"
                 }
               }
             },
@@ -222,7 +222,8 @@
                 }
               },
               "queryRef": "Rider.Rider Label",
-              "nativeQueryRef": "Rider"
+              "nativeQueryRef": "Rider",
+              "displayName": "Rider"
             },
             {
               "field": {
@@ -250,7 +251,8 @@
                 }
               },
               "queryRef": "Metrics.GC Rank",
-              "nativeQueryRef": "GC rank"
+              "nativeQueryRef": "GC rank",
+              "displayName": "GC rank"
             },
             {
               "field": {
@@ -264,7 +266,8 @@
                 }
               },
               "queryRef": "Metrics.Young GC at Race Start Rank",
-              "nativeQueryRef": "Young GC at Race Start Rank"
+              "nativeQueryRef": "Under 26 on stage 1",
+              "displayName": "Under 26 on stage 1"
             },
             {
               "field": {
@@ -278,7 +281,8 @@
                 }
               },
               "queryRef": "Metrics.Mountain GC Proxy Rank",
-              "nativeQueryRef": "Mountain GC Proxy Rank"
+              "nativeQueryRef": "Mountain-time rank",
+              "displayName": "Mountain-time rank"
             }
           ]
         }

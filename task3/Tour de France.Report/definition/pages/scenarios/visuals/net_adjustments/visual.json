@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "net_adjustments",
   "position": {
-    "x": 662,
+    "x": 854,
     "y": 504,
-    "width": 754,
+    "width": 562,
     "height": 372,
-    "z": 48,
-    "tabOrder": 49
+    "z": 51,
+    "tabOrder": 52
   },
   "visual": {
     "visualType": "waterfallChart",

@@ -128,7 +128,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cumulative time (hours) • all days and mountain days'"
+                  "Value": "'Total race hours at each stage and mountain checkpoint'"
                 }
               }
             },
@@ -254,7 +254,8 @@
                 }
               },
               "queryRef": "Metrics.GC Trace Hours",
-              "nativeQueryRef": "GC Trace Hours"
+              "nativeQueryRef": "All stages",
+              "displayName": "All stages"
             },
             {
               "field": {
@@ -268,7 +269,8 @@
                 }
               },
               "queryRef": "Metrics.Mountain Trace Hours",
-              "nativeQueryRef": "Mountain Trace Hours"
+              "nativeQueryRef": "Mountain-stage checkpoints",
+              "displayName": "Mountain-stage checkpoints"
             }
           ]
         }

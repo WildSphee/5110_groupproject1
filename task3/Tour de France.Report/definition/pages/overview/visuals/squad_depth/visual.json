@@ -163,6 +163,7 @@
               },
               "queryRef": "Rider.Rider Label",
               "nativeQueryRef": "Rider",
+              "displayName": "Rider",
               "active": false
             }
           ]
@@ -181,7 +182,8 @@
                 }
               },
               "queryRef": "Metrics.Roster Riders",
-              "nativeQueryRef": "Riders"
+              "nativeQueryRef": "Riders",
+              "displayName": "Riders"
             }
           ]
         }

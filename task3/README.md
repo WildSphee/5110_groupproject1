@@ -1,75 +1,38 @@
-# Tour de France analytics — BT5110 Task 3
+# Tour de France 2025 · Task 3
 
-Open **Tour de France.pbip** in Power BI Desktop. Keep the `.Report` and `.SemanticModel` directories beside it. If first-open visuals are empty, choose **Home → Refresh**; the embedded dummy data requires no credentials or external paths. Save after refresh to retain a local data cache. Use **File → Save As → Power BI (.pbix)** if a single packaged file is needed. The source-controlled deliverable is the editable PBIP/TMDL/PBIR project.
+Open **Tour de France.pbip** in Power BI Desktop. On a fresh clone, choose **Home → Refresh**, then save. The model contains the supplied 2025 database export in portable Power Query tables. Keep the Report and SemanticModel folders beside the project file.
 
-**The race is fictional.** On **04 Team performance**, clear the stage selector for the final standings. MSBA Breeze (Singapore) wins Best Team across 21 scored stages. On **05 Country participation**, three of its riders represent Singapore and Chan Hiu Lok represents Hong Kong. The supplied roster names identify demo riders; birth dates, roles and race times are synthetic.
+| Page | What to look for |
+|---|---|
+| 01 Race & participation | Select a nationality or team to see its riders, bibs and teams in the roster. The country columns also work offline. |
+| 02 Stages & terrain | Pick one of 21 stages. Stage 15 shows Tim Wellens first on Muret–Carcassonne. Expand its results from terrain to route, team and rider. The bottom row compares the entire race. |
+| 03 Classifications | Compare the General and Young Rider leaders, times and winning criteria at each checkpoint. Sprint and climb scores are missing from this export. |
+| 04 Team performance | Compare cumulative team ranks, then expand a team to see its stage scores and finisher counts. Team Visma won across 21 scored stages. |
+| 05 GC progression | Follow a rider's daily rank and gap. Remco Evenepoel was third after stage 13. |
+| 06 Rider exits | Select a stage or terrain to see which riders left, how the exit was recorded and their last GC positions. Remco withdrew on stage 14. |
+| 07 GC what-if | Compare four bonus and penalty rules. The separate exit table gives the adjusted time each rider had left to tie the actual final GC winner. |
 
-The report has ten pages: Race overview, Stage explorer, Classifications, Team performance, Country participation, GC storyline, Terrain & consistency, Routes & stage focus, GC what-if, and Guide & definitions.
+The source includes 184 registered riders, 23 teams, 21 stages and 3,602 completed rider-stage results. The final General and Young Rider tables have 160 and 42 finishers respectively. [Calculation definitions](docs/semantics.md) · [Requirements coverage](docs/requirements-matrix.md) · [Independent review and testing](review/export-validation.md)
 
-The PDF feedback refresh adds an Azure participation map, treemap, scatterplot, grouped columns, stacked bars and donut alongside the existing line charts and tables, under one shared palette. See [PDF feedback coverage and definitions](docs/pdf-feedback.md) for E1?E15 and the new controls.
+## Rebuild from the supplied export
 
-## Demo
-
-1. Overview: select the team bar chart, enable its down arrow and click a team. The chart drills to riders; the up arrow rolls back up.
-2. Stage explorer: expand the matrix from stage type to stage, team and rider. Check finish − bonus + penalty against adjusted seconds. Slicers narrow the stage, rider or team.
-3. Classifications: compare all four global ranks. Select stage 06 then 07 and rider Avery Laurent (bib 8): the exit removes current eligibility at stage 07.
-4. Team performance: check the final Best Team rank for MSBA Breeze. Fewer than three finishers creates an unscored stage; the team cannot win merely by accumulating less time.
-5. Countries: inspect France's two teams; Singapore has one team and three riders; Hong Kong has one rider and no teams. Japan remains visible with zero participation. Expand the roster to see riders whose nationality differs from their team.
-
-Slicers are local to a page. No As Of selection means the final stage; multiple selections use the latest stage. Use a slicer's eraser to clear it. Click a selected chart mark again to clear cross-filtering. Page 10 explains these controls and the demo scoring assumptions.
-
-## Files
-
-* `data/`: normalized raw CSV fixtures, scoring extension, derived snapshots, model input and DAX definitions.
-* `tools/generate_data.py`: deterministic seed-5110 generator.
-* `tools/build_model.mjs`: creates and refreshes a semantic model through Microsoft's Power BI Modeling MCP and exports TMDL.
-* `tools/build_report.mjs`: creates ten pages in native, publicly documented PBIR format.
-* `tests/test_data.py`: raw-data/SQLite tests and independently calculated expected DAX answers.
-* `tools/test_dax.mjs`: executes those comparisons against the actual Desktop engine through MCP.
-* `tools/test_visual_queries.mjs`: executes all 62 report visual field combinations at their deepest configured drill level; this validates queries, not visual rendering.
-* `tools/validate_report.mjs`: validates project/report JSON against Microsoft's published schemas.
-* `docs/`: calculation contract and requirement traceability.
-* `review/`: test results, real Desktop screenshots/interaction notes and independent scored reviews.
-
-## Reproduce
-
-Requires Python 3.11+ (standard library only for generator/tests), Node 22+, Power BI Desktop and `npm ci` in `tools`. The lock file pins the MCP SDK and Microsoft Power BI Modeling MCP. Running the server uses its EULA acceptance flag; this is the installed Microsoft tool used for this local project.
-
-From the repository root:
+From the repository root, use Python 3.11+ and Node.js 22+. The CSV input is under `task3/use_this_data/export/csv`. Refresh in Desktop reads the embedded tables. After changing a CSV, regenerate the project, reopen it and refresh.
 
 ```powershell
-python task3/tools/generate_data.py
-python task3/tests/test_data.py
-python task3/tools/run_checks.py
-Push-Location task3/tools
-npm ci
-Pop-Location
+npm ci --prefix task3/tools
+python task3/tools/import_export.py
 node task3/tools/build_report.mjs
+python task3/tests/test_data.py
+python task3/tests/analytics_expected.py
+python task3/tools/run_checks.py
 node task3/tools/validate_report.mjs
 ```
 
-To rebuild the model, open a **new blank** Power BI Desktop file and obtain its port with MCP `connection_operations / ListLocalInstances`. Never point the model builder at a report containing work to keep; it creates tables and expects a blank model.
+To check the running model, open and refresh this PBIP in Desktop. Discover its local Analysis Services port and replace PORT with that value. The test scripts use Microsoft's Power BI Modeling MCP.
 
 ```powershell
-node task3/tools/build_model.mjs 'Data Source=localhost:PORT'
-# Open task3/Tour de France.pbip, refresh, discover its new port, then:
-node task3/tools/test_dax.mjs 'Data Source=localhost:REPORT_PORT'
-node task3/tools/test_visual_queries.mjs 'Data Source=localhost:REPORT_PORT'
+node task3/tools/discover.mjs
+node task3/tools/test_dax.mjs 'Data Source=localhost:PORT'
+node task3/tools/test_dax.mjs 'Data Source=localhost:PORT' analytics
+node task3/tools/test_visual_queries.mjs 'Data Source=localhost:PORT'
 ```
-
-The build-time CSVs are embedded into portable M tables. Editing CSVs alone does not alter the opened report. Rebuild the model and reopen the PBIP to apply replacement data. See `docs/semantics.md` for the migration contract and assumptions.
-
-## Validation of the PDF feedback refresh
-
-27 Python checks, 34 original live DAX comparisons, 173 additional independent analytics comparisons, and 62 visual queries pass. Report/project JSON passes Microsoft schema validation. Native Desktop inspection confirmed the new map and chart types render. The map requires an internet connection; zero-participation countries also remain in the adjacent bar chart.
-
-`docs/pdf-feedback.md` maps every PDF suggestion to a page and documents the proxy calculations. Earlier scored reviews in `review/round-1.md` and `review/round-2.md` describe the previous six-page version, not this refresh.
-
-Additional calculation checks:
-
-```powershell
-python task3/tests/analytics_expected.py
-node task3/tools/test_dax.mjs 'Data Source=localhost:REPORT_PORT' analytics
-```
-
-`generate_data.py` also calls `extend_analytics.py`, which adds the route fields, race-start ages, scenario choices and analytical measures to the portable model. No external dataset credentials are needed.

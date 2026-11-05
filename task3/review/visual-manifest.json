@@ -100,7 +100,7 @@
     "height": 48
   },
   {
-    "page": "terrain",
+    "page": "exits",
     "name": "title",
     "type": "textbox",
     "title": "",
@@ -110,7 +110,7 @@
     "height": 68
   },
   {
-    "page": "terrain",
+    "page": "exits",
     "name": "demo",
     "type": "textbox",
     "title": "",
@@ -178,57 +178,11 @@
                     "Entity": "Metrics"
                   }
                 },
-                "Property": "Riders by Country"
+                "Property": "Mapped riders"
               }
             },
-            "queryRef": "Metrics.Riders by Country",
-            "nativeQueryRef": "Riders by Country"
-          }
-        ]
-      },
-      "Tooltips": {
-        "projections": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Teams by Country"
-              }
-            },
-            "queryRef": "Metrics.Teams by Country",
-            "nativeQueryRef": "Teams by Country"
-          },
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Country Wins"
-              }
-            },
-            "queryRef": "Metrics.Country Wins",
-            "nativeQueryRef": "Country Wins"
-          },
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Country Podiums"
-              }
-            },
-            "queryRef": "Metrics.Country Podiums",
-            "nativeQueryRef": "Country Podiums"
+            "queryRef": "Metrics.Mapped riders",
+            "nativeQueryRef": "Mapped riders"
           }
         ]
       }
@@ -337,6 +291,7 @@
             },
             "queryRef": "Rider.Rider Label",
             "nativeQueryRef": "Rider",
+            "displayName": "Rider",
             "active": false
           }
         ]
@@ -401,6 +356,7 @@
             },
             "queryRef": "Rider.Rider Label",
             "nativeQueryRef": "Rider",
+            "displayName": "Rider",
             "active": false
           }
         ]
@@ -419,7 +375,8 @@
               }
             },
             "queryRef": "Metrics.Roster Riders",
-            "nativeQueryRef": "Riders"
+            "nativeQueryRef": "Riders",
+            "displayName": "Riders"
           }
         ]
       }
@@ -449,7 +406,8 @@
               }
             },
             "queryRef": "Metrics.Roster Bib",
-            "nativeQueryRef": "Bib"
+            "nativeQueryRef": "Bib",
+            "displayName": "Bib"
           },
           {
             "field": {
@@ -491,7 +449,8 @@
               }
             },
             "queryRef": "Rider.Rider Country",
-            "nativeQueryRef": "Nationality"
+            "nativeQueryRef": "Nationality",
+            "displayName": "Nationality"
           }
         ]
       }
@@ -606,9 +565,9 @@
     "type": "pivotTable",
     "title": "Stage results and time adjustments",
     "x": 24,
-    "y": 529,
+    "y": 482,
     "width": 780,
-    "height": 347,
+    "height": 222,
     "fields": {
       "Rows": {
         "projections": [
@@ -670,6 +629,7 @@
             },
             "queryRef": "Rider.Rider Label",
             "nativeQueryRef": "Rider",
+            "displayName": "Rider",
             "active": false
           }
         ]
@@ -688,7 +648,8 @@
               }
             },
             "queryRef": "Metrics.Finish Seconds",
-            "nativeQueryRef": "Finish (s)"
+            "nativeQueryRef": "Finish (s)",
+            "displayName": "Finish (s)"
           },
           {
             "field": {
@@ -702,7 +663,8 @@
               }
             },
             "queryRef": "Metrics.Bonus Seconds",
-            "nativeQueryRef": "Bonus (s)"
+            "nativeQueryRef": "Bonus (s)",
+            "displayName": "Bonus (s)"
           },
           {
             "field": {
@@ -716,7 +678,8 @@
               }
             },
             "queryRef": "Metrics.Penalty Seconds",
-            "nativeQueryRef": "Penalty (s)"
+            "nativeQueryRef": "Penalty (s)",
+            "displayName": "Penalty (s)"
           },
           {
             "field": {
@@ -730,7 +693,8 @@
               }
             },
             "queryRef": "Metrics.Adjusted Seconds",
-            "nativeQueryRef": "Adjusted (s)"
+            "nativeQueryRef": "Adjusted (s)",
+            "displayName": "Adjusted (s)"
           },
           {
             "field": {
@@ -744,7 +708,22 @@
               }
             },
             "queryRef": "Metrics.Stage Position",
-            "nativeQueryRef": "Position"
+            "nativeQueryRef": "Position",
+            "displayName": "Position"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Speed Proxy kmh"
+              }
+            },
+            "queryRef": "Metrics.Speed Proxy kmh",
+            "nativeQueryRef": "Speed Proxy kmh"
           }
         ]
       }
@@ -844,7 +823,7 @@
     "x": 24,
     "y": 181,
     "width": 780,
-    "height": 332,
+    "height": 285,
     "fields": {
       "Values": {
         "projections": [
@@ -874,7 +853,8 @@
               }
             },
             "queryRef": "Rider.Rider Label",
-            "nativeQueryRef": "Rider"
+            "nativeQueryRef": "Rider",
+            "displayName": "Rider"
           },
           {
             "field": {
@@ -902,7 +882,8 @@
               }
             },
             "queryRef": "Rider.Rider Country",
-            "nativeQueryRef": "Nationality"
+            "nativeQueryRef": "Nationality",
+            "displayName": "Nationality"
           },
           {
             "field": {
@@ -916,7 +897,8 @@
               }
             },
             "queryRef": "Metrics.Top Ten Position",
-            "nativeQueryRef": "Place"
+            "nativeQueryRef": "Place",
+            "displayName": "Place"
           },
           {
             "field": {
@@ -930,7 +912,8 @@
               }
             },
             "queryRef": "Metrics.Top Ten Adjusted Seconds",
-            "nativeQueryRef": "Adjusted (s)"
+            "nativeQueryRef": "Adjusted (s)",
+            "displayName": "Adjusted (s)"
           }
         ]
       }
@@ -940,11 +923,11 @@
     "page": "stages",
     "name": "finish_gaps",
     "type": "clusteredBarChart",
-    "title": "Top ten: seconds behind the first finisher",
+    "title": "Top ten: signed gap to recorded winner (s)",
     "x": 820,
-    "y": 529,
+    "y": 334,
     "width": 596,
-    "height": 347,
+    "height": 177,
     "fields": {
       "Category": {
         "projections": [
@@ -961,6 +944,7 @@
             },
             "queryRef": "Rider.Rider Label",
             "nativeQueryRef": "Rider",
+            "displayName": "Rider",
             "active": true
           }
         ]
@@ -991,9 +975,9 @@
     "type": "donutChart",
     "title": "Top-ten finishes by team",
     "x": 820,
-    "y": 322,
+    "y": 527,
     "width": 596,
-    "height": 191,
+    "height": 177,
     "fields": {
       "Category": {
         "projections": [
@@ -1102,7 +1086,8 @@
               }
             },
             "queryRef": "Metrics.Award leaders",
-            "nativeQueryRef": "Leading rider(s)"
+            "nativeQueryRef": "Leading rider(s)",
+            "displayName": "Leading rider(s)"
           },
           {
             "field": {
@@ -1130,7 +1115,8 @@
               }
             },
             "queryRef": "Metrics.Winning rule",
-            "nativeQueryRef": "How to win"
+            "nativeQueryRef": "How to win",
+            "displayName": "How to win"
           }
         ]
       }
@@ -1160,7 +1146,8 @@
               }
             },
             "queryRef": "Rider.Rider Label",
-            "nativeQueryRef": "Rider"
+            "nativeQueryRef": "Rider",
+            "displayName": "Rider"
           },
           {
             "field": {
@@ -1174,35 +1161,8 @@
               }
             },
             "queryRef": "Metrics.GC Rank",
-            "nativeQueryRef": "GC rank"
-          },
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Points Rank"
-              }
-            },
-            "queryRef": "Metrics.Points Rank",
-            "nativeQueryRef": "Points rank"
-          },
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "KOM Rank"
-              }
-            },
-            "queryRef": "Metrics.KOM Rank",
-            "nativeQueryRef": "KOM rank"
+            "nativeQueryRef": "GC rank",
+            "displayName": "GC rank"
           },
           {
             "field": {
@@ -1216,7 +1176,8 @@
               }
             },
             "queryRef": "Metrics.Young Rank",
-            "nativeQueryRef": "Young rank"
+            "nativeQueryRef": "Young rank",
+            "displayName": "Young rank"
           },
           {
             "field": {
@@ -1230,7 +1191,8 @@
               }
             },
             "queryRef": "Metrics.Rider Cumulative Time",
-            "nativeQueryRef": "Time (h:mm:ss)"
+            "nativeQueryRef": "Time (h:mm:ss)",
+            "displayName": "Time (h:mm:ss)"
           },
           {
             "field": {
@@ -1254,39 +1216,12 @@
                     "Entity": "Metrics"
                   }
                 },
-                "Property": "Cumulative Points"
-              }
-            },
-            "queryRef": "Metrics.Cumulative Points",
-            "nativeQueryRef": "Points"
-          },
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Cumulative KOM Points"
-              }
-            },
-            "queryRef": "Metrics.Cumulative KOM Points",
-            "nativeQueryRef": "KOM points"
-          },
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
                 "Property": "Rider Status"
               }
             },
             "queryRef": "Metrics.Rider Status",
-            "nativeQueryRef": "Status"
+            "nativeQueryRef": "Status",
+            "displayName": "Status"
           }
         ]
       }
@@ -1296,7 +1231,7 @@
     "page": "classifications",
     "name": "class_hours",
     "type": "tableEx",
-    "title": "Age and mountain time rankings",
+    "title": "Alternative ranks: under 26 on stage 1 and mountain-stage time",
     "x": 24,
     "y": 604,
     "width": 812,
@@ -1316,7 +1251,8 @@
               }
             },
             "queryRef": "Rider.Rider Label",
-            "nativeQueryRef": "Rider"
+            "nativeQueryRef": "Rider",
+            "displayName": "Rider"
           },
           {
             "field": {
@@ -1344,7 +1280,8 @@
               }
             },
             "queryRef": "Metrics.GC Rank",
-            "nativeQueryRef": "GC rank"
+            "nativeQueryRef": "GC rank",
+            "displayName": "GC rank"
           },
           {
             "field": {
@@ -1358,7 +1295,8 @@
               }
             },
             "queryRef": "Metrics.Young GC at Race Start Rank",
-            "nativeQueryRef": "Young GC at Race Start Rank"
+            "nativeQueryRef": "Under 26 on stage 1",
+            "displayName": "Under 26 on stage 1"
           },
           {
             "field": {
@@ -1372,7 +1310,8 @@
               }
             },
             "queryRef": "Metrics.Mountain GC Proxy Rank",
-            "nativeQueryRef": "Mountain GC Proxy Rank"
+            "nativeQueryRef": "Mountain-time rank",
+            "displayName": "Mountain-time rank"
           }
         ]
       }
@@ -1481,7 +1420,8 @@
               }
             },
             "queryRef": "Metrics.Best Team Rank",
-            "nativeQueryRef": "Team rank"
+            "nativeQueryRef": "Team rank",
+            "displayName": "Team rank"
           },
           {
             "field": {
@@ -1509,7 +1449,8 @@
               }
             },
             "queryRef": "Metrics.Team Cumulative Hours",
-            "nativeQueryRef": "Top-3 hours"
+            "nativeQueryRef": "Top-3 hours",
+            "displayName": "Top-3 hours"
           },
           {
             "field": {
@@ -1523,7 +1464,8 @@
               }
             },
             "queryRef": "Metrics.Stages Scored",
-            "nativeQueryRef": "Stages scored"
+            "nativeQueryRef": "Stages scored",
+            "displayName": "Stages scored"
           },
           {
             "field": {
@@ -1537,7 +1479,8 @@
               }
             },
             "queryRef": "Metrics.Team Coverage",
-            "nativeQueryRef": "Coverage"
+            "nativeQueryRef": "Coverage",
+            "displayName": "Coverage"
           }
         ]
       }
@@ -1586,7 +1529,8 @@
               }
             },
             "queryRef": "Metrics.Team deficit minutes",
-            "nativeQueryRef": "Gap (min)"
+            "nativeQueryRef": "Gap (min)",
+            "displayName": "Gap (min)"
           }
         ]
       }
@@ -1694,7 +1638,8 @@
               }
             },
             "queryRef": "Rider.Rider Label",
-            "nativeQueryRef": "Rider"
+            "nativeQueryRef": "Rider",
+            "displayName": "Rider"
           }
         ]
       }
@@ -1743,7 +1688,8 @@
               }
             },
             "queryRef": "Metrics.GC daily deficit seconds",
-            "nativeQueryRef": "Gap to leader (s)"
+            "nativeQueryRef": "Gap to leader (s)",
+            "displayName": "Gap to leader (s)"
           }
         ]
       },
@@ -1761,7 +1707,8 @@
               }
             },
             "queryRef": "Rider.Rider Label",
-            "nativeQueryRef": "Rider"
+            "nativeQueryRef": "Rider",
+            "displayName": "Rider"
           }
         ]
       }
@@ -1810,7 +1757,8 @@
               }
             },
             "queryRef": "Metrics.GC Rank Change",
-            "nativeQueryRef": "Places gained / lost"
+            "nativeQueryRef": "Places gained / lost",
+            "displayName": "Places gained / lost"
           }
         ]
       },
@@ -1828,7 +1776,8 @@
               }
             },
             "queryRef": "Rider.Rider Label",
-            "nativeQueryRef": "Rider"
+            "nativeQueryRef": "Rider",
+            "displayName": "Rider"
           }
         ]
       }
@@ -1886,7 +1835,8 @@
               }
             },
             "queryRef": "Rider.Rider Label",
-            "nativeQueryRef": "Rider"
+            "nativeQueryRef": "Rider",
+            "displayName": "Rider"
           },
           {
             "field": {
@@ -1914,7 +1864,8 @@
               }
             },
             "queryRef": "Metrics.GC daily deficit seconds",
-            "nativeQueryRef": "Gap to leader (s)"
+            "nativeQueryRef": "Gap to leader (s)",
+            "displayName": "Gap to leader (s)"
           },
           {
             "field": {
@@ -1928,7 +1879,8 @@
               }
             },
             "queryRef": "Metrics.GC Rank Change",
-            "nativeQueryRef": "Places gained / lost"
+            "nativeQueryRef": "Places gained / lost",
+            "displayName": "Places gained / lost"
           },
           {
             "field": {
@@ -1942,7 +1894,8 @@
               }
             },
             "queryRef": "Metrics.Adjusted Seconds",
-            "nativeQueryRef": "Adjusted (s)"
+            "nativeQueryRef": "Adjusted (s)",
+            "displayName": "Adjusted (s)"
           }
         ]
       }
@@ -1952,7 +1905,7 @@
     "page": "story",
     "name": "mountain_markers",
     "type": "lineChart",
-    "title": "Cumulative time (hours) • all days and mountain days",
+    "title": "Total race hours at each stage and mountain checkpoint",
     "x": 980,
     "y": 484,
     "width": 436,
@@ -1991,7 +1944,8 @@
               }
             },
             "queryRef": "Metrics.GC Trace Hours",
-            "nativeQueryRef": "GC Trace Hours"
+            "nativeQueryRef": "All stages",
+            "displayName": "All stages"
           },
           {
             "field": {
@@ -2005,21 +1959,22 @@
               }
             },
             "queryRef": "Metrics.Mountain Trace Hours",
-            "nativeQueryRef": "Mountain Trace Hours"
+            "nativeQueryRef": "Mountain-stage checkpoints",
+            "displayName": "Mountain-stage checkpoints"
           }
         ]
       }
     }
   },
   {
-    "page": "terrain",
-    "name": "speed",
+    "page": "stages",
+    "name": "terrain_speed",
     "type": "clusteredColumnChart",
-    "title": "Average speed by terrain and team (km/h)",
+    "title": "Race-wide speed by terrain (km/h)",
     "x": 24,
-    "y": 94,
-    "width": 680,
-    "height": 374,
+    "y": 720,
+    "width": 444,
+    "height": 266,
     "fields": {
       "Category": {
         "projections": [
@@ -2037,6 +1992,21 @@
             "queryRef": "Stage.Stage Type",
             "nativeQueryRef": "Stage Type",
             "active": true
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Rider"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Rider.Team",
+            "nativeQueryRef": "Team",
+            "active": false
           }
         ]
       },
@@ -2057,36 +2027,18 @@
             "nativeQueryRef": "Speed Proxy kmh"
           }
         ]
-      },
-      "Series": {
-        "projections": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Rider"
-                  }
-                },
-                "Property": "Team"
-              }
-            },
-            "queryRef": "Rider.Team",
-            "nativeQueryRef": "Team"
-          }
-        ]
       }
     }
   },
   {
-    "page": "terrain",
-    "name": "mountain_podiums",
+    "page": "stages",
+    "name": "terrain_podiums",
     "type": "clusteredBarChart",
-    "title": "Who finished in the top three on mountain stages?",
-    "x": 720,
-    "y": 94,
-    "width": 696,
-    "height": 374,
+    "title": "Mountain-stage podium finishes",
+    "x": 484,
+    "y": 720,
+    "width": 452,
+    "height": 266,
     "fields": {
       "Category": {
         "projections": [
@@ -2103,6 +2055,7 @@
             },
             "queryRef": "Rider.Rider Label",
             "nativeQueryRef": "Rider",
+            "displayName": "Rider",
             "active": true
           }
         ]
@@ -2128,14 +2081,14 @@
     }
   },
   {
-    "page": "terrain",
-    "name": "top_ten",
+    "page": "stages",
+    "name": "terrain_topten",
     "type": "barChart",
-    "title": "Top-ten finishes by team and terrain",
-    "x": 24,
-    "y": 484,
-    "width": 680,
-    "height": 392,
+    "title": "Race-wide top-ten finishes by terrain",
+    "x": 952,
+    "y": 720,
+    "width": 464,
+    "height": 266,
     "fields": {
       "Category": {
         "projections": [
@@ -2167,6 +2120,7 @@
             },
             "queryRef": "Rider.Rider Label",
             "nativeQueryRef": "Rider",
+            "displayName": "Rider",
             "active": false
           }
         ]
@@ -2210,32 +2164,17 @@
     }
   },
   {
-    "page": "terrain",
-    "name": "evidence",
-    "type": "pivotTable",
-    "title": "Performance by rider and stage",
-    "x": 720,
-    "y": 484,
-    "width": 696,
-    "height": 392,
+    "page": "exits",
+    "name": "stage_exits",
+    "type": "columnChart",
+    "title": "Exits by stage: DNS or mid-stage withdrawal",
+    "x": 24,
+    "y": 94,
+    "width": 780,
+    "height": 292,
     "fields": {
-      "Rows": {
+      "Category": {
         "projections": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Rider"
-                  }
-                },
-                "Property": "Rider Label"
-              }
-            },
-            "queryRef": "Rider.Rider Label",
-            "nativeQueryRef": "Rider",
-            "active": true
-          },
           {
             "field": {
               "Column": {
@@ -2244,13 +2183,215 @@
                     "Entity": "Stage"
                   }
                 },
-                "Property": "Stage Label"
+                "Property": "Stage"
               }
             },
-            "queryRef": "Stage.Stage Label",
-            "nativeQueryRef": "Stage Label",
-            "active": false
+            "queryRef": "Stage.Stage",
+            "nativeQueryRef": "Stage",
+            "active": true
+          }
+        ]
+      },
+      "Y": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Exit count"
+              }
+            },
+            "queryRef": "Metrics.Exit count",
+            "nativeQueryRef": "Exit count"
+          }
+        ]
+      },
+      "Series": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Withdrawal"
+                  }
+                },
+                "Property": "Exit type"
+              }
+            },
+            "queryRef": "Withdrawal.Exit type",
+            "nativeQueryRef": "Exit type"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "exits",
+    "name": "field",
+    "type": "lineChart",
+    "title": "Riders remaining after each stage",
+    "x": 820,
+    "y": 94,
+    "width": 596,
+    "height": 292,
+    "fields": {
+      "Category": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage"
+              }
+            },
+            "queryRef": "Stage.Stage",
+            "nativeQueryRef": "Stage",
+            "active": true
+          }
+        ]
+      },
+      "Y": {
+        "projections": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Field remaining"
+              }
+            },
+            "queryRef": "Metrics.Field remaining",
+            "nativeQueryRef": "Field remaining"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "exits",
+    "name": "log",
+    "type": "tableEx",
+    "title": "Rider exits and last completed GC position",
+    "x": 24,
+    "y": 402,
+    "width": 900,
+    "height": 474,
+    "fields": {
+      "Values": {
+        "projections": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Withdrawal"
+                  }
+                },
+                "Property": "Rider"
+              }
+            },
+            "queryRef": "Withdrawal.Rider",
+            "nativeQueryRef": "Rider"
           },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Withdrawal"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "queryRef": "Withdrawal.Team",
+            "nativeQueryRef": "Team"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Withdrawal"
+                  }
+                },
+                "Property": "Stage"
+              }
+            },
+            "queryRef": "Withdrawal.Stage",
+            "nativeQueryRef": "Stage"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Withdrawal"
+                  }
+                },
+                "Property": "Exit type"
+              }
+            },
+            "queryRef": "Withdrawal.Exit type",
+            "nativeQueryRef": "Exit type"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Withdrawal"
+                  }
+                },
+                "Property": "Previous stage"
+              }
+            },
+            "queryRef": "Withdrawal.Previous stage",
+            "nativeQueryRef": "Previous stage"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Withdrawal"
+                  }
+                },
+                "Property": "Previous GC rank"
+              }
+            },
+            "queryRef": "Withdrawal.Previous GC rank",
+            "nativeQueryRef": "Last GC rank",
+            "displayName": "Last GC rank"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "page": "exits",
+    "name": "by_type",
+    "type": "clusteredBarChart",
+    "title": "Exit count by stage terrain",
+    "x": 940,
+    "y": 402,
+    "width": 476,
+    "height": 474,
+    "fields": {
+      "Category": {
+        "projections": [
           {
             "field": {
               "Column": {
@@ -2264,11 +2405,11 @@
             },
             "queryRef": "Stage.Stage Type",
             "nativeQueryRef": "Stage Type",
-            "active": false
+            "active": true
           }
         ]
       },
-      "Values": {
+      "Y": {
         "projections": [
           {
             "field": {
@@ -2278,53 +2419,11 @@
                     "Entity": "Metrics"
                   }
                 },
-                "Property": "Top Ten Finishes"
+                "Property": "Exit count"
               }
             },
-            "queryRef": "Metrics.Top Ten Finishes",
-            "nativeQueryRef": "Top Ten Finishes"
-          },
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Mountain Podiums"
-              }
-            },
-            "queryRef": "Metrics.Mountain Podiums",
-            "nativeQueryRef": "Mountain Podiums"
-          },
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Stage Winner Gap Seconds"
-              }
-            },
-            "queryRef": "Metrics.Stage Winner Gap Seconds",
-            "nativeQueryRef": "Stage Winner Gap Seconds"
-          },
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Speed Proxy kmh"
-              }
-            },
-            "queryRef": "Metrics.Speed Proxy kmh",
-            "nativeQueryRef": "Speed Proxy kmh"
+            "queryRef": "Metrics.Exit count",
+            "nativeQueryRef": "Exit count"
           }
         ]
       }
@@ -2414,7 +2513,8 @@
               }
             },
             "queryRef": "Rider.Rider Label",
-            "nativeQueryRef": "Rider"
+            "nativeQueryRef": "Rider",
+            "displayName": "Rider"
           },
           {
             "field": {
@@ -2428,7 +2528,8 @@
               }
             },
             "queryRef": "Metrics.Rider Status",
-            "nativeQueryRef": "Status"
+            "nativeQueryRef": "Status",
+            "displayName": "Status"
           },
           {
             "field": {
@@ -2442,7 +2543,8 @@
               }
             },
             "queryRef": "Metrics.GC Rank",
-            "nativeQueryRef": "GC rank"
+            "nativeQueryRef": "GC rank",
+            "displayName": "GC rank"
           },
           {
             "field": {
@@ -2520,62 +2622,85 @@
   },
   {
     "page": "scenarios",
-    "name": "adjustments",
-    "type": "clusteredBarChart",
-    "title": "Bonuses and penalties by rider (seconds)",
+    "name": "budget",
+    "type": "tableEx",
+    "title": "To tie the final GC winner: remaining adjusted time (not a forecast)",
     "x": 24,
     "y": 504,
-    "width": 622,
+    "width": 814,
     "height": 372,
     "fields": {
-      "Category": {
+      "Values": {
         "projections": [
           {
             "field": {
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Rider"
+                    "Entity": "Withdrawal"
                   }
                 },
-                "Property": "Rider Label"
+                "Property": "Rider"
               }
             },
-            "queryRef": "Rider.Rider Label",
-            "nativeQueryRef": "Rider",
-            "active": true
-          }
-        ]
-      },
-      "Y": {
-        "projections": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Cumulative Bonus Seconds"
-              }
-            },
-            "queryRef": "Metrics.Cumulative Bonus Seconds",
-            "nativeQueryRef": "Cumulative Bonus Seconds"
+            "queryRef": "Withdrawal.Rider",
+            "nativeQueryRef": "Rider"
           },
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Metrics"
+                    "Entity": "Withdrawal"
                   }
                 },
-                "Property": "Cumulative Penalty Seconds"
+                "Property": "Stage"
               }
             },
-            "queryRef": "Metrics.Cumulative Penalty Seconds",
-            "nativeQueryRef": "Cumulative Penalty Seconds"
+            "queryRef": "Withdrawal.Stage",
+            "nativeQueryRef": "Stage"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Withdrawal"
+                  }
+                },
+                "Property": "Stages left"
+              }
+            },
+            "queryRef": "Withdrawal.Stages left",
+            "nativeQueryRef": "Stages left"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Withdrawal"
+                  }
+                },
+                "Property": "Time to match winner"
+              }
+            },
+            "queryRef": "Withdrawal.Time to match winner",
+            "nativeQueryRef": "Time to match winner"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Withdrawal"
+                  }
+                },
+                "Property": "Avg required per stage"
+              }
+            },
+            "queryRef": "Withdrawal.Avg required per stage",
+            "nativeQueryRef": "Avg required per stage"
           }
         ]
       }
@@ -2586,9 +2711,9 @@
     "name": "net_adjustments",
     "type": "waterfallChart",
     "title": "Scenario time adjustments by stage (seconds)",
-    "x": 662,
+    "x": 854,
     "y": 504,
-    "width": 754,
+    "width": 562,
     "height": 372,
     "fields": {
       "Category": {

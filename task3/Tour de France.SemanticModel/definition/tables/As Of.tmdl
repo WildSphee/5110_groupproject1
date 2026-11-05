@@ -1,4 +1,3 @@
-/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
 table 'As Of'
 	lineageTag: 6c133453-4239-4337-93d2-411e4f932e60
 
@@ -40,4 +39,3 @@ table 'As Of'
 				{20,"Stage 20"},
 				{21,"Stage 21"}
 				}) in Source
-

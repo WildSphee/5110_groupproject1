@@ -254,7 +254,8 @@
                 }
               },
               "queryRef": "Metrics.GC daily deficit seconds",
-              "nativeQueryRef": "Gap to leader (s)"
+              "nativeQueryRef": "Gap to leader (s)",
+              "displayName": "Gap to leader (s)"
             }
           ]
         },
@@ -272,7 +273,8 @@
                 }
               },
               "queryRef": "Rider.Rider Label",
-              "nativeQueryRef": "Rider"
+              "nativeQueryRef": "Rider",
+              "displayName": "Rider"
             }
           ]
         }

@@ -23,6 +23,7 @@ ref table 'Team Standing'
 ref table Classification
 ref table Metrics
 ref table Scenario
+ref table Withdrawal
 
 ref cultureInfo en-US
 

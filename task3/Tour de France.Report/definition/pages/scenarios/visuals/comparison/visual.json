@@ -6,8 +6,8 @@
     "y": 94,
     "width": 1092,
     "height": 394,
-    "z": 46,
-    "tabOrder": 47
+    "z": 49,
+    "tabOrder": 50
   },
   "visual": {
     "visualType": "tableEx",
@@ -222,7 +222,8 @@
                 }
               },
               "queryRef": "Rider.Rider Label",
-              "nativeQueryRef": "Rider"
+              "nativeQueryRef": "Rider",
+              "displayName": "Rider"
             },
             {
               "field": {
@@ -236,7 +237,8 @@
                 }
               },
               "queryRef": "Metrics.Rider Status",
-              "nativeQueryRef": "Status"
+              "nativeQueryRef": "Status",
+              "displayName": "Status"
             },
             {
               "field": {
@@ -250,7 +252,8 @@
                 }
               },
               "queryRef": "Metrics.GC Rank",
-              "nativeQueryRef": "GC rank"
+              "nativeQueryRef": "GC rank",
+              "displayName": "GC rank"
             },
             {
               "field": {

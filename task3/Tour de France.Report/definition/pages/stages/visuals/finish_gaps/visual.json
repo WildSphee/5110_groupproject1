@@ -3,9 +3,9 @@
   "name": "finish_gaps",
   "position": {
     "x": 820,
-    "y": 529,
+    "y": 334,
     "width": 596,
-    "height": 347,
+    "height": 177,
     "z": 24,
     "tabOrder": 25
   },
@@ -145,7 +145,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top ten: seconds behind the first finisher'"
+                  "Value": "'Top ten: signed gap to recorded winner (s)'"
                 }
               }
             },
@@ -253,6 +253,7 @@
               },
               "queryRef": "Rider.Rider Label",
               "nativeQueryRef": "Rider",
+              "displayName": "Rider",
               "active": true
             }
           ]

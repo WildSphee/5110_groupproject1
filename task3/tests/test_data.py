@@ -1,152 +1,106 @@
-"""Independent raw CSV/SQLite checks plus expected answers for live Power BI tests."""
-import csv, json, sqlite3, unittest
+"""Check the delivered 2025 model against the supplied PostgreSQL tables and views."""
+import csv,json,sqlite3,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
+SOURCE=ROOT/'use_this_data/export/csv'
+DATA=json.loads((ROOT/'data/model_data.json').read_text(encoding='utf8'))
 db=sqlite3.connect(':memory:');db.row_factory=sqlite3.Row
-raw={}
-for f in (ROOT/'data').glob('*.csv'):
-    rows=list(csv.DictReader(f.open(encoding='utf-8')));raw[f.stem]=rows
-    numeric={'bib_no','stage_id','finish_time','bonus','time_penalty','position','points','kom_points',
-        'eligible','young','cumulative_seconds','stages_completed','gc_rank','points_rank','kom_rank','young_rank',
-        'finishers','top3_seconds','stages_scored','cumulative_top3_seconds','team_rank'}
-    columns=list(rows[0]);db.execute('CREATE TABLE "'+f.stem+'" ('+','.join('"'+c+'" '+('INTEGER' if c in numeric else 'TEXT') for c in columns)+')')
-    db.executemany('INSERT INTO "'+f.stem+'" VALUES('+','.join('?' for _ in columns)+')',[[None if r[c]=='' else int(r[c]) if c in numeric else r[c] for c in columns] for r in rows])
+ints={'stage_id','bib_no','position','finish_time','bonus','time_penalty','adjusted_time','gc_rank','young_rank','team_rank','total_adjusted_time','total_top3_time','stages_scored'}
+for f in sorted(SOURCE.glob('*.csv')):
+    with f.open(encoding='utf-8-sig',newline='') as src:
+        rows=csv.DictReader(src);cols=rows.fieldnames
+        db.execute(f'CREATE TABLE "{f.stem}" ('+','.join(f'"{c}" '+('INTEGER' if c in ints else 'TEXT') for c in cols)+')')
+        db.executemany(f'INSERT INTO "{f.stem}" VALUES('+','.join('?' for _ in cols)+')',
+            [[None if not row[c] else int(row[c]) if c in ints else row[c] for c in cols] for row in rows])
 def q(sql,*args):return [dict(r) for r in db.execute(sql,args)]
-def scalar(sql,*args):return db.execute(sql,args).fetchone()[0]
-
-def reference(s):
-    # Recompute from normalized results and score events; never trust stored snapshots.
-    return q('''WITH agg AS (
-      SELECT r.bib_no, SUM(f.finish_time-f.bonus+f.time_penalty) secs,
-        SUM(p.points) pts, SUM(p.kom_points) kom, r.dob >= '2001-01-01' young
-      FROM rider r JOIN result f USING(bib_no) JOIN classification_score p USING(bib_no,stage_id)
-      WHERE f.stage_id<=? AND NOT EXISTS(SELECT 1 FROM exit e WHERE e.bib_no=r.bib_no AND e.stage_id<=?)
-      GROUP BY r.bib_no HAVING COUNT(*)=?
-    ), ranked AS (SELECT *,RANK() OVER(ORDER BY secs) gc,RANK() OVER(ORDER BY pts DESC) pr,
-       RANK() OVER(ORDER BY kom DESC) kr FROM agg), youth AS (
-       SELECT bib_no,RANK() OVER(ORDER BY secs) yr FROM agg WHERE young=1)
-    SELECT ranked.*,youth.yr FROM ranked LEFT JOIN youth USING(bib_no) ORDER BY bib_no''',s,s,scalar('SELECT COUNT(*) FROM stage WHERE stage_id<=?',s))
-
-class DataTests(unittest.TestCase):
-    def test_counts(self):self.assertEqual([len(raw[n]) for n in ['rider','team','stage','country','result']],[52,7,21,13,1024])
-    def test_keys(self):
-        self.assertEqual(scalar('SELECT COUNT(*) FROM (SELECT bib_no,stage_id FROM result GROUP BY bib_no,stage_id)'),1024)
-        self.assertEqual(scalar('SELECT COUNT(*) FROM (SELECT stage_id,position FROM result GROUP BY stage_id,position)'),1024)
-    def test_foreign_keys(self):
-        for table,col,dim,key in [('result','bib_no','rider','bib_no'),('result','stage_id','stage','stage_id'),('rider','team_name','team','team_name'),('rider','country_code','country','country_code'),('team','country_code','country','country_code')]:
-            self.assertEqual(scalar(f'SELECT COUNT(*) FROM {table} t LEFT JOIN {dim} d ON t.{col}=d.{key} WHERE d.{key} IS NULL'),0)
-    def test_team_members_leader(self):
-        for r in q("SELECT team_name,COUNT(*) n,SUM(is_leader='True') leaders FROM rider GROUP BY team_name"):
-            self.assertEqual((r['n'],r['leaders']),(4 if r['team_name']=='MSBA Breeze' else 8,1))
-    def test_time_positive(self):self.assertEqual(scalar('SELECT COUNT(*) FROM result WHERE finish_time<=0 OR bonus<0 OR time_penalty<0 OR finish_time-bonus+time_penalty<=0'),0)
-    def test_exits(self):self.assertEqual(scalar('SELECT COUNT(*) FROM result r JOIN exit e USING(bib_no) WHERE r.stage_id>=e.stage_id'),0)
-    def test_equal_finish_times(self):self.assertGreater(scalar('SELECT COUNT(*) FROM (SELECT stage_id,finish_time FROM result GROUP BY stage_id,finish_time HAVING COUNT(*)>1)'),0)
-    def test_all_snapshot_ranks(self):
+def ref(stage):
+    return q("""WITH a AS (SELECT f.bib_no,SUM(f.finish_time-f.bonus+f.time_penalty) secs,ri.dob
+      FROM result f JOIN rider ri USING(bib_no) WHERE f.stage_id<=? AND NOT EXISTS(SELECT 1 FROM exit e WHERE e.bib_no=f.bib_no AND e.stage_id<=?)
+      GROUP BY f.bib_no HAVING COUNT(*)=(SELECT COUNT(*) FROM stage WHERE stage_id<=?)),
+      g AS (SELECT *,RANK() OVER(ORDER BY secs) gc FROM a), y AS (SELECT bib_no,RANK() OVER(ORDER BY secs) yr FROM a WHERE dob>='2000-01-01')
+      SELECT bib_no,secs,gc,yr FROM g LEFT JOIN y USING(bib_no) ORDER BY bib_no""",stage,stage,stage)
+def team_ref(stage):
+    return q("""WITH t AS (SELECT r.team_name team,f.stage_id,finish_time-bonus+time_penalty elapsed,
+       ROW_NUMBER() OVER(PARTITION BY r.team_name,f.stage_id ORDER BY finish_time-bonus+time_penalty,bib_no) ordinal
+       FROM result f JOIN rider r USING(bib_no) WHERE f.stage_id<=?),
+       daily AS (SELECT team,stage_id,SUM(elapsed) top3 FROM t WHERE ordinal<=3 GROUP BY team,stage_id HAVING COUNT(*)=3),
+       race AS (SELECT team,COUNT(*) scored,SUM(top3) secs FROM daily GROUP BY team)
+       SELECT *,RANK() OVER(ORDER BY scored DESC,secs) ranking FROM race""",stage)
+def withdrawal_ref():
+    rows=q("""SELECT e.bib_no bib,e.stage_id stage,e.exit_reason type,r.rider_name rider,r.team_name team,
+       (SELECT MAX(stage_id) FROM result WHERE bib_no=e.bib_no AND stage_id<e.stage_id) previous,
+       COALESCE((SELECT SUM(finish_time-bonus+time_penalty) FROM result WHERE bib_no=e.bib_no AND stage_id<e.stage_id),0) elapsed,
+       (SELECT COUNT(*) FROM stage WHERE stage_id>=e.stage_id) remaining
+       FROM exit e JOIN rider r USING(bib_no)""")
+    target=q('SELECT total_adjusted_time secs FROM v_general_classification WHERE gc_rank=1')[0]['secs']
+    for r in rows:
+        prior={a['bib_no']:a['gc'] for a in ref(r['previous'])} if r['previous'] else {}
+        r.update(prior=prior.get(r['bib']),budget=target-r['elapsed'])
+    return rows
+class RaceTests(unittest.TestCase):
+    def test_export_grain(self):
+        self.assertEqual([len(DATA[x]) for x in ['Rider','Team','Stage','Result','Withdrawal']],[184,23,21,3602,24])
+        self.assertEqual(len({(r['Stage'],r['Bib']) for r in DATA['Result']}),3602)
+    def test_exact_adjusted_view(self):
+        self.assertEqual({(r['Bib'],r['Stage']):(r['Position'],r['Adjusted Seconds']) for r in DATA['Result']},
+          {(r['bib_no'],r['stage_id']):(r['position'],r['adjusted_time']) for r in q('SELECT * FROM v_result_adjusted')})
+    def test_gc_and_age_ranks_all_stages(self):
         for s in range(1,22):
-            exp=reference(s);actual={r['bib_no']:r for r in q('SELECT * FROM standing_snapshot WHERE stage_id=? AND eligible=1',s)}
-            self.assertEqual(set(actual),{r['bib_no'] for r in exp})
-            for r in exp:
-                a=actual[r['bib_no']]
-                self.assertEqual([a[k] for k in ['cumulative_seconds','points','kom_points','gc_rank','points_rank','kom_rank','young_rank']],[r[k] for k in ['secs','pts','kom','gc','pr','kr','yr']])
-    def test_exited_unranked(self):self.assertEqual(scalar('SELECT COUNT(*) FROM standing_snapshot WHERE eligible=0 AND (gc_rank IS NOT NULL OR points_rank IS NOT NULL OR kom_rank IS NOT NULL OR young_rank IS NOT NULL)'),0)
-    def test_youth(self):self.assertEqual(scalar("SELECT COUNT(*) FROM standing_snapshot s JOIN rider r USING(bib_no) WHERE young_rank IS NOT NULL AND dob<'2001-01-01'"),0)
-    def test_team_top_three(self):
-        expected=q('''WITH a AS(SELECT team_name,stage_id,finish_time-bonus+time_penalty secs,
-            ROW_NUMBER() OVER(PARTITION BY team_name,stage_id ORDER BY finish_time-bonus+time_penalty,bib_no) n
-            FROM result JOIN rider USING(bib_no)) SELECT team_name,stage_id,SUM(secs) secs FROM a WHERE n<=3 GROUP BY team_name,stage_id HAVING COUNT(*)=3''')
-        self.assertEqual({(r['team_name'],r['stage_id']):r['secs'] for r in expected},{(r['team_name'],r['stage_id']):r['top3_seconds'] for r in q('SELECT * FROM team_stage WHERE top3_seconds IS NOT NULL')})
-    def test_team_rank(self):
+            self.assertEqual({r['Bib']:(r['Cumulative Seconds'],r['GC Rank'],r['Young Rank']) for r in DATA['Standing'] if r['Stage']==s and r['Eligible']},
+                {r['bib_no']:(r['secs'],r['gc'],r['yr']) for r in ref(s)})
+    def test_team_rank_all_stages(self):
         for s in range(1,22):
-            exp=q('''WITH a AS(SELECT team_name,COUNT(top3_seconds) n,SUM(top3_seconds) secs FROM team_stage WHERE stage_id<=? GROUP BY team_name)
-             SELECT *,RANK() OVER(ORDER BY n DESC,secs) r FROM a''',s)
-            for r in exp:
-                a=q('SELECT * FROM team_snapshot WHERE stage_id=? AND team_name=?',s,r['team_name'])[0]
-                self.assertEqual((a['stages_scored'],a['cumulative_top3_seconds'],a['team_rank']),(r['n'],r['secs'],r['r']))
-    def test_incomplete_team(self):
-        self.assertEqual(scalar("SELECT finishers FROM team_stage WHERE team_name='Northstar Velo' AND stage_id=18"),2)
-        self.assertIsNone(scalar("SELECT top3_seconds FROM team_stage WHERE team_name='Northstar Velo' AND stage_id=18"))
-        self.assertEqual(scalar("SELECT team_rank FROM team_snapshot WHERE team_name='Northstar Velo' AND stage_id=21"),7)
-    def test_countries(self):
-        self.assertEqual(scalar("SELECT COUNT(*) FROM team WHERE country_code='FRA'"),2)
-        for c in ['JPN']:
-            self.assertEqual(scalar('SELECT COUNT(*) FROM rider WHERE country_code=?',c),0)
-            self.assertEqual(scalar('SELECT COUNT(*) FROM team WHERE country_code=?',c),0)
-    def test_breeze_roster_and_award(self):
-        roster=q("SELECT rider_name,country_code FROM rider WHERE team_name='MSBA Breeze' ORDER BY bib_no")
-        self.assertEqual([(r['rider_name'],r['country_code']) for r in roster],
-            [('Aishwarya Jayaraman','SGP'),('Chan Hiu Lok','HKG'),('Phua Zhuo Wei','SGP'),('Sara Tan Kwan Ling','SGP')])
-        self.assertEqual(scalar("SELECT country_code FROM team WHERE team_name='MSBA Breeze'"),'SGP')
-        winners=q("SELECT team_name,stages_scored FROM team_snapshot WHERE stage_id=21 AND team_rank=1")
-        self.assertEqual(winners,[{'team_name':'MSBA Breeze','stages_scored':21}])
-    def test_nationality_independence(self):self.assertGreater(scalar('SELECT COUNT(*) FROM rider r JOIN team t USING(team_name) WHERE r.country_code<>t.country_code'),0)
-    def test_locations_used(self):self.assertEqual(scalar('SELECT COUNT(*) FROM location l WHERE NOT EXISTS(SELECT 1 FROM stage s WHERE s.start_location=l.location_name OR s.end_location=l.location_name)'),0)
-    def test_total_reconciles(self):
-        total=scalar('SELECT SUM(finish_time-bonus+time_penalty) FROM result')
-        for keys in ['stage_id','r.team_name','r.bib_no','stage_type,stage_id,r.team_name,r.bib_no']:
-            rows=q(f'SELECT SUM(finish_time-bonus+time_penalty) secs FROM result f JOIN rider r USING(bib_no) JOIN stage s USING(stage_id) GROUP BY {keys}')
-            self.assertEqual(sum(r['secs'] for r in rows),total)
-    def test_duration_over_24h(self):self.assertGreater(reference(21)[0]['secs'],86400)
-    def test_prologue_and_noncontiguous_ids(self):
-        import importlib.util
-        spec=importlib.util.spec_from_file_location('generator',ROOT/'tools/generate_data.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
-        rider={'bib_no':1,'dob':'2002-01-01'}
-        stages=[{'stage_id':0},{'stage_id':3}]
-        rows=[dict(bib_no=1,stage_id=s,finish_time=100,bonus=0,time_penalty=0) for s in [0,3]]
-        scores={(1,s):dict(points=0,kom_points=0) for s in [0,3]}
-        self.assertEqual(mod.rider_snapshot(rider,rows,scores,{},stages,3)['eligible'],1)
-        self.assertEqual(mod.rider_snapshot(rider,rows,scores,{},stages,0)['eligible'],1)
-        missing=mod.rider_snapshot(rider,rows[:1],scores,{},stages,3)
-        self.assertEqual((missing['eligible'],missing['status']),(0,'Incomplete results'))
-        exited=mod.rider_snapshot(rider,rows[:1],scores,{1:3},stages,3)
-        self.assertEqual((exited['eligible'],exited['status']),(0,'Exited'))
-        for dob,young in [('2000-12-31',0),('2001-01-01',1),('2001-01-02',1)]:
-            self.assertEqual(mod.rider_snapshot(dict(bib_no=1,dob=dob),rows,scores,{},stages,3)['young'],young)
+            self.assertEqual({r['Team']:(r['Team Rank'],r['Stages Scored'],r['Cumulative Top3 Seconds']) for r in DATA['Team Standing'] if r['Stage']==s},
+              {r['team']:(r['ranking'],r['scored'],r['secs']) for r in team_ref(s)})
+    def test_final_views(self):
+        gc=q('SELECT * FROM v_general_classification');y=q('SELECT * FROM v_young_rider_classification');t=q('SELECT * FROM v_best_team')
+        self.assertEqual((len(gc),len(y),len(t)),(160,42,23))
+        self.assertEqual({(r['bib_no'],r['gc_rank'],r['total_adjusted_time']) for r in gc},
+            {(r['Bib'],r['GC Rank'],r['Cumulative Seconds']) for r in DATA['Standing'] if r['Stage']==21 and r['GC Rank']})
+        self.assertEqual({(r['bib_no'],r['young_rank'],r['total_adjusted_time']) for r in y},
+            {(r['Bib'],r['Young Rank'],r['Cumulative Seconds']) for r in DATA['Standing'] if r['Stage']==21 and r['Young Rank']})
+        self.assertEqual({(r['team_name'],r['team_rank'],r['total_top3_time'],r['stages_scored']) for r in t},
+            {(r['Team'],r['Team Rank'],r['Cumulative Top3 Seconds'],r['Stages Scored']) for r in DATA['Team Standing'] if r['Stage']==21})
+    def test_missing_points_are_null(self):
+        self.assertTrue(all(r['Points'] is None and r['KOM Points'] is None for r in DATA['Result']))
+        self.assertTrue(all(r['Points Rank'] is None and r['KOM Rank'] is None for r in DATA['Standing']))
+    def test_unknown_and_tied_position(self):
+        self.assertEqual([r['Bib'] for r in DATA['Rider'] if r['Rider Country']=='Unknown'],[78])
+        self.assertEqual(sorted(r['Bib'] for r in DATA['Result'] if r['Stage']==13 and r['Position']==108),[23,197])
+        self.assertFalse(any(r['Stage']==13 and r['Position']==109 for r in DATA['Result']))
+    def test_exit_baseline_and_budget(self):
+        by_bib={r['Bib']:r for r in DATA['Withdrawal']}
+        for raw in withdrawal_ref():
+            r=by_bib[raw['bib']]
+            self.assertEqual((r['Previous stage'],r['Previous GC rank'],r['Budget seconds'],r['Stages left']),(raw['previous'],raw['prior'],raw['budget'],raw['remaining']))
+            self.assertFalse(any(f['Bib']==r['Bib'] and f['Stage']>=r['Stage'] for f in DATA['Result']))
+        self.assertEqual((by_bib[21]['Stage'],by_bib[21]['Previous GC rank']),(14,3))
+        self.assertEqual(sum(r['Exit type']=='DNS' for r in by_bib.values()),12)
+        self.assertEqual(sum(r['Exit type']=='withdrawal' for r in by_bib.values()),12)
+    def test_anomalies_not_corrected(self):
+        self.assertEqual(q('SELECT COUNT(*) n,SUM(time_penalty) seconds FROM result WHERE time_penalty>0'),[{'n':4,'seconds':50}])
+        inversion=q("""SELECT DISTINCT stage_id FROM (SELECT stage_id,finish_time,LAG(finish_time) OVER(PARTITION BY stage_id ORDER BY position,bib_no) prior FROM result) WHERE finish_time<prior ORDER BY stage_id""")
+        self.assertEqual([r['stage_id'] for r in inversion],[1,17,21])
 
 def expected():
     tests=[]
     def add(name,query,rows):tests.append(dict(name=name,query=query,expected=rows))
-    add('MSBA Breeze final award',"""EVALUATE CALCULATETABLE(ROW("rank",[Best Team Rank],"scored",[Stages Scored]),TREATAS({"MSBA Breeze"},'Team'[Team]))""",[dict(rank=1,scored=21)])
-    add('MSBA Breeze roster',"""EVALUATE SELECTCOLUMNS(FILTER('Rider','Rider'[Team]="MSBA Breeze"),"rider",'Rider'[Rider],"country",'Rider'[Rider Country])""",
-        q("SELECT rider_name rider,country_name country FROM rider JOIN country USING(country_code) WHERE team_name='MSBA Breeze'"))
-    for s in [1,6,7,17,18,21]:
-        add(f'All four ranks, stage {s}',f'''EVALUATE SELECTCOLUMNS(CALCULATETABLE(SUMMARIZECOLUMNS('Rider'[Bib],"gc",[GC Rank],"pr",[Points Rank],"kr",[KOM Rank],"yr",[Young Rank],"secs",[Rider Cumulative Seconds]),TREATAS({{{s}}},'As Of'[Stage])),"bib",'Rider'[Bib],"gc",[gc],"pr",[pr],"kr",[kr],"yr",[yr],"secs",[secs])''',
-            [dict(bib=r['bib_no'],gc=r['gc'],pr=r['pr'],kr=r['kr'],yr=r['yr'],secs=r['secs']) for r in reference(s)])
-    country=q('''SELECT c.country_name country,(SELECT COUNT(*) FROM team t WHERE t.country_code=c.country_code) teams,
-       (SELECT COUNT(*) FROM rider r WHERE r.country_code=c.country_code) riders FROM country c''')
-    add('Independent countries including zeros',"EVALUATE SELECTCOLUMNS(SUMMARIZECOLUMNS('Country'[Country],\"teams\",[Teams by Country],\"riders\",[Riders by Country]),\"country\",'Country'[Country],\"teams\",[teams],\"riders\",[riders])",country)
-    for fields in [[('Rider Country','country_name')],[('Rider Country','country_name'),('Team','team_name')],[('Rider Country','country_name'),('Team','team_name'),('Bib','bib_no')]]:
-        dax=','.join(f"'Rider'[{c}]" for c,k in fields)
-        sel=','.join(f'"{k}",\'Rider\'[{c}]' for c,k in fields)
-        sql=','.join(k for c,k in fields)
-        for country_filter in [None,'France','Singapore','Hong Kong','Japan']:
-            where=' WHERE country_name=?' if country_filter else ''
-            rows=q(f'SELECT {sql},COUNT(*) riders FROM rider JOIN country USING(country_code){where} GROUP BY {sql}',*([country_filter] if country_filter else []))
-            query=f'SELECTCOLUMNS(SUMMARIZECOLUMNS({dax},"riders",[Roster Riders]),{sel},"riders",[riders])'
-            if country_filter:query=f'CALCULATETABLE({query},TREATAS({{"{country_filter}"}},\'Country\'[Country]))'
-            add('Roster '+sql+' / '+str(country_filter),'EVALUATE '+query,rows)
-    for s in [17,18,21]:
-        rows=q('SELECT team_name team,team_rank rank,stages_scored stages,cumulative_top3_seconds/3600.0 hours FROM team_snapshot WHERE stage_id=?',s)
-        add(f'Team coverage stage {s}',f'''EVALUATE SELECTCOLUMNS(CALCULATETABLE(SUMMARIZECOLUMNS('Team'[Team],"rank",[Best Team Rank],"stages",[Stages Scored],"hours",[Team Cumulative Hours]),TREATAS({{{s}}},'As Of'[Stage])),"team",'Team'[Team],"rank",[rank],"stages",[stages],"hours",[hours])''',rows)
-    for fields in [[('Stage','Stage Type','stage_type')],[('Stage','Stage Type','stage_type'),('Stage','Stage','stage_id')],
-                   [('Stage','Stage','stage_id'),('Rider','Team','team_name')],[('Stage','Stage','stage_id'),('Rider','Team','team_name'),('Rider','Bib','bib_no')]]:
-        dax=','.join(f"'{t}'[{c}]" for t,c,k in fields);sel=','.join(f'"{k}",\'{t}\'[{c}]' for t,c,k in fields)
-        sql=','.join(k for t,c,k in fields)
-        rows=q(f'SELECT {sql},SUM(finish_time-bonus+time_penalty) secs FROM result JOIN stage USING(stage_id) JOIN rider USING(bib_no) GROUP BY {sql}')
-        for r in rows:
-            if 'stage_type' in r:r['stage_type']=r['stage_type'].title()
-        add('Drill '+sql,f'EVALUATE SELECTCOLUMNS(SUMMARIZECOLUMNS({dax},"secs",[Adjusted Seconds]),{sel},"secs",[secs])',rows)
-    r=next(r for r in reference(21) if r['bib_no']==21)
-    add('Single rider preserves global rank',"EVALUATE CALCULATETABLE(ROW(\"gc\",[GC Rank],\"secs\",[Rider Cumulative Seconds]),TREATAS({21},'Rider'[Bib]))",[dict(gc=r['gc'],secs=r['secs'])])
-    seconds=r['secs'];duration=f'{seconds//3600}:{seconds%3600//60:02d}:{seconds%60:02d}'
-    add('Duration string does not wrap after 24 hours',"EVALUATE CALCULATETABLE(ROW(\"duration\",[Rider Cumulative Time]),TREATAS({21},'Rider'[Bib]))",[dict(duration=duration)])
-    for s in [1,6,7,18,21]:
-        add(f'Explicit exit count at stage {s}',f'''EVALUATE CALCULATETABLE(ROW("exits",[Exited Riders]),TREATAS({{{s}}},'As Of'[Stage]))''',[dict(exits=scalar('SELECT COUNT(*) FROM exit WHERE stage_id<=?',s))])
-    add('Multi stage selector uses latest',"EVALUATE CALCULATETABLE(ROW(\"stage\",[As of Stage Number],\"eligible\",[Eligible Riders]),TREATAS({6,7},'As Of'[Stage]))",[dict(stage=7,eligible=len(reference(7)))])
-    add('Historical exit: stage 6 vs 7',"EVALUATE CALCULATETABLE(ROW(\"gc\",[GC Rank],\"time\",[Rider Cumulative Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({7},'As Of'[Stage]))",[dict(gc=None,time=None)])
-    secs=scalar('SELECT SUM(finish_time-bonus+time_penalty) FROM result WHERE bib_no=1 AND stage_id<=9')
-    add('Running time ignores stage type filter',"EVALUATE CALCULATETABLE(ROW(\"hours\",[Running Rider Hours]),TREATAS({1},'Rider'[Bib]),TREATAS({9},'Stage'[Stage]),TREATAS({\"Mountain\"},'Stage'[Stage Type]))",[dict(hours=secs/3600)])
-    add('No results returns blank, no fake zero rank',"EVALUATE CALCULATETABLE(ROW(\"position\",[Stage Position],\"time\",[Adjusted Seconds]),TREATAS({8},'Rider'[Bib]),TREATAS({7},'Stage'[Stage]))",[dict(position=None,time=None)])
-    (ROOT/'tests/dax_expected.json').write_text(json.dumps(tests,indent=2),encoding='utf-8')
-
+    for s in [1,7,13,14,21]:
+        add(f'GC and Young ranks after stage {s}',f"""EVALUATE SELECTCOLUMNS(CALCULATETABLE(SUMMARIZECOLUMNS('Rider'[Bib],"gc",[GC Rank],"yr",[Young Rank],"secs",[Rider Cumulative Seconds]),TREATAS({{{s}}},'As Of'[Stage])),"bib_no",'Rider'[Bib],"gc",[gc],"yr",[yr],"secs",[secs])""",ref(s))
+        add(f'Best Team after stage {s}',f"""EVALUATE SELECTCOLUMNS(CALCULATETABLE(SUMMARIZECOLUMNS('Team'[Team],"ranking",[Best Team Rank],"scored",[Stages Scored],"hours",[Team Cumulative Hours]),TREATAS({{{s}}},'As Of'[Stage])),"team",'Team'[Team],"ranking",[ranking],"scored",[scored],"hours",[hours])""",
+            [dict(team=r['team'],ranking=r['ranking'],scored=r['scored'],hours=r['secs']/3600) for r in team_ref(s)])
+    for group in [['stage_id'],['stage_id','team_name'],['stage_id','team_name','bib_no']]:
+        fields={'stage_id':"'Stage'[Stage]",'team_name':"'Rider'[Team]",'bib_no':"'Rider'[Bib]"}
+        g=','.join(fields[k] for k in group);sel=','.join(f'"{k}",{fields[k]}' for k in group);sql=','.join(group)
+        add('Drill '+sql,f'EVALUATE SELECTCOLUMNS(SUMMARIZECOLUMNS({g},"secs",[Adjusted Seconds]),{sel},"secs",[secs])',
+              q(f'SELECT {sql},SUM(finish_time-bonus+time_penalty) secs FROM result JOIN rider USING(bib_no) GROUP BY {sql}'))
+    add('Registration by independent country roles',"""EVALUATE SELECTCOLUMNS(SUMMARIZECOLUMNS('Country'[Country],"teams",[Teams by Country],"riders",[Riders by Country]),"country",'Country'[Country],"teams",[teams],"riders",[riders])""",
+        q("""SELECT country_name country,(SELECT COUNT(*) FROM team t WHERE t.country_code=c.country_code) teams,
+           (SELECT COUNT(*) FROM rider r WHERE r.country_code=c.country_code) riders FROM country c UNION ALL SELECT 'Unknown',0,COUNT(*) FROM rider WHERE country_code IS NULL"""))
+    add('Exit stage and type',"""EVALUATE SELECTCOLUMNS(SUMMARIZECOLUMNS('Stage'[Stage],'Withdrawal'[Exit type],"n",[Exit count]),"stage",'Stage'[Stage],"type",'Withdrawal'[Exit type],"n",[n])""",q('SELECT stage_id stage,exit_reason type,COUNT(*) n FROM exit GROUP BY stage_id,exit_reason'))
+    add('Exits by terrain',"""EVALUATE SELECTCOLUMNS(SUMMARIZECOLUMNS('Stage'[Stage Type],"n",[Exit count]),"terrain",'Stage'[Stage Type],"n",[n])""",[dict(terrain=r['terrain'].title(),n=r['n']) for r in q('SELECT stage_type terrain,COUNT(*) n FROM stage JOIN exit USING(stage_id) GROUP BY stage_type')])
+    add('Remaining field',"""EVALUATE SELECTCOLUMNS(SUMMARIZECOLUMNS('Stage'[Stage],"n",[Field remaining]),"stage",'Stage'[Stage],"n",[n])""",q('SELECT stage_id stage,(SELECT COUNT(*) FROM rider)-(SELECT COUNT(*) FROM exit e WHERE e.stage_id<=s.stage_id) n FROM stage s'))
+    add('Last real GC and finish-time budget',"""EVALUATE SELECTCOLUMNS('Withdrawal',"bib",'Withdrawal'[Bib],"prior",'Withdrawal'[Previous GC rank],"budget",'Withdrawal'[Budget seconds],"remaining",'Withdrawal'[Stages left])""",[{k:r[k] for k in ('bib','prior','budget','remaining')} for r in withdrawal_ref()])
+    (ROOT/'tests/dax_expected.json').write_text(json.dumps(tests,indent=2),encoding='utf8')
 if __name__=='__main__':
     expected();unittest.main(verbosity=2)

@@ -1,0 +1,22 @@
+stage_id,stage_date,distance_km,stage_type,start_location,end_location
+1,2025-07-05,184.9,flat,Lille Métropole,Lille Métropole
+2,2025-07-06,209.1,hilly,Lauwin-Planque,Boulogne-Sur-Mer
+3,2025-07-07,178.3,flat,Valenciennes,Dunkerque
+4,2025-07-08,174.2,hilly,Amiens Métropole,Rouen
+5,2025-07-09,33.0,individual time-trial,Caen,Caen
+6,2025-07-10,201.5,hilly,Bayeux,Vire Normandie
+7,2025-07-11,197.0,hilly,Saint-Malo,Mûr-De-Bretagne Guerlédan
+8,2025-07-12,171.4,flat,Saint-Méen-Le-Grand,Laval Espace Mayenne
+9,2025-07-13,174.1,flat,Chinon,Châteauroux
+10,2025-07-14,165.3,mountain,Ennezat,Le Mont-Dore Puy De Sancy
+11,2025-07-16,156.8,flat,Toulouse,Toulouse
+12,2025-07-17,180.6,mountain,Auch,Hautacam
+13,2025-07-18,10.9,individual time-trial,Loudenvielle,Peyragudes
+14,2025-07-19,182.6,mountain,Pau,Luchon-Superbagnères
+15,2025-07-20,169.3,hilly,Muret,Carcassonne
+16,2025-07-22,171.5,mountain,Montpellier,Mont Ventoux
+17,2025-07-23,160.4,flat,Bollène,Valence
+18,2025-07-24,171.5,mountain,Vif,Courchevel Col De La Loze
+19,2025-07-25,93.1,mountain,Albertville,La Plagne
+20,2025-07-26,184.2,hilly,Nantua,Pontarlier
+21,2025-07-27,132.3,flat,Mantes-La-Ville,Paris Champs-Élysées

@@ -1,13 +1,4 @@
-"""PDF E1Ã¢â‚¬â€œE15 extensions; portable embedded tables and reproducible DAX definitions."""
-import csv
-import json
-import re
-from datetime import date
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / 'data'
-
+"""Measures for the 2025 export-backed analytical model."""
 def analytics_definitions():
     measures=[]
     def m(name,expression,fmt='#,0',description=None):
@@ -44,75 +35,14 @@ def analytics_definitions():
     m('Scenario Stage Adjustment Seconds',"""VAR s=[As of Stage Number] VAR mode=SELECTEDVALUE('Scenario'[Scenario],"Official adjusted") VAR bibs=CALCULATETABLE(VALUES('Standing'[Bib]),REMOVEFILTERS('Stage'),'Standing'[Stage]=s,'Standing'[Eligible]=1) VAR bonus=CALCULATE([Bonus Seconds],KEEPFILTERS(TREATAS(bibs,'Rider'[Bib])),KEEPFILTERS('Stage'[Stage]<=s)) VAR penalty=CALCULATE([Penalty Seconds],KEEPFILTERS(TREATAS(bibs,'Rider'[Bib])),KEEPFILTERS('Stage'[Stage]<=s)) RETURN IF(NOT ISBLANK(bonus)||NOT ISBLANK(penalty),IF(mode IN {"Official adjusted","No bonuses"},penalty,0)-IF(mode IN {"Official adjusted","No penalties"},bonus,0))""",'#,0','Net seconds applied to raw finish time under the selected rules, for riders eligible at the snapshot.')
     m('Roster Bib',"IF(NOT ISBLANK([Roster Riders]),SELECTEDVALUE('Rider'[Bib]))",'0','Bib of a rider in the intersection of the selected team and country.')
     leaders="""VAR c=SELECTEDVALUE('Classification'[Classification]) VAR leaders=CALCULATETABLE(FILTER(ALL('Rider'),[Classification Rank]=1),REMOVEFILTERS('Rider'),REMOVEFILTERS('Stage')) VAR score=MAXX(leaders,SWITCH(c,"Points",[Cumulative Points],"Mountains",[Cumulative KOM Points],[Rider Cumulative Seconds])) """
-    m('Award leaders',leaders+"""RETURN IF(NOT ISBLANK(score),IF(c IN {"Points","Mountains"} && score=0,"Field tied on zero points",CONCATENATEX(leaders,'Rider'[Rider],", ",'Rider'[Bib],ASC)))""",'','All joint leaders in the full field through the selected stage.')
+    m('Award leaders',leaders+"""RETURN IF(c IN {"Points","Mountains"},"Not available in export",IF(NOT ISBLANK(score),CONCATENATEX(leaders,'Rider'[Rider],", ",'Rider'[Bib],ASC)))""",'','All joint leaders in the full field through the selected stage.')
     m('Winning score',leaders+"""RETURN IF(NOT ISBLANK(score),IF(c IN {"Points","Mountains"},FORMAT(score,"0") & " pts",FORMAT(INT(score/3600),"0") & ":" & FORMAT(INT(MOD(score,3600)/60),"00") & ":" & FORMAT(MOD(score,60),"00")))""",'')
-    m('Winning rule',"""SWITCH(SELECTEDVALUE('Classification'[Classification]),"General","Lowest total adjusted time","Points","Most cumulative finish points","Mountains","Most cumulative mountain points","Young Rider","Lowest total adjusted time; born on or after 1 Jan 2001")""",'')
+    m('Winning rule',"""SWITCH(SELECTEDVALUE('Classification'[Classification]),"General","Lowest total adjusted time","Points","Highest points total; sprint/finish points not supplied","Mountains","Highest climb-points total; climb points not supplied","Young Rider","Lowest total adjusted time; born on or after 1 Jan 2000")""",'')
     m('Team deficit minutes',"""VAR scored=[Stages Scored] VAR most=MAXX(ALL('Team'),[Stages Scored]) VAR referenceTime=MINX(FILTER(ALL('Team'),[Stages Scored]=most),[Team Cumulative Hours]) RETURN IF(HASONEVALUE('Team'[Team]) && scored=most,ROUND(60*([Team Cumulative Hours]-referenceTime),2))""",'0.00','Time behind the leading team; only teams with the same scored-stage coverage are comparable.')
     m('GC daily deficit seconds',"""VAR t=IF(HASONEVALUE('Stage'[Stage]) && HASONEVALUE('Rider'[Bib]),CALCULATE(MIN('Standing'[Cumulative Seconds]),'Standing'[Eligible]=1)) VAR bestTime=CALCULATE(MIN('Standing'[Cumulative Seconds]),REMOVEFILTERS('Rider'),'Standing'[Eligible]=1) RETURN IF(NOT ISBLANK(t),t-bestTime)""",'#,0','Gap to the overall leader on the axis stage; zero is a shared or outright lead.')
     m('Mountain podium finishes',"IF([Mountain Podiums]>0,[Mountain Podiums])",'0','Mountain-stage top-three finishes; only podium finishers are shown.')
     m('Top Ten Finish Gap',"""VAR pos=[Top Ten Position] VAR winner=CALCULATE(MIN('Result'[Finish Seconds]),REMOVEFILTERS('Rider'),'Result'[Position]=1) RETURN IF(NOT ISBLANK(pos),MAX('Result'[Finish Seconds])-winner)""",'#,0','Raw finish seconds behind the stage winner; tied finish times may have different positions.')
+    m('Exit count',"COUNTROWS('Withdrawal')",'0','Recorded exits, attributed to the stage not completed; DNS is distinct from mid-stage withdrawal.')
+    m('Field remaining',"""VAR s=SELECTEDVALUE('Stage'[Stage]) VAR started=CALCULATE(COUNTROWS('Rider'),REMOVEFILTERS('Rider')) VAR departed=CALCULATE(COUNTROWS('Withdrawal'),REMOVEFILTERS('Withdrawal'),REMOVEFILTERS('Stage'),REMOVEFILTERS('Rider'),'Withdrawal'[Stage]<=s) RETURN IF(NOT ISBLANK(s),started-COALESCE(departed,0))""",'0','Whole registered field less all exits through this stage.')
+    m('Mapped riders',"""IF(SELECTEDVALUE('Country'[Country])<>"Unknown",[Riders by Country])""",'0','Unknown nationality is retained in the roster, not geocoded.')
     return measures
-
-def extend(refresh_fixture=False):
-    tables = json.loads((DATA/'model_data.json').read_text(encoding='utf-8'))
-    stages = {int(r['stage_id']): r for r in csv.DictReader((DATA/'stage.csv').open())}
-    race_start = min(date.fromisoformat(r['stage_date']) for r in stages.values())
-    for row in tables['Stage']:
-        row['Start'] = stages[row['Stage']]['start_location']
-        row['Finish'] = stages[row['Stage']]['end_location']
-    for row in tables['Rider']:
-        dob = date.fromisoformat(row['DOB'])
-        row['Age at Race Start'] = race_start.year-dob.year-((race_start.month,race_start.day)<(dob.month,dob.day))
-    tables['Scenario'] = [{'Scenario': s} for s in ['Official adjusted','No bonuses','No penalties','No bonuses or penalties']]
-    (DATA/'model_data.json').write_text(json.dumps(tables,indent=2),encoding='utf-8')
-    # Refresh embedded rows too: Power BI reads these partitions, not the generated CSVs.
-    for name in (tables if refresh_fixture else ['Team','Country','Result','Standing','Team Stage','Team Standing']):
-        path=ROOT/'Tour de France.SemanticModel/definition/tables'/f'{name}.tmdl'
-        text=path.read_text(encoding='utf-8')
-        rows=tables[name]
-        def literal(v):
-            return 'null' if v is None else '"' + v.replace('"','""') + '"' if isinstance(v,str) else str(v)
-        body=',\n'.join('\t'*4+'{'+','.join(literal(v) for v in row.values())+'}' for row in rows)
-        start=text.index('], {\n',text.index('let Source = #table'))+len('], {\n')
-        end=text.index('\t'*4+'}) in Source',start)
-        updated=text[:start]+body+'\n'+text[end:]
-        if text!=updated:path.write_text(updated,encoding='utf-8')
-    if refresh_fixture:return  # Retain the checked-in measures, columns and lineage tags.
-    measures=analytics_definitions()
-    (DATA/'analytics_measures.json').write_text(json.dumps(measures,indent=2),encoding='utf-8')
-    existing=json.loads((DATA/'measures.json').read_text(encoding='utf-8'))
-    extra={m['name'] for m in measures}
-    (DATA/'measures.json').write_text(json.dumps([m for m in existing if m['name'] not in extra]+measures,indent=2),encoding='utf-8')
-    definition=ROOT/'Tour de France.SemanticModel/definition'
-    for name in ['Stage','Rider','Scenario']:
-        rows=tables[name]
-        def quote(v):return 'null' if v is None else json.dumps(v,ensure_ascii=False).replace('\\"','""') if isinstance(v,str) else str(v)
-        columns=[]; types=[]
-        for n in rows[0]:
-            sample=next((r[n] for r in rows if r[n] is not None),None)
-            typ='string' if isinstance(sample,str) else 'double' if isinstance(sample,float) or n=='Distance km' else 'int64'
-            columns.append(f"\tcolumn '{n}'\n\t\tdataType: {typ}\n\t\tsummarizeBy: none\n\t\tsourceColumn: {n}\n")
-            types.append(f'#"{n}" = '+('nullable text' if typ=='string' else 'number' if typ=='double' else 'Int64.Type'))
-        source='let Source = #table(type table ['+', '.join(types)+'], {\n'+',\n'.join('{'+','.join(quote(v) for v in r.values())+'}' for r in rows)+'\n}) in Source'
-        tmdl=f"table '{name}'\n\n"+'\n'.join(columns)+f"\n\tpartition '{name}' = m\n\t\tmode: import\n\t\tsource =\n"+'\n'.join('\t\t\t\t'+line for line in source.splitlines())+'\n'
-        (definition/f'tables/{name}.tmdl').write_text(tmdl,encoding='utf-8')
-    model=definition/'model.tmdl'
-    text=model.read_text(encoding='utf-8')
-    if 'ref table Scenario' not in text:text+='\nref table Scenario\n'
-    model.write_text(text,encoding='utf-8')
-    metric_path=definition/'tables/Metrics.tmdl'
-    text=metric_path.read_text(encoding='utf-8').split('\n\t/// PDF ANALYTICS')[0].rstrip()
-    for item in measures:
-        text=re.sub(r"\n\tmeasure '"+re.escape(item['name'])+r"' =[^\n]*(?:\n\t\t[^\n]*|\n(?=\n))*",'',text)
-    text+='\n\n\t/// PDF ANALYTICS\n'
-    for item in measures:
-        text+=f"\tmeasure '{item['name']}' = {item['expression']}\n"
-        if item['formatString']:text+=f"\t\tformatString: {item['formatString']}\n"
-        text+='\t\tdisplayFolder: PDF analytics\n\n'
-    metric_path.write_text(text,encoding='utf-8')
-    country=definition/'tables/Country.tmdl'
-    text=country.read_text(encoding='utf-8')
-    if 'dataCategory: Country' not in text:text=text.replace('\tcolumn Country\n','\tcolumn Country\n\t\tdataCategory: Country\n')
-    country.write_text(text,encoding='utf-8')
-
-if __name__=='__main__':extend()

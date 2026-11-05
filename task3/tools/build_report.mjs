@@ -13,10 +13,10 @@ const palette=[teal,gold,violet,coral,'#397BBB','#62A887'];
 const col=(t,n)=>({Column:{Expression:{SourceRef:{Entity:t}},Property:n}});
 const met=n=>({Measure:{Expression:{SourceRef:{Entity:'Metrics'}},Property:n}});
 const labels={'Rider Label':'Rider','GC Rank':'GC rank','Points Rank':'Points rank','KOM Rank':'KOM rank','Young Rank':'Young rank','Rider Cumulative Time':'Time (h:mm:ss)','Cumulative Points':'Points','Cumulative KOM Points':'KOM points','Rider Status':'Status','Team Cumulative Hours':'Top-3 hours','Best Team Rank':'Team rank','Stages Scored':'Stages scored','Team Coverage':'Coverage','Roster Riders':'Riders','Finish Seconds':'Finish (s)','Bonus Seconds':'Bonus (s)','Penalty Seconds':'Penalty (s)','Adjusted Seconds':'Adjusted (s)','Stage Position':'Position'};
-const p=(t,n,active)=>({field:t==='Metrics'?met(n):col(t,n),queryRef:t+'.'+n,nativeQueryRef:labels[n]||n,...(active===undefined?{}:{active})});
-Object.assign(labels,{'Roster Bib':'Bib','Award leaders':'Leading rider(s)','Winning rule':'How to win','GC daily deficit seconds':'Gap to leader (s)','Team deficit minutes':'Gap (min)','Rider Country':'Nationality','GC Rank Change':'Places gained / lost','Stages Scored':'Stages scored','Top Ten Position':'Place','Top Ten Adjusted Seconds':'Adjusted (s)'});
+const p=(t,n,active)=>({field:t==='Metrics'?met(n):col(t,n),queryRef:t+'.'+n,nativeQueryRef:labels[n]||n,...(labels[n]?{displayName:labels[n]}:{}),...(active===undefined?{}:{active})});
+Object.assign(labels,{'Mountain Trace Hours':'Mountain-stage checkpoints','GC Trace Hours':'All stages','Young GC at Race Start Rank':'Under 26 on stage 1','Mountain GC Proxy Rank':'Mountain-time rank','Previous GC rank':'Last GC rank','Roster Bib':'Bib','Award leaders':'Leading rider(s)','Winning rule':'How to win','GC daily deficit seconds':'Gap to leader (s)','Team deficit minutes':'Gap (min)','Rider Country':'Nationality','GC Rank Change':'Places gained / lost','Stages Scored':'Stages scored','Top Ten Position':'Place','Top Ten Adjusted Seconds':'Adjusted (s)'});
 const m=n=>p('Metrics',n);
-const pages=[['overview','01  Race & participation'],['stages','02  Stages & routes'],['classifications','03  Classifications'],['teams','04  Team performance'],['story','05  GC progression'],['terrain','06  Terrain & consistency'],['scenarios','07  GC what-if']];
+const pages=[['overview','01  Race & participation'],['stages','02  Stages & terrain'],['classifications','03  Classifications'],['teams','04  Team performance'],['story','05  GC progression'],['exits','06  Rider exits'],['scenarios','07  GC what-if']];
 write(path.join(root,'Tour de France.pbip'),{$schema:'https://developer.microsoft.com/json-schemas/fabric/pbip/pbipProperties/1.0.0/schema.json',version:'1.0',artifacts:[{report:{path:'Tour de France.Report'}}],settings:{enableAutoRecovery:true}});
 write(path.join(root,'Tour de France.SemanticModel/definition.pbism'),{$schema:'https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/definitionProperties/1.0.0/schema.json',version:'4.0',settings:{}});
 write(path.join(report,'definition.pbir'),{$schema:base+'definitionProperties/2.0.0/schema.json',version:'4.0',datasetReference:{byPath:{path:'../Tour de France.SemanticModel'}}});
@@ -78,16 +78,15 @@ function matrix(pg,name,x,y,w,h,title,rows,values,columns){
 function table(pg,name,x,y,w,h,title,fields,sort){visual(pg,name,'tableEx',x,y,w,h,title,{Values:{projections:fields.map(f=>typeof f==='string'?m(f):p(...f))}},
  {grid:[{properties:{textSize:lit(14),rowPadding:lit(5),gridVertical:lit(false)}}],columnHeaders:[{properties:{fontSize:lit(13),fontColor:color(ink),backColor:color('#EEF2F4')}}],values:[{properties:{fontSize:lit(13)}}],total:[{properties:{totals:lit(false)}}]},sort);}
 for(const [pg,label] of pages){
- write(path.join(report,`definition/pages/${pg}/page.json`),{$schema:schema('page'),name:pg,displayName:label,displayOption:'FitToPage',width:1440,height:900,objects:{background:[{properties:{color:color(bg),transparency:lit(0)}}]}});
+ write(path.join(report,`definition/pages/${pg}/page.json`),{$schema:schema('page'),name:pg,displayName:label,displayOption:'FitToPage',width:1440,height:pg==='stages'?1010:900,objects:{background:[{properties:{color:color(bg),transparency:lit(0)}}]}});
  text(pg,'title',24,12,760,68,label.slice(4),26,ink,true);
- text(pg,'demo',1148,14,264,48,'BT5110  /  SYNTHETIC RACE',11,teal,true);
+ text(pg,'demo',1148,14,264,48,'2025 TOUR  /  GROUP 5',11,teal,true);
 }
 const asof=pg=>slicer(pg,'asof',830,8,290,74,'Standings after stage','As Of','As of Stage');
 
 // Participation comes from registered nationality, not the country of a rider's team.
 visual('overview','riders_country','azureMap',24,94,680,306,'Rider participation by country',{
- Category:{projections:[p('Country','Country',true)]},Size:{projections:[m('Riders by Country')]},
- Tooltips:{projections:[m('Teams by Country'),m('Country Wins'),m('Country Podiums')]}
+ Category:{projections:[p('Country','Country',true)]},Size:{projections:[m('Mapped riders')]}
 },{bubbleLayer:[{properties:{show:lit(true),sizeByValue:lit(true),fillColor:color(teal)}}]});
 chart('overview','teams_country','clusteredColumnChart',720,94,696,306,'Registered teams and riders by country',[['Country','Country']],['Teams by Country','Riders by Country']);
 chart('overview','team_rider','clusteredBarChart',24,416,680,224,'Adjusted rider-hours by team',[['Rider','Team'],['Rider','Rider Label']],['Country Rider Hours']);
@@ -100,16 +99,16 @@ table('overview','outcomes',720,656,696,220,'Results by rider nationality',[['Co
 visual('stages','stage_pick','advancedSlicerVisual',24,86,1392,79,'Stage',{Values:{projections:[p('Stage','Stage',true)]}},{layout:[{properties:{orientation:{expr:{Literal:{Value:'0D'}}},rowCount:{expr:{Literal:{Value:'1D'}}},columnCount:{expr:{Literal:{Value:'21D'}}},maxTiles:{expr:{Literal:{Value:'21D'}}},autoGrid:lit(false),columnPadding:{expr:{Literal:{Value:'2D'}}}}}],value:[{properties:{fontSize:lit(12)}}]},[col('Stage','Stage'),'Ascending']);
 defaultSelection('stages','stage_pick','Stage','Stage',[1],true);
 {const f=path.join(report,'definition/pages/stages/visuals/stage_pick/visual.json'),v=JSON.parse(fs.readFileSync(f));v.visual.objects.selection[0].properties.strictSingleSelect=lit(true);write(f,v);}
-matrix('stages','stage_matrix',24,529,780,347,'Stage results and time adjustments',[['Stage','Stage Type'],['Stage','Stage Label'],['Rider','Team'],['Rider','Rider Label']],['Finish Seconds','Bonus Seconds','Penalty Seconds','Adjusted Seconds','Stage Position']);
+matrix('stages','stage_matrix',24,482,780,222,'Stage results and time adjustments',[['Stage','Stage Type'],['Stage','Stage Label'],['Rider','Team'],['Rider','Rider Label']],['Finish Seconds','Bonus Seconds','Penalty Seconds','Adjusted Seconds','Stage Position','Speed Proxy kmh']);
 table('stages','routes',820,181,596,125,'Selected route and stage winner',[['Stage','Stage Label'],['Stage','Stage Type'],['Stage','Date'],'Stage Distance km','Stage Winner'],[met('Stage Distance km'),'Descending']);
-table('stages','finishers',24,181,780,332,'Stage finish order • first ten riders',[['Stage','Stage'],['Rider','Rider Label'],['Rider','Team'],['Rider','Rider Country'],'Top Ten Position','Top Ten Adjusted Seconds'],[[col('Stage','Stage'),'Ascending'],[met('Top Ten Position'),'Ascending']]);
-chart('stages','finish_gaps','clusteredBarChart',820,529,596,347,'Top ten: seconds behind the first finisher',[['Rider','Rider Label']],['Top Ten Finish Gap'],{sort:[met('Top Ten Finish Gap'),'Ascending']});
-chart('stages','squads','donutChart',820,322,596,191,'Top-ten finishes by team',[['Rider','Team']],['Top Ten Finishes'],{legend:['Rider','Team']});
+table('stages','finishers',24,181,780,285,'Stage finish order • first ten riders',[['Stage','Stage'],['Rider','Rider Label'],['Rider','Team'],['Rider','Rider Country'],'Top Ten Position','Top Ten Adjusted Seconds'],[[col('Stage','Stage'),'Ascending'],[met('Top Ten Position'),'Ascending']]);
+chart('stages','finish_gaps','clusteredBarChart',820,334,596,177,'Top ten: signed gap to recorded winner (s)',[['Rider','Rider Label']],['Top Ten Finish Gap'],{sort:[met('Top Ten Finish Gap'),'Ascending']});
+chart('stages','squads','donutChart',820,527,596,177,'Top-ten finishes by team',[['Rider','Team']],['Top Ten Finishes'],{legend:['Rider','Team']});
 
 asof('classifications');
 table('classifications','winners',24,94,1392,226,'Classification leaders after the selected stage', [['Classification','Classification'],'Award leaders','Winning score','Winning rule'],[col('Classification','Classification'),'Ascending']);
-table('classifications','comparison',24,336,1392,252,'All riders • standings and gap to GC leader',[['Rider','Rider Label'],'GC Rank','Points Rank','KOM Rank','Young Rank','Rider Cumulative Time','GC Gap Seconds','Cumulative Points','Cumulative KOM Points','Rider Status'],[[met('Rider Status'),'Ascending'],[met('GC Rank'),'Ascending']]);
-table('classifications','class_hours',24,604,812,272,'Age and mountain time rankings',[['Rider','Rider Label'],['Rider','Age at Race Start'],'GC Rank','Young GC at Race Start Rank','Mountain GC Proxy Rank'],[met('GC Rank'),'Ascending']);
+table('classifications','comparison',24,336,1392,252,'All riders • standings and gap to GC leader',[['Rider','Rider Label'],'GC Rank','Young Rank','Rider Cumulative Time','GC Gap Seconds','Rider Status'],[[met('Rider Status'),'Ascending'],[met('GC Rank'),'Ascending']]);
+table('classifications','class_hours',24,604,812,272,'Alternative ranks: under 26 on stage 1 and mountain-stage time',[['Rider','Rider Label'],['Rider','Age at Race Start'],'GC Rank','Young GC at Race Start Rank','Mountain GC Proxy Rank'],[met('GC Rank'),'Ascending']);
 chart('classifications','eligible_hours','clusteredBarChart',852,604,564,272,'Cumulative rider-hours by classification',[['Classification','Classification']],['Classification Rider Hours']);
 
 asof('teams');
@@ -118,23 +117,31 @@ chart('teams','team_gap','clusteredBarChart',730,94,686,330,'Minutes behind the 
 matrix('teams','detail',24,440,1392,436,'Stage scores • sum of the three fastest finishers per team',[['Team','Team'],['Stage','Stage Label']],['Stage Top3 Hours','Team Finishers']);
 
 slicer('story','rider',24,94,244,782,'Contenders','Rider','Rider Label','Basic');
-defaultSelection('story','rider','Rider','Rider Label',['Alex Laurent (1)'],true);
+defaultSelection('story','rider','Rider','Rider Label',['Remco Evenepoel (21)'],true);
 chart('story','gc_trace','lineChart',284,94,680,374,'Time behind the GC leader (seconds) • zero is the lead',[['Stage','Stage']],['GC daily deficit seconds'],{legend:['Rider','Rider Label']});
 chart('story','rank_changes','clusteredColumnChart',980,94,436,374,'Change in GC position • positive means gained',[['Stage','Stage']],['GC Rank Change'],{legend:['Rider','Rider Label'],sort:[col('Stage','Stage'),'Ascending']});
 table('story','daily',284,484,680,392,'Daily GC positions',[['Stage','Stage'],['Stage','Stage Type'],['Rider','Rider Label'],'GC Trace Rank','GC daily deficit seconds','GC Rank Change','Adjusted Seconds'],[col('Stage','Stage'),'Ascending']);
-chart('story','mountain_markers','lineChart',980,484,436,392,'Cumulative time (hours) • all days and mountain days',[['Stage','Stage']],['GC Trace Hours','Mountain Trace Hours']);
+chart('story','mountain_markers','lineChart',980,484,436,392,'Total race hours at each stage and mountain checkpoint',[['Stage','Stage']],['GC Trace Hours','Mountain Trace Hours']);
 
-chart('terrain','speed','clusteredColumnChart',24,94,680,374,'Average speed by terrain and team (km/h)',[['Stage','Stage Type']],['Speed Proxy kmh'],{legend:['Rider','Team']});
-chart('terrain','mountain_podiums','clusteredBarChart',720,94,696,374,'Who finished in the top three on mountain stages?',[['Rider','Rider Label']],['Mountain podium finishes'],{color:violet});
-chart('terrain','top_ten','barChart',24,484,680,392,'Top-ten finishes by team and terrain',[['Rider','Team'],['Rider','Rider Label']],['Top Ten Finishes'],{legend:['Stage','Stage Type']});
-matrix('terrain','evidence',720,484,696,392,'Performance by rider and stage',[['Rider','Rider Label'],['Stage','Stage Label'],['Stage','Stage Type']],['Top Ten Finishes','Mountain Podiums','Stage Winner Gap Seconds','Speed Proxy kmh']);
+chart('stages','terrain_speed','clusteredColumnChart',24,720,444,266,'Race-wide speed by terrain (km/h)',[['Stage','Stage Type'],['Rider','Team']],['Speed Proxy kmh']);
+chart('stages','terrain_podiums','clusteredBarChart',484,720,452,266,'Mountain-stage podium finishes',[['Rider','Rider Label']],['Mountain podium finishes'],{color:violet});
+chart('stages','terrain_topten','barChart',952,720,464,266,'Race-wide top-ten finishes by terrain',[['Rider','Team'],['Rider','Rider Label']],['Top Ten Finishes'],{legend:['Stage','Stage Type']});
+// The day selector drives the upper panels; the lower comparisons cover the entire race.
+{const f=path.join(report,'definition/pages/stages/page.json'),d=JSON.parse(fs.readFileSync(f));
+ const day=['stage_pick','routes','finishers','stage_matrix','finish_gaps','squads'],race=['terrain_speed','terrain_podiums','terrain_topten'];
+ d.visualInteractions=day.flatMap(source=>race.flatMap(target=>[{source,target,type:'NoFilter'},{source:target,target:source,type:'NoFilter'}]));write(f,d);}
+
+chart('exits','stage_exits','columnChart',24,94,780,292,'Exits by stage: DNS or mid-stage withdrawal',[['Stage','Stage']],['Exit count'],{legend:['Withdrawal','Exit type'],sort:[col('Stage','Stage'),'Ascending']});
+chart('exits','field','lineChart',820,94,596,292,'Riders remaining after each stage',[['Stage','Stage']],['Field remaining']);
+table('exits','log',24,402,900,474,'Rider exits and last completed GC position',[['Withdrawal','Rider'],['Withdrawal','Team'],['Withdrawal','Stage'],['Withdrawal','Exit type'],['Withdrawal','Previous stage'],['Withdrawal','Previous GC rank']],[col('Withdrawal','Stage'),'Ascending']);
+chart('exits','by_type','clusteredBarChart',940,402,476,474,'Exit count by stage terrain',[['Stage','Stage Type']],['Exit count']);
 
 asof('scenarios');
 slicer('scenarios','scenario',24,94,284,268,'Timing rules','Scenario','Scenario','Basic');
 defaultSelection('scenarios','scenario','Scenario','Scenario',['Official adjusted'],true);
 table('scenarios','comparison',324,94,1092,394,'Official and scenario standings',[['Rider','Rider Label'],'Rider Status','GC Rank','Scenario GC Rank','Scenario Rank Change','Top Ten Movement','Cumulative Bonus Seconds','Cumulative Penalty Seconds'],[[met('Rider Status'),'Ascending'],[met('Scenario GC Rank'),'Ascending']]);
-chart('scenarios','adjustments','clusteredBarChart',24,504,622,372,'Bonuses and penalties by rider (seconds)',[['Rider','Rider Label']],['Cumulative Bonus Seconds','Cumulative Penalty Seconds']);
-visual('scenarios','net_adjustments','waterfallChart',662,504,754,372,'Scenario time adjustments by stage (seconds)',{
+table('scenarios','budget',24,504,814,372,'To tie the final GC winner: remaining adjusted time (not a forecast)',[['Withdrawal','Rider'],['Withdrawal','Stage'],['Withdrawal','Stages left'],['Withdrawal','Time to match winner'],['Withdrawal','Avg required per stage']],[col('Withdrawal','Stage'),'Ascending']);
+visual('scenarios','net_adjustments','waterfallChart',854,504,562,372,'Scenario time adjustments by stage (seconds)',{
  Category:{projections:[p('Stage','Stage',true)]},Y:{projections:[m('Scenario Stage Adjustment Seconds')]}
 },{},[col('Stage','Stage'),'Ascending']);
 

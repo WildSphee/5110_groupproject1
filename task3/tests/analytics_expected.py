@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-data=json.loads((ROOT/'data/model_data.json').read_text())
+data=json.loads((ROOT/'data/model_data.json').read_text(encoding='utf8'))
 stages={r['Stage']:r for r in data['Stage']}
 riders={r['Bib']:r for r in data['Rider']}
 tests=[]
@@ -20,7 +20,7 @@ for sid in [1,6,7,21]:
             filt=f'TREATAS({{{bib}}},\'Rider\'[Bib]),TREATAS({{{sid}}},\'As Of\'[Stage]),TREATAS({{"{scenario}"}},\'Scenario\'[Scenario])'
             add(f'{scenario}: rank rider {bib} stage {sid}','Scenario GC Rank',1+sum(v<scores[bib] for v in scores.values()) if bib in scores else None,filt)
             add(f'{scenario}: time rider {bib} stage {sid}','Scenario Seconds',scores.get(bib),filt)
-for team in ['Alpine Velo','Northstar Velo']:
+for team in ['SOUDAL QUICK-STEP','UAE TEAM EMIRATES XRG']:
     for terrain in ['Flat','Hilly','Mountain','Individual Time-Trial']:
         rows=[r for r in data['Result'] if riders[r['Bib']]['Team']==team and stages[r['Stage']]['Stage Type']==terrain]
         f=f'TREATAS({{"{team}"}},\'Rider\'[Team]),TREATAS({{"{terrain}"}},\'Stage\'[Stage Type])'
@@ -39,7 +39,7 @@ for bib in [1,8,21,58]:
         rows=[r for r in data['Standing'] if r['Bib']==bib and r['Stage']==sid]
         now=rows[0]['GC Rank']; prior=next((r['GC Rank'] for r in data['Standing'] if r['Bib']==bib and r['Stage']==sid-1),None)
         add(f'Rank change {bib} {sid}','GC Rank Change',prior-now if prior and now else None,f+f",TREATAS({{{sid}}},'Stage'[Stage])")
-for country in ['France','Singapore','Colombia']:
+for country in ['France','Belgium','Unknown']:
     bibs={b for b,r in riders.items() if r['Rider Country']==country}
     rows=[r for r in data['Result'] if r['Bib'] in bibs]
     ranks=[r['GC Rank'] for r in data['Standing'] if r['Bib'] in bibs and r['Stage']==21 and r['GC Rank']]
@@ -53,14 +53,14 @@ for sid in [6,9,21]:
     young={b:r['Cumulative Seconds'] for b,r in eligible.items() if riders[b]['Age at Race Start']<26}
     for bib in [1,2,8,21]:
         f=f'TREATAS({{{bib}}},\'Rider\'[Bib]),TREATAS({{{sid}}},\'As Of\'[Stage])'
-        add(f'Mountain proxy rank {bib} {sid}','Mountain GC Proxy Rank',1+sum(v<mountain[bib] for v in mountain.values()) if bib in mountain and sid>=8 else None,f)
+        add(f'Mountain proxy rank {bib} {sid}','Mountain GC Proxy Rank',1+sum(v<mountain[bib] for v in mountain.values()) if bib in mountain and mountain[bib] else None,f)
         add(f'Race-start young rank {bib} {sid}','Young GC at Race Start Rank',1+sum(v<young[bib] for v in young.values()) if bib in young else None,f)
 for sid in [1,15]:
     for bib in [1,8,21,58]:
         r=next((r for r in data['Result'] if r['Stage']==sid and r['Bib']==bib),None)
         add(f'Top-ten-only result {bib} {sid}','Top Ten Position',r['Position'] if r and r['Position']<=10 else None,f'TREATAS({{{bib}}},\'Rider\'[Bib]),TREATAS({{{sid}}},\'Stage\'[Stage])')
 # Verify the two calculations introduced by the merged, click-driven pages.
-for nation in ['Hong Kong','Singapore','Japan']:
+for nation in ['Slovenia','Belgium','Unknown']:
     scoped=[r for r in data['Result'] if riders[r['Bib']]['Rider Country']==nation]
     add('Overview rider-hours: '+nation,'Country Rider Hours',sum(r['Adjusted Seconds'] for r in scoped)/3600 if scoped else None,f'TREATAS({{"{nation}"}},\'Country\'[Country])')
 for sid,stage in [(7,2),(7,8),(21,21)]:
@@ -72,15 +72,16 @@ for sid,stage in [(7,2),(7,8),(21,21)]:
 for sid in [1,9,21]:
     for cat,col,score in [('General','GC Rank','Cumulative Seconds'),('Points','Points Rank','Points'),('Mountains','KOM Rank','KOM Points'),('Young Rider','Young Rank','Cumulative Seconds')]:
         leaders=[r for r in data['Standing'] if r['Stage']==sid and r[col]==1]
-        total=leaders[0][score]
-        names=', '.join(riders[r['Bib']]['Rider'] for r in sorted(leaders,key=lambda r:r['Bib']))
-        pts=cat in ['Points','Mountains']
-        if pts and total==0:names='Field tied on zero points'
-        formatted=(f'{total} pts' if pts else f'{total//3600}:{total%3600//60:02d}:{total%60:02d}')
+        if cat in ['Points','Mountains']:
+            names='Not available in export';formatted=None
+        else:
+            total=leaders[0][score]
+            names=', '.join(riders[r['Bib']]['Rider'] for r in sorted(leaders,key=lambda r:r['Bib']))
+            formatted=f'{total//3600}:{total%3600//60:02d}:{total%60:02d}'
         filt=f'TREATAS({{{sid}}},\'As Of\'[Stage]),TREATAS({{"{cat}"}},\'Classification\'[Classification])'
         add(f'Award leaders / {cat} / {sid}','Award leaders',names,filt)
         add(f'Winning score / {cat} / {sid}','Winning score',formatted,filt)
-for team in ['MSBA Breeze','Alpine Velo','Northstar Velo']:
+for team in ['TEAM VISMA | LEASE A BIKE','UAE TEAM EMIRATES XRG','SOUDAL QUICK-STEP']:
     group=[r for r in data['Team Standing'] if r['Stage']==21]
     first=min((r for r in group if r['Team Rank']==1),key=lambda r:r['Team'])
     current=next(r for r in group if r['Team']==team)
@@ -91,7 +92,14 @@ for sid,bib in [(1,61),(9,62),(21,1),(8,8)]:
     r=next((r for r in rows if r['Bib']==bib),None)
     gap=r['Cumulative Seconds']-min(x['Cumulative Seconds'] for x in rows) if r else None
     add(f'Daily GC gap / {bib} / {sid}','GC daily deficit seconds',gap,f'TREATAS({{{sid}}},\'Stage\'[Stage]),TREATAS({{{bib}}},\'Rider\'[Bib])')
-for country,bib,val in [('Singapore',61,61),('Hong Kong',62,62),('Singapore',62,None),('Japan',61,None)]:
+for country,bib,val in [('Slovenia',1,1),('Belgium',21,21),('Unknown',78,78),('France',21,None)]:
     add(f'Rider table bib / {country} / {bib}','Roster Bib',val,f'TREATAS({{"{country}"}},\'Country\'[Country]),TREATAS({{{bib}}},\'Rider\'[Bib])')
+for sid in (1,13,17,21):
+    stage=[r for r in data['Result'] if r['Stage']==sid]
+    first=next(r for r in stage if r['Position']==1)
+    for r in stage:
+        if r['Position'] not in (1,2,10,11,108): continue
+        add(f"Recorded position gap / {sid} / {r['Bib']}",'Top Ten Finish Gap',r['Finish Seconds']-first['Finish Seconds'] if r['Position']<=10 else None,
+            f"TREATAS({{{sid}}},'Stage'[Stage]),TREATAS({{{r['Bib']}}},'Rider'[Bib])")
 (ROOT/'tests/analytics_expected.json').write_text(json.dumps(tests,indent=2))
 print(f'{len(tests)} independent analytics expectations')

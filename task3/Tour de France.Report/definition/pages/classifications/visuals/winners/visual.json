@@ -236,7 +236,8 @@
                 }
               },
               "queryRef": "Metrics.Award leaders",
-              "nativeQueryRef": "Leading rider(s)"
+              "nativeQueryRef": "Leading rider(s)",
+              "displayName": "Leading rider(s)"
             },
             {
               "field": {
@@ -264,7 +265,8 @@
                 }
               },
               "queryRef": "Metrics.Winning rule",
-              "nativeQueryRef": "How to win"
+              "nativeQueryRef": "How to win",
+              "displayName": "How to win"
             }
           ]
         }

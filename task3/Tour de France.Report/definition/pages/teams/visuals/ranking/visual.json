@@ -222,7 +222,8 @@
                 }
               },
               "queryRef": "Metrics.Best Team Rank",
-              "nativeQueryRef": "Team rank"
+              "nativeQueryRef": "Team rank",
+              "displayName": "Team rank"
             },
             {
               "field": {
@@ -250,7 +251,8 @@
                 }
               },
               "queryRef": "Metrics.Team Cumulative Hours",
-              "nativeQueryRef": "Top-3 hours"
+              "nativeQueryRef": "Top-3 hours",
+              "displayName": "Top-3 hours"
             },
             {
               "field": {
@@ -264,7 +266,8 @@
                 }
               },
               "queryRef": "Metrics.Stages Scored",
-              "nativeQueryRef": "Stages scored"
+              "nativeQueryRef": "Stages scored",
+              "displayName": "Stages scored"
             },
             {
               "field": {
@@ -278,7 +281,8 @@
                 }
               },
               "queryRef": "Metrics.Team Coverage",
-              "nativeQueryRef": "Coverage"
+              "nativeQueryRef": "Coverage",
+              "displayName": "Coverage"
             }
           ]
         }

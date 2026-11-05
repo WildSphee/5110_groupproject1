@@ -1,4 +1,3 @@
-/// Fictional BT5110 demo. See task3/docs/semantics.md for grain and rules.
 table Country
 	lineageTag: 81d7ff07-e529-47bf-aadb-99a07861af8e
 
@@ -19,18 +18,34 @@ table Country
 		mode: import
 		source =
 				let Source = #table(type table [#"Country Code" = nullable text, #"Country" = nullable text], {
-				{"FRA","France"},
 				{"ESP","Spain"},
+				{"ARG","Argentina"},
+				{"NED","Netherlands, Kingdom of the"},
+				{"ERI","Eritrea"},
+				{"NOR","Norway"},
+				{"AUS","Australia"},
+				{"ISR","Israel"},
+				{"UAE","United Arab Emirates"},
+				{"ECU","Ecuador"},
+				{"IRL","Ireland"},
+				{"CZE","Czechia"},
+				{"GBR","United Kingdom of Great Britain and Northern Ireland"},
+				{"BRN","Bahrain"},
+				{"CAN","Canada"},
+				{"POR","Portugal"},
+				{"NZL","New Zealand"},
+				{"AUT","Austria"},
+				{"GER","Germany"},
+				{"COL","Colombia"},
 				{"ITA","Italy"},
 				{"BEL","Belgium"},
-				{"NLD","Netherlands"},
-				{"GBR","United Kingdom"},
-				{"DEU","Germany"},
-				{"DNK","Denmark"},
-				{"AUS","Australia"},
-				{"COL","Colombia"},
-				{"SGP","Singapore"},
-				{"JPN","Japan"},
-				{"HKG","Hong Kong"}
+				{"FRA","France"},
+				{"LAT","Latvia"},
+				{"KAZ","Kazakhstan"},
+				{"SLO","Slovenia"},
+				{"USA","United States of America"},
+				{"POL","Poland"},
+				{"DEN","Denmark"},
+				{"SUI","Switzerland"},
+				{null,"Unknown"}
 				}) in Source
-

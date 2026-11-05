@@ -1,176 +1,68 @@
 {
-  "connection": "Data Source=localhost:64152",
+  "connection": "Data Source=localhost:60131",
   "tests": [
     {
-      "name": "MSBA Breeze final award",
+      "name": "GC and Young ranks after stage 1",
       "passed": true,
-      "rows": 1,
-      "ms": 45
+      "rows": 182,
+      "ms": 36
     },
     {
-      "name": "MSBA Breeze roster",
+      "name": "Best Team after stage 1",
       "passed": true,
-      "rows": 4,
-      "ms": 7
-    },
-    {
-      "name": "All four ranks, stage 1",
-      "passed": true,
-      "rows": 52,
-      "ms": 19
-    },
-    {
-      "name": "All four ranks, stage 6",
-      "passed": true,
-      "rows": 52,
-      "ms": 20
-    },
-    {
-      "name": "All four ranks, stage 7",
-      "passed": true,
-      "rows": 51,
-      "ms": 20
-    },
-    {
-      "name": "All four ranks, stage 17",
-      "passed": true,
-      "rows": 45,
-      "ms": 19
-    },
-    {
-      "name": "All four ranks, stage 18",
-      "passed": true,
-      "rows": 44,
-      "ms": 19
-    },
-    {
-      "name": "All four ranks, stage 21",
-      "passed": true,
-      "rows": 44,
-      "ms": 23
-    },
-    {
-      "name": "Independent countries including zeros",
-      "passed": true,
-      "rows": 13,
-      "ms": 9
-    },
-    {
-      "name": "Roster country_name / None",
-      "passed": true,
-      "rows": 12,
-      "ms": 8
-    },
-    {
-      "name": "Roster country_name / France",
-      "passed": true,
-      "rows": 1,
-      "ms": 10
-    },
-    {
-      "name": "Roster country_name / Singapore",
-      "passed": true,
-      "rows": 1,
-      "ms": 10
-    },
-    {
-      "name": "Roster country_name / Hong Kong",
-      "passed": true,
-      "rows": 1,
-      "ms": 10
-    },
-    {
-      "name": "Roster country_name / Japan",
-      "passed": true,
-      "rows": 0,
-      "ms": 12
-    },
-    {
-      "name": "Roster country_name,team_name / None",
-      "passed": true,
-      "rows": 50,
-      "ms": 10
-    },
-    {
-      "name": "Roster country_name,team_name / France",
-      "passed": true,
-      "rows": 5,
-      "ms": 11
-    },
-    {
-      "name": "Roster country_name,team_name / Singapore",
-      "passed": true,
-      "rows": 1,
-      "ms": 10
-    },
-    {
-      "name": "Roster country_name,team_name / Hong Kong",
-      "passed": true,
-      "rows": 1,
+      "rows": 23,
       "ms": 24
     },
     {
-      "name": "Roster country_name,team_name / Japan",
+      "name": "GC and Young ranks after stage 7",
       "passed": true,
-      "rows": 0,
-      "ms": 10
-    },
-    {
-      "name": "Roster country_name,team_name,bib_no / None",
-      "passed": true,
-      "rows": 52,
-      "ms": 68
-    },
-    {
-      "name": "Roster country_name,team_name,bib_no / France",
-      "passed": true,
-      "rows": 5,
-      "ms": 12
-    },
-    {
-      "name": "Roster country_name,team_name,bib_no / Singapore",
-      "passed": true,
-      "rows": 3,
-      "ms": 13
-    },
-    {
-      "name": "Roster country_name,team_name,bib_no / Hong Kong",
-      "passed": true,
-      "rows": 1,
-      "ms": 10
-    },
-    {
-      "name": "Roster country_name,team_name,bib_no / Japan",
-      "passed": true,
-      "rows": 0,
-      "ms": 9
-    },
-    {
-      "name": "Team coverage stage 17",
-      "passed": true,
-      "rows": 7,
-      "ms": 74
-    },
-    {
-      "name": "Team coverage stage 18",
-      "passed": true,
-      "rows": 7,
+      "rows": 177,
       "ms": 15
     },
     {
-      "name": "Team coverage stage 21",
+      "name": "Best Team after stage 7",
       "passed": true,
-      "rows": 7,
+      "rows": 23,
+      "ms": 11
+    },
+    {
+      "name": "GC and Young ranks after stage 13",
+      "passed": true,
+      "rows": 171,
+      "ms": 15
+    },
+    {
+      "name": "Best Team after stage 13",
+      "passed": true,
+      "rows": 23,
+      "ms": 13
+    },
+    {
+      "name": "GC and Young ranks after stage 14",
+      "passed": true,
+      "rows": 167,
+      "ms": 17
+    },
+    {
+      "name": "Best Team after stage 14",
+      "passed": true,
+      "rows": 23,
       "ms": 12
     },
     {
-      "name": "Drill stage_type",
+      "name": "GC and Young ranks after stage 21",
       "passed": true,
-      "rows": 4,
-      "ms": 6
+      "rows": 160,
+      "ms": 14
     },
     {
-      "name": "Drill stage_type,stage_id",
+      "name": "Best Team after stage 21",
+      "passed": true,
+      "rows": 23,
+      "ms": 21
+    },
+    {
+      "name": "Drill stage_id",
       "passed": true,
       "rows": 21,
       "ms": 7
@@ -178,80 +70,44 @@
     {
       "name": "Drill stage_id,team_name",
       "passed": true,
-      "rows": 147,
-      "ms": 48
+      "rows": 483,
+      "ms": 17
     },
     {
       "name": "Drill stage_id,team_name,bib_no",
       "passed": true,
-      "rows": 1024,
-      "ms": 279
+      "rows": 3602,
+      "ms": 141
     },
     {
-      "name": "Single rider preserves global rank",
+      "name": "Registration by independent country roles",
       "passed": true,
-      "rows": 1,
-      "ms": 10
+      "rows": 30,
+      "ms": 9
     },
     {
-      "name": "Duration string does not wrap after 24 hours",
+      "name": "Exit stage and type",
       "passed": true,
-      "rows": 1,
-      "ms": 10
+      "rows": 17,
+      "ms": 6
     },
     {
-      "name": "Explicit exit count at stage 1",
+      "name": "Exits by terrain",
       "passed": true,
-      "rows": 1,
-      "ms": 8
+      "rows": 4,
+      "ms": 5
     },
     {
-      "name": "Explicit exit count at stage 6",
+      "name": "Remaining field",
       "passed": true,
-      "rows": 1,
-      "ms": 17
+      "rows": 21,
+      "ms": 6
     },
     {
-      "name": "Explicit exit count at stage 7",
+      "name": "Last real GC and finish-time budget",
       "passed": true,
-      "rows": 1,
-      "ms": 8
-    },
-    {
-      "name": "Explicit exit count at stage 18",
-      "passed": true,
-      "rows": 1,
-      "ms": 17
-    },
-    {
-      "name": "Explicit exit count at stage 21",
-      "passed": true,
-      "rows": 1,
-      "ms": 7
-    },
-    {
-      "name": "Multi stage selector uses latest",
-      "passed": true,
-      "rows": 1,
-      "ms": 8
-    },
-    {
-      "name": "Historical exit: stage 6 vs 7",
-      "passed": true,
-      "rows": 1,
-      "ms": 26
-    },
-    {
-      "name": "Running time ignores stage type filter",
-      "passed": true,
-      "rows": 1,
-      "ms": 12
-    },
-    {
-      "name": "No results returns blank, no fake zero rank",
-      "passed": true,
-      "rows": 1,
-      "ms": 10
+      "rows": 24,
+      "ms": 6
     }
   ]
 }

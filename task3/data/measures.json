@@ -226,7 +226,7 @@
   {
     "tableName": "Metrics",
     "name": "Classification Rider Hours",
-    "expression": "VAR c=SELECTEDVALUE('Classification'[Classification]) RETURN IF(c=\"Young Rider\",CALCULATE([Eligible Cumulative Hours],'Rider'[Young Rider]=1),[Eligible Cumulative Hours])",
+    "expression": "SWITCH(SELECTEDVALUE('Classification'[Classification]),\"General\",[Eligible Cumulative Hours],\"Young Rider\",CALCULATE([Eligible Cumulative Hours],'Rider'[Young Rider]=1))",
     "formatString": "#,0.00",
     "description": "The same eligible field participates in General, Points and Mountains; time is not their points score.",
     "displayFolder": "Classifications"
@@ -314,7 +314,7 @@
   {
     "tableName": "Metrics",
     "name": "Foreign Team Riders",
-    "expression": "COUNTROWS(FILTER('Rider','Rider'[Rider Country]<>'Rider'[Team Country]))",
+    "expression": "COUNTROWS(FILTER('Rider','Rider'[Rider Country]<>\"Unknown\" && 'Rider'[Rider Country]<>'Rider'[Team Country]))",
     "formatString": "0",
     "description": "Foreign Team Riders",
     "displayFolder": "Participation"
@@ -338,7 +338,7 @@
   {
     "tableName": "Metrics",
     "name": "Countries Represented",
-    "expression": "COUNTROWS(FILTER(ALL('Country'),[Teams by Country]+[Riders by Country]>0))",
+    "expression": "COUNTROWS(FILTER(ALL('Country'),'Country'[Country]<>\"Unknown\" && [Teams by Country]+[Riders by Country]>0))",
     "formatString": "0",
     "description": "Countries Represented",
     "displayFolder": "Participation"
@@ -594,7 +594,7 @@
   {
     "tableName": "Metrics",
     "name": "Award leaders",
-    "expression": "VAR c=SELECTEDVALUE('Classification'[Classification]) VAR leaders=CALCULATETABLE(FILTER(ALL('Rider'),[Classification Rank]=1),REMOVEFILTERS('Rider'),REMOVEFILTERS('Stage')) VAR score=MAXX(leaders,SWITCH(c,\"Points\",[Cumulative Points],\"Mountains\",[Cumulative KOM Points],[Rider Cumulative Seconds])) RETURN IF(NOT ISBLANK(score),IF(c IN {\"Points\",\"Mountains\"} && score=0,\"Field tied on zero points\",CONCATENATEX(leaders,'Rider'[Rider],\", \",'Rider'[Bib],ASC)))",
+    "expression": "VAR c=SELECTEDVALUE('Classification'[Classification]) VAR leaders=CALCULATETABLE(FILTER(ALL('Rider'),[Classification Rank]=1),REMOVEFILTERS('Rider'),REMOVEFILTERS('Stage')) VAR score=MAXX(leaders,SWITCH(c,\"Points\",[Cumulative Points],\"Mountains\",[Cumulative KOM Points],[Rider Cumulative Seconds])) RETURN IF(c IN {\"Points\",\"Mountains\"},\"Not available in export\",IF(NOT ISBLANK(score),CONCATENATEX(leaders,'Rider'[Rider],\", \",'Rider'[Bib],ASC)))",
     "formatString": "",
     "description": "All joint leaders in the full field through the selected stage.",
     "displayFolder": "PDF analytics"
@@ -610,7 +610,7 @@
   {
     "tableName": "Metrics",
     "name": "Winning rule",
-    "expression": "SWITCH(SELECTEDVALUE('Classification'[Classification]),\"General\",\"Lowest total adjusted time\",\"Points\",\"Most cumulative finish points\",\"Mountains\",\"Most cumulative mountain points\",\"Young Rider\",\"Lowest total adjusted time; born on or after 1 Jan 2001\")",
+    "expression": "SWITCH(SELECTEDVALUE('Classification'[Classification]),\"General\",\"Lowest total adjusted time\",\"Points\",\"Highest points total; sprint/finish points not supplied\",\"Mountains\",\"Highest climb-points total; climb points not supplied\",\"Young Rider\",\"Lowest total adjusted time; born on or after 1 Jan 2000\")",
     "formatString": "",
     "description": "Winning rule",
     "displayFolder": "PDF analytics"
@@ -645,6 +645,30 @@
     "expression": "VAR pos=[Top Ten Position] VAR winner=CALCULATE(MIN('Result'[Finish Seconds]),REMOVEFILTERS('Rider'),'Result'[Position]=1) RETURN IF(NOT ISBLANK(pos),MAX('Result'[Finish Seconds])-winner)",
     "formatString": "#,0",
     "description": "Raw finish seconds behind the stage winner; tied finish times may have different positions.",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Exit count",
+    "expression": "COUNTROWS('Withdrawal')",
+    "formatString": "0",
+    "description": "Recorded exits, attributed to the stage not completed; DNS is distinct from mid-stage withdrawal.",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Field remaining",
+    "expression": "VAR s=SELECTEDVALUE('Stage'[Stage]) VAR started=CALCULATE(COUNTROWS('Rider'),REMOVEFILTERS('Rider')) VAR departed=CALCULATE(COUNTROWS('Withdrawal'),REMOVEFILTERS('Withdrawal'),REMOVEFILTERS('Stage'),REMOVEFILTERS('Rider'),'Withdrawal'[Stage]<=s) RETURN IF(NOT ISBLANK(s),started-COALESCE(departed,0))",
+    "formatString": "0",
+    "description": "Whole registered field less all exits through this stage.",
+    "displayFolder": "PDF analytics"
+  },
+  {
+    "tableName": "Metrics",
+    "name": "Mapped riders",
+    "expression": "IF(SELECTEDVALUE('Country'[Country])<>\"Unknown\",[Riders by Country])",
+    "formatString": "0",
+    "description": "Unknown nationality is retained in the roster, not geocoded.",
     "displayFolder": "PDF analytics"
   }
 ]

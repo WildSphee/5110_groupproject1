@@ -5,7 +5,7 @@
     "x": 24,
     "y": 181,
     "width": 780,
-    "height": 332,
+    "height": 285,
     "z": 23,
     "tabOrder": 24
   },
@@ -236,7 +236,8 @@
                 }
               },
               "queryRef": "Rider.Rider Label",
-              "nativeQueryRef": "Rider"
+              "nativeQueryRef": "Rider",
+              "displayName": "Rider"
             },
             {
               "field": {
@@ -264,7 +265,8 @@
                 }
               },
               "queryRef": "Rider.Rider Country",
-              "nativeQueryRef": "Nationality"
+              "nativeQueryRef": "Nationality",
+              "displayName": "Nationality"
             },
             {
               "field": {
@@ -278,7 +280,8 @@
                 }
               },
               "queryRef": "Metrics.Top Ten Position",
-              "nativeQueryRef": "Place"
+              "nativeQueryRef": "Place",
+              "displayName": "Place"
             },
             {
               "field": {
@@ -292,7 +295,8 @@
                 }
               },
               "queryRef": "Metrics.Top Ten Adjusted Seconds",
-              "nativeQueryRef": "Adjusted (s)"
+              "nativeQueryRef": "Adjusted (s)",
+              "displayName": "Adjusted (s)"
             }
           ]
         }
