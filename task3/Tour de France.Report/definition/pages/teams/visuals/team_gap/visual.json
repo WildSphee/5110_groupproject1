@@ -1,16 +1,76 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "team_gap",
   "position": {
-    "x": 730,
-    "y": 94,
-    "width": 686,
-    "height": 330,
+    "x": 729.81438515081209,
+    "y": 93.967517401392115,
     "z": 33,
+    "height": 782.01856148491879,
+    "width": 685.96287703016242,
     "tabOrder": 34
   },
   "visual": {
     "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Team"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "Team.Team",
+              "nativeQueryRef": "Team",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Team deficit minutes"
+                }
+              },
+              "queryRef": "Metrics.Team deficit minutes",
+              "nativeQueryRef": "Gap (min)",
+              "displayName": "Gap (min)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Team deficit minutes"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "dataPoint": [
         {
@@ -235,66 +295,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Team"
-                    }
-                  },
-                  "Property": "Team"
-                }
-              },
-              "queryRef": "Team.Team",
-              "nativeQueryRef": "Team",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Team deficit minutes"
-                }
-              },
-              "queryRef": "Metrics.Team deficit minutes",
-              "nativeQueryRef": "Gap (min)",
-              "displayName": "Gap (min)"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Team deficit minutes"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

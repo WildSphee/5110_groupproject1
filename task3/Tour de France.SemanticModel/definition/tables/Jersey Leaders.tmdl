@@ -1,35 +1,34 @@
-/// Published first-place Points and Mountains snapshots for Tour de France 2025 stages 1–21. Static, offline data; Source stores the stage citation. Official tie-break ordering is preserved.
 table 'Jersey Leaders'
 	isHidden
-	lineageTag: 49675718-2a1d-4818-b656-8bd3832fccee
+	lineageTag: 38576cba-53c8-426e-8854-5a5e25faab09
 
 	column Stage
 		dataType: int64
-		lineageTag: d6247d8f-697a-4128-8705-e89ae437f5a3
+		lineageTag: ec9614d6-a7c6-46a5-9fd0-adb33d5fff8f
 		summarizeBy: none
 		sourceColumn: Stage
 
 	column Classification
 		dataType: string
-		lineageTag: 543f1c5a-89b3-44a8-a015-57589a8b7e26
+		lineageTag: 6cad7434-87a7-4bf3-954d-c2b0dca0ddbf
 		summarizeBy: none
 		sourceColumn: Classification
 
 	column Leader
 		dataType: string
-		lineageTag: 8247137d-5448-4807-add1-274b695cbafc
+		lineageTag: 347a35d8-1a2c-47a1-a4a9-07756f023f90
 		summarizeBy: none
 		sourceColumn: Leader
 
 	column Points
 		dataType: int64
-		lineageTag: 0b98c3a4-890c-485e-be54-ba5dcf29e029
+		lineageTag: eb7c8628-d6fe-4b9f-b693-ec1e3afeee01
 		summarizeBy: none
 		sourceColumn: Points
 
 	column Source
 		dataType: string
-		lineageTag: 3460140f-8e2c-4dd2-8bf7-5327ff7b4f24
+		lineageTag: 966950be-697b-412b-bad0-e4aa7d16ef0f
 		summarizeBy: none
 		sourceColumn: Source
 

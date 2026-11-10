@@ -1,16 +1,144 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "comparison",
   "position": {
-    "x": 24,
-    "y": 336,
-    "width": 1392,
-    "height": 252,
+    "x": 720.41763341067292,
+    "y": 372.73781902552207,
     "z": 28,
+    "height": 514.73317865429237,
+    "width": 681.7865429234339,
     "tabOrder": 29
   },
   "visual": {
     "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Rider"
+                    }
+                  },
+                  "Property": "Rider Label"
+                }
+              },
+              "queryRef": "Rider.Rider Label",
+              "nativeQueryRef": "Rider",
+              "displayName": "Rider"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "GC Rank"
+                }
+              },
+              "queryRef": "Metrics.GC Rank",
+              "nativeQueryRef": "GC rank",
+              "displayName": "GC rank"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Young Rank"
+                }
+              },
+              "queryRef": "Metrics.Young Rank",
+              "nativeQueryRef": "Young rank",
+              "displayName": "Young rank"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Rider Cumulative Time"
+                }
+              },
+              "queryRef": "Metrics.Rider Cumulative Time",
+              "nativeQueryRef": "Time (h:mm:ss)",
+              "displayName": "Time (h:mm:ss)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "GC Gap Seconds"
+                }
+              },
+              "queryRef": "Metrics.GC Gap Seconds",
+              "nativeQueryRef": "GC Gap Seconds"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Rider Status"
+                }
+              },
+              "queryRef": "Metrics.Rider Status",
+              "nativeQueryRef": "Status",
+              "displayName": "Status"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Rider Status"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "GC Rank"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "grid": [
         {
@@ -205,134 +333,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Rider"
-                    }
-                  },
-                  "Property": "Rider Label"
-                }
-              },
-              "queryRef": "Rider.Rider Label",
-              "nativeQueryRef": "Rider",
-              "displayName": "Rider"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "GC Rank"
-                }
-              },
-              "queryRef": "Metrics.GC Rank",
-              "nativeQueryRef": "GC rank",
-              "displayName": "GC rank"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Young Rank"
-                }
-              },
-              "queryRef": "Metrics.Young Rank",
-              "nativeQueryRef": "Young rank",
-              "displayName": "Young rank"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Rider Cumulative Time"
-                }
-              },
-              "queryRef": "Metrics.Rider Cumulative Time",
-              "nativeQueryRef": "Time (h:mm:ss)",
-              "displayName": "Time (h:mm:ss)"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "GC Gap Seconds"
-                }
-              },
-              "queryRef": "Metrics.GC Gap Seconds",
-              "nativeQueryRef": "GC Gap Seconds"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Rider Status"
-                }
-              },
-              "queryRef": "Metrics.Rider Status",
-              "nativeQueryRef": "Status",
-              "displayName": "Status"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Rider Status"
-              }
-            },
-            "direction": "Ascending"
-          },
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "GC Rank"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

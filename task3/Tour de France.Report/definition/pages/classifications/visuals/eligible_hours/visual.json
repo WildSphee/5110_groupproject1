@@ -1,16 +1,75 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "eligible_hours",
   "position": {
-    "x": 852,
-    "y": 604,
-    "width": 564,
-    "height": 272,
+    "x": 975.17401392111378,
+    "y": 98.143851508120662,
     "z": 30,
+    "height": 251.62412993039445,
+    "width": 427.03016241299304,
     "tabOrder": 31
   },
   "visual": {
     "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Classification"
+                    }
+                  },
+                  "Property": "Classification"
+                }
+              },
+              "queryRef": "Classification.Classification",
+              "nativeQueryRef": "Classification",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Classification Rider Hours"
+                }
+              },
+              "queryRef": "Metrics.Classification Rider Hours",
+              "nativeQueryRef": "Classification Rider Hours"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Classification Rider Hours"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "dataPoint": [
         {
@@ -235,65 +294,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Classification"
-                    }
-                  },
-                  "Property": "Classification"
-                }
-              },
-              "queryRef": "Classification.Classification",
-              "nativeQueryRef": "Classification",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Classification Rider Hours"
-                }
-              },
-              "queryRef": "Metrics.Classification Rider Hours",
-              "nativeQueryRef": "Classification Rider Hours"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Classification Rider Hours"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

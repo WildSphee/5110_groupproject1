@@ -1,16 +1,100 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "winners",
   "position": {
-    "x": 24,
-    "y": 94,
-    "width": 1392,
-    "height": 226,
+    "x": 45.939675174013921,
+    "y": 98.143851508120662,
     "z": 27,
+    "height": 251.62412993039445,
+    "width": 914.61716937354993,
     "tabOrder": 28
   },
   "visual": {
     "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Classification"
+                    }
+                  },
+                  "Property": "Classification"
+                }
+              },
+              "queryRef": "Classification.Classification",
+              "nativeQueryRef": "Classification"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Award leaders"
+                }
+              },
+              "queryRef": "Metrics.Award leaders",
+              "nativeQueryRef": "Leading rider(s)",
+              "displayName": "Leading rider(s)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Winning score"
+                }
+              },
+              "queryRef": "Metrics.Winning score",
+              "nativeQueryRef": "Winning score"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Winning rule"
+                }
+              },
+              "queryRef": "Metrics.Winning rule",
+              "nativeQueryRef": "How to win",
+              "displayName": "How to win"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Classification"
+                  }
+                },
+                "Property": "Classification"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "grid": [
         {
@@ -97,6 +181,22 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "231.31005747690136D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metrics.Award leaders"
           }
         }
       ]
@@ -205,90 +305,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Classification"
-                    }
-                  },
-                  "Property": "Classification"
-                }
-              },
-              "queryRef": "Classification.Classification",
-              "nativeQueryRef": "Classification"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Award leaders"
-                }
-              },
-              "queryRef": "Metrics.Award leaders",
-              "nativeQueryRef": "Leading rider(s)",
-              "displayName": "Leading rider(s)"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Winning score"
-                }
-              },
-              "queryRef": "Metrics.Winning score",
-              "nativeQueryRef": "Winning score"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Winning rule"
-                }
-              },
-              "queryRef": "Metrics.Winning rule",
-              "nativeQueryRef": "How to win",
-              "displayName": "How to win"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Classification"
-                  }
-                },
-                "Property": "Classification"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

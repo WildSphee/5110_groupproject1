@@ -1,16 +1,116 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "class_hours",
   "position": {
-    "x": 24,
-    "y": 604,
-    "width": 812,
-    "height": 272,
+    "x": 45.939675174013921,
+    "y": 372.73781902552207,
     "z": 29,
+    "height": 514.73317865429237,
+    "width": 654.64037122969842,
     "tabOrder": 30
   },
   "visual": {
     "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Rider"
+                    }
+                  },
+                  "Property": "Rider Label"
+                }
+              },
+              "queryRef": "Rider.Rider Label",
+              "nativeQueryRef": "Rider",
+              "displayName": "Rider"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Rider"
+                    }
+                  },
+                  "Property": "Age at Race Start"
+                }
+              },
+              "queryRef": "Rider.Age at Race Start",
+              "nativeQueryRef": "Age at Race Start"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "GC Rank"
+                }
+              },
+              "queryRef": "Metrics.GC Rank",
+              "nativeQueryRef": "GC rank",
+              "displayName": "GC rank"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Young GC at Race Start Rank"
+                }
+              },
+              "queryRef": "Metrics.Young GC at Race Start Rank",
+              "nativeQueryRef": "Under 26 on stage 1",
+              "displayName": "Under 26 on stage 1"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Mountain GC Proxy Rank"
+                }
+              },
+              "queryRef": "Metrics.Mountain GC Proxy Rank",
+              "nativeQueryRef": "Mountain-time rank",
+              "displayName": "Mountain-time rank"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "GC Rank"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "grid": [
         {
@@ -205,106 +305,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Rider"
-                    }
-                  },
-                  "Property": "Rider Label"
-                }
-              },
-              "queryRef": "Rider.Rider Label",
-              "nativeQueryRef": "Rider",
-              "displayName": "Rider"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Rider"
-                    }
-                  },
-                  "Property": "Age at Race Start"
-                }
-              },
-              "queryRef": "Rider.Age at Race Start",
-              "nativeQueryRef": "Age at Race Start"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "GC Rank"
-                }
-              },
-              "queryRef": "Metrics.GC Rank",
-              "nativeQueryRef": "GC rank",
-              "displayName": "GC rank"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Young GC at Race Start Rank"
-                }
-              },
-              "queryRef": "Metrics.Young GC at Race Start Rank",
-              "nativeQueryRef": "Under 26 on stage 1",
-              "displayName": "Under 26 on stage 1"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Mountain GC Proxy Rank"
-                }
-              },
-              "queryRef": "Metrics.Mountain GC Proxy Rank",
-              "nativeQueryRef": "Mountain-time rank",
-              "displayName": "Mountain-time rank"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "GC Rank"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }
