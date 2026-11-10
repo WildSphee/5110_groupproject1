@@ -1,16 +1,116 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "ranking",
   "position": {
-    "x": 24,
-    "y": 94,
-    "width": 690,
-    "height": 330,
-    "z": 32,
-    "tabOrder": 33
+    "x": 24.013921113689097,
+    "y": 93.967517401392115,
+    "z": 3000,
+    "height": 329.93039443155453,
+    "width": 744.431554524362,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Best Team Rank"
+                }
+              },
+              "queryRef": "Metrics.Best Team Rank",
+              "nativeQueryRef": "Team rank",
+              "displayName": "Team rank"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Team"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "Team.Team",
+              "nativeQueryRef": "Team"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Team Cumulative Hours"
+                }
+              },
+              "queryRef": "Metrics.Team Cumulative Hours",
+              "nativeQueryRef": "Top-3 hours",
+              "displayName": "Top-3 hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Stages Scored"
+                }
+              },
+              "queryRef": "Metrics.Stages Scored",
+              "nativeQueryRef": "Stages scored",
+              "displayName": "Stages scored"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Team Coverage"
+                }
+              },
+              "queryRef": "Metrics.Team Coverage",
+              "nativeQueryRef": "Coverage",
+              "displayName": "Coverage"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Best Team Rank"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "grid": [
         {
@@ -205,106 +305,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Best Team Rank"
-                }
-              },
-              "queryRef": "Metrics.Best Team Rank",
-              "nativeQueryRef": "Team rank",
-              "displayName": "Team rank"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Team"
-                    }
-                  },
-                  "Property": "Team"
-                }
-              },
-              "queryRef": "Team.Team",
-              "nativeQueryRef": "Team"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Team Cumulative Hours"
-                }
-              },
-              "queryRef": "Metrics.Team Cumulative Hours",
-              "nativeQueryRef": "Top-3 hours",
-              "displayName": "Top-3 hours"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Stages Scored"
-                }
-              },
-              "queryRef": "Metrics.Stages Scored",
-              "nativeQueryRef": "Stages scored",
-              "displayName": "Stages scored"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Team Coverage"
-                }
-              },
-              "queryRef": "Metrics.Team Coverage",
-              "nativeQueryRef": "Coverage",
-              "displayName": "Coverage"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Best Team Rank"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

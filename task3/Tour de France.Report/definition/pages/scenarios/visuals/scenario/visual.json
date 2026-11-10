@@ -4,10 +4,10 @@
   "position": {
     "x": 24.013921113689097,
     "y": 93.967517401392115,
-    "z": 48,
+    "z": 3000,
     "height": 393.61948955916478,
     "width": 283.9907192575406,
-    "tabOrder": 49
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -106,7 +106,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'No bonuses or penalties'"
+                                "Value": "'Official adjusted'"
                               }
                             }
                           ]

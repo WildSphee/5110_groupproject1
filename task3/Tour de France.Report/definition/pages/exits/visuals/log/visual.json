@@ -1,16 +1,127 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "log",
   "position": {
     "x": 24,
     "y": 402,
-    "width": 900,
+    "z": 4000,
     "height": 474,
-    "z": 45,
-    "tabOrder": 46
+    "width": 900,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Withdrawal"
+                    }
+                  },
+                  "Property": "Rider"
+                }
+              },
+              "queryRef": "Withdrawal.Rider",
+              "nativeQueryRef": "Rider"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Withdrawal"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "Withdrawal.Team",
+              "nativeQueryRef": "Team"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Withdrawal"
+                    }
+                  },
+                  "Property": "Stage"
+                }
+              },
+              "queryRef": "Withdrawal.Stage",
+              "nativeQueryRef": "Stage"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Withdrawal"
+                    }
+                  },
+                  "Property": "Exit type"
+                }
+              },
+              "queryRef": "Withdrawal.Exit type",
+              "nativeQueryRef": "Exit type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Withdrawal"
+                    }
+                  },
+                  "Property": "Previous stage"
+                }
+              },
+              "queryRef": "Withdrawal.Previous stage",
+              "nativeQueryRef": "Previous stage"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Withdrawal"
+                    }
+                  },
+                  "Property": "Previous GC rank"
+                }
+              },
+              "queryRef": "Withdrawal.Previous GC rank",
+              "nativeQueryRef": "Last GC rank",
+              "displayName": "Last GC rank"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Withdrawal"
+                  }
+                },
+                "Property": "Stage"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "grid": [
         {
@@ -205,117 +316,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Withdrawal"
-                    }
-                  },
-                  "Property": "Rider"
-                }
-              },
-              "queryRef": "Withdrawal.Rider",
-              "nativeQueryRef": "Rider"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Withdrawal"
-                    }
-                  },
-                  "Property": "Team"
-                }
-              },
-              "queryRef": "Withdrawal.Team",
-              "nativeQueryRef": "Team"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Withdrawal"
-                    }
-                  },
-                  "Property": "Stage"
-                }
-              },
-              "queryRef": "Withdrawal.Stage",
-              "nativeQueryRef": "Stage"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Withdrawal"
-                    }
-                  },
-                  "Property": "Exit type"
-                }
-              },
-              "queryRef": "Withdrawal.Exit type",
-              "nativeQueryRef": "Exit type"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Withdrawal"
-                    }
-                  },
-                  "Property": "Previous stage"
-                }
-              },
-              "queryRef": "Withdrawal.Previous stage",
-              "nativeQueryRef": "Previous stage"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Withdrawal"
-                    }
-                  },
-                  "Property": "Previous GC rank"
-                }
-              },
-              "queryRef": "Withdrawal.Previous GC rank",
-              "nativeQueryRef": "Last GC rank",
-              "displayName": "Last GC rank"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Withdrawal"
-                  }
-                },
-                "Property": "Stage"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

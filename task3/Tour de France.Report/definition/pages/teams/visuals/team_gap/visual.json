@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "team_gap",
   "position": {
-    "x": 729.81438515081209,
+    "x": 784.106728538283,
     "y": 93.967517401392115,
-    "z": 33,
+    "z": 4000,
     "height": 782.01856148491879,
-    "width": 685.96287703016242,
-    "tabOrder": 34
+    "width": 631.67053364269145,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "clusteredBarChart",

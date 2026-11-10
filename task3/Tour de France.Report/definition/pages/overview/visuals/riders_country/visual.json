@@ -4,10 +4,10 @@
   "position": {
     "x": 24,
     "y": 94,
-    "z": 14,
+    "z": 2000,
     "height": 306,
     "width": 680,
-    "tabOrder": 15
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "azureMap",
@@ -90,14 +90,14 @@
             "zoom": {
               "expr": {
                 "Literal": {
-                  "Value": "0.25D"
+                  "Value": "0.24D"
                 }
               }
             },
             "centerLatitude": {
               "expr": {
                 "Literal": {
-                  "Value": "17.29403567753033D"
+                  "Value": "17.29403567753036D"
                 }
               }
             },
