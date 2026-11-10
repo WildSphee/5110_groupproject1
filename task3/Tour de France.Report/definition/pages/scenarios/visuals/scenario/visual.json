@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "scenario",
   "position": {
-    "x": 24,
-    "y": 94,
+    "x": 24.013921113689097,
+    "y": 93.967517401392115,
     "z": 48,
-    "height": 268,
-    "width": 284,
+    "height": 393.61948955916478,
+    "width": 283.9907192575406,
     "tabOrder": 49
   },
   "visual": {
