@@ -1,0 +1,296 @@
+[
+  {
+    "Stage": 1,
+    "Classification": "Points",
+    "Leader": "Jasper Philipsen",
+    "Points": 63,
+    "Source": "https://fr.wikipedia.org/wiki/1re_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 1,
+    "Classification": "Mountains",
+    "Leader": "Benjamin Thomas",
+    "Points": 2,
+    "Source": "https://fr.wikipedia.org/wiki/1re_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 2,
+    "Classification": "Points",
+    "Leader": "Jasper Philipsen",
+    "Points": 71,
+    "Source": "https://fr.wikipedia.org/wiki/2e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 2,
+    "Classification": "Mountains",
+    "Leader": "Tadej Pogačar",
+    "Points": 3,
+    "Source": "https://fr.wikipedia.org/wiki/2e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 3,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 81,
+    "Source": "https://fr.wikipedia.org/wiki/3e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 3,
+    "Classification": "Mountains",
+    "Leader": "Tim Wellens",
+    "Points": 3,
+    "Source": "https://fr.wikipedia.org/wiki/3e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 4,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 92,
+    "Source": "https://fr.wikipedia.org/wiki/4e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 4,
+    "Classification": "Mountains",
+    "Leader": "Tadej Pogačar",
+    "Points": 5,
+    "Source": "https://fr.wikipedia.org/wiki/4e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 5,
+    "Classification": "Points",
+    "Leader": "Tadej Pogačar",
+    "Points": 97,
+    "Source": "https://fr.wikipedia.org/wiki/5e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 5,
+    "Classification": "Mountains",
+    "Leader": "Tadej Pogačar",
+    "Points": 5,
+    "Source": "https://fr.wikipedia.org/wiki/5e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 6,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 112,
+    "Source": "https://fr.wikipedia.org/wiki/6e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 6,
+    "Classification": "Mountains",
+    "Leader": "Tim Wellens",
+    "Points": 7,
+    "Source": "https://fr.wikipedia.org/wiki/6e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 7,
+    "Classification": "Points",
+    "Leader": "Tadej Pogačar",
+    "Points": 156,
+    "Source": "https://fr.wikipedia.org/wiki/7e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 7,
+    "Classification": "Mountains",
+    "Leader": "Tim Wellens",
+    "Points": 8,
+    "Source": "https://fr.wikipedia.org/wiki/7e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 8,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 182,
+    "Source": "https://fr.wikipedia.org/wiki/8e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 8,
+    "Classification": "Mountains",
+    "Leader": "Tim Wellens",
+    "Points": 8,
+    "Source": "https://fr.wikipedia.org/wiki/8e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 9,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 227,
+    "Source": "https://fr.wikipedia.org/wiki/9e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 9,
+    "Classification": "Mountains",
+    "Leader": "Tim Wellens",
+    "Points": 8,
+    "Source": "https://fr.wikipedia.org/wiki/9e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 10,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 227,
+    "Source": "https://fr.wikipedia.org/wiki/10e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 10,
+    "Classification": "Mountains",
+    "Leader": "Lenny Martinez",
+    "Points": 27,
+    "Source": "https://fr.wikipedia.org/wiki/10e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 11,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 231,
+    "Source": "https://fr.wikipedia.org/wiki/11e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 11,
+    "Classification": "Mountains",
+    "Leader": "Lenny Martinez",
+    "Points": 27,
+    "Source": "https://fr.wikipedia.org/wiki/11e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 12,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 231,
+    "Source": "https://fr.wikipedia.org/wiki/12e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 12,
+    "Classification": "Mountains",
+    "Leader": "Tadej Pogačar",
+    "Points": 27,
+    "Source": "https://fr.wikipedia.org/wiki/12e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 13,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 231,
+    "Source": "https://fr.wikipedia.org/wiki/13e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 13,
+    "Classification": "Mountains",
+    "Leader": "Tadej Pogačar",
+    "Points": 37,
+    "Source": "https://fr.wikipedia.org/wiki/13e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 14,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 251,
+    "Source": "https://fr.wikipedia.org/wiki/14e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 14,
+    "Classification": "Mountains",
+    "Leader": "Lenny Martinez",
+    "Points": 60,
+    "Source": "https://fr.wikipedia.org/wiki/14e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 15,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 251,
+    "Source": "https://fr.wikipedia.org/wiki/15e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 15,
+    "Classification": "Mountains",
+    "Leader": "Lenny Martinez",
+    "Points": 60,
+    "Source": "https://fr.wikipedia.org/wiki/15e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 16,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 251,
+    "Source": "https://fr.wikipedia.org/wiki/16e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 16,
+    "Classification": "Mountains",
+    "Leader": "Tadej Pogačar",
+    "Points": 60,
+    "Source": "https://fr.wikipedia.org/wiki/16e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 17,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 312,
+    "Source": "https://fr.wikipedia.org/wiki/17e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 17,
+    "Classification": "Mountains",
+    "Leader": "Tadej Pogačar",
+    "Points": 60,
+    "Source": "https://fr.wikipedia.org/wiki/17e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 18,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 332,
+    "Source": "https://fr.wikipedia.org/wiki/18e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 18,
+    "Classification": "Mountains",
+    "Leader": "Tadej Pogačar",
+    "Points": 105,
+    "Source": "https://fr.wikipedia.org/wiki/18e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 19,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 352,
+    "Source": "https://fr.wikipedia.org/wiki/19e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 19,
+    "Classification": "Mountains",
+    "Leader": "Tadej Pogačar",
+    "Points": 117,
+    "Source": "https://fr.wikipedia.org/wiki/19e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 20,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 352,
+    "Source": "https://fr.wikipedia.org/wiki/20e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 20,
+    "Classification": "Mountains",
+    "Leader": "Tadej Pogačar",
+    "Points": 117,
+    "Source": "https://fr.wikipedia.org/wiki/20e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 21,
+    "Classification": "Points",
+    "Leader": "Jonathan Milan",
+    "Points": 372,
+    "Source": "https://fr.wikipedia.org/wiki/21e_%C3%A9tape_du_Tour_de_France_2025"
+  },
+  {
+    "Stage": 21,
+    "Classification": "Mountains",
+    "Leader": "Tadej Pogačar",
+    "Points": 119,
+    "Source": "https://fr.wikipedia.org/wiki/21e_%C3%A9tape_du_Tour_de_France_2025"
+  }
+]

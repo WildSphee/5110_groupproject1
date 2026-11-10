@@ -1,0 +1,83 @@
+/// Published first-place Points and Mountains snapshots for Tour de France 2025 stages 1–21. Static, offline data; Source stores the stage citation. Official tie-break ordering is preserved.
+table 'Jersey Leaders'
+	isHidden
+	lineageTag: 49675718-2a1d-4818-b656-8bd3832fccee
+
+	column Stage
+		dataType: int64
+		lineageTag: d6247d8f-697a-4128-8705-e89ae437f5a3
+		summarizeBy: none
+		sourceColumn: Stage
+
+	column Classification
+		dataType: string
+		lineageTag: 543f1c5a-89b3-44a8-a015-57589a8b7e26
+		summarizeBy: none
+		sourceColumn: Classification
+
+	column Leader
+		dataType: string
+		lineageTag: 8247137d-5448-4807-add1-274b695cbafc
+		summarizeBy: none
+		sourceColumn: Leader
+
+	column Points
+		dataType: int64
+		lineageTag: 0b98c3a4-890c-485e-be54-ba5dcf29e029
+		summarizeBy: none
+		sourceColumn: Points
+
+	column Source
+		dataType: string
+		lineageTag: 3460140f-8e2c-4dd2-8bf7-5327ff7b4f24
+		summarizeBy: none
+		sourceColumn: Source
+
+	partition 'Jersey Leaders' = m
+		mode: import
+		source =
+				let Source = #table(type table [#"Stage" = Int64.Type, #"Classification" = nullable text, #"Leader" = nullable text, #"Points" = Int64.Type, #"Source" = nullable text], {
+				{1,"Points","Jasper Philipsen",63,"https://fr.wikipedia.org/wiki/1re_%C3%A9tape_du_Tour_de_France_2025"},
+				{1,"Mountains","Benjamin Thomas",2,"https://fr.wikipedia.org/wiki/1re_%C3%A9tape_du_Tour_de_France_2025"},
+				{2,"Points","Jasper Philipsen",71,"https://fr.wikipedia.org/wiki/2e_%C3%A9tape_du_Tour_de_France_2025"},
+				{2,"Mountains","Tadej Pogačar",3,"https://fr.wikipedia.org/wiki/2e_%C3%A9tape_du_Tour_de_France_2025"},
+				{3,"Points","Jonathan Milan",81,"https://fr.wikipedia.org/wiki/3e_%C3%A9tape_du_Tour_de_France_2025"},
+				{3,"Mountains","Tim Wellens",3,"https://fr.wikipedia.org/wiki/3e_%C3%A9tape_du_Tour_de_France_2025"},
+				{4,"Points","Jonathan Milan",92,"https://fr.wikipedia.org/wiki/4e_%C3%A9tape_du_Tour_de_France_2025"},
+				{4,"Mountains","Tadej Pogačar",5,"https://fr.wikipedia.org/wiki/4e_%C3%A9tape_du_Tour_de_France_2025"},
+				{5,"Points","Tadej Pogačar",97,"https://fr.wikipedia.org/wiki/5e_%C3%A9tape_du_Tour_de_France_2025"},
+				{5,"Mountains","Tadej Pogačar",5,"https://fr.wikipedia.org/wiki/5e_%C3%A9tape_du_Tour_de_France_2025"},
+				{6,"Points","Jonathan Milan",112,"https://fr.wikipedia.org/wiki/6e_%C3%A9tape_du_Tour_de_France_2025"},
+				{6,"Mountains","Tim Wellens",7,"https://fr.wikipedia.org/wiki/6e_%C3%A9tape_du_Tour_de_France_2025"},
+				{7,"Points","Tadej Pogačar",156,"https://fr.wikipedia.org/wiki/7e_%C3%A9tape_du_Tour_de_France_2025"},
+				{7,"Mountains","Tim Wellens",8,"https://fr.wikipedia.org/wiki/7e_%C3%A9tape_du_Tour_de_France_2025"},
+				{8,"Points","Jonathan Milan",182,"https://fr.wikipedia.org/wiki/8e_%C3%A9tape_du_Tour_de_France_2025"},
+				{8,"Mountains","Tim Wellens",8,"https://fr.wikipedia.org/wiki/8e_%C3%A9tape_du_Tour_de_France_2025"},
+				{9,"Points","Jonathan Milan",227,"https://fr.wikipedia.org/wiki/9e_%C3%A9tape_du_Tour_de_France_2025"},
+				{9,"Mountains","Tim Wellens",8,"https://fr.wikipedia.org/wiki/9e_%C3%A9tape_du_Tour_de_France_2025"},
+				{10,"Points","Jonathan Milan",227,"https://fr.wikipedia.org/wiki/10e_%C3%A9tape_du_Tour_de_France_2025"},
+				{10,"Mountains","Lenny Martinez",27,"https://fr.wikipedia.org/wiki/10e_%C3%A9tape_du_Tour_de_France_2025"},
+				{11,"Points","Jonathan Milan",231,"https://fr.wikipedia.org/wiki/11e_%C3%A9tape_du_Tour_de_France_2025"},
+				{11,"Mountains","Lenny Martinez",27,"https://fr.wikipedia.org/wiki/11e_%C3%A9tape_du_Tour_de_France_2025"},
+				{12,"Points","Jonathan Milan",231,"https://fr.wikipedia.org/wiki/12e_%C3%A9tape_du_Tour_de_France_2025"},
+				{12,"Mountains","Tadej Pogačar",27,"https://fr.wikipedia.org/wiki/12e_%C3%A9tape_du_Tour_de_France_2025"},
+				{13,"Points","Jonathan Milan",231,"https://fr.wikipedia.org/wiki/13e_%C3%A9tape_du_Tour_de_France_2025"},
+				{13,"Mountains","Tadej Pogačar",37,"https://fr.wikipedia.org/wiki/13e_%C3%A9tape_du_Tour_de_France_2025"},
+				{14,"Points","Jonathan Milan",251,"https://fr.wikipedia.org/wiki/14e_%C3%A9tape_du_Tour_de_France_2025"},
+				{14,"Mountains","Lenny Martinez",60,"https://fr.wikipedia.org/wiki/14e_%C3%A9tape_du_Tour_de_France_2025"},
+				{15,"Points","Jonathan Milan",251,"https://fr.wikipedia.org/wiki/15e_%C3%A9tape_du_Tour_de_France_2025"},
+				{15,"Mountains","Lenny Martinez",60,"https://fr.wikipedia.org/wiki/15e_%C3%A9tape_du_Tour_de_France_2025"},
+				{16,"Points","Jonathan Milan",251,"https://fr.wikipedia.org/wiki/16e_%C3%A9tape_du_Tour_de_France_2025"},
+				{16,"Mountains","Tadej Pogačar",60,"https://fr.wikipedia.org/wiki/16e_%C3%A9tape_du_Tour_de_France_2025"},
+				{17,"Points","Jonathan Milan",312,"https://fr.wikipedia.org/wiki/17e_%C3%A9tape_du_Tour_de_France_2025"},
+				{17,"Mountains","Tadej Pogačar",60,"https://fr.wikipedia.org/wiki/17e_%C3%A9tape_du_Tour_de_France_2025"},
+				{18,"Points","Jonathan Milan",332,"https://fr.wikipedia.org/wiki/18e_%C3%A9tape_du_Tour_de_France_2025"},
+				{18,"Mountains","Tadej Pogačar",105,"https://fr.wikipedia.org/wiki/18e_%C3%A9tape_du_Tour_de_France_2025"},
+				{19,"Points","Jonathan Milan",352,"https://fr.wikipedia.org/wiki/19e_%C3%A9tape_du_Tour_de_France_2025"},
+				{19,"Mountains","Tadej Pogačar",117,"https://fr.wikipedia.org/wiki/19e_%C3%A9tape_du_Tour_de_France_2025"},
+				{20,"Points","Jonathan Milan",352,"https://fr.wikipedia.org/wiki/20e_%C3%A9tape_du_Tour_de_France_2025"},
+				{20,"Mountains","Tadej Pogačar",117,"https://fr.wikipedia.org/wiki/20e_%C3%A9tape_du_Tour_de_France_2025"},
+				{21,"Points","Jonathan Milan",372,"https://fr.wikipedia.org/wiki/21e_%C3%A9tape_du_Tour_de_France_2025"},
+				{21,"Mountains","Tadej Pogačar",119,"https://fr.wikipedia.org/wiki/21e_%C3%A9tape_du_Tour_de_France_2025"}
+				}) in Source
+

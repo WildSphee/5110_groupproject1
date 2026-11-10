@@ -1,0 +1,872 @@
+00:00:00 Speaker 1
+Like uh, which stage has the most exits? You know, and then like after which stage, right? How many people are the lefties? Kind of thing, right? Because I feel like exits itself is quite of is one of the three files. Uh, if you go check the data that is given, right? There's only individual results, exits, and writers. So I feel like exit is kind of important to emphasize in this presentation.
+00:00:21 Speaker 2
+Hmm. Yeah, that's true. What what what do you think we should put it? Is it in this page?
+00:00:28 Speaker 1
+I think you can,
+00:00:30 Speaker 1
+Up up to how the presentation goes.
+00:00:33 Speaker 1
+If you, I think it can be between GC progression, progression, and the what if GC, because if you talk about progression, then you talk about exits. Then you talk about what if, like what if this player didn't exit, then maybe this team might have a better chance. You know, like that's the flow.
+00:00:50 Speaker 1
+Hmm. Yeah. Yeah. That's true.
+00:00:51 Speaker 2
+I I do I do think that it will be a core part in what if like, what if this person. Didn't slash the exit, right?
+00:01:00 Speaker 2
+Yeah. And what if it's more like the potential scenario? So maybe in GC progression, we can also include this,
+00:01:08 Speaker 2
+Especially in in here in the bottom right, perhaps.
+00:01:11 Speaker 1
+Yeah, I I think it ultimately comes down to how the design is. You know, if it's nicer to put it together, we can put it together. If it's not nice, you can just put it separately. But I think the flow would be like a race and participants, stitch routes, terrain consistency.
+00:01:26 Speaker 1
+Classification team performance, GC progressions, exits. Then what if,
+00:01:30 Speaker 1
+That is the flow that probably feels a bit smoother.
+00:01:35 Speaker 2
+I think. Hmm. Hmm.
+00:01:38 Speaker 2
+Okay. Yeah. So sorry, I I didn't quite catch that. Like, is there a any part that you swapped out? You think that we should swap?
+00:01:47 Speaker 1
+No, just I think.
+00:01:51 Speaker 1
+Pushing the terrains to the front. Okay, I'm not sure whether terrains need their own place, or you can kind of merge terrain and stages together.
+00:01:58 Speaker 2
+That's the part that I find a little bit more.
+00:02:05 Speaker 2
+Because in terrain, I also include a lot about the performance of each person. So it's it's more like um,
+00:02:12 Speaker 2
+More like some extra information kind of thing.
+00:02:16 Speaker 3
+So using that for a drill down,
+00:02:18 Speaker 2
+Basically.
+00:02:21 Speaker 2
+Oh, sorry. Exact.
+00:02:22 Speaker 4
+Go ahead. Yeah. Yeah. If you look at the data, right?
+00:02:25 Speaker 4
+I I'm not sure how you got terrain lah, but by looking at the raw data, the CSVs that were posted, terrain is associated to stage. So the stage type is actually what terrain is.
+00:02:37 Speaker 4
+Hmm. So we can actually just put it together. Yeah. I I was thinking that the stages and the terrains can just be like you can have your own analysis as is the stages and terrains itself together.
+00:02:52 Speaker 1
+Yeah, so it will still be a total of seven pages. It's just that terrains will merge into stages, and then you add another slide for like you need add another page for exits.
+00:03:03 Speaker 4
+Okay, so the exits right? I took a look. There are twenty four people here that will exit lah. Hmm.
+00:03:11 Speaker 4
+So, yeah, I think can have an analysis on that.
+00:03:16 Speaker 1
+Correct, and then um, like some of them is like.
+00:03:21 Speaker 1
+Uh, half the exits come from mountain stages, so that can be a point to mention.
+00:03:26 Speaker 1
+And then, uh, you can also mention what is the position they have, like what is their gross position before they exit. So, like some people when they withdraw, right, they were in the third place, you know, or something like that. Uh, actually,
+00:03:39 Speaker 2
+I wanna align on what it means by exit, because from what I understand was that like,
+00:03:45 Speaker 2
+Uh, during each stage, like in the middle of.
+00:03:49 Speaker 2
+Between each stage, like after they finish the stage, then they decided, you know what, I can't do this anymore, and I'll quit.
+00:03:56 Speaker 1
+Oh, so, so according according to the content, it seems like quite a lot of people left in mid race.
+00:04:03 Speaker 2
+Like, like in the middle of the race.
+00:04:05 Speaker 1
+Yeah, they left in the middle of the race. I think.
+00:04:07 Speaker 2
+Oh, but but oh, okay.
+00:04:10 Speaker 1
+Yeah, so I think those are like because exits is I think you have to look at the data because I also only only briefly looked through here,
+00:04:16 Speaker 4
+So but.
+00:04:17 Speaker 4
+So there, there is a few. So there's DNS and there's withdrawal.
+00:04:22 Speaker 4
+DNS represents did not start, which I assume means okay. So let's say your DNS is at stage five,
+00:04:29 Speaker 4
+That will mean that you clear stage four and you have not reached stage five. Thus, you have not started stage five and you exited.
+00:04:37 Speaker 4
+Another one is withdrawal at stage five.
+00:04:40 Speaker 4
+Withdrawal at stage five will mean that you have started stage five but you are unable to complete it. Hence. You withdrew within stage five itself,
+00:04:48 Speaker 1
+And then I I just sent a screenshot to our WhatsApp chat. Basically, like that is what is the DNS and the withdrawal.
+00:04:58 Speaker 4
+Yeah, so basically DNS means DNS means you have next one,
+00:05:03 Speaker 1
+Next one. Withdraw just means yeah. Ah, okay. Yeah, yeah,
+00:05:06 Speaker 1
+Yeah. Between. Yeah, this one, this one. Yeah. So basically, there's some people who withdraw at certain stage, and then their position was this amount before that. This kind of thing.
+00:05:13 Speaker 2
+Yeah. Yeah. Question though, I in our exit, do we have this?
+00:05:17 Speaker 2
+Do do do we propose like having a withdrawal reason?
+00:05:22 Speaker 1
+It is a requirement to have an exit reason.
+00:05:24 Speaker 4
+Okay, okay. I mean, okay. I.
+00:05:26 Speaker 2
+This or DNS one.
+00:05:28 Speaker 4
+Yeah, I've repopulated all the schemas already. Is the CSV is uh there is the exit reason under the exit table?
+00:05:38 Speaker 4
+Okay. Yeah. Huh.
+00:05:43 Speaker 4
+Yeah. So. Wait, wait, wait.
+00:05:45 Speaker 2
+So, so DNS is uh like did not start.
+00:05:48 Speaker 4
+Did not start.
+00:05:49 Speaker 2
+Did not start. So, so they like yes. Maybe like they overstep or something. Then they didn't even participate.
+00:05:55 Speaker 1
+Is it maybe they decided that before the match, the before that stage, they are like I'm yeah. Not feeling well.
+00:06:00 Speaker 3
+I think it's just two kinds. Either they quit before they start the stage, or they quit halfway through the race. So it's yeah. It's just the two possible options.
+00:06:10 Speaker 2
+So withdrawal is like in the middle of the stage,
+00:06:12 Speaker 4
+Then they're all withdrawing.
+00:06:15 Speaker 1
+Maybe maybe they really wasn't filming out, which is such a pity for the first guy. Man, he was third place.
+00:06:21 Speaker 1
+Yeah,
+00:06:25 Speaker 1
+Too shit.
+00:06:25 Speaker 2
+Just just want to go back home and rest.
+00:06:27 Speaker 1
+Yeah, and then I I was asking Claude to do the analysis, right? But apparently, there's uh UA lost one driver who was their key support, you know, rider or something.
+00:06:37 Speaker 1
+So I think like all these can be something we mention in a what if analysis, you know.
+00:06:41 Speaker 4
+Yeah, yeah. We can have like a perfect scenario.
+00:06:45 Speaker 1
+Yeah, if this guy didn't,
+00:06:46 Speaker 4
+You know. Yeah, the simulator one.
+00:06:48 Speaker 1
+Okay, yeah. Then it could be, it could be.
+00:06:50 Speaker 4
+Then it could.
+00:06:52 Speaker 4
+Yeah. For for for the title of that, you can be something like. So if you are going to bet on a race, this is what would have happened.
+00:07:04 Speaker 1
+I don't know. Uh, we can don't take maybe don't put gambling in. We can say like, oh, if you are from a coach perspective, you know.
+00:07:12 Speaker 3
+Yeah, I think that's better.
+00:07:14 Speaker 1
+Yeah, and let's take away like you know things that is like negatively frowned.
+00:07:19 Speaker 3
+This is like illegal.
+00:07:21 Speaker 2
+It's like like fun a fun thing, right? When the professor here, then we're like, yeah, yeah, that that makes sense.
+00:07:26 Speaker 1
+Unfortunately, we don't know who's the tutor person, you know. So like, we don't know how.
+00:07:31 Speaker 1
+Like if he's a very staunch Christian, I will really probably don't think he will find it good.
+00:07:37 Speaker 2
+Aiyah, Christian also gamble lah.
+00:07:39 Speaker 1
+I don't know. Which which which I brought my points, staunch Christian.
+00:07:46 Speaker 3
+I think Shwigen has a lot of experience.
+00:07:50 Speaker 2
+Oh, am I? I'm that good at gambling? I won't be here.
+00:07:53 Speaker 3
+Oh yeah, fair enough. Maybe that's why you're learning this degree.
+00:07:59 Speaker 4
+So okay, Regan, I have a question regarding the points part. So you mentioned that you,
+00:08:05 Speaker 4
+You have some sort of like uh calculation for the points, right?
+00:08:09 Speaker 2
+As one, yeah, yeah,
+00:08:12 Speaker 2
+Sure. I I no clue how it's done.
+00:08:15 Speaker 4
+Oh, okay.
+00:08:17 Speaker 1
+I think our schema has all the formulas on how we are supposed to calculate it. Yeah. Do you remember our task two schema?
+00:08:23 Speaker 3
+Yeah, then it had something like the rules on penalty time and the bonus and everything.
+00:08:29 Speaker 4
+Yeah, because I'm I'm looking at that now,
+00:08:32 Speaker 4
+Based on schema, I think penalty time so far from what I've seen is all zeros.
+00:08:38 Speaker 1
+Oh, that's great.
+00:08:39 Speaker 3
+Ah, in the dataset that they've given.
+00:08:41 Speaker 4
+Yeah. Oh. So I'm not sure.
+00:08:45 Speaker 1
+Yeah, and I realize that there is a I think I said just now also, but I think there is one of the tight range right that our schema is a problem for our schema. Yeah.
+00:08:59 Speaker 4
+So, ah, okay. Based from that, right? From from from the schema that I've generated, I didn't I didn't have a tiebreaker, so they were both the same rank.
+00:09:09 Speaker 1
+Oh, so we just remove that constraint.
+00:09:12 Speaker 4
+Yeah, correct. I remove the constraint, but I think we need to align on this lah. Whether we want to have them the same rank or will we want want to be ranked above another?
+00:09:22 Speaker 1
+No, it's okay. I think we can just remove that constraint because in the end, ah.
+00:09:27 Speaker 1
+What what do you think? How do you how do you justify in the report? Hmm.
+00:09:33 Speaker 1
+I mean, it's okay to have the same rank, right? Legally. Um.
+00:09:37 Speaker 3
+Have maybe you can check the website. How did they get the actual rank? Do they have ties?
+00:09:43 Speaker 4
+That's a good point.
+00:09:48 Speaker 4
+Yeah.
+00:09:50 Speaker 1
+You know.
+00:09:51 Speaker 1
+And also, it's also mentioned, right? Of three stages, right? Apparently, the ranks don't follow time.
+00:09:59 Speaker 4
+Of three stages, the ranks don't follow time. Sorry, can you elaborate?
+00:10:03 Speaker 1
+Uh, I I sent in the chat, but apparently, like,
+00:10:06 Speaker 1
+Uh, stage one, seventeen and twenty one got got, uh.
+00:10:11 Speaker 1
+There's some error. I don't know what is this. I I asked Chat uh Claude to do.
+00:10:15 Speaker 4
+Oh, I understand. I understand.
+00:10:17 Speaker 1
+The the times were neutralized or they're half the crash or something like that. I I don't really get it.
+00:10:24 Speaker 1
+I haven't I haven't look at the data yet.
+00:10:27 Speaker 2
+Okay, yo uh for the data, can any of you guys help me clean the data and then pass to me one?
+00:10:31 Speaker 1
+Oh, actually, you don't really have to clean the data. I checked already. Mostly clean. You wouldn't delete anything.
+00:10:37 Speaker 4
+You just need to create a schema. That's it.
+00:10:38 Speaker 2
+They they they say also need a young one right? Like we need to add some dummy data.
+00:10:45 Speaker 1
+What was that? What no. No, you don't need to add dummy data.
+00:10:49 Speaker 1
+Okay, it's just that the schema the schema has to as basically the categorization of what's the young,
+00:10:55 Speaker 1
+What is what is considered king of mountain. What is the uh young rider? Blah blah blah. All those is from our schema.
+00:11:05 Speaker 2
+Okay, so nothing needs to change. Just to replace the data.
+00:11:10 Speaker 1
+Yeah, I think Zach already cleaned the data. gave you the the x the data already. The one that he just sent.
+00:11:19 Speaker 4
+Yeah, so it's all in CSVs,
+00:11:21 Speaker 4
+So you can import them individually. Okay. Okay.
+00:11:25 Speaker 1
+When are we?
+00:11:26 Speaker 2
+When are we presenting?
+00:11:28 Speaker 1
+Next Wednesday, seven fifteen PM.
+00:11:34 Speaker 2
+Next Wednesday, shit,
+00:11:35 Speaker 1
+Would I be in? Huh?
+00:11:39 Speaker 1
+Yeah, that's your fault.
+00:11:40 Speaker 2
+Ah, no, I'll be here.
+00:11:42 Speaker 1
+Oh my gosh! Don't worry. Okay, wait.
+00:11:46 Speaker 4
+Uh, regarding that point three, right, Sarah? Um, that one is actually a race,
+00:11:52 Speaker 4
+Like the race rules constraint. Though I'm not sure whether we want to change that.
+00:11:56 Speaker 1
+No, don't have to change. It's just something that like it was highlighted.
+00:11:58 Speaker 4
+So yeah, yeah, okay, okay, understand.
+00:12:00 Speaker 1
+So so no no issues right then it's okay. I I just I was just asking like is there anything to take note because of the data? Cause I mean obviously four of us not none of us actually look at the data before today, right? So yeah.
+00:12:14 Speaker 1
+So I just wanted to ask, like, is there like issues? You know, because like I didn't. I mean, of course, all of us didn't go through the data.
+00:12:22 Speaker 4
+Yeah, I I mean it seems fine lah. Blame someone what?
+00:12:24 Speaker 1
+Yeah, yeah, I think it's fine. Yeah. So, uh, yeah. Oh, by the way, uh, Ice and Zach, do y'all have any issues with what my my opinion on the flow of of the thing? Was it okay? Like, say anything else you want.
+00:12:37 Speaker 3
+Yeah. No, I think it's good. Um, I just had another thing from like a presentation perspective. Um, I liked Regan's storyline, so I was thinking that we could probably split it into like different stakeholders who would. Potentially use this dashboard, and then each of us could like talk through those like points.
+00:12:56 Speaker 3
+Yeah. So, for example, like Sarah said, we can combine the stages and the routes and the terrain together. So you can speak like from an organizer's perspective. So as an organizer, this how I would like use this dashboard and walk through those functions. Then next, we talk about the rankings and stuff. Then you can say like maybe as like a price presenter or or like you know something like that. Or like a scoring, like a judge. This how I would use this dashboard, and then like maybe from like a coach perspective, this how we would use the dashboard.
+00:13:27 Speaker 3
+So, um, that's the only thing that I had.
+00:13:31 Speaker 1
+Yeah. Yeah. So, so actually, I think it comes down to how we want to split the presentation order,
+00:13:37 Speaker 1
+And because I think each person should get about two point five minutes because it's ten minutes divided by four us.
+00:13:45 Speaker 1
+So I was thinking, two minutes will be the first person should be doing the introduction,
+00:13:50 Speaker 1
+Uh,
+00:13:53 Speaker 1
+Race and participation.
+00:13:55 Speaker 1
+Then maybe the second person can do stages to it. But if we want it to be like announcement, right? It should be introduction, race, participation, as well as stages and terrain, right?
+00:14:10 Speaker 1
+Does it make sense?
+00:14:11 Speaker 1
+Um.
+00:14:13 Speaker 3
+Maybe we can split it to like one person does the introduction and the whatif,
+00:14:19 Speaker 3
+And then we can split the others as like I think seven pages. Yeah, so everybody gets like two two. One person does the introduction plus whatif and conclusion.
+00:14:32 Speaker 1
+Got it.
+00:14:35 Speaker 1
+Let me let me check.
+00:14:37 Speaker 1
+So this is five one one zero group project.
+00:14:45 Speaker 1
+Has three. It's two. I'm here.
+00:14:46 Speaker 2
+I'm doing my share screen. Uh, and like divide the work here.
+00:14:53 Speaker 1
+Yeah. So introduction.
+00:14:57 Speaker 1
+Then maybe like, like,
+00:15:00 Speaker 1
+We we we guys. Let me just do the flow first. Introduction.
+00:15:05 Speaker 1
+Then response and participation. Uh.
+00:15:29 Speaker 1
+You just entering.
+00:15:31 Speaker 1
+This is from the announcer' point of view, right?
+00:15:35 Speaker 1
+Okay.
+00:15:35 Speaker 2
+On On that day, eight, Sarah, will you be able to bring your laptop? Because I'll be coming from work and.
+00:15:42 Speaker 1
+Uh, I can bring my laptop for sure, but I I need to figure out whether I can open the Azuri Maps. No, if not, there's no point.
+00:15:51 Speaker 2
+Ah, yeah, that's true.
+00:15:52 Speaker 1
+Yeah, so so I I think maybe two of us prepare a laptop will be good, but um.
+00:15:57 Speaker 1
+Our presentation is like seven fifteen, so we don't really have to reach early. You know, like wait,
+00:16:01 Speaker 3
+I think we can just reach like be ten minutes before.
+00:16:04 Speaker 4
+Oh, okay.
+00:16:05 Speaker 1
+So we are only going there for presentation. We're not seeing other in on other people. We just go in, present, and we're going off.
+00:16:10 Speaker 4
+Oh, I see. I see. Okay.
+00:16:13 Speaker 1
+Okay. So I think latest everybody should reach is seven o'clock. Then we just go in seven fifteen. Then we just finish it. You got me.
+00:16:20 Speaker 4
+Yeah. Okay. Can, I I won't be bringing my laptop because I'm on a Mac, so I don't have Power BI.
+00:16:26 Speaker 3
+Uh, it's okay. I can bring my okay.
+00:16:29 Speaker 1
+So maybe me and Ash will bring, and then hopefully, like there will be no issues, lah.
+00:16:34 Speaker 2
+Yeah, sure. Just make make sure that the mat works. If not, then I guess last, like worst case scenario, I can also yeah,
+00:16:40 Speaker 1
+Yeah, yeah. I think I think that is best if we try that. Make sure it works before we bring it. Yeah, yeah, yeah. Plus,
+00:16:50 Speaker 1
+Which one is next? Ah, classifications and team performance.
+00:17:05 Speaker 1
+Classification and team forms is it together better?
+00:17:09 Speaker 3
+Oh wait, can I see the uh pages that you have in the dashboard again?
+00:17:15 Speaker 1
+Is here, is here. Oh okay, here. Yeah.
+00:17:20 Speaker 1
+Oh wait, there's one more exits.
+00:17:23 Speaker 1
+Hmm. Yeah. So two.
+00:17:38 Speaker 2
+Matching outfits.
+00:17:41 Speaker 2
+Oh my!
+00:17:42 Speaker 1
+Sure, you got black.
+00:17:43 Speaker 2
+You got black shirt or not?
+00:17:45 Speaker 1
+I mean, like black is still okay.
+00:17:47 Speaker 4
+Yeah, I do. I do.
+00:17:48 Speaker 2
+Hell yeah!
+00:17:49 Speaker 4
+Like a normal shirt, right? Don't need anything.
+00:17:52 Speaker 1
+Is there is there a requirement that?
+00:17:56 Speaker 1
+Uh,
+00:17:57 Speaker 2
+No. We we hey.
+00:17:58 Speaker 3
+Um, presentation marks. Yeah.
+00:18:00 Speaker 2
+Presentation, I treat it as like any other presentation.
+00:18:03 Speaker 2
+Yeah. Okay.
+00:18:05 Speaker 2
+Yo, you know what would be cool? We all wear like a biker helmet and shit.
+00:18:10 Speaker 3
+Oh my. Oh my god.
+00:18:12 Speaker 1
+Wear what?
+00:18:13 Speaker 2
+I swear to God, we're gonna get an A if we all wear like skin tight like biker jeans.
+00:18:20 Speaker 1
+Please, Vanny.
+00:18:22 Speaker 3
+I'm not gonna do that.
+00:18:24 Speaker 1
+And I I don't really think I can get A based on my individual final exam where my my diagram is completely off.
+00:18:33 Speaker 4
+It's fine. It's fine. I think many people got it wrong,
+00:18:35 Speaker 2
+Bro. Like like.
+00:18:36 Speaker 4
+Yeah, I think many people got it wrong. So it's okay. Actually, yeah, right.
+00:18:39 Speaker 1
+I think the number of people can get it the diagram correct is really like I'm not sure.
+00:18:44 Speaker 1
+Maybe like two three people at best.
+00:18:46 Speaker 3
+I think Erica got it right.
+00:18:47 Speaker 4
+Erica said she got it. Yeah, Erica said she got it. Yeah. Oh.
+00:18:51 Speaker 3
+I think she's the only one so far.
+00:18:53 Speaker 1
+Yeah, yeah. I haven't heard anyone else. Erica got it. Oh, thank God for her.
+00:18:56 Speaker 4
+I think she also got like completely wrong or something. So I'm pretty sure it's like one or two people only.
+00:19:03 Speaker 2
+Fuck.
+00:19:04 Speaker 1
+Okay, maybe more than that.
+00:19:05 Speaker 3
+Stepma. Oh.
+00:19:20 Speaker 1
+How should this be do done?
+00:19:23 Speaker 1
+Actually, I was thinking the what if is a bit little. So the introduction okay, I get that makes sense. Race and participation classifications.
+00:19:36 Speaker 1
+Oh, I think I missed out something.
+00:19:38 Speaker 3
+A juicy progression. Correct.
+00:19:40 Speaker 1
+Yeah. So maybe team performance.
+00:19:43 Speaker 1
+Then.
+00:19:53 Speaker 1
+Yeah, make sense.
+00:19:56 Speaker 4
+Yeah. Yeah, I think it looks fine.
+00:19:58 Speaker 1
+Because the oh sorry,
+00:20:01 Speaker 4
+I'm a bit afraid that the second person, the race and participation plus stages and terrain might be a bit much.
+00:20:09 Speaker 1
+You're right, but I feel like it's but but it doesn't fit anywhere.
+00:20:13 Speaker 4
+Yeah, yeah, I agree.
+00:20:15 Speaker 1
+I think, but but I also think this is the part where we don't have to mention too much. Also, though.
+00:20:21 Speaker 1
+Oh, I see.
+00:20:21 Speaker 4
+Maybe like one run through, like one example to say how we'll use the therefore.
+00:20:25 Speaker 1
+Because because this is the one thing where everybody is probably gonna say the same thing.
+00:20:30 Speaker 4
+I see.
+00:20:31 Speaker 3
+I I just there's no like calculation logic or anything.
+00:20:36 Speaker 1
+Correct.
+00:20:36 Speaker 3
+It's very straightforward.
+00:20:38 Speaker 1
+Like for the classification, right? We need to mention like how what how we determine this stage, how we determine this classification. So. That one need to spend quite some time, but the race participation right is is really more of a storyline more than anything. So actually, I think it's okay because,
+00:20:55 Speaker 1
+Uh, for the race participation stage, right, it's all actual facts. You're not introducing any new elements.
+00:21:02 Speaker 4
+Right. Okay. Okay. Understand.
+00:21:06 Speaker 4
+Yeah.
+00:21:09 Speaker 1
+Uh, any preference on which part you are doing?
+00:21:14 Speaker 1
+Okay, I know Regan wants to do the presenter.
+00:21:17 Speaker 2
+Each of us, instead of that, take up a persona.
+00:21:20 Speaker 4
+No,
+00:21:21 Speaker 4
+Like that,
+00:21:23 Speaker 2
+Like legit, like legit, coming from like uh.
+00:21:26 Speaker 2
+But by the way, introduction, don't need like a per. Do Do we need a person for that?
+00:21:32 Speaker 1
+Yeah, yeah, yeah. What? Is she? Do we need introduction? Like, what is the introduction going to be?
+00:21:38 Speaker 3
+I don't think, yeah.
+00:21:39 Speaker 2
+No, I think actually it's good to have an introduction. Like, hey, this one is submitted based on our like data. This is about like how we design, how we structure this,
+00:21:50 Speaker 1
+Right? Okay, then Regan, you can start. You can start it. Like, you can do it.
+00:21:55 Speaker 1
+Do you guys have preference? And now I'm just gonna randomly put you guys.
+00:22:00 Speaker 3
+No, I want to do race and participation.
+00:22:03 Speaker 1
+Damn, that's the one I wanted to do.
+00:22:06 Speaker 1
+That sounds like quick.
+00:22:09 Speaker 1
+Okay. Okay. I then I'll do the this one. Do Do you have a preference by the way, then?
+00:22:17 Speaker 1
+It's fine.
+00:22:19 Speaker 4
+Oops. I'll need to read. I'll need to read how the okay.
+00:22:25 Speaker 2
+Okay. But I really recommend, right? Like every one of us, just take a look at this this two graph. How you want to present it, and what persona are you? Because like like okay, this is legitimately right. Because uh, the all the like UI UX people I work with, they need to say that okay,
+00:22:44 Speaker 2
+Before they present anything, they they say that okay, now I'm viewing this from the perspective of uh,
+00:22:49 Speaker 2
+Let let's say announcer or a coach or uh like a person who is like uh like like analyst, something like that. I I think for our script, right, we all start with like okay, hey, I I'm Zach. And maybe I'm like the coach for this team. So what I really focus on is that how the team perform over time, what terrain that they are struggling with,
+00:23:11 Speaker 2
+Something like that.
+00:23:13 Speaker 1
+Hmm. I mean, technically, for mine is probably from analyst point of view, right? Because I'm talking about sure the progression and the exits, right? I think Ice is definitely more of an announcer of like maybe like the what's it.
+00:23:27 Speaker 1
+Organizer,
+00:23:28 Speaker 3
+Announcer, organizer would be yeah.
+00:23:31 Speaker 1
+Organizer point of view,
+00:23:32 Speaker 1
+Uh huh. And then Z, Z is classifications.
+00:23:38 Speaker 1
+Oh, actually, I think maybe I can be like announcer and then Z can be organizer. Okay, that makes more sense though because um classification is definitely like hundred percent.
+00:23:48 Speaker 1
+Uh, organizer more than anything.
+00:23:51 Speaker 2
+Honestly, you guys can chat with T. I don't mind.
+00:23:55 Speaker 2
+Yeah, I mean,
+00:23:56 Speaker 1
+I mean, you you guys can like change it later because,
+00:24:01 Speaker 1
+Ah, in either way, I think maybe ah, once you repopulate the the dashboard, then you let us know. Then each of us can prepare our own part. Each person has two point five minutes, and then if your part doesn't need so long or if your part needs longer, let us know, and then we can see where we can adjust. Because I don't think it matters like it doesn't have to be exactly two point five minutes each. Yeah, yeah. So if If, for example, I your part requires, it really needs more time. Then you can ask us for it. But although I think Zach,
+00:24:31 Speaker 1
+I think yours will take most time actually.
+00:24:33 Speaker 4
+Though, but how in depth do I need to go into? I will assume is just first a brief summary of the different classifications that we have,
+00:24:43 Speaker 4
+Uh, decided upon, and then a breakdown of the the dashboard how we designed it, and then I give some insights. On the different riders, on the different terrains, or the age and what all the classification stuff we know lah, and after that I'll go through the team performance.
+00:25:00 Speaker 1
+Yeah, and I think for team performance, you probably have to do like a bit of a drill down also. Yeah, yeah, okay, yeah.
+00:25:05 Speaker 3
+I think it'll be good if you show an example also. Say like, oh, for example, let's see how this team has performed, and then like actually interact with the dashboard.
+00:25:13 Speaker 1
+Okay, okay, yeah, okay. Maybe, maybe um,
+00:25:17 Speaker 1
+Regan, do you think you can do the dashboard by I don't know Friday?
+00:25:22 Speaker 2
+Uh, I try by tomorrow.
+00:25:26 Speaker 1
+Oh, you just let us know when you can.
+00:25:29 Speaker 2
+I think that everybody for uh five one o three, I'm cooked. I don't know where.
+00:25:34 Speaker 1
+Oh shush!
+00:25:35 Speaker 4
+Same, same. I, I haven't studied so.
+00:25:38 Speaker 1
+I, I, I'm not sure studying would help actually.
+00:25:41 Speaker 4
+Like, like. Yeah, wait. Can I clarify? Did he say that the exam will be similar to the assignment questions?
+00:25:49 Speaker 1
+No, he said a bit easier.
+00:25:52 Speaker 4
+Yeah. But how? How is what? What? What is that? The test is. I'm very confused.
+00:25:57 Speaker 1
+Because is you know the format of the exam,
+00:25:59 Speaker 4
+Right? Then it's three and four. Yeah, yeah, but there's still modeling.
+00:26:04 Speaker 1
+Yeah, so so I think I think there's one modeling question, and then the rest will be three and four.
+00:26:09 Speaker 4
+Honestly, I plan to just throw all my notes into Claude, print out the cheat sheet,
+00:26:14 Speaker 3
+And I'm done.
+00:26:16 Speaker 3
+Same.
+00:26:17 Speaker 1
+I. I don't actually think the Chinese would be very useful. Actually, I'm thinking it's all applications.
+00:26:23 Speaker 3
+You wouldn't understand what's saying.
+00:26:27 Speaker 1
+Oh shit!
+00:26:28 Speaker 1
+Oh shit, guys! Yeah, and so so I went to ask my friends from last year. Right, last year they told me they only have nine questions in total, but this year we have seven questions with four subparts. Yeah. Hmm. So it means it's definitely hard.
+00:26:45 Speaker 3
+But but how were the questions last year?
+00:26:48 Speaker 1
+Last year was also true and false. They all true and false, and one fill in the blank question.
+00:26:54 Speaker 3
+Also no modeling.
+00:26:56 Speaker 1
+No, they didn't have modeling because last year wasn't pen and paper. Last year was on canvas con on canvas.
+00:27:01 Speaker 3
+Oh, that's so unfair.
+00:27:03 Speaker 4
+Wait, yeah, that's so unfair. What the hell?
+00:27:05 Speaker 1
+So so like they get to click like true and false, you know, and they had only nine questions.
+00:27:10 Speaker 1
+For one hour, like their nine question is like nine question. It's not like nine question with sub parts. It's like nine questions.
+00:27:17 Speaker 1
+Damn!
+00:27:17 Speaker 3
+I'm gonna fight the prof.
+00:27:20 Speaker 1
+Right? Like why? Why do they do this to us?
+00:27:25 Speaker 1
+Yeah.
+00:27:27 Speaker 1
+Anyway, um,
+00:27:29 Speaker 1
+To be honest, the prof might be seeing me for the second time only.
+00:27:33 Speaker 3
+I don't think the prof will be there. It's just a TA.
+00:27:36 Speaker 1
+Oh yeah, that's true. I'll never see the prof again.
+00:27:39 Speaker 2
+Yeah. I just hope he don't see me next year. I don't want.
+00:27:42 Speaker 3
+You you sound very familiar.
+00:27:45 Speaker 1
+Yeah, Erica was saying right. Like maybe if you don't try, if you just put everything true, your marks might be higher than trying.
+00:27:52 Speaker 4
+What is a very good point there.
+00:27:54 Speaker 3
+But what if he just like for fun said everything false?
+00:27:58 Speaker 1
+Oh, that that you have to be really really unlucky for that to be true.
+00:28:02 Speaker 3
+Yeah, that's true.
+00:28:03 Speaker 1
+I think the likelihood of true coming out should be, I mean, fifty fifty, right? You either put all true or you put all false, and you pray that you get like,
+00:28:11 Speaker 1
+Like the right side.
+00:28:12 Speaker 2
+Part right lah. Yeah.
+00:28:17 Speaker 2
+Yeah.
+00:28:18 Speaker 1
+Anyway, um, let's go back to the point. I do you guys want to meet like,
+00:28:23 Speaker 1
+One day to go through the presentation, like, maybe Tuesday night or something.
+00:28:28 Speaker 4
+Yeah, sure.
+00:28:28 Speaker 3
+Okay, sure.
+00:28:30 Speaker 1
+Then so Tuesday night we can probably go through the entire presentation. Then, for example, if anybody contradict each other or if you have a better idea, then we can all mention it on that day. Then also we can check the timing for everybody.
+00:28:44 Speaker 4
+Can we do it on Monday night?
+00:28:46 Speaker 2
+Uh, Monday night I cannot.
+00:28:49 Speaker 2
+Oh shit!
+00:28:50 Speaker 4
+Okay, then Tuesday night time.
+00:28:51 Speaker 2
+Okay, Sun Sunday morning.
+00:28:53 Speaker 1
+Or actually, Sunday I cannot.
+00:28:57 Speaker 1
+Oh yeah, it's fine, Maria.
+00:28:59 Speaker 4
+It's okay, it's okay. Tuesday is fine.
+00:29:01 Speaker 1
+Let's do Tuesday time.
+00:29:04 Speaker 2
+Eight, nine, nine.
+00:29:06 Speaker 1
+Uh, your dinner plan.
+00:29:09 Speaker 3
+I should be free.
+00:29:10 Speaker 4
+Yeah, yeah, I should be free.
+00:29:12 Speaker 1
+Okay. We can do 10 p. m. is better for you, Zach. If you prefer later, lah.
+00:29:16 Speaker 4
+No, no, it's okay. Nine is fine. Okay. So, yeah. Okay.
+00:29:21 Speaker 2
+So, so we come back with the script. Then, also time yourself around.
+00:29:26 Speaker 2
+Three minutes each,
+00:29:28 Speaker 1
+Can no two point five five two point five yeah two point five okay two two point five so so if you have more things to talk about and you need more time, you can just let us know. Cause I think maybe some people will have less to say, so up to you.
+00:29:42 Speaker 1
+Uh, ten ten of don't you mean ten November? Right.
+00:29:47 Speaker 2
+Honestly, my my part might be like one minute in total.
+00:29:52 Speaker 1
+Even with you know you're doing the what if I don't think so I don't think so I think the what if is pretty interesting I'm not sure how many groups would have a what if yeah wait I'm talking about the what if okay never the what if oh yeah it it your introduction would take maybe thirty seconds but like your what if would take like most of the people yeah yeah oh yeah I probably forgot that I'm talking about this one okay we're not gonna just give you introduction.
+00:30:17 Speaker 2
+Hey, I I thought I only got introduction and conclusion. Conclusion is just gonna be thank you, right?
+00:30:22 Speaker 1
+I don't mind.
+00:30:25 Speaker 2
+Okay, let me put here conclusion as well.
+00:30:27 Speaker 1
+Let me. Actually, up to you. I I mean,
+00:30:33 Speaker 1
+Maybe maybe dashboard done by Friday.
+00:30:36 Speaker 2
+I try I try tomorrow.
+00:30:39 Speaker 4
+You can try. You can Saturday lah. You can Saturday also.
+00:30:40 Speaker 1
+Oh yeah, I won't worry about age because of her. Deepa Bali, yeah,
+00:30:45 Speaker 3
+No, it's it's okay.
+00:30:47 Speaker 3
+I will, I'll get it done.
+00:30:49 Speaker 1
+Yes, I can open.
+00:30:50 Speaker 4
+Yes, yes, I should.
+00:30:52 Speaker 3
+Yep. Okay. Yes, I can open it. Awesome.
+00:30:55 Speaker 4
+The C the CSVs of the really populated data in the in the group chat. You can just take a look at it.
+00:31:01 Speaker 2
+Alright. Okay. When I.
+00:31:05 Speaker 1
+Yeah.
+00:31:06 Speaker 1
+Okay. I'll after the meeting, I'll send out the invite for the tenth November. So everybody just need to wait. I just write it down here then. Uh.
+00:31:14 Speaker 1
+Have your script ready within two point five minutes. Correct. Yep. Okay, let me just put this in here.
+00:31:29 Speaker 1
+Okay. Then, anything else that you want to bring up now?
+00:31:38 Speaker 2
+Nah, bro. Okay.
+00:31:40 Speaker 1
+You're not. Um. I'll see you guys on Friday. Okay. And then,
+00:31:45 Speaker 1
+Good luck for the quiz.
+00:31:47 Speaker 4
+Yeah. Good luck, everyone.
+00:31:48 Speaker 1
+Uh yeah. So cool. Okay. See you guys. I mean, if you guys have cheat sheet, please share it so I can take a look whether. I have. I do not. I haven't even started.
+00:31:58 Speaker 2
+Iterated one. You one.
+00:32:00 Speaker 4
+I'm still. I'm still iterating my versions.
+00:32:03 Speaker 1
+Yeah, but. Oh my Zara, I'm scared. I look at the cheat sheet and I have no idea what it's talking about.
+00:32:07 Speaker 4
+You know, at this yeah, no, that's exactly me. Because I remember the other day, I put all the lectures notes inside and I see if I cheat sheet. I took a look at it and I had no idea what I was talking about.
+00:32:18 Speaker 4
+So I know I was so screwed.
+00:32:19 Speaker 1
+Oh shiz! Yeah, I scared. The modelling question is so difficult, right? I can't even write one line out. Yeah.
+00:32:26 Speaker 3
+I'll just write some nonsense and hope for like step marks.
+00:32:29 Speaker 1
+I know, I know, I know what what to write is like everything is bigger than zero or something, non negativity.
+00:32:35 Speaker 3
+Oh, everything non negative. Yes.
+00:32:37 Speaker 2
+This this the one I'm this one this the one I'm gonna print. Uh, so tomorrow I'll go back to office to print it.
+00:32:42 Speaker 1
+Like, let me see, let me see,
+00:32:44 Speaker 2
+Let me see. Yeah, yeah, yeah.
+00:32:45 Speaker 1
+It's loading.
+00:32:46 Speaker 3
+So excited!
+00:32:48 Speaker 1
+Oh wow!
+00:32:50 Speaker 2
+So but but the thing is right like. Okay, so what I do is I get asked using these. But the thing is, is um,
+00:33:01 Speaker 2
+It's not very clear. I I asked it to give more examples, right? So a lot of thing here do have example, but bro, I no, I cannot read this.
+00:33:11 Speaker 3
+I don't understand.
+00:33:12 Speaker 1
+I don't understand it.
+00:33:15 Speaker 1
+I think you should ask ChatGPT to summarize each lecture, then put it into the the notes.
+00:33:23 Speaker 4
+Yeah, don't combine. I just let me let me see. What did I do?
+00:33:30 Speaker 4
+Yeah, I asked Claude to write down the steps that he went through in the lecture.
+00:33:35 Speaker 1
+Yeah, yeah, but like honestly,
+00:33:36 Speaker 4
+I just printed those out.
+00:33:39 Speaker 1
+Like Regan, Regan, like I sent a picture into the group chat, right? But apparently, like for the for the binary one, right, this is the rules that we are we are supposed to follow. These are like the translation.
+00:33:51 Speaker 4
+Wait, what's this?
+00:33:51 Speaker 3
+Oh yeah, we did this in the lecture.
+00:33:54 Speaker 1
+Yeah, so this like a like what you need to know, you know. Like I think that this lecture seven.
+00:34:01 Speaker 3
+This was a lecture that you attended.
+00:34:05 Speaker 2
+Oh yeah, this you know.
+00:34:07 Speaker 1
+You should remember this. This the binary one, right? This the one that I think will definitely come out. It's just like how many questions.
+00:34:15 Speaker 3
+I think this could be like a good fill in the blank.
+00:34:19 Speaker 1
+I actually think this will be a good true or false question. Like he'll say, like whether this this uh this equivalent to this. Then is it true or false kind of thing?
+00:34:33 Speaker 1
+Yeah.
+00:34:35 Speaker 1
+At least that's what asking like ChatGPT to do for me. Like, so what the rules? You know, the rules are the important one.
+00:34:41 Speaker 2
+Still gonna get fifty percent,
+00:34:43 Speaker 4
+Anyways.
+00:34:45 Speaker 4
+Yeah. Wow, it's so confusing.
+00:34:47 Speaker 1
+Okay.
+00:34:51 Speaker 1
+Yeah. Anyway, I don't think he'll be testing on like, like, like five one one zero. The test, like, oh, the definition of this is what or this. But I don't think so. I think he said it's all gonna be practice questions. So like, it will not be like,
+00:35:02 Speaker 1
+You need to know the definition or know what this is. You need the the whole thing is that you need to know how to solve it more than that.
+00:35:08 Speaker 4
+That's worse. I don't know how to solve it.
+00:35:11 Speaker 3
+I rather do definitions.
+00:35:13 Speaker 4
+Yeah, I don't know how to solve it. Okay, okay.
+00:35:16 Speaker 1
+Regardless,
+00:35:17 Speaker 1
+Right? Like majority is true at first.
+00:35:21 Speaker 4
+So yeah, I'm just gonna bet on the two and four, fifty.
+00:35:25 Speaker 1
+Most kind of words has a fifty percent chance of getting it right.
+00:35:30 Speaker 4
+Guys, if you guys see me, if you guys see me like flipping a coin, right?
+00:35:34 Speaker 3
+I feel exactly.

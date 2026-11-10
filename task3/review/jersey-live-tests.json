@@ -1,0 +1,1204 @@
+[
+  {
+    "port": "56855",
+    "passed": true,
+    "snapshotsVerified": 42,
+    "timeClassificationsUnchanged": 42,
+    "selectorCases": [
+      "cleared → stage 21",
+      "stage 6",
+      "stages 6+7 → stage 7"
+    ],
+    "rows": [
+      {
+        "As Of[Stage]": 1,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jasper Philipsen",
+        "[Score]": "63 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 2,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jasper Philipsen",
+        "[Score]": "71 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 1,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Benjamin Thomas",
+        "[Score]": "2 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 5,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "97 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 7,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "156 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 2,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "3 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 4,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "5 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 5,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "5 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 12,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "27 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 13,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "37 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 16,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "60 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 17,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "60 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 18,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "105 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 19,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "117 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 20,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "117 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 21,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "119 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 3,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "81 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 4,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "92 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 6,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "112 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 8,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "182 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 9,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "227 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 10,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "227 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 11,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "231 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 12,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "231 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 13,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "231 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 14,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "251 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 15,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "251 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 16,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "251 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 17,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "312 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 18,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "332 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 19,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "352 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 20,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "352 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 21,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "372 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 3,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tim Wellens",
+        "[Score]": "3 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 6,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tim Wellens",
+        "[Score]": "7 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 7,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tim Wellens",
+        "[Score]": "8 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 8,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tim Wellens",
+        "[Score]": "8 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 9,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tim Wellens",
+        "[Score]": "8 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 10,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Lenny Martinez",
+        "[Score]": "27 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 11,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Lenny Martinez",
+        "[Score]": "27 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 14,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Lenny Martinez",
+        "[Score]": "60 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 15,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Lenny Martinez",
+        "[Score]": "60 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 1,
+        "Classification[Classification]": "General",
+        "[Leader]": "Jasper Philipsen",
+        "[Score]": "3:53:01",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 2,
+        "Classification[Classification]": "General",
+        "[Leader]": "Mathieu Van Der Poel",
+        "[Score]": "8:38:42",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 3,
+        "Classification[Classification]": "General",
+        "[Leader]": "Mathieu Van Der Poel",
+        "[Score]": "12:55:37",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 4,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar, Mathieu Van Der Poel",
+        "[Score]": "16:46:00",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 5,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "17:22:58",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 6,
+        "Classification[Classification]": "General",
+        "[Leader]": "Mathieu Van Der Poel",
+        "[Score]": "21:52:34",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 7,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "25:58:04",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 8,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "29:48:30",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 9,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "33:17:22",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 10,
+        "Classification[Classification]": "General",
+        "[Leader]": "Ben Healy",
+        "[Score]": "37:41:49",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 11,
+        "Classification[Classification]": "General",
+        "[Leader]": "Ben Healy",
+        "[Score]": "41:01:13",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 12,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "45:22:51",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 13,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "45:45:51",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 14,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "50:40:28",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 15,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "54:20:44",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 16,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "58:24:46",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 17,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "61:50:16",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 18,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "66:55:42",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 19,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "69:41:46",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 20,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "73:54:59",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 21,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "77:02:29",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 1,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Biniam Girmay",
+        "[Score]": "3:53:05",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 2,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Kévin Vauquelin",
+        "[Score]": "8:38:52",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 3,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Kévin Vauquelin",
+        "[Score]": "12:55:47",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 4,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Kévin Vauquelin",
+        "[Score]": "16:46:26",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 5,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "17:23:40",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 6,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "21:53:17",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 7,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "25:58:58",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 8,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "29:49:24",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 9,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "33:18:16",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 10,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Ben Healy",
+        "[Score]": "37:41:49",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 11,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Ben Healy",
+        "[Score]": "41:01:13",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 12,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "45:27:36",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 13,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "45:53:15",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 14,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "50:48:21",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 15,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "54:28:37",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 16,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "58:33:49",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 17,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "61:59:19",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 18,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "67:06:43",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 19,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "69:52:55",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 20,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "74:06:08",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 21,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "77:13:29",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      }
+    ]
+  },
+  {
+    "port": "57320",
+    "passed": true,
+    "snapshotsVerified": 42,
+    "timeClassificationsUnchanged": 42,
+    "selectorCases": [
+      "cleared → stage 21",
+      "stage 6",
+      "stages 6+7 → stage 7"
+    ],
+    "rows": [
+      {
+        "As Of[Stage]": 1,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jasper Philipsen",
+        "[Score]": "63 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 2,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jasper Philipsen",
+        "[Score]": "71 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 1,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Benjamin Thomas",
+        "[Score]": "2 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 5,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "97 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 7,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "156 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 2,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "3 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 4,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "5 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 5,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "5 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 12,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "27 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 13,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "37 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 16,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "60 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 17,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "60 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 18,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "105 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 19,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "117 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 20,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "117 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 21,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tadej Pogačar",
+        "[Score]": "119 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 3,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "81 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 4,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "92 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 6,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "112 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 8,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "182 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 9,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "227 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 10,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "227 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 11,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "231 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 12,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "231 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 13,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "231 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 14,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "251 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 15,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "251 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 16,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "251 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 17,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "312 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 18,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "332 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 19,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "352 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 20,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "352 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 21,
+        "Classification[Classification]": "Points",
+        "[Leader]": "Jonathan Milan",
+        "[Score]": "372 pts",
+        "[Rule]": "Highest sprint/finish points; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 3,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tim Wellens",
+        "[Score]": "3 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 6,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tim Wellens",
+        "[Score]": "7 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 7,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tim Wellens",
+        "[Score]": "8 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 8,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tim Wellens",
+        "[Score]": "8 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 9,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Tim Wellens",
+        "[Score]": "8 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 10,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Lenny Martinez",
+        "[Score]": "27 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 11,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Lenny Martinez",
+        "[Score]": "27 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 14,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Lenny Martinez",
+        "[Score]": "60 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 15,
+        "Classification[Classification]": "Mountains",
+        "[Leader]": "Lenny Martinez",
+        "[Score]": "60 pts",
+        "[Rule]": "Highest climb-points total; official tie-breaks"
+      },
+      {
+        "As Of[Stage]": 1,
+        "Classification[Classification]": "General",
+        "[Leader]": "Jasper Philipsen",
+        "[Score]": "3:53:01",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 2,
+        "Classification[Classification]": "General",
+        "[Leader]": "Mathieu Van Der Poel",
+        "[Score]": "8:38:42",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 3,
+        "Classification[Classification]": "General",
+        "[Leader]": "Mathieu Van Der Poel",
+        "[Score]": "12:55:37",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 4,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar, Mathieu Van Der Poel",
+        "[Score]": "16:46:00",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 5,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "17:22:58",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 6,
+        "Classification[Classification]": "General",
+        "[Leader]": "Mathieu Van Der Poel",
+        "[Score]": "21:52:34",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 7,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "25:58:04",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 8,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "29:48:30",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 9,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "33:17:22",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 10,
+        "Classification[Classification]": "General",
+        "[Leader]": "Ben Healy",
+        "[Score]": "37:41:49",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 11,
+        "Classification[Classification]": "General",
+        "[Leader]": "Ben Healy",
+        "[Score]": "41:01:13",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 12,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "45:22:51",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 13,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "45:45:51",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 14,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "50:40:28",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 15,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "54:20:44",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 16,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "58:24:46",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 17,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "61:50:16",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 18,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "66:55:42",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 19,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "69:41:46",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 20,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "73:54:59",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 21,
+        "Classification[Classification]": "General",
+        "[Leader]": "Tadej Pogacar",
+        "[Score]": "77:02:29",
+        "[Rule]": "Lowest total adjusted time"
+      },
+      {
+        "As Of[Stage]": 1,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Biniam Girmay",
+        "[Score]": "3:53:05",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 2,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Kévin Vauquelin",
+        "[Score]": "8:38:52",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 3,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Kévin Vauquelin",
+        "[Score]": "12:55:47",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 4,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Kévin Vauquelin",
+        "[Score]": "16:46:26",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 5,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "17:23:40",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 6,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "21:53:17",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 7,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "25:58:58",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 8,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "29:49:24",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 9,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "33:18:16",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 10,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Ben Healy",
+        "[Score]": "37:41:49",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 11,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Ben Healy",
+        "[Score]": "41:01:13",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 12,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "45:27:36",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 13,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Remco Evenepoel",
+        "[Score]": "45:53:15",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 14,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "50:48:21",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 15,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "54:28:37",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 16,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "58:33:49",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 17,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "61:59:19",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 18,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "67:06:43",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 19,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "69:52:55",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 20,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "74:06:08",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      },
+      {
+        "As Of[Stage]": 21,
+        "Classification[Classification]": "Young Rider",
+        "[Leader]": "Florian Lipowitz",
+        "[Score]": "77:13:29",
+        "[Rule]": "Lowest total adjusted time; born on or after 1 Jan 2000"
+      }
+    ]
+  }
+]

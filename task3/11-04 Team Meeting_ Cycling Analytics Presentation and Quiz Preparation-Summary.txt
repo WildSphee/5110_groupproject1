@@ -1,0 +1,32 @@
+11-04 Team Meeting: Cycling Analytics Presentation and Quiz Preparation
+
+## Presentation Structure and Storyline
+The team is preparing a 10-minute group presentation based on dashboard views covering race participation, terrain, classifications, team performance, progression, and “what-if” analysis. Members will present for approximately 2.5 minutes each, using stakeholder perspectives such as coach, announcer, organizer, and analyst.
+The slide deck draws on three primary data files: individual results, exits, and riders. To create a clear narrative leading into the scenario analysis, the team decided to integrate terrain analysis with stage routes rather than keep it as a standalone section. The planned deck will remain seven pages, with a dedicated rider-exit section between GC progression and the “what-if” scenarios.
+### Action Items
+- [ ] Merge terrain analysis into the stage routes section and add a dedicated rider-exit page while maintaining a seven-page deck.
+- [ ] Populate and update the dashboard with the cleaned CSV dataset — **Regan**, 2026-11-05.
+- [ ] Complete the dashboard by 2026-11-06; the final integration owner and delivery date still need confirmation.
+- [ ] Prepare presentation slides and scripts for the assigned sections and stakeholder perspectives, targeting approximately 2.5 minutes per person — **Sarah, Ice, Zach, Regan**.
+- [ ] Prepare individual presentation scripts by 2026-11-10.
+- [ ] Send a calendar invite for the dry run scheduled for 9:00 PM on 2026-11-10 — **Speaker 1**.
+- [ ] Review the populated CSV datasets shared in the group chat.
+- [ ] Check that Azure Maps works properly on presentation laptops — **Sarah, Ice**.
+- [ ] Arrive at the venue by 19:00 for the scheduled 19:15 presentation on 2026-11-11 — **Sarah, Ice, Zach, Regan**.
+### Open Presentation Issues
+- Confirm the final slide layout for rider exits: a separate page or an element embedded in the GC progression slide.
+- Finalize individual section and persona assignments, including whether the “what-if” analysis is included in a particular member’s scope.
+- Resolve the dashboard’s ranking tiebreaker logic, which currently allows identical ranks. Options include checking official rules, changing schema constraints, or documenting the rationale.
+- Verify stage-time discrepancies for stages 1, 17, and 21, including the effects of neutralized times or crashes.
+- Decide how to present or categorize qualitative exit reasons from the database.
+## Rider Exit and Withdrawal Analysis
+The exits dataset contains 24 rider exits. The analysis should distinguish **DNS** (Did Not Start: a rider completed the previous stage but did not start the next) from a **mid-stage withdrawal**. The team aims to identify meaningful patterns, including the proportion of exits during mountain stages—reported as half of all exits—riders’ GC positions before leaving, including cases where riders in third place withdrew, and the explicit reasons recorded in the populated exit table.
+### Action Item
+- [ ] Analyze all 24 exits, covering stage type, pre-exit GC standings, DNS versus mid-stage withdrawals, and recorded exit reasons.
+## Quiz Preparation and Cheat Sheet
+The team discussed the upcoming quiz format and difficulty. Unlike the previous year’s Canvas quiz of nine questions, the current quiz will be handwritten, with seven questions and four subparts each. Anticipated challenges include modeling problems, binary-variable formulation rules from Lecture 7, and application-oriented problem-solving. Members shared approaches for using tools such as ChatGPT and Claude to summarize lecture methods and agreed to share and refine cheat sheets before printing.
+### Action Items
+- [ ] Share completed and iterated cheat sheets in the group chat.
+- [ ] Print the finalized cheat sheet at the office — **Speaker 2**, 2026-11-05.
+### Open Quiz Preparation Issue
+- Several members expressed difficulty with modeling rules and application-based binary formulation problems. No collaborative study session or structured review of Lecture 7 rules was scheduled.
