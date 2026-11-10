@@ -1,16 +1,57 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "riders_country",
   "position": {
     "x": 24,
     "y": 94,
-    "width": 680,
-    "height": 306,
     "z": 14,
+    "height": 306,
+    "width": 680,
     "tabOrder": 15
   },
   "visual": {
     "visualType": "azureMap",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Country"
+                    }
+                  },
+                  "Property": "Country"
+                }
+              },
+              "queryRef": "Country.Country",
+              "nativeQueryRef": "Country",
+              "active": true
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Mapped riders"
+                }
+              },
+              "queryRef": "Metrics.Mapped riders",
+              "nativeQueryRef": "Mapped riders"
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "bubbleLayer": [
         {
@@ -37,6 +78,33 @@
                       "Value": "'#087F8C'"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "mapControls": [
+        {
+          "properties": {
+            "zoom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0.86D"
+                }
+              }
+            },
+            "centerLatitude": {
+              "expr": {
+                "Literal": {
+                  "Value": "41.939670760221134D"
+                }
+              }
+            },
+            "centerLongitude": {
+              "expr": {
+                "Literal": {
+                  "Value": "79.26400410971496D"
                 }
               }
             }
@@ -148,47 +216,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Country"
-                    }
-                  },
-                  "Property": "Country"
-                }
-              },
-              "queryRef": "Country.Country",
-              "nativeQueryRef": "Country",
-              "active": true
-            }
-          ]
-        },
-        "Size": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Mapped riders"
-                }
-              },
-              "queryRef": "Metrics.Mapped riders",
-              "nativeQueryRef": "Mapped riders"
-            }
-          ]
-        }
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

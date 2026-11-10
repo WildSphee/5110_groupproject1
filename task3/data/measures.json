@@ -594,15 +594,15 @@
   {
     "tableName": "Metrics",
     "name": "Award leaders",
-    "expression": "VAR c=SELECTEDVALUE('Classification'[Classification]) VAR leaders=CALCULATETABLE(FILTER(ALL('Rider'),[Classification Rank]=1),REMOVEFILTERS('Rider'),REMOVEFILTERS('Stage')) VAR score=MAXX(leaders,SWITCH(c,\"Points\",[Cumulative Points],\"Mountains\",[Cumulative KOM Points],[Rider Cumulative Seconds])) RETURN IF(c IN {\"Points\",\"Mountains\"},\"Not available in export\",IF(NOT ISBLANK(score),CONCATENATEX(leaders,'Rider'[Rider],\", \",'Rider'[Bib],ASC)))",
+    "expression": "VAR c=SELECTEDVALUE('Classification'[Classification]) VAR leaders=CALCULATETABLE(FILTER(ALL('Rider'),[Classification Rank]=1),REMOVEFILTERS('Rider'),REMOVEFILTERS('Stage')) VAR score=MAXX(leaders,SWITCH(c,\"Points\",[Cumulative Points],\"Mountains\",[Cumulative KOM Points],[Rider Cumulative Seconds])) RETURN IF(c IN {\"Points\",\"Mountains\"},LOOKUPVALUE('Jersey Leaders'[Leader],'Jersey Leaders'[Stage],[As of Stage Number],'Jersey Leaders'[Classification],c),IF(NOT ISBLANK(score),CONCATENATEX(leaders,'Rider'[Rider],\", \",'Rider'[Bib],ASC)))",
     "formatString": "",
-    "description": "All joint leaders in the full field through the selected stage.",
+    "description": "Full-field leaders through the selected stage. Points and Mountains use published first-place snapshots including official tie-breaks.",
     "displayFolder": "PDF analytics"
   },
   {
     "tableName": "Metrics",
     "name": "Winning score",
-    "expression": "VAR c=SELECTEDVALUE('Classification'[Classification]) VAR leaders=CALCULATETABLE(FILTER(ALL('Rider'),[Classification Rank]=1),REMOVEFILTERS('Rider'),REMOVEFILTERS('Stage')) VAR score=MAXX(leaders,SWITCH(c,\"Points\",[Cumulative Points],\"Mountains\",[Cumulative KOM Points],[Rider Cumulative Seconds])) RETURN IF(NOT ISBLANK(score),IF(c IN {\"Points\",\"Mountains\"},FORMAT(score,\"0\") & \" pts\",FORMAT(INT(score/3600),\"0\") & \":\" & FORMAT(INT(MOD(score,3600)/60),\"00\") & \":\" & FORMAT(MOD(score,60),\"00\")))",
+    "expression": "VAR c=SELECTEDVALUE('Classification'[Classification]) VAR leaders=CALCULATETABLE(FILTER(ALL('Rider'),[Classification Rank]=1),REMOVEFILTERS('Rider'),REMOVEFILTERS('Stage')) VAR exportedScore=MAXX(leaders,SWITCH(c,\"Points\",[Cumulative Points],\"Mountains\",[Cumulative KOM Points],[Rider Cumulative Seconds])) VAR score=IF(c IN {\"Points\",\"Mountains\"},LOOKUPVALUE('Jersey Leaders'[Points],'Jersey Leaders'[Stage],[As of Stage Number],'Jersey Leaders'[Classification],c),exportedScore) RETURN IF(NOT ISBLANK(score),IF(c IN {\"Points\",\"Mountains\"},FORMAT(score,\"0\") & \" pts\",FORMAT(INT(score/3600),\"0\") & \":\" & FORMAT(INT(MOD(score,3600)/60),\"00\") & \":\" & FORMAT(MOD(score,60),\"00\")))",
     "formatString": "",
     "description": "Winning score",
     "displayFolder": "PDF analytics"
@@ -610,7 +610,7 @@
   {
     "tableName": "Metrics",
     "name": "Winning rule",
-    "expression": "SWITCH(SELECTEDVALUE('Classification'[Classification]),\"General\",\"Lowest total adjusted time\",\"Points\",\"Highest points total; sprint/finish points not supplied\",\"Mountains\",\"Highest climb-points total; climb points not supplied\",\"Young Rider\",\"Lowest total adjusted time; born on or after 1 Jan 2000\")",
+    "expression": "SWITCH(SELECTEDVALUE('Classification'[Classification]),\"General\",\"Lowest total adjusted time\",\"Points\",\"Highest sprint/finish points; official tie-breaks\",\"Mountains\",\"Highest climb-points total; official tie-breaks\",\"Young Rider\",\"Lowest total adjusted time; born on or after 1 Jan 2000\")",
     "formatString": "",
     "description": "Winning rule",
     "displayFolder": "PDF analytics"

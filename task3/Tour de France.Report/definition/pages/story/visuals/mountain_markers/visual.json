@@ -128,7 +128,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average cumulative hours per eligible rider'"
+                  "Value": "'Total race hours at each stage and mountain checkpoint'"
                 }
               }
             },

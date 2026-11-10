@@ -1,16 +1,39 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "asof",
   "position": {
     "x": 830,
     "y": 8,
-    "width": 290,
-    "height": 74,
     "z": 26,
+    "height": 74,
+    "width": 290,
     "tabOrder": 27
   },
   "visual": {
     "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "As Of"
+                    }
+                  },
+                  "Property": "As of Stage"
+                }
+              },
+              "queryRef": "As Of.As of Stage",
+              "nativeQueryRef": "As of Stage",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "data": [
         {
@@ -47,15 +70,7 @@
       ],
       "items": [
         {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ]
     },
@@ -163,28 +178,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "As Of"
-                    }
-                  },
-                  "Property": "As of Stage"
-                }
-              },
-              "queryRef": "As Of.As of Stage",
-              "nativeQueryRef": "As of Stage"
-            }
-          ]
-        }
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

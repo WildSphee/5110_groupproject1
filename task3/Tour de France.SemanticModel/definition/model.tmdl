@@ -15,7 +15,6 @@ ref table Country
 ref table Team
 ref table Rider
 ref table Stage
-ref table 'Stage choice'
 ref table 'As Of'
 ref table Result
 ref table Standing
@@ -25,6 +24,7 @@ ref table Classification
 ref table Metrics
 ref table Scenario
 ref table Withdrawal
+ref table 'Jersey Leaders'
 
 ref cultureInfo en-US
 

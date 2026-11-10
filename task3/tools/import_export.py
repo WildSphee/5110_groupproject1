@@ -104,6 +104,7 @@ def build():
         'Stage choice':[{'Choice':choice,'Stage':s,'Order':order} for s in ids for choice,order in [('All',0),(f'{s:02d}',s)]],
         'As Of':[{'Stage':s,'As of Stage':f'Stage {s:02d}'} for s in ids],'Result':result,'Standing':standings,
         'Team Stage':team_stage,'Team Standing':team_history,'Withdrawal':withdrawals,
+        'Jersey Leaders':json.loads((DATA/'jersey_leaders.json').read_text(encoding='utf8')),
         'Classification':[{'Classification':c,'Order':i} for i,c in enumerate(['General','Points','Mountains','Young Rider'],1)],
         'Scenario':[{'Scenario':v} for v in ['Official adjusted','No bonuses','No penalties','No bonuses or penalties']]}
 
@@ -144,6 +145,9 @@ def embed_model(tables):
     p=MODEL/'model.tmdl';s=p.read_text(encoding='utf8')
     if "ref table 'Stage choice'" not in s:
         p.write_text(s.replace('ref table Stage\n',"ref table Stage\nref table 'Stage choice'\n"),encoding='utf8')
+    p=MODEL/'model.tmdl';s=p.read_text(encoding='utf8')
+    if "ref table 'Jersey Leaders'" not in s:
+        p.write_text(s.rstrip()+"\nref table 'Jersey Leaders'\n",encoding='utf8')
     p=MODEL/'relationships.tmdl';s=p.read_text(encoding='utf8')
     if 'relationship StageChoice_Stage' not in s:
         s+="\nrelationship StageChoice_Stage\n\tcrossFilteringBehavior: bothDirections\n\tfromColumn: 'Stage choice'.Stage\n\ttoColumn: Stage.Stage\n"

@@ -145,7 +145,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average gap to winner in top-ten finishes (s)'"
+                  "Value": "'Top ten: signed gap to recorded winner (s)'"
                 }
               }
             },
@@ -268,11 +268,11 @@
                       "Entity": "Metrics"
                     }
                   },
-                  "Property": "Mean top-ten finish gap"
+                  "Property": "Top Ten Finish Gap"
                 }
               },
-              "queryRef": "Metrics.Mean top-ten finish gap",
-              "nativeQueryRef": "Mean top-ten finish gap"
+              "queryRef": "Metrics.Top Ten Finish Gap",
+              "nativeQueryRef": "Top Ten Finish Gap"
             }
           ]
         }
@@ -287,7 +287,7 @@
                     "Entity": "Metrics"
                   }
                 },
-                "Property": "Mean top-ten finish gap"
+                "Property": "Top Ten Finish Gap"
               }
             },
             "direction": "Ascending"

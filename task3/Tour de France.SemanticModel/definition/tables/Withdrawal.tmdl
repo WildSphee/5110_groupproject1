@@ -1,66 +1,79 @@
-table 'Withdrawal'
+table Withdrawal
+	lineageTag: 4d947d57-2688-4527-9c7a-a62e3b3279b6
 
-	column 'Bib'
+	column Bib
 		dataType: int64
+		lineageTag: c87fd40e-5cd8-4d30-bfc6-c1b8eb9022cc
 		summarizeBy: none
 		sourceColumn: Bib
 
-	column 'Stage'
+	column Stage
 		dataType: int64
+		lineageTag: deaae178-585a-4420-b0e9-76e90a8086c6
 		summarizeBy: none
 		sourceColumn: Stage
 
-	column 'Rider'
+	column Rider
 		dataType: string
+		lineageTag: 62c733a7-2c00-42c0-8f00-dc4ca6fa3b16
 		summarizeBy: none
 		sourceColumn: Rider
 
-	column 'Team'
+	column Team
 		dataType: string
+		lineageTag: 0c647872-90aa-4145-9131-72ab8721ee29
 		summarizeBy: none
 		sourceColumn: Team
 
 	column 'Exit type'
 		dataType: string
+		lineageTag: acbf2fee-7706-4fcb-a03b-d6fd7ad44af9
 		summarizeBy: none
 		sourceColumn: Exit type
 
 	column 'Previous stage'
 		dataType: int64
+		lineageTag: 44b41e8f-d08b-42f2-8abe-f4e8690481dd
 		summarizeBy: none
 		sourceColumn: Previous stage
 
 	column 'Previous GC rank'
 		dataType: int64
+		lineageTag: f6b9eee9-5ae7-4c31-b905-4758a87e402c
 		summarizeBy: none
 		sourceColumn: Previous GC rank
 
 	column 'Completed seconds'
 		dataType: int64
+		lineageTag: cb8dcb80-ed40-407b-9216-3be383bf62d8
 		summarizeBy: none
 		sourceColumn: Completed seconds
 
 	column 'Stages left'
 		dataType: int64
+		lineageTag: ad9c4309-45d0-479a-ba3b-14d724d01cbb
 		summarizeBy: none
 		sourceColumn: Stages left
 
 	column 'Budget seconds'
 		dataType: int64
+		lineageTag: 987afe44-eeb1-4895-817c-50cadf2db53c
 		summarizeBy: none
 		sourceColumn: Budget seconds
 
 	column 'Time to match winner'
 		dataType: string
+		lineageTag: 6dd13784-b13d-4922-8b54-fe074fc28614
 		summarizeBy: none
 		sourceColumn: Time to match winner
 
 	column 'Avg required per stage'
 		dataType: string
+		lineageTag: e17f33d8-502a-4fca-aa7e-90a64a1a123f
 		summarizeBy: none
 		sourceColumn: Avg required per stage
 
-	partition 'Withdrawal' = m
+	partition Withdrawal = m
 		mode: import
 		source =
 				let Source = #table(type table [#"Bib" = Int64.Type, #"Stage" = Int64.Type, #"Rider" = nullable text, #"Team" = nullable text, #"Exit type" = nullable text, #"Previous stage" = Int64.Type, #"Previous GC rank" = Int64.Type, #"Completed seconds" = Int64.Type, #"Stages left" = Int64.Type, #"Budget seconds" = Int64.Type, #"Time to match winner" = nullable text, #"Avg required per stage" = nullable text], {
@@ -89,3 +102,4 @@ table 'Withdrawal'
 				{217,15,"Lennert Van Eetvelt","LOTTO","DNS",14,146,194289,7,83060,"23:04:20","3:17:46"},
 				{228,10,"Soren Waerenskjold","UNO-X MOBILITY","withdrawal",9,158,124145,12,153204,"42:33:24","3:32:47"}
 				}) in Source
+

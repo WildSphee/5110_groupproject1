@@ -73,7 +73,8 @@ for sid in [1,9,21]:
     for cat,col,score in [('General','GC Rank','Cumulative Seconds'),('Points','Points Rank','Points'),('Mountains','KOM Rank','KOM Points'),('Young Rider','Young Rank','Cumulative Seconds')]:
         leaders=[r for r in data['Standing'] if r['Stage']==sid and r[col]==1]
         if cat in ['Points','Mountains']:
-            names='Not available in export';formatted=None
+            snapshot=next(r for r in data['Jersey Leaders'] if r['Stage']==sid and r['Classification']==cat)
+            names=snapshot['Leader'];formatted=f"{snapshot['Points']} pts"
         else:
             total=leaders[0][score]
             names=', '.join(riders[r['Bib']]['Rider'] for r in sorted(leaders,key=lambda r:r['Bib']))

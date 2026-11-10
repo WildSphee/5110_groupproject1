@@ -1,16 +1,178 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "stage_matrix",
   "position": {
     "x": 24,
     "y": 482,
-    "width": 780,
-    "height": 222,
     "z": 21,
+    "height": 222,
+    "width": 780,
     "tabOrder": 22
   },
   "visual": {
     "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage"
+                    }
+                  },
+                  "Property": "Stage Type"
+                }
+              },
+              "queryRef": "Stage.Stage Type",
+              "nativeQueryRef": "Stage Type",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage"
+                    }
+                  },
+                  "Property": "Stage Label"
+                }
+              },
+              "queryRef": "Stage.Stage Label",
+              "nativeQueryRef": "Stage Label",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Rider"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "Rider.Team",
+              "nativeQueryRef": "Team",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Rider"
+                    }
+                  },
+                  "Property": "Rider Label"
+                }
+              },
+              "queryRef": "Rider.Rider Label",
+              "nativeQueryRef": "Rider",
+              "active": false,
+              "displayName": "Rider"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Finish Seconds"
+                }
+              },
+              "queryRef": "Metrics.Finish Seconds",
+              "nativeQueryRef": "Finish (s)",
+              "displayName": "Finish (s)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Bonus Seconds"
+                }
+              },
+              "queryRef": "Metrics.Bonus Seconds",
+              "nativeQueryRef": "Bonus (s)",
+              "displayName": "Bonus (s)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Penalty Seconds"
+                }
+              },
+              "queryRef": "Metrics.Penalty Seconds",
+              "nativeQueryRef": "Penalty (s)",
+              "displayName": "Penalty (s)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Adjusted Seconds"
+                }
+              },
+              "queryRef": "Metrics.Adjusted Seconds",
+              "nativeQueryRef": "Adjusted (s)",
+              "displayName": "Adjusted (s)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Stage Position"
+                }
+              },
+              "queryRef": "Metrics.Stage Position",
+              "nativeQueryRef": "Position",
+              "displayName": "Position"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Speed Proxy kmh"
+                }
+              },
+              "queryRef": "Metrics.Speed Proxy kmh",
+              "nativeQueryRef": "Speed Proxy kmh"
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "grid": [
         {
@@ -123,15 +285,7 @@
       ],
       "total": [
         {
-          "properties": {
-            "totals": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "subTotals": [
@@ -259,168 +413,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Rows": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Stage"
-                    }
-                  },
-                  "Property": "Stage Type"
-                }
-              },
-              "queryRef": "Stage.Stage Type",
-              "nativeQueryRef": "Stage Type",
-              "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Stage"
-                    }
-                  },
-                  "Property": "Stage Label"
-                }
-              },
-              "queryRef": "Stage.Stage Label",
-              "nativeQueryRef": "Stage Label",
-              "active": false
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Rider"
-                    }
-                  },
-                  "Property": "Team"
-                }
-              },
-              "queryRef": "Rider.Team",
-              "nativeQueryRef": "Team",
-              "active": false
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Rider"
-                    }
-                  },
-                  "Property": "Rider Label"
-                }
-              },
-              "queryRef": "Rider.Rider Label",
-              "nativeQueryRef": "Rider",
-              "displayName": "Rider",
-              "active": false
-            }
-          ]
-        },
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Finish Seconds"
-                }
-              },
-              "queryRef": "Metrics.Finish Seconds",
-              "nativeQueryRef": "Finish (s)",
-              "displayName": "Finish (s)"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Bonus Seconds"
-                }
-              },
-              "queryRef": "Metrics.Bonus Seconds",
-              "nativeQueryRef": "Bonus (s)",
-              "displayName": "Bonus (s)"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Penalty Seconds"
-                }
-              },
-              "queryRef": "Metrics.Penalty Seconds",
-              "nativeQueryRef": "Penalty (s)",
-              "displayName": "Penalty (s)"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Adjusted Seconds"
-                }
-              },
-              "queryRef": "Metrics.Adjusted Seconds",
-              "nativeQueryRef": "Adjusted (s)",
-              "displayName": "Adjusted (s)"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Stage Position"
-                }
-              },
-              "queryRef": "Metrics.Stage Position",
-              "nativeQueryRef": "Position",
-              "displayName": "Position"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Speed Proxy kmh"
-                }
-              },
-              "queryRef": "Metrics.Speed Proxy kmh",
-              "nativeQueryRef": "Speed Proxy kmh"
-            }
-          ]
-        }
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

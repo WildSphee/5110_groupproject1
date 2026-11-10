@@ -1,71 +1,76 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "squads",
   "position": {
     "x": 820,
     "y": 527,
-    "width": 596,
-    "height": 177,
     "z": 25,
+    "height": 177,
+    "width": 596,
     "tabOrder": 26
   },
   "visual": {
     "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Rider"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "Rider.Team",
+              "nativeQueryRef": "Team",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Top Ten Finishes"
+                }
+              },
+              "queryRef": "Metrics.Top Ten Finishes",
+              "nativeQueryRef": "Top Ten Finishes"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "Top Ten Finishes"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
-      "categoryAxis": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          }
-        }
-      ],
       "legend": [
         {
           "properties": {
@@ -218,65 +223,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Rider"
-                    }
-                  },
-                  "Property": "Team"
-                }
-              },
-              "queryRef": "Rider.Team",
-              "nativeQueryRef": "Team",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Top Ten Finishes"
-                }
-              },
-              "queryRef": "Metrics.Top Ten Finishes",
-              "nativeQueryRef": "Top Ten Finishes"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Metrics"
-                  }
-                },
-                "Property": "Top Ten Finishes"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

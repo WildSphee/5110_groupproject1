@@ -1714,7 +1714,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": "Not available in export"
+        "value": "Jasper Philipsen"
       }
     ]
   },
@@ -1723,7 +1723,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": null
+        "value": "63 pts"
       }
     ]
   },
@@ -1732,7 +1732,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": "Not available in export"
+        "value": "Benjamin Thomas"
       }
     ]
   },
@@ -1741,7 +1741,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({1},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": null
+        "value": "2 pts"
       }
     ]
   },
@@ -1786,7 +1786,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({9},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": "Not available in export"
+        "value": "Jonathan Milan"
       }
     ]
   },
@@ -1795,7 +1795,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({9},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": null
+        "value": "227 pts"
       }
     ]
   },
@@ -1804,7 +1804,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({9},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": "Not available in export"
+        "value": "Tim Wellens"
       }
     ]
   },
@@ -1813,7 +1813,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({9},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": null
+        "value": "8 pts"
       }
     ]
   },
@@ -1858,7 +1858,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": "Not available in export"
+        "value": "Jonathan Milan"
       }
     ]
   },
@@ -1867,7 +1867,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Points\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": null
+        "value": "372 pts"
       }
     ]
   },
@@ -1876,7 +1876,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Award leaders]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": "Not available in export"
+        "value": "Tadej Pogačar"
       }
     ]
   },
@@ -1885,7 +1885,7 @@
     "query": "EVALUATE CALCULATETABLE(ROW(\"value\",[Winning score]),TREATAS({21},'As Of'[Stage]),TREATAS({\"Mountains\"},'Classification'[Classification]))",
     "expected": [
       {
-        "value": null
+        "value": "119 pts"
       }
     ]
   },

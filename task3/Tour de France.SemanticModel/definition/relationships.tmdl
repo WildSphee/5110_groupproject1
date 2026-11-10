@@ -30,7 +30,6 @@ relationship 'Team Standing_Stage'
 	fromColumn: 'Team Standing'.Stage
 	toColumn: Stage.Stage
 
-
 relationship Withdrawal_Stage
 	fromColumn: Withdrawal.Stage
 	toColumn: Stage.Stage
@@ -39,7 +38,3 @@ relationship Withdrawal_Rider
 	fromColumn: Withdrawal.Bib
 	toColumn: Rider.Bib
 
-relationship StageChoice_Stage
-	crossFilteringBehavior: bothDirections
-	fromColumn: 'Stage choice'.Stage
-	toColumn: Stage.Stage

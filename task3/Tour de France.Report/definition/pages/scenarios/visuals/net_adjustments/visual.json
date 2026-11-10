@@ -1,17 +1,75 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "net_adjustments",
   "position": {
     "x": 854,
     "y": 504,
-    "width": 562,
-    "height": 372,
     "z": 51,
+    "height": 372,
+    "width": 562,
     "tabOrder": 52
   },
   "visual": {
     "visualType": "waterfallChart",
-    "objects": {},
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage"
+                    }
+                  },
+                  "Property": "Stage"
+                }
+              },
+              "queryRef": "Stage.Stage",
+              "nativeQueryRef": "Stage",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Scenario Stage Adjustment Seconds"
+                }
+              },
+              "queryRef": "Metrics.Scenario Stage Adjustment Seconds",
+              "nativeQueryRef": "Scenario Stage Adjustment Seconds"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage"
+                  }
+                },
+                "Property": "Stage"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -116,65 +174,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Stage"
-                    }
-                  },
-                  "Property": "Stage"
-                }
-              },
-              "queryRef": "Stage.Stage",
-              "nativeQueryRef": "Stage",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Scenario Stage Adjustment Seconds"
-                }
-              },
-              "queryRef": "Metrics.Scenario Stage Adjustment Seconds",
-              "nativeQueryRef": "Scenario Stage Adjustment Seconds"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Stage"
-                  }
-                },
-                "Property": "Stage"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

@@ -6,7 +6,7 @@ Open **Tour de France.pbip** in Power BI Desktop. On a fresh clone, choose **Hom
 |---|---|
 | 01 Race & participation | Select a nationality or team to see its riders, bibs and teams in the roster. The country columns also work offline. |
 | 02 Stages & terrain | Opens on All. Pick one stage or click All to restore the full race. Stage 15 shows Tim Wellens first on Muret–Carcassonne. Expand its results from terrain to route, team and rider. The terrain charts follow the stage selection. |
-| 03 Classifications | Compare the General and Young Rider leaders, times and winning criteria at each checkpoint. Sprint and climb scores are missing from this export. |
+| 03 Classifications | Compare all four classification leaders, scores and winning criteria at each checkpoint. Points and Mountains use embedded published leader snapshots. |
 | 04 Team performance | Compare cumulative team ranks, then expand a team to see its stage scores and finisher counts. Team Visma won across 21 scored stages. |
 | 05 GC progression | Opens with the full field. Select a rider to follow their daily rank and gap, or clear the selection for the field again. Remco Evenepoel was third after stage 13. |
 | 06 Rider exits | Select a stage or terrain to see which riders left, how the exit was recorded and their last GC positions. Remco withdrew on stage 14. |
@@ -36,3 +36,5 @@ node task3/tools/test_dax.mjs 'Data Source=localhost:PORT'
 node task3/tools/test_dax.mjs 'Data Source=localhost:PORT' analytics
 node task3/tools/test_visual_queries.mjs 'Data Source=localhost:PORT'
 ```
+
+Points and Mountains leaders are hardcoded for all 21 stages, including final winners Jonathan Milan (372 points) and Tadej Pogačar (119 mountain points). See [sources and verification](docs/jersey-sources.md).

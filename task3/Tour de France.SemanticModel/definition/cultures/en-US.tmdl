@@ -1,2 +1,620 @@
 cultureInfo en-US
 
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "metrics.roster_bib": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Roster Bib"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Bib": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.roster_riders": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Roster Riders"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Riders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.top_ten_position": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Top Ten Position"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Place": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.top_ten_adjusted_seconds": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Top Ten Adjusted Seconds"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Adjusted (s)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.finish_seconds": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Finish Seconds"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Finish (s)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.bonus_seconds": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Bonus Seconds"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Bonus (s)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.penalty_seconds": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Penalty Seconds"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Penalty (s)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.adjusted_seconds": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Adjusted Seconds"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Adjusted (s)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.stage_position": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Stage Position"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Position": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.gc_rank": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "GC Rank"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "GC rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.young_gc_at_race_start_rank": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Young GC at Race Start Rank"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Under 26 on stage 1": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.mountain_gc_proxy_rank": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Mountain GC Proxy Rank"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Mountain-time rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.young_rank": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Young Rank"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Young rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.rider_cumulative_time": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Rider Cumulative Time"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Time (h:mm:ss)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.rider_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Rider Status"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.award_leaders": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Award leaders"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Leading rider(s)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.winning_rule": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Winning rule"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "How to win": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.best_team_rank": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Best Team Rank"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Team rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.team_cumulative_hours": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Team Cumulative Hours"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Top-3 hours": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.stages_scored": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Stages Scored"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Stages scored": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.team_coverage": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Team Coverage"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Coverage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.team_deficit_minutes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Team deficit minutes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Gap (min)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.gc_daily_deficit_seconds": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "GC daily deficit seconds"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Gap to leader (s)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.gc_rank_change": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "GC Rank Change"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Places gained / lost": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.gc_trace_hours": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "GC Trace Hours"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "All stages": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metrics.mountain_trace_hours": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metrics",
+			          "ConceptualProperty": "Mountain Trace Hours"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Mountain-stage checkpoints": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rider.rider_country": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Rider",
+			          "ConceptualProperty": "Rider Country"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Nationality": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rider.rider_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Rider",
+			          "ConceptualProperty": "Rider Label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rider": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "withdrawal.previous_gc_rank": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Withdrawal",
+			          "ConceptualProperty": "Previous GC rank"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Last GC rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

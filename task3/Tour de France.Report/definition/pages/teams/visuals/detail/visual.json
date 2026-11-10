@@ -1,16 +1,86 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "detail",
   "position": {
     "x": 24,
     "y": 440,
-    "width": 1392,
-    "height": 436,
     "z": 34,
+    "height": 436,
+    "width": 1392,
     "tabOrder": 35
   },
   "visual": {
     "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Team"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "Team.Team",
+              "nativeQueryRef": "Team",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage"
+                    }
+                  },
+                  "Property": "Stage Label"
+                }
+              },
+              "queryRef": "Stage.Stage Label",
+              "nativeQueryRef": "Stage Label",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Stage Top3 Hours"
+                }
+              },
+              "queryRef": "Metrics.Stage Top3 Hours",
+              "nativeQueryRef": "Stage Top3 Hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "Team Finishers"
+                }
+              },
+              "queryRef": "Metrics.Team Finishers",
+              "nativeQueryRef": "Team Finishers"
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "grid": [
         {
@@ -123,15 +193,7 @@
       ],
       "total": [
         {
-          "properties": {
-            "totals": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "subTotals": [
@@ -259,76 +321,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Rows": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Team"
-                    }
-                  },
-                  "Property": "Team"
-                }
-              },
-              "queryRef": "Team.Team",
-              "nativeQueryRef": "Team",
-              "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Stage"
-                    }
-                  },
-                  "Property": "Stage Label"
-                }
-              },
-              "queryRef": "Stage.Stage Label",
-              "nativeQueryRef": "Stage Label",
-              "active": false
-            }
-          ]
-        },
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Stage Top3 Hours"
-                }
-              },
-              "queryRef": "Metrics.Stage Top3 Hours",
-              "nativeQueryRef": "Stage Top3 Hours"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metrics"
-                    }
-                  },
-                  "Property": "Team Finishers"
-                }
-              },
-              "queryRef": "Metrics.Team Finishers",
-              "nativeQueryRef": "Team Finishers"
-            }
-          ]
-        }
-      }
-    }
+    "drillFilterOtherVisuals": true
   }
 }

@@ -128,7 +128,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top-ten finishes by terrain'"
+                  "Value": "'Race-wide top-ten finishes by terrain'"
                 }
               }
             },

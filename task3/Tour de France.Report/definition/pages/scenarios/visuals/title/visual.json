@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "title",
   "position": {
     "x": 24,
     "y": 12,
-    "width": 760,
-    "height": 68,
     "z": 12,
+    "height": 68,
+    "width": 760,
     "tabOrder": 13
   },
   "visual": {
@@ -21,10 +21,10 @@
                   {
                     "value": "GC what-if",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
                       "fontSize": "26pt",
-                      "color": "#182B3A",
-                      "fontWeight": "bold"
+                      "color": "#182b3a"
                     }
                   }
                 ]
