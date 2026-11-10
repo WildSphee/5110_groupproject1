@@ -1,0 +1,183 @@
+{
+  "passed": true,
+  "query": "EVALUATE SUMMARIZECOLUMNS('Stage choice'[Choice],'Stage choice'[Order],\"Stages\",DISTINCTCOUNT('Stage'[Stage]),\"Results\",[Stage Finishes],\"Podiums\",[Stage Podiums],\"Distance\",SUM('Stage'[Distance km])) ORDER BY 'Stage choice'[Order]",
+  "rows": [
+    {
+      "Stage choice[Choice]": "All",
+      "Stage choice[Order]": 0,
+      "[Stages]": 21,
+      "[Results]": 3602,
+      "[Podiums]": 63,
+      "[Distance]": 3302
+    },
+    {
+      "Stage choice[Choice]": "01",
+      "Stage choice[Order]": 1,
+      "[Stages]": 1,
+      "[Results]": 182,
+      "[Podiums]": 3,
+      "[Distance]": 184.9
+    },
+    {
+      "Stage choice[Choice]": "02",
+      "Stage choice[Order]": 2,
+      "[Stages]": 1,
+      "[Results]": 182,
+      "[Podiums]": 3,
+      "[Distance]": 209.1
+    },
+    {
+      "Stage choice[Choice]": "03",
+      "Stage choice[Order]": 3,
+      "[Stages]": 1,
+      "[Results]": 181,
+      "[Podiums]": 3,
+      "[Distance]": 178.3
+    },
+    {
+      "Stage choice[Choice]": "04",
+      "Stage choice[Order]": 4,
+      "[Stages]": 1,
+      "[Results]": 181,
+      "[Podiums]": 3,
+      "[Distance]": 174.2
+    },
+    {
+      "Stage choice[Choice]": "05",
+      "Stage choice[Order]": 5,
+      "[Stages]": 1,
+      "[Results]": 179,
+      "[Podiums]": 3,
+      "[Distance]": 33
+    },
+    {
+      "Stage choice[Choice]": "06",
+      "Stage choice[Order]": 6,
+      "[Stages]": 1,
+      "[Results]": 179,
+      "[Podiums]": 3,
+      "[Distance]": 201.5
+    },
+    {
+      "Stage choice[Choice]": "07",
+      "Stage choice[Order]": 7,
+      "[Stages]": 1,
+      "[Results]": 177,
+      "[Podiums]": 3,
+      "[Distance]": 197
+    },
+    {
+      "Stage choice[Choice]": "08",
+      "Stage choice[Order]": 8,
+      "[Stages]": 1,
+      "[Results]": 176,
+      "[Podiums]": 3,
+      "[Distance]": 171.4
+    },
+    {
+      "Stage choice[Choice]": "09",
+      "Stage choice[Order]": 9,
+      "[Stages]": 1,
+      "[Results]": 175,
+      "[Podiums]": 3,
+      "[Distance]": 174.1
+    },
+    {
+      "Stage choice[Choice]": "10",
+      "Stage choice[Order]": 10,
+      "[Stages]": 1,
+      "[Results]": 172,
+      "[Podiums]": 3,
+      "[Distance]": 165.3
+    },
+    {
+      "Stage choice[Choice]": "11",
+      "Stage choice[Order]": 11,
+      "[Stages]": 1,
+      "[Results]": 172,
+      "[Podiums]": 3,
+      "[Distance]": 156.8
+    },
+    {
+      "Stage choice[Choice]": "12",
+      "Stage choice[Order]": 12,
+      "[Stages]": 1,
+      "[Results]": 171,
+      "[Podiums]": 3,
+      "[Distance]": 180.6
+    },
+    {
+      "Stage choice[Choice]": "13",
+      "Stage choice[Order]": 13,
+      "[Stages]": 1,
+      "[Results]": 171,
+      "[Podiums]": 3,
+      "[Distance]": 10.9
+    },
+    {
+      "Stage choice[Choice]": "14",
+      "Stage choice[Order]": 14,
+      "[Stages]": 1,
+      "[Results]": 167,
+      "[Podiums]": 3,
+      "[Distance]": 182.6
+    },
+    {
+      "Stage choice[Choice]": "15",
+      "Stage choice[Order]": 15,
+      "[Stages]": 1,
+      "[Results]": 166,
+      "[Podiums]": 3,
+      "[Distance]": 169.3
+    },
+    {
+      "Stage choice[Choice]": "16",
+      "Stage choice[Order]": 16,
+      "[Stages]": 1,
+      "[Results]": 165,
+      "[Podiums]": 3,
+      "[Distance]": 171.5
+    },
+    {
+      "Stage choice[Choice]": "17",
+      "Stage choice[Order]": 17,
+      "[Stages]": 1,
+      "[Results]": 164,
+      "[Podiums]": 3,
+      "[Distance]": 160.4
+    },
+    {
+      "Stage choice[Choice]": "18",
+      "Stage choice[Order]": 18,
+      "[Stages]": 1,
+      "[Results]": 161,
+      "[Podiums]": 3,
+      "[Distance]": 171.5
+    },
+    {
+      "Stage choice[Choice]": "19",
+      "Stage choice[Order]": 19,
+      "[Stages]": 1,
+      "[Results]": 161,
+      "[Podiums]": 3,
+      "[Distance]": 93.1
+    },
+    {
+      "Stage choice[Choice]": "20",
+      "Stage choice[Order]": 20,
+      "[Stages]": 1,
+      "[Results]": 160,
+      "[Podiums]": 3,
+      "[Distance]": 184.2
+    },
+    {
+      "Stage choice[Choice]": "21",
+      "Stage choice[Order]": 21,
+      "[Stages]": 1,
+      "[Results]": 160,
+      "[Podiums]": 3,
+      "[Distance]": 132.3
+    }
+  ],
+  "note": "All and each stage verified against source data in the live Power BI engine. Schema validation was unavailable: the existing visualContainer/2.14.0 schema URL returned HTTP 404."
+}

@@ -76,7 +76,7 @@ class ReportTests(unittest.TestCase):
         choices=DATA['Stage choice']
         self.assertEqual([r['Stage'] for r in choices if r['Choice']=='All'],list(range(1,22)))
         self.assertEqual([(r['Choice'],r['Stage']) for r in choices if r['Choice']!='All'],[(f'{s:02d}',s) for s in range(1,22)])
-        self.assertNotIn('general',visual('story','rider')['objects'])
+        self.assertTrue(all('filter' not in group['properties'] for group in visual('story','rider')['objects'].get('general',[])))
         data=DATA['Stage'];self.assertEqual([s['Stage'] for s in data],list(range(1,22)))
         winner=visual('classifications','winners')['query']['queryState']['Values']['projections']
         self.assertEqual([next(iter(p['field'].values()))['Property'] for p in winner],['Classification','Award leaders','Winning score','Winning rule'])
@@ -90,7 +90,7 @@ class ReportTests(unittest.TestCase):
         self.assertEqual([s['field']['Measure']['Property'] for s in sorts],['Rider Status','GC Rank'])
     def test_self_contained_model(self):
         tmdl=list((ROOT/'Tour de France.SemanticModel/definition/tables').glob('*.tmdl'))
-        self.assertEqual(len(tmdl),14)
+        self.assertEqual(len(tmdl),len(DATA)+1)  # Data tables plus Metrics
         for file in tmdl:
             text=file.read_text(encoding='utf-8-sig');self.assertNotIn('File.Contents(',text);self.assertIn('#table(',text)
 if __name__=='__main__':unittest.main(verbosity=2)

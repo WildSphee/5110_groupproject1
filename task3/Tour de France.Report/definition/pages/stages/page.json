@@ -33,28 +33,13 @@
   },
   "visualInteractions": [
     {
-      "source": "stage_pick",
-      "target": "terrain_speed",
-      "type": "NoFilter"
-    },
-    {
       "source": "terrain_speed",
       "target": "stage_pick",
       "type": "NoFilter"
     },
     {
-      "source": "stage_pick",
-      "target": "terrain_podiums",
-      "type": "NoFilter"
-    },
-    {
       "source": "terrain_podiums",
       "target": "stage_pick",
-      "type": "NoFilter"
-    },
-    {
-      "source": "stage_pick",
-      "target": "terrain_topten",
       "type": "NoFilter"
     },
     {
@@ -210,6 +195,31 @@
     {
       "source": "terrain_topten",
       "target": "squads",
+      "type": "NoFilter"
+    },
+    {
+      "source": "finishers",
+      "target": "stage_pick",
+      "type": "NoFilter"
+    },
+    {
+      "source": "finish_gaps",
+      "target": "stage_pick",
+      "type": "NoFilter"
+    },
+    {
+      "source": "routes",
+      "target": "stage_pick",
+      "type": "NoFilter"
+    },
+    {
+      "source": "squads",
+      "target": "stage_pick",
+      "type": "NoFilter"
+    },
+    {
+      "source": "stage_matrix",
+      "target": "stage_pick",
       "type": "NoFilter"
     }
   ]

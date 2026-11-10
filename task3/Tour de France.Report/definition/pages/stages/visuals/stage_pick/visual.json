@@ -3,9 +3,9 @@
   "name": "stage_pick",
   "position": {
     "x": 23.4338747099768,
-    "y": 85.533642691415309,
+    "y": 85.53364269141531,
     "z": 2000,
-    "height": 79.675174013921122,
+    "height": 79.67517401392112,
     "width": 1393.1438515081206,
     "tabOrder": 2000
   },
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Stage"
+                      "Entity": "Stage choice"
                     }
                   },
-                  "Property": "Stage"
+                  "Property": "Choice"
                 }
               },
-              "queryRef": "Stage.Stage",
-              "nativeQueryRef": "Stage",
+              "queryRef": "Stage choice.Choice",
+              "nativeQueryRef": "Choice",
               "active": true
             }
           ]
@@ -40,10 +40,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Stage"
+                    "Entity": "Stage choice"
                   }
                 },
-                "Property": "Stage"
+                "Property": "Choice"
               }
             },
             "direction": "Ascending"
@@ -73,14 +73,14 @@
             "columnCount": {
               "expr": {
                 "Literal": {
-                  "Value": "21D"
+                  "Value": "22D"
                 }
               }
             },
             "maxTiles": {
               "expr": {
                 "Literal": {
-                  "Value": "21D"
+                  "Value": "22D"
                 }
               }
             },
@@ -123,7 +123,7 @@
                 "From": [
                   {
                     "Name": "s",
-                    "Entity": "Stage",
+                    "Entity": "Stage choice",
                     "Type": 0
                   }
                 ],
@@ -139,7 +139,7 @@
                                   "Source": "s"
                                 }
                               },
-                              "Property": "Stage"
+                              "Property": "Choice"
                             }
                           }
                         ],
@@ -147,7 +147,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "1L"
+                                "Value": "'All'"
                               }
                             }
                           ]

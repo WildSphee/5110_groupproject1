@@ -25,6 +25,7 @@ ref table Metrics
 ref table Scenario
 ref table Withdrawal
 ref table 'Jersey Leaders'
+ref table 'Stage choice'
 
 ref cultureInfo en-US
 
